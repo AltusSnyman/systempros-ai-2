@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
+import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
 import { Image } from 'astro:assets';
 import heroBlueprint from '../assets/consulting-hero-blueprint.png';
 import gapComparison from '../assets/consulting-gap-comparison.png';
@@ -12,7 +14,10 @@ import trustBadge from '../assets/differentiator-trust-badge.png';
 import globalGovernance from '../assets/consulting-global-governance.png';
 ---
 
-<Layout title="Digital Architecture Consulting | SystemPros.ai">
+<Layout title="Digital Architecture Consulting | SystemPros.ai" description="Forensic audit of your operations followed by a strategic AI roadmap. 30 years of enterprise IT architecture experience applied to your business.">
+    <ServiceSchema name="AI Consultation" description="Forensic operational audit and strategic AI roadmap service with 30 years of enterprise IT architecture experience." serviceType="ConsultingService" />
+    <Breadcrumbs currentTitle="Consultation" />
+
     <main class="overflow-x-hidden">
         
         <!-- SECTION 1: HERO (The Authority Frame) -->
@@ -322,6 +327,7 @@ import globalGovernance from '../assets/consulting-global-governance.png';
                      Schedule Your Forensic Audit Now
                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                  </a>
+                 <p class="text-secondary mt-8 text-sm">After your audit, we can deploy <a href="/voice-ai" class="text-accent hover:underline">The Revenue Triad</a>, build a <a href="/lead-gen-websites" class="text-accent hover:underline">Lead Gen Website</a>, set up <a href="/lead-reactor" class="text-accent hover:underline">The Lead Reactor</a>, or configure <a href="/private-assistant" class="text-accent hover:underline">The Private Assistant</a>.</p>
              </div>
         </section>
 

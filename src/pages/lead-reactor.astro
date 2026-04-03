@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductHero from '../components/ProductHero.astro';
+import Footer from '../components/Footer.astro';
+import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
+import leadReactorHero from '../assets/lead_reactor_hero.png';
+---
+
+<Layout
+    title="The Lead Reactor | Meta Ads to Booked Appointments | SystemPros.ai"
+    description="The Lead Reactor: a complete Meta ads to booked-appointment system. Automated multi-channel outreach via iMessage, WhatsApp, SMS & calling. One integrated system."
+>
+    <ServiceSchema name="The Lead Reactor" description="Complete Meta ads to booked-appointment automation system with multi-channel outreach via iMessage, WhatsApp, SMS, and calling." serviceType="MarketingAutomation" />
+    <Breadcrumbs currentTitle="The Lead Reactor" />
+
+    <main class="overflow-x-hidden">
+
+        <!-- Hero -->
+        <ProductHero
+            badge="Paid Ads Automation"
+            title='Stop Running Ads<br /><span class="text-gradient">Into a Black Hole.</span>'
+            subtitle="The Lead Reactor is a complete Meta ads-to-booked-appointment system. Ads bring leads in. Automation handles the rest: iMessage, WhatsApp, calling, SMS — multi-channel outreach until they book."
+            ctaText="Deploy The Lead Reactor"
+            ctaLink="/contact"
+            secondaryCtaText="View Pricing"
+            secondaryCtaLink="/pricing"
+            heroImage={leadReactorHero}
+            heroImageAlt="Lead Reactor chain reaction system"
+        />
+
+        <!-- Agitation -->
+        <section class="py-24 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">The Ad Spend <span class="text-gradient">Graveyard</span></h2>
+                    <p class="text-secondary max-w-xl mx-auto">You're spending thousands on ads. Here's where your leads go to die.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    {[
+                        { color: 'text-red-500', title: 'Leads Go Cold in 5 Minutes', desc: 'The "death zone" for a web lead is 5 minutes. If you don\'t contact them by then, your competitor will. Manual follow-up is simply too slow.' },
+                        { color: 'text-orange-500', title: 'Manual Follow-Up Can\'t Scale', desc: 'Your team can handle 10 leads a day. What happens when you scale to 50? 100? The system breaks. Leads slip through the cracks.' },
+                        { color: 'text-purple-500', title: 'Single Channel = Single Failure', desc: 'Just calling isn\'t enough. Just emailing isn\'t enough. People respond on different channels. One channel means one chance to lose them.' },
+                    ].map((card) => (
+                        <div class="glass-card group relative overflow-hidden transition-all duration-300 hover:-translate-y-2">
+                            <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="relative z-10">
+                                <div class={`mb-6 p-4 rounded-full bg-surface w-fit border border-white/10 ${card.color}`}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                </div>
+                                <h3 class="text-xl font-bold mb-3 group-hover:text-white transition-colors">{card.title}</h3>
+                                <p class="text-sm text-secondary leading-relaxed group-hover:text-gray-300 transition-colors">{card.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- System Architecture: The Chain Reaction -->
+        <section class="py-24 bg-surface/30 border-y border-white/5 overflow-hidden">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">The Chain <span class="text-gradient">Reaction</span></h2>
+                    <p class="text-secondary max-w-xl mx-auto">From ad click to booked appointment — fully automated.</p>
+                </div>
+
+                <!-- Flow Steps -->
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 max-w-6xl mx-auto">
+                    {[
+                        { label: 'Meta Ad', icon: 'M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z', color: 'from-blue-600 to-blue-500' },
+                        { label: 'Lead Form', icon: 'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z M14 2v6h6 M16 13H8 M16 17H8 M10 9H8', color: 'from-blue-500 to-cyan-500' },
+                        { label: 'Instant Call', icon: 'M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z', color: 'from-cyan-500 to-green-500' },
+                        { label: 'SMS + WhatsApp', icon: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z', color: 'from-green-500 to-emerald-500' },
+                        { label: 'iMessage + Email', icon: 'M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z M22 6l-10 7L2 6', color: 'from-emerald-500 to-teal-500' },
+                        { label: 'Booked!', icon: 'M8 2v4M16 2v4M3 10h18M21 8v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z M9 16l2 2 4-4', color: 'from-teal-500 to-accent' },
+                    ].map((step, i) => (
+                        <div class="flex items-center gap-4">
+                            <div class="flex flex-col items-center">
+                                <div class={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center shadow-lg`}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={step.icon}/></svg>
+                                </div>
+                                <span class="text-xs font-semibold text-white mt-3 text-center">{step.label}</span>
+                            </div>
+                            {i < 5 && (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent/40 hidden md:block shrink-0"><polyline points="9 18 15 12 9 6"/></svg>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Channel Grid -->
+        <section class="py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Multi-Channel <span class="text-gradient">Outreach</span></h2>
+                    <p class="text-secondary max-w-xl mx-auto">We reach your leads wherever they are. Every channel. Automatically.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    {[
+                        { title: 'Voice Calls', desc: 'AI-powered instant outbound calls within seconds of form submission. Sounds 100% human.' },
+                        { title: 'SMS', desc: 'Automated text message sequences that nurture and convert. Personalized per lead.' },
+                        { title: 'WhatsApp', desc: 'WhatsApp Business API integration for markets where WhatsApp dominates.' },
+                        { title: 'iMessage', desc: 'Native iMessage delivery for Apple users. Higher open rates than email.' },
+                        { title: 'Email', desc: 'Automated email sequences as a fallback and nurture channel for long-cycle leads.' },
+                        { title: 'Calendar Booking', desc: 'The end goal of every channel — a booked appointment directly in your calendar.' },
+                    ].map((channel) => (
+                        <div class="glass-card group hover:-translate-y-1 transition-all duration-300">
+                            <h3 class="text-lg font-bold mb-2 text-white group-hover:text-accent transition-colors">{channel.title}</h3>
+                            <p class="text-sm text-secondary leading-relaxed">{channel.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison -->
+        <section class="py-24 relative">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="glass-card p-10 border-red-500/10 bg-red-900/5">
+                        <h3 class="text-2xl font-bold mb-6 text-red-400 text-center">DIY Ads</h3>
+                        <ul class="space-y-3 text-secondary">
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> You run ads and manually follow up</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> 5+ minute response time</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> Single channel (usually just calling)</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> Can't scale past your team's capacity</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> 60-80% of leads never contacted</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-10 border-accent/30 bg-accent/5 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-accent/0 via-accent/5 to-accent/0 pointer-events-none"></div>
+                        <h3 class="text-2xl font-bold mb-6 text-white text-center relative z-10">The Lead Reactor</h3>
+                        <ul class="space-y-3 text-secondary relative z-10">
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> Fully automated from ad to booking</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> Under 10-second response time</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> 6 channels simultaneously</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> Scales infinitely with ad spend</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> 100% of leads contacted instantly</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-32 relative text-center overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-main to-main z-0"></div>
+            <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Every Dollar of Ad Spend.<br/><span class="text-gradient">Maximized.</span></h2>
+                <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+                    Deploy The Lead Reactor
+                </a>
+            </div>
+        </section>
+
+    </main>
+    <Footer />
+</Layout>

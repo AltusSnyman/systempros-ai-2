@@ -93,7 +93,19 @@ const socialImageURL = new URL(image, Astro.url);
               "sameAs": [
                 "https://twitter.com/systempros",
                 "https://linkedin.com/company/systempros"
-              ]
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "AI Products & Services",
+                "itemListElement": [
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Revenue Triad", "url": "https://systempros.ai/voice-ai" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Gen Websites", "url": "https://systempros.ai/lead-gen-websites" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Lead Reactor", "url": "https://systempros.ai/lead-reactor" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Private Assistant", "url": "https://systempros.ai/private-assistant" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consultation", "url": "https://systempros.ai/consulting" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Training", "url": "https://systempros.ai/training" } }
+                ]
+              }
             }
         </script>
         <!-- PWA & Mobile -->

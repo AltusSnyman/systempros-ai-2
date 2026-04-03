@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
+import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
 import { Image } from 'astro:assets';
 import triadHero from '../assets/revenue-triad-hero.png';
 import agent01 from '../assets/agent-01-shield.png';
@@ -13,8 +15,11 @@ import globalInfra from '../assets/voice-ai-global-infra.png';
     title="The Revenue Triad Architecture | SystemPros.ai"
     description="Stop hiring receptionists. Deploy the world's first 3-Agent AI Architecture: The Gatekeeper, The Hunter, and The Miner. Complete revenue automation."
 >
+    <ServiceSchema name="The Revenue Triad" description="3-Agent Voice AI Architecture: The Gatekeeper (24/7 receptionist), The Hunter (speed-to-lead), and The Miner (database reactivation). Complete revenue automation." serviceType="VoiceAI" />
+    <Breadcrumbs currentTitle="The Revenue Triad" />
+
     <main class="overflow-x-hidden">
-        
+
         <!-- SECTION 1: HERO (The Ecosystem Hook) -->
         <section class="min-h-screen relative flex items-center pt-32 pb-20">
              <div class="absolute inset-0 bg-gradient-hero pointer-events-none"></div>

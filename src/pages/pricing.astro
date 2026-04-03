@@ -1,15 +1,197 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
-import PricingSection from '../components/PricingSection.jsx';
+import FAQSchema from '../components/seo/FAQSchema.astro';
+
+const products = [
+    {
+        name: 'The Revenue Triad',
+        description: '3 Voice AI agents: 24/7 receptionist, speed-to-lead caller, and database reactivation engine.',
+        href: '/voice-ai',
+        popular: true,
+        features: [
+            'Agent 01: The Gatekeeper (24/7 Receptionist)',
+            'Agent 02: The Hunter (Speed-to-Lead)',
+            'Agent 03: The Miner (Database Reactivation)',
+            'CRM Integration & Pipeline Automation',
+        ],
+    },
+    {
+        name: 'Lead Gen Websites',
+        description: 'Transform brochure sites into lead machines with smart forms, calendars, and chat widgets.',
+        href: '/lead-gen-websites',
+        features: [
+            'Smart Multi-Step Forms',
+            'Embedded Booking Calendars',
+            'AI Chat & Voice Widgets',
+            'CRM Pipeline Automation',
+        ],
+    },
+    {
+        name: 'The Lead Reactor',
+        description: 'Complete Meta ads to booked-appointment system with multi-channel automated outreach.',
+        href: '/lead-reactor',
+        features: [
+            'Meta Ads Integration',
+            'Instant Multi-Channel Outreach',
+            'iMessage, WhatsApp, SMS & Calling',
+            'Automated Calendar Booking',
+        ],
+    },
+    {
+        name: 'The Private Assistant',
+        description: 'Done-for-you OpenClaw AI assistant on WhatsApp, Telegram, Slack & 20+ platforms.',
+        href: '/private-assistant',
+        features: [
+            'OpenClaw Installation & Setup',
+            'Messaging Channel Integration',
+            'Custom SOUL.md Personality',
+            'Skill Selection & Training',
+        ],
+    },
+    {
+        name: 'Consultation',
+        description: 'Forensic audit of your operations with a strategic AI roadmap and implementation plan.',
+        href: '/consulting',
+        features: [
+            'Forensic Operations Audit',
+            'Custom AI Roadmap',
+            'Integration Architecture Plan',
+            'ROI Projections & Timeline',
+        ],
+    },
+    {
+        name: 'Training',
+        description: '1-on-1 hands-on sessions on AI agents, Claude Code, GoHighLevel, N8N, Voice AI & more.',
+        href: '/training',
+        features: [
+            '1-on-1 Video Sessions',
+            'Custom Curriculum Per Session',
+            'Hands-On Application (Not Theory)',
+            'Session Recording Provided',
+        ],
+    },
+];
+
+const faqs = [
+    { question: 'Do you offer custom pricing?', answer: 'Yes. Every business is different. We tailor pricing based on your specific needs, scale, and the number of products you want to deploy. Book a consultation and we\'ll provide a custom quote.' },
+    { question: 'Is there a long-term contract?', answer: 'No long-term contracts required for most services. Some products have monthly operational costs (like Voice AI usage), but there are no lock-in periods.' },
+    { question: 'Can I bundle multiple products?', answer: 'Absolutely. Most clients combine 2-3 products (e.g., Lead Gen Website + Lead Reactor + Revenue Triad). We offer package pricing for bundles.' },
+    { question: 'Do you offer a free consultation?', answer: 'Yes. Your first strategy call is free. We\'ll audit your current setup and recommend the right products for your business.' },
+];
 ---
 
-<Layout 
-    title="Engagement Models & Pricing | AI Implementation | SystemPros.ai"
-    description="Transparent pricing for Enterprise AI implementation. From Pilot programs to full-scale Neural Architecture deployments. Book a consultation today."
+<Layout
+    title="Pricing | AI Solutions & Services | SystemPros.ai"
+    description="Transparent pricing for all SystemPros.ai products: Voice AI agents, lead gen websites, The Lead Reactor, Private Assistant, consulting, and training."
 >
-  <main class="overflow-x-hidden pt-20">
-    <PricingSection client:load />
-    <Footer />
-  </main>
+    <FAQSchema faqs={faqs} />
+
+    <main class="overflow-x-hidden pt-20">
+
+        <!-- Hero -->
+        <section class="py-24 relative">
+            <div class="absolute top-0 w-full h-96 overflow-hidden">
+                <div class="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
+            </div>
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6">
+                    Investment Plans for <span class="text-gradient">Every Solution</span>
+                </h1>
+                <p class="text-xl text-secondary max-w-2xl mx-auto leading-relaxed">
+                    Choose the right product for your business. Bundle for maximum impact. All pricing is customized to your scale.
+                </p>
+            </div>
+        </section>
+
+        <!-- Product Pricing Grid -->
+        <section class="py-12 pb-24">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                    {products.map((product) => (
+                        <div class={`glass-card flex flex-col relative overflow-hidden transition-all duration-300 hover:-translate-y-1 ${product.popular ? 'border-accent/30 shadow-[0_0_50px_-12px_rgba(59,130,246,0.3)]' : ''}`}>
+                            {product.popular && (
+                                <div class="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+                            )}
+
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-xl font-bold text-white">{product.name}</h3>
+                                {product.popular && (
+                                    <span class="px-3 py-1 text-xs font-bold text-accent bg-accent/10 rounded-full border border-accent/20">POPULAR</span>
+                                )}
+                            </div>
+
+                            <p class="text-sm text-secondary mb-6 leading-relaxed">{product.description}</p>
+
+                            <div class="text-2xl font-bold text-white mb-6">Custom Pricing</div>
+
+                            <div class="border-t border-white/5 pt-6 mb-6 flex-grow">
+                                <div class="text-xs font-semibold text-secondary/60 uppercase tracking-wider mb-4">What's Included</div>
+                                <ul class="space-y-3">
+                                    {product.features.map((feature) => (
+                                        <li class="flex items-start gap-3">
+                                            <div class="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgb(59 130 246)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                                            </div>
+                                            <span class="text-sm text-gray-300">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <a href={product.href} class={`block w-full py-3 px-4 rounded-lg font-semibold text-center transition-all duration-300 ${product.popular ? 'bg-accent hover:bg-blue-500 text-white shadow-lg shadow-blue-900/20' : 'bg-white/5 hover:bg-white/10 text-white border border-white/10 hover:border-white/20'}`}>
+                                View Details
+                            </a>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Bundle CTA -->
+        <section class="py-20 bg-surface/30 border-y border-white/5">
+            <div class="container mx-auto px-4 text-center max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Bundle & Save</h2>
+                <p class="text-secondary text-lg mb-8 leading-relaxed">
+                    Most clients combine 2-3 products for maximum impact. Book a free consultation and we'll recommend the right bundle for your business — with package pricing.
+                </p>
+                <a href="/contact" class="btn-primary inline-flex items-center gap-2">
+                    Get a Custom Quote
+                </a>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-24">
+            <div class="container mx-auto px-4 max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Frequently Asked <span class="text-gradient">Questions</span></h2>
+
+                <div class="space-y-4">
+                    {faqs.map((faq) => (
+                        <details class="glass-card cursor-pointer group">
+                            <summary class="font-bold text-white list-none flex items-center justify-between">
+                                {faq.question}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-secondary group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
+                            </summary>
+                            <p class="text-secondary mt-4 leading-relaxed">{faq.answer}</p>
+                        </details>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="py-24 relative text-center overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-main to-main z-0"></div>
+            <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+                <h2 class="text-3xl md:text-5xl font-extrabold mb-8 tracking-tighter">Not Sure Which Solution You Need?</h2>
+                <p class="text-xl text-secondary mb-10">Book a free consultation. We'll audit your operations and recommend the right products.</p>
+                <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+                    Book Free Consultation
+                </a>
+            </div>
+        </section>
+
+        <Footer />
+    </main>
 </Layout>

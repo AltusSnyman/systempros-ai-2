@@ -1,30 +1,100 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import AgitationGrid from '../components/AgitationGrid.astro';
-import Solution from '../components/Solution.astro';
-import VideoShowcase from '../components/VideoShowcase.jsx';
 import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import VideoShowcase from '../components/VideoShowcase.jsx';
 ---
 
-<Layout 
-	title="SystemPros.ai | Enterprise AI Integration & Legacy Modernization"
-	description="SystemPros.ai integrates secure AI workforces into enterprise legacy systems. We bring 30 years of IT architecture experience to AI implementation."
+<Layout
+	title="SystemPros.ai | AI Integration, Voice AI, Lead Gen & Automation"
+	description="6 AI-powered solutions for ambitious businesses: Voice AI agents, lead gen websites, paid ads automation, personal AI assistants, consulting, and training. Engineered for NZ, Australia, and the USA."
 >
 
-	
 	<main>
 		<!-- Hero Section -->
-		<Hero />
+		<section class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-10 overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-main to-main">
+			<div class="container mx-auto px-4 z-10 flex flex-col items-center text-center max-w-5xl pointer-events-none">
 
-		<!-- Agitation Grid -->
-		<AgitationGrid />
+				<!-- Badge -->
+				<div class="pointer-events-auto fade-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 backdrop-blur-sm mb-8" style="animation-delay: 0.1s;">
+					<span class="text-accent text-xs font-bold tracking-wider uppercase">6 AI Solutions. One Partner.</span>
+				</div>
 
-		<!-- Solution Section -->
-		<Solution />
+				<!-- H1 -->
+				<h1 class="pointer-events-auto fade-up text-5xl md:text-7xl font-extrabold tracking-tighter mb-6 leading-[1.1]" style="animation-delay: 0.2s;">
+					We Don't Just Sell Tools.<br />
+					<span class="text-gradient">We Build Your AI Workforce.</span>
+				</h1>
 
-		<!-- Audio Showcase -->
-		<section id="industries" class="py-24 relative overflow-hidden">
+				<!-- Subtitle -->
+				<p class="pointer-events-auto fade-up text-lg md:text-xl text-secondary max-w-2xl mb-10 leading-relaxed" style="animation-delay: 0.3s;">
+					Voice AI agents, lead gen websites, automated outreach, personal AI assistants, strategic consulting, and hands-on training. Engineered for businesses in <strong class="text-white">NZ, Australia, and the USA</strong>.
+				</p>
+
+				<!-- CTAs -->
+				<div class="pointer-events-auto fade-up flex flex-col sm:flex-row gap-4 w-full justify-center mb-16" style="animation-delay: 0.5s;">
+					<a href="#products" class="btn-primary flex items-center justify-center gap-2">
+						Explore Our Solutions
+					</a>
+					<a href="/contact" class="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 hover:border-white/30 transition-all font-semibold flex items-center justify-center gap-2">
+						Book Consultation
+						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Products Grid -->
+		<section id="products" class="py-24 relative z-10">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl md:text-5xl font-bold mb-4">Our <span class="text-gradient">Solutions</span></h2>
+					<p class="text-secondary max-w-xl mx-auto">Six integrated products to automate your sales, operations, and growth.</p>
+				</div>
+
+				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+					<ProductCard
+						title="The Revenue Triad"
+						description="3 Voice AI agents that answer calls, chase web leads instantly, and reactivate dormant clients. Your 24/7 revenue ecosystem."
+						href="/voice-ai"
+						icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>'
+					/>
+					<ProductCard
+						title="Lead Gen Websites"
+						description="Transform brochure websites into lead machines. Smart forms, calendars, chat & voice widgets — all wired to automations that convert."
+						href="/lead-gen-websites"
+						icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>'
+					/>
+					<ProductCard
+						title="The Lead Reactor"
+						description="Run Meta ads, we handle the rest. Instant multi-channel outreach via iMessage, WhatsApp, SMS & calling until they book."
+						href="/lead-reactor"
+						icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'
+					/>
+					<ProductCard
+						title="The Private Assistant"
+						description="A done-for-you OpenClaw AI assistant on WhatsApp, Telegram, Slack & more. 3,000+ skills, persistent memory, built for you."
+						href="/private-assistant"
+						icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>'
+					/>
+					<ProductCard
+						title="Consultation"
+						description="A forensic audit of your operations followed by a strategic AI roadmap. 30 years of IT architecture applied to your business."
+						href="/consulting"
+						icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>'
+					/>
+					<ProductCard
+						title="Training"
+						description="1-on-1 sessions on AI agents, Claude Code, GoHighLevel, N8N, Make.com, Voice AI, OpenClaw & more. Pure hands-on application."
+						href="/training"
+						icon='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>'
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Video Showcase -->
+		<section class="py-24 relative overflow-hidden">
 			<div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none"></div>
 			<div class="container mx-auto px-4 relative z-10">
 				<div class="text-center mb-16">
@@ -36,22 +106,22 @@ import Footer from '../components/Footer.astro';
 		</section>
 
 		<!-- The Bridge CTA -->
-		<section id="consulting" class="py-32 relative text-center overflow-hidden">
+		<section class="py-32 relative text-center overflow-hidden">
 			<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-main to-main z-0"></div>
 			<div class="container mx-auto px-4 relative z-10 max-w-3xl">
 				<h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Why 30 Years of IT Experience Matters.</h2>
 				<p class="text-xl text-secondary mb-12 leading-relaxed">
-					AI is powerful, but dangerous if unconnected. Unlike generic agencies, we don't just turn it on; we integrate it securely into your legacy systems using 3 decades of enterprise architecture experience.
+					AI is powerful, but dangerous if unconnected. Unlike generic agencies, we don't just turn it on; we integrate it securely into your systems using 3 decades of enterprise architecture experience.
 				</p>
 				<div class="flex flex-wrap justify-center gap-8 mb-12">
 					<div class="flex items-center gap-2 text-sm font-mono text-accent bg-accent/10 px-4 py-2 rounded border border-accent/20">
-						<span>🔒 Enterprise Security</span>
+						<span>Enterprise Security</span>
 					</div>
 					<div class="flex items-center gap-2 text-sm font-mono text-accent bg-accent/10 px-4 py-2 rounded border border-accent/20">
-						<span>📚 Custom Training</span>
+						<span>Custom Training</span>
 					</div>
 					<div class="flex items-center gap-2 text-sm font-mono text-accent bg-accent/10 px-4 py-2 rounded border border-accent/20">
-						<span>⚡ SOP Integration</span>
+						<span>SOP Integration</span>
 					</div>
 				</div>
 				<a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
@@ -66,4 +136,13 @@ import Footer from '../components/Footer.astro';
 
 </Layout>
 
-
+<style>
+  .fade-up {
+    opacity: 0;
+    animation: fade-up 0.8s ease-out forwards;
+  }
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

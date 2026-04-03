@@ -1,0 +1,189 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProductHero from '../components/ProductHero.astro';
+import Footer from '../components/Footer.astro';
+import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
+import leadgenHero from '../assets/leadgen_hero.png';
+---
+
+<Layout
+    title="Lead Gen Websites | Turn Your Website Into a Booking Machine | SystemPros.ai"
+    description="We transform brochure websites into lead generation machines. Smart forms, calendars, chat widgets, voice widgets — all wired to automations that convert visitors into booked appointments."
+>
+    <ServiceSchema name="Lead Gen Websites" description="Website transformation service that converts brochure sites into lead generation machines with smart forms, calendars, chat and voice widgets, connected to automations." serviceType="WebDesign" />
+    <Breadcrumbs currentTitle="Lead Gen Websites" />
+
+    <main class="overflow-x-hidden">
+
+        <!-- Hero -->
+        <ProductHero
+            badge="Lead Generation"
+            title='Your Website Should Book Meetings.<br /><span class="text-gradient">Not Just Look Pretty.</span>'
+            subtitle="We transform brochure websites into lead generation machines. Smart forms, calendars, chat widgets, voice widgets — all wired to automations that convert visitors into booked appointments."
+            ctaText="Build My Lead Gen Site"
+            ctaLink="/contact"
+            secondaryCtaText="View Pricing"
+            secondaryCtaLink="/pricing"
+            heroImage={leadgenHero}
+            heroImageAlt="Lead generation website transformation"
+        />
+
+        <!-- Agitation: The Brochure Problem -->
+        <section class="py-24 relative z-10">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">The $50,000 <span class="text-gradient">Brochure Problem</span></h2>
+                    <p class="text-secondary max-w-xl mx-auto">You paid for a website. But it's just a digital pamphlet. Here's what it's costing you.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="glass-card group relative overflow-hidden transition-all duration-300 hover:-translate-y-2">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="mb-6 p-4 rounded-full bg-surface w-fit border border-white/10 text-red-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" y1="11" x2="22" y2="11"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-white transition-colors">Visitors But No Leads</h3>
+                            <p class="text-sm text-secondary leading-relaxed group-hover:text-gray-300 transition-colors">
+                                Traffic hits your site and bounces. No forms, no chat, no reason to stay. Every visitor that leaves is a lost opportunity.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card group relative overflow-hidden transition-all duration-300 hover:-translate-y-2">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="mb-6 p-4 rounded-full bg-surface w-fit border border-white/10 text-orange-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-white transition-colors">No Follow-Up Automation</h3>
+                            <p class="text-sm text-secondary leading-relaxed group-hover:text-gray-300 transition-colors">
+                                Even when someone fills a form, it sits in an inbox. No instant response, no automated booking, no pipeline movement.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="glass-card group relative overflow-hidden transition-all duration-300 hover:-translate-y-2">
+                        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="mb-6 p-4 rounded-full bg-surface w-fit border border-white/10 text-purple-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 group-hover:text-white transition-colors">Disconnected Tools</h3>
+                            <p class="text-sm text-secondary leading-relaxed group-hover:text-gray-300 transition-colors">
+                                Your website, CRM, calendar, and email live in different universes. Data falls through the cracks. Leads go cold.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included -->
+        <section class="py-24 bg-surface/30 border-y border-white/5">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">What's <span class="text-gradient">Included</span></h2>
+                    <p class="text-secondary max-w-xl mx-auto">Every component engineered to turn visitors into booked appointments.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    {[
+                        { title: 'Smart Multi-Step Forms', desc: 'Guided forms that qualify leads as they fill them out. Higher completion rates than single-page forms.', icon: 'M9 11H3M21 11h-6M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83' },
+                        { title: 'Embedded Booking Calendars', desc: 'Prospects book directly on your site. Syncs with Google Calendar, Outlook, and your CRM in real-time.', icon: 'M8 2v4M16 2v4M3 10h18M21 8v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z' },
+                        { title: 'AI Chat Widget', desc: 'A 24/7 chat assistant that answers questions, qualifies visitors, and captures lead data — while you sleep.', icon: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z' },
+                        { title: 'Voice Widget Integration', desc: 'Click-to-call Voice AI directly on the page. Visitors talk to your AI receptionist without leaving the site.', icon: 'M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zM19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8' },
+                        { title: 'CRM Pipeline Automation', desc: 'Every form fill, chat, and call auto-creates a contact, tags them, and moves them through your pipeline.', icon: 'M22 12h-4l-3 9L9 3l-3 9H2' },
+                        { title: 'Visitor Tracking & Analytics', desc: 'See who visited, what they clicked, and where they dropped off. Data-driven optimization built in.', icon: 'M18 20V10M12 20V4M6 20v-6' },
+                    ].map((feature) => (
+                        <div class="flex gap-4 group">
+                            <div class="shrink-0 w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d={feature.icon}/></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2 text-white">{feature.title}</h3>
+                                <p class="text-secondary text-sm leading-relaxed">{feature.desc}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4">How It <span class="text-gradient">Works</span></h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    {[
+                        { step: '01', title: 'Strategy & Architecture', desc: 'We audit your current site, map your customer journey, and design the conversion architecture.' },
+                        { step: '02', title: 'Build & Integrate', desc: 'We build the lead gen components, wire up automations, and integrate with your CRM and calendar.' },
+                        { step: '03', title: 'Launch & Optimize', desc: 'We launch, monitor conversion data, and continuously optimize forms, copy, and flows for maximum ROI.' },
+                    ].map((item) => (
+                        <div class="glass-card text-center group hover:-translate-y-2 transition-all duration-300">
+                            <div class="text-5xl font-extrabold text-accent/20 mb-4 group-hover:text-accent/40 transition-colors">{item.step}</div>
+                            <h3 class="text-xl font-bold mb-3 text-white">{item.title}</h3>
+                            <p class="text-secondary text-sm leading-relaxed">{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Before/After Comparison -->
+        <section class="py-24 relative">
+            <div class="container mx-auto px-4">
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="glass-card p-10 border-red-500/10 bg-red-900/5 hover:bg-red-900/10 transition-colors">
+                        <div class="w-16 h-16 rounded-full bg-red-500/10 flex items-center justify-center mx-auto mb-6 text-red-500">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-red-400 text-center">Brochure Website</h3>
+                        <ul class="space-y-3 text-secondary">
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> Static pages with no interactivity</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> Contact form goes to an email inbox</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> No automated follow-up</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> No visitor intelligence</li>
+                            <li class="flex items-start gap-2"><span class="text-red-500 mt-1">-</span> Leads go cold within hours</li>
+                        </ul>
+                    </div>
+
+                    <div class="glass-card p-10 border-accent/30 bg-accent/5 hover:bg-accent/10 transition-colors relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-accent/0 via-accent/5 to-accent/0 pointer-events-none"></div>
+                        <div class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-6 text-accent relative z-10">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-white text-center relative z-10">Lead Gen Machine</h3>
+                        <ul class="space-y-3 text-secondary relative z-10">
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> Smart forms that qualify as they convert</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> Instant automated response + booking</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> AI chat & voice widgets 24/7</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> Full CRM pipeline automation</li>
+                            <li class="flex items-start gap-2"><span class="text-accent mt-1">+</span> Leads booked within minutes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-32 relative text-center overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-main to-main z-0"></div>
+            <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Stop Wasting Traffic.</h2>
+                <p class="text-xl text-secondary mb-12 leading-relaxed">
+                    Your website gets visitors. Let's make sure they become customers.
+                </p>
+                <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+                    Build My Lead Gen Site
+                </a>
+            </div>
+        </section>
+
+    </main>
+    <Footer />
+</Layout>
