@@ -4,13 +4,7 @@ import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import VideoShowcase from '../components/VideoShowcase.jsx';
 import HeroShutterText from '../components/ui/hero-shutter-text';
-import { Image } from 'astro:assets';
-import imgRevenueTriad from '../assets/product_info_revenue_triad.png';
-import imgLeadgen from '../assets/product_info_leadgen.png';
-import imgLeadReactor from '../assets/product_info_lead_reactor.png';
-import imgPrivateAssistant from '../assets/product_info_private_assistant.png';
-import imgConsultation from '../assets/product_info_consultation.png';
-import imgTraining from '../assets/product_info_training.png';
+import ProductVideoPlayer from '../components/ProductVideoPlayer';
 ---
 
 <Layout
@@ -329,7 +323,7 @@ import imgTraining from '../assets/product_info_training.png';
 						<div class="relative group">
 							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
-								<Image src={imgRevenueTriad} alt="The Revenue Triad — 3 AI Voice Agents" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+								<ProductVideoPlayer id="revenue-triad" client:visible />
 							</div>
 						</div>
 						<div class="space-y-5">
@@ -368,7 +362,7 @@ import imgTraining from '../assets/product_info_training.png';
 						<div class="relative group order-1 lg:order-2">
 							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
-								<Image src={imgLeadgen} alt="Lead Gen Websites — Convert Visitors to Bookings" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+								<ProductVideoPlayer id="lead-gen-websites" client:visible />
 							</div>
 						</div>
 					</div>
@@ -379,7 +373,7 @@ import imgTraining from '../assets/product_info_training.png';
 						<div class="relative group">
 							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
-								<Image src={imgLeadReactor} alt="The Lead Reactor — Ads to Booked Appointments" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+								<ProductVideoPlayer id="lead-reactor" client:visible />
 							</div>
 						</div>
 						<div class="space-y-5">
@@ -418,7 +412,7 @@ import imgTraining from '../assets/product_info_training.png';
 						<div class="relative group order-1 lg:order-2">
 							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
-								<Image src={imgPrivateAssistant} alt="The Private Assistant — OpenClaw AI on Every Platform" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+								<ProductVideoPlayer id="private-assistant" client:visible />
 							</div>
 						</div>
 					</div>
@@ -429,7 +423,7 @@ import imgTraining from '../assets/product_info_training.png';
 						<div class="relative group">
 							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
-								<Image src={imgConsultation} alt="Consultation — Forensic AI Audit" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+								<ProductVideoPlayer id="consultation" client:visible />
 							</div>
 						</div>
 						<div class="space-y-5">
@@ -468,7 +462,7 @@ import imgTraining from '../assets/product_info_training.png';
 						<div class="relative group order-1 lg:order-2">
 							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
-								<Image src={imgTraining} alt="Training — 1-on-1 AI Tool Sessions" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+								<ProductVideoPlayer id="training" client:visible />
 							</div>
 						</div>
 					</div>

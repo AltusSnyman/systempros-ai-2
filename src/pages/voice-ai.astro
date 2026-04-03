@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
 import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
+import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import { Image } from 'astro:assets';
 import triadHero from '../assets/revenue-triad-hero.png';
 import agent01 from '../assets/agent-01-shield.png';
@@ -52,6 +53,20 @@ import globalInfra from '../assets/voice-ai-global-infra.png';
                      />
                  </div>
              </div>
+        </section>
+
+        <!-- MOTION INFOGRAPHIC VIDEO -->
+        <section class="py-20 bg-[#060606]">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-12">
+                    <span class="text-accent font-mono text-xs tracking-widest uppercase">The System Visualized</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-3">See The Revenue Triad <span class="text-gradient">In Motion</span></h2>
+                    <p class="text-secondary max-w-xl mx-auto">How three AI agents work together to capture, respond, and reactivate every lead — 24/7.</p>
+                </div>
+                <div class="max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10">
+                    <ProductVideoPlayer id="revenue-triad" client:visible />
+                </div>
+            </div>
         </section>
 
         <!-- SECTION 2: AGENT 01 (The Gatekeeper) -->

@@ -14,10 +14,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     optimizeDeps: {
-      exclude: ['remotion', '@remotion/cli', '@remotion/player']
+      exclude: ['@remotion/cli']
     },
     ssr: {
-      noExternal: ['three', '@react-three/fiber', '@react-three/drei']
+      noExternal: ['three', '@react-three/fiber', '@react-three/drei', 'detect-gpu', 'remotion', '@remotion/player', '@remotion/transitions']
     }
   }
 });

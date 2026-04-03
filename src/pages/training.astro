@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import ProductHero from '../components/ProductHero.astro';
 import Footer from '../components/Footer.astro';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
 import FAQSchema from '../components/seo/FAQSchema.astro';
 import trainingHero from '../assets/training_hero.png';
@@ -65,6 +66,20 @@ const faqs = [
                             <p class="text-sm text-secondary leading-relaxed">{topic.desc}</p>
                         </div>
                     ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- MOTION INFOGRAPHIC VIDEO -->
+        <section class="py-20 bg-[#060606]">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="text-center mb-12">
+                    <span class="text-accent font-mono text-xs tracking-widest uppercase">The Curriculum Visualized</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-3">What You'll <span class="text-gradient">Master</span></h2>
+                    <p class="text-secondary max-w-xl mx-auto">6 tools, skill-by-skill progress, and 1-on-1 sessions tailored to your exact business needs.</p>
+                </div>
+                <div class="max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10">
+                    <ProductVideoPlayer id="training" client:visible />
                 </div>
             </div>
         </section>
