@@ -3,6 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import VideoShowcase from '../components/VideoShowcase.jsx';
+import { Image } from 'astro:assets';
+import imgRevenueTriad from '../assets/product_info_revenue_triad.png';
+import imgLeadgen from '../assets/product_info_leadgen.png';
+import imgLeadReactor from '../assets/product_info_lead_reactor.png';
+import imgPrivateAssistant from '../assets/product_info_private_assistant.png';
+import imgConsultation from '../assets/product_info_consultation.png';
+import imgTraining from '../assets/product_info_training.png';
 ---
 
 <Layout
@@ -299,7 +306,173 @@ import VideoShowcase from '../components/VideoShowcase.jsx';
 		</section>
 
 		<!-- ============================================ -->
-		<!-- 5. VIDEO SHOWCASE (Industry Demos)           -->
+		<!-- 5. PRODUCT DEEP-DIVES (Alternating Rows)     -->
+		<!-- ============================================ -->
+		<section class="py-24 bg-[#060606]">
+			<div class="container mx-auto px-4 max-w-6xl">
+				<div class="text-center mb-20">
+					<h2 class="text-3xl md:text-5xl font-bold mb-4">How Each Solution <span class="text-gradient">Works</span></h2>
+					<p class="text-secondary max-w-xl mx-auto">A closer look at the six systems that power your AI workforce.</p>
+				</div>
+
+				<div class="space-y-24">
+
+					<!-- Row 1: Revenue Triad (image LEFT) -->
+					<div class="grid lg:grid-cols-2 gap-12 items-center">
+						<div class="relative group">
+							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
+								<Image src={imgRevenueTriad} alt="The Revenue Triad — 3 AI Voice Agents" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+							</div>
+						</div>
+						<div class="space-y-5">
+							<span class="text-accent font-mono text-xs tracking-widest uppercase">Voice AI Agents</span>
+							<h3 class="text-3xl md:text-4xl font-bold text-white">The Revenue Triad</h3>
+							<p class="text-secondary leading-relaxed">Three AI agents working in concert to ensure zero revenue leakage from your phone lines and lead pipeline.</p>
+							<ul class="space-y-3">
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> 24/7 AI receptionist that sounds 100% human</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Instant outbound calls on new web leads</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Automated reactivation of dormant contacts</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Full CRM integration & pipeline automation</li>
+							</ul>
+							<a href="/voice-ai" class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline underline-offset-4 mt-2">
+								Explore The Revenue Triad
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+						</div>
+					</div>
+
+					<!-- Row 2: Lead Gen Websites (image RIGHT) -->
+					<div class="grid lg:grid-cols-2 gap-12 items-center">
+						<div class="space-y-5 order-2 lg:order-1">
+							<span class="text-accent font-mono text-xs tracking-widest uppercase">Website Conversion</span>
+							<h3 class="text-3xl md:text-4xl font-bold text-white">Lead Gen Websites</h3>
+							<p class="text-secondary leading-relaxed">We take your existing website and engineer it into a 24/7 lead capture and booking machine.</p>
+							<ul class="space-y-3">
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Smart multi-step forms that qualify visitors</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Embedded calendars synced to your CRM</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> AI chat & voice widgets on every page</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Automated follow-up from first form fill</li>
+							</ul>
+							<a href="/lead-gen-websites" class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline underline-offset-4 mt-2">
+								Explore Lead Gen Websites
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+						</div>
+						<div class="relative group order-1 lg:order-2">
+							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
+								<Image src={imgLeadgen} alt="Lead Gen Websites — Convert Visitors to Bookings" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+							</div>
+						</div>
+					</div>
+
+					<!-- Row 3: Lead Reactor (image LEFT) -->
+					<div class="grid lg:grid-cols-2 gap-12 items-center">
+						<div class="relative group">
+							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
+								<Image src={imgLeadReactor} alt="The Lead Reactor — Ads to Booked Appointments" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+							</div>
+						</div>
+						<div class="space-y-5">
+							<span class="text-accent font-mono text-xs tracking-widest uppercase">Paid Ads Automation</span>
+							<h3 class="text-3xl md:text-4xl font-bold text-white">The Lead Reactor</h3>
+							<p class="text-secondary leading-relaxed">A complete system that turns Meta ad spend into booked appointments via instant multi-channel outreach.</p>
+							<ul class="space-y-3">
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Under 10-second response to new leads</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> iMessage, WhatsApp, SMS & voice calls</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Automated follow-up sequences</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Scales infinitely with your ad budget</li>
+							</ul>
+							<a href="/lead-reactor" class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline underline-offset-4 mt-2">
+								Explore The Lead Reactor
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+						</div>
+					</div>
+
+					<!-- Row 4: Private Assistant (image RIGHT) -->
+					<div class="grid lg:grid-cols-2 gap-12 items-center">
+						<div class="space-y-5 order-2 lg:order-1">
+							<span class="text-accent font-mono text-xs tracking-widest uppercase">Personal AI</span>
+							<h3 class="text-3xl md:text-4xl font-bold text-white">The Private Assistant</h3>
+							<p class="text-secondary leading-relaxed">A done-for-you OpenClaw AI assistant that lives on every messaging platform you use.</p>
+							<ul class="space-y-3">
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> WhatsApp, Telegram, Discord, Slack & more</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> 3,000+ skills from ClawHub marketplace</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Custom SOUL.md personality file</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Persistent memory & proactive automation</li>
+							</ul>
+							<a href="/private-assistant" class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline underline-offset-4 mt-2">
+								Explore The Private Assistant
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+						</div>
+						<div class="relative group order-1 lg:order-2">
+							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
+								<Image src={imgPrivateAssistant} alt="The Private Assistant — OpenClaw AI on Every Platform" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+							</div>
+						</div>
+					</div>
+
+					<!-- Row 5: Consultation (image LEFT) -->
+					<div class="grid lg:grid-cols-2 gap-12 items-center">
+						<div class="relative group">
+							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
+								<Image src={imgConsultation} alt="Consultation — Forensic AI Audit" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+							</div>
+						</div>
+						<div class="space-y-5">
+							<span class="text-accent font-mono text-xs tracking-widest uppercase">Strategy & Audit</span>
+							<h3 class="text-3xl md:text-4xl font-bold text-white">Consultation</h3>
+							<p class="text-secondary leading-relaxed">A forensic audit of your operations followed by a strategic AI roadmap built by 30-year IT veterans.</p>
+							<ul class="space-y-3">
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Deep-dive analysis of your current workflows</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Custom AI integration roadmap</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> ROI projections & implementation timeline</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Enterprise security & compliance review</li>
+							</ul>
+							<a href="/consulting" class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline underline-offset-4 mt-2">
+								Explore Consultation
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+						</div>
+					</div>
+
+					<!-- Row 6: Training (image RIGHT) -->
+					<div class="grid lg:grid-cols-2 gap-12 items-center">
+						<div class="space-y-5 order-2 lg:order-1">
+							<span class="text-accent font-mono text-xs tracking-widest uppercase">1-on-1 Sessions</span>
+							<h3 class="text-3xl md:text-4xl font-bold text-white">Training</h3>
+							<p class="text-secondary leading-relaxed">Hands-on 1-on-1 sessions on the AI tools and platforms that are driving real results right now.</p>
+							<ul class="space-y-3">
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Claude Code, GoHighLevel, N8N, Make.com</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Voice AI agents & OpenClaw setup</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Custom curriculum per session</li>
+								<li class="flex items-start gap-3 text-sm text-secondary"><span class="text-accent mt-0.5">&#10003;</span> Recorded sessions for your team to review</li>
+							</ul>
+							<a href="/training" class="inline-flex items-center gap-2 text-accent font-semibold text-sm hover:underline underline-offset-4 mt-2">
+								Explore Training
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+							</a>
+						</div>
+						<div class="relative group order-1 lg:order-2">
+							<div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+							<div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
+								<Image src={imgTraining} alt="Training — 1-on-1 AI Tool Sessions" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- ============================================ -->
+		<!-- 6. VIDEO SHOWCASE (Industry Demos)           -->
 		<!-- ============================================ -->
 		<section class="py-24 relative overflow-hidden">
 			<div class="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/10 to-transparent pointer-events-none"></div>
