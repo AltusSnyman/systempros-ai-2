@@ -7,33 +7,54 @@ interface HeroShutterTextProps {
   text?: string;
   className?: string;
   accentColor?: string;
+  size?: "hero" | "heading";
+  showGrid?: boolean;
+  showCorners?: boolean;
 }
+
+const sizeClasses = {
+  hero: "text-[10vw] md:text-[8vw]",
+  heading: "text-[7vw] md:text-[4vw]",
+};
+
+const paddingClasses = {
+  hero: "py-16 md:py-24",
+  heading: "py-8 md:py-12",
+};
 
 export default function HeroShutterText({
   text = "SYSTEMPROS",
   className = "",
   accentColor = "text-blue-500",
+  size = "hero",
+  showGrid = true,
+  showCorners = true,
 }: HeroShutterTextProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
   const characters = text.split("");
+  const textSize = sizeClasses[size];
+  const padding = paddingClasses[size];
 
   return (
     <div
       ref={ref}
       className={cn(
-        "relative flex flex-col items-center justify-center w-full py-16 md:py-24 overflow-hidden",
+        "relative flex flex-col items-center justify-center w-full overflow-hidden",
+        padding,
         className
       )}
     >
       {/* Background Grid */}
-      <div
-        className="absolute inset-0 opacity-[0.08] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(to right, #3B82F6 1px, transparent 1px), linear-gradient(to bottom, #3B82F6 1px, transparent 1px)`,
-          backgroundSize: "clamp(20px, 5vw, 60px) clamp(20px, 5vw, 60px)",
-        }}
-      />
+      {showGrid && (
+        <div
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(to right, #3B82F6 1px, transparent 1px), linear-gradient(to bottom, #3B82F6 1px, transparent 1px)`,
+            backgroundSize: "clamp(20px, 5vw, 60px) clamp(20px, 5vw, 60px)",
+          }}
+        />
+      )}
 
       {/* Main Text Container */}
       <div className="relative z-10 w-full px-4 flex flex-col items-center">
@@ -50,7 +71,7 @@ export default function HeroShutterText({
                     initial={{ opacity: 0, filter: "blur(10px)" }}
                     animate={{ opacity: 1, filter: "blur(0px)" }}
                     transition={{ delay: i * 0.04 + 0.3, duration: 0.8 }}
-                    className="text-[10vw] md:text-[8vw] leading-none font-black text-white tracking-tighter"
+                    className={cn(textSize, "leading-none font-black text-white tracking-tighter")}
                   >
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
@@ -65,7 +86,8 @@ export default function HeroShutterText({
                       ease: "easeInOut",
                     }}
                     className={cn(
-                      "absolute inset-0 text-[10vw] md:text-[8vw] leading-none font-black z-10 pointer-events-none",
+                      "absolute inset-0 leading-none font-black z-10 pointer-events-none",
+                      textSize,
                       accentColor
                     )}
                     style={{ clipPath: "polygon(0 0, 100% 0, 100% 35%, 0 35%)" }}
@@ -82,7 +104,10 @@ export default function HeroShutterText({
                       delay: i * 0.04 + 0.1,
                       ease: "easeInOut",
                     }}
-                    className="absolute inset-0 text-[10vw] md:text-[8vw] leading-none font-black text-zinc-200 z-10 pointer-events-none"
+                    className={cn(
+                      "absolute inset-0 leading-none font-black text-zinc-200 z-10 pointer-events-none",
+                      textSize
+                    )}
                     style={{
                       clipPath: "polygon(0 35%, 100% 35%, 100% 65%, 0 65%)",
                     }}
@@ -100,7 +125,8 @@ export default function HeroShutterText({
                       ease: "easeInOut",
                     }}
                     className={cn(
-                      "absolute inset-0 text-[10vw] md:text-[8vw] leading-none font-black z-10 pointer-events-none",
+                      "absolute inset-0 leading-none font-black z-10 pointer-events-none",
+                      textSize,
                       accentColor
                     )}
                     style={{
@@ -117,8 +143,12 @@ export default function HeroShutterText({
       </div>
 
       {/* Corner Accents */}
-      <div className="absolute top-4 left-4 border-l border-t border-blue-500/20 w-8 h-8" />
-      <div className="absolute bottom-4 right-4 border-r border-b border-blue-500/20 w-8 h-8" />
+      {showCorners && (
+        <>
+          <div className="absolute top-4 left-4 border-l border-t border-blue-500/20 w-8 h-8" />
+          <div className="absolute bottom-4 right-4 border-r border-b border-blue-500/20 w-8 h-8" />
+        </>
+      )}
     </div>
   );
 }
