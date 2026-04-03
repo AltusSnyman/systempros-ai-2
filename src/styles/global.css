@@ -53,3 +53,14 @@
 .nav-link {
     @apply text-sm text-secondary hover:text-white transition-colors duration-200 font-medium;
 }
+
+.btn-cta {
+    @apply px-8 py-4 font-semibold rounded-full transition-all duration-300 hover:-translate-y-1 cursor-pointer;
+    background: linear-gradient(135deg, #F97316, #EA580C);
+    color: white;
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+}
+
+.btn-cta:hover {
+    box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+}
