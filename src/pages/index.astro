@@ -71,17 +71,92 @@ import VideoShowcase from '../components/VideoShowcase.jsx';
 		</section>
 
 		<!-- ============================================ -->
-		<!-- 2. TRUST BAR (Scrolling Logos)               -->
+		<!-- 2. TRUST BAR (Animated Marquee Logos)        -->
 		<!-- ============================================ -->
-		<section class="py-8 border-y border-white/5 bg-surface/30 overflow-hidden">
-			<div class="container mx-auto px-4">
-				<p class="text-center text-xs text-secondary/60 uppercase tracking-widest mb-6 font-medium">Built With Industry-Leading Platforms</p>
-				<div class="flex items-center justify-center gap-10 md:gap-16 flex-wrap opacity-40 hover:opacity-60 transition-opacity duration-500">
-					{['GoHighLevel', 'Vapi', 'OpenClaw', 'Make.com', 'N8N', 'Twilio', 'ElevenLabs', 'Claude'].map((name) => (
-						<span class="text-sm font-semibold text-white/80 tracking-wide whitespace-nowrap">{name}</span>
+		<section class="py-10 border-y border-white/5 bg-surface/30 overflow-hidden relative">
+			<p class="text-center text-xs text-secondary/60 uppercase tracking-widest mb-8 font-medium">Built With Industry-Leading Platforms</p>
+
+			<!-- Row 1: Scrolls Left -->
+			<div class="marquee-wrapper mb-4">
+				<div class="marquee-track marquee-left">
+					{[...Array(2)].map(() => (
+						<div class="marquee-content">
+							<div class="marquee-item">
+								<img src="/assets/logos/gohighlevel.webp" alt="GoHighLevel" width="97" height="25" class="marquee-logo" loading="lazy" />
+								<span class="marquee-label">GoHighLevel</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/twilio.webp" alt="Twilio" width="40" height="40" class="marquee-logo-square" loading="lazy" />
+								<span class="marquee-label">Twilio</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/n8n.webp" alt="N8N" width="40" height="40" class="marquee-logo-square" loading="lazy" />
+								<span class="marquee-label">N8N</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/hubspot.avif" alt="HubSpot" width="97" height="25" class="marquee-logo" loading="lazy" />
+								<span class="marquee-label">HubSpot</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/zapier.avif" alt="Zapier" width="40" height="40" class="marquee-logo-square" loading="lazy" />
+								<span class="marquee-label">Zapier</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/salesforce.avif" alt="Salesforce" width="97" height="25" class="marquee-logo" loading="lazy" />
+								<span class="marquee-label">Salesforce</span>
+							</div>
+							<div class="marquee-item">
+								<span class="marquee-text-logo">Vapi</span>
+							</div>
+							<div class="marquee-item">
+								<span class="marquee-text-logo">ElevenLabs</span>
+							</div>
+						</div>
 					))}
 				</div>
 			</div>
+
+			<!-- Row 2: Scrolls Right -->
+			<div class="marquee-wrapper">
+				<div class="marquee-track marquee-right">
+					{[...Array(2)].map(() => (
+						<div class="marquee-content">
+							<div class="marquee-item">
+								<img src="/assets/logos/make.svg" alt="Make.com" width="80" height="25" class="marquee-logo" loading="lazy" />
+								<span class="marquee-label">Make.com</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/vonage.webp" alt="Vonage" width="40" height="40" class="marquee-logo-square" loading="lazy" />
+								<span class="marquee-label">Vonage</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/telnyx.svg" alt="Telnyx" width="97" height="25" class="marquee-logo" loading="lazy" />
+								<span class="marquee-label">Telnyx</span>
+							</div>
+							<div class="marquee-item">
+								<img src="/assets/logos/calcom.svg" alt="Cal.com" width="40" height="40" class="marquee-logo-square" loading="lazy" />
+								<span class="marquee-label">Cal.com</span>
+							</div>
+							<div class="marquee-item">
+								<span class="marquee-text-logo">OpenClaw</span>
+							</div>
+							<div class="marquee-item">
+								<span class="marquee-text-logo">Claude</span>
+							</div>
+							<div class="marquee-item">
+								<span class="marquee-text-logo">Google Gemini</span>
+							</div>
+							<div class="marquee-item">
+								<span class="marquee-text-logo">Meta Ads</span>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+
+			<!-- Edge fade masks -->
+			<div class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-main to-transparent z-10"></div>
+			<div class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-main to-transparent z-10"></div>
 		</section>
 
 		<!-- ============================================ -->
