@@ -12,6 +12,12 @@ export default defineConfig({
   integrations: [react(), sitemap()],
 
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ['remotion', '@remotion/cli', '@remotion/player']
+    },
+    ssr: {
+      noExternal: ['three', '@react-three/fiber', '@react-three/drei']
+    }
   }
 });
