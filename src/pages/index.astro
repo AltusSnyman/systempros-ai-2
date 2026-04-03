@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import ProductCard from '../components/ProductCard.astro';
 import VideoShowcase from '../components/VideoShowcase.jsx';
+import HeroShutterText from '../components/ui/hero-shutter-text';
 import { Image } from 'astro:assets';
 import imgRevenueTriad from '../assets/product_info_revenue_triad.png';
 import imgLeadgen from '../assets/product_info_leadgen.png';
@@ -304,6 +305,11 @@ import imgTraining from '../assets/product_info_training.png';
 				</div>
 			</div>
 		</section>
+
+		<!-- ============================================ -->
+		<!-- SHUTTER TEXT DIVIDER (Scroll-Triggered)      -->
+		<!-- ============================================ -->
+		<HeroShutterText text="AI WORKFORCE" client:visible />
 
 		<!-- ============================================ -->
 		<!-- 5. PRODUCT DEEP-DIVES (Alternating Rows)     -->
