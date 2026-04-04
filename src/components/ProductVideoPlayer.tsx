@@ -6,8 +6,12 @@ import { LeadReactor } from '../remotion/compositions/LeadReactor';
 import { LeadReactorSpeed } from '../remotion/compositions/LeadReactorSpeed';
 import { LeadReactorChannels } from '../remotion/compositions/LeadReactorChannels';
 import { PrivateAssistant } from '../remotion/compositions/PrivateAssistant';
+import { PrivateAssistantSilo } from '../remotion/compositions/PrivateAssistantSilo';
+import { PrivateAssistantSkills } from '../remotion/compositions/PrivateAssistantSkills';
 import { Consultation } from '../remotion/compositions/Consultation';
+import { ConsultationGap } from '../remotion/compositions/ConsultationGap';
 import { Training } from '../remotion/compositions/Training';
+import { TrainingResults } from '../remotion/compositions/TrainingResults';
 
 const compositions = {
   'revenue-triad': RevenueTriad,
@@ -17,8 +21,12 @@ const compositions = {
   'lead-reactor-speed': LeadReactorSpeed,
   'lead-reactor-channels': LeadReactorChannels,
   'private-assistant': PrivateAssistant,
+  'private-assistant-silo': PrivateAssistantSilo,
+  'private-assistant-skills': PrivateAssistantSkills,
   'consultation': Consultation,
+  'consultation-gap': ConsultationGap,
   'training': Training,
+  'training-results': TrainingResults,
 } as const;
 
 type CompositionId = keyof typeof compositions;

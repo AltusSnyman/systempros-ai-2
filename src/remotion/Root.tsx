@@ -6,8 +6,12 @@ import { LeadReactor } from './compositions/LeadReactor';
 import { LeadReactorSpeed } from './compositions/LeadReactorSpeed';
 import { LeadReactorChannels } from './compositions/LeadReactorChannels';
 import { PrivateAssistant } from './compositions/PrivateAssistant';
+import { PrivateAssistantSilo } from './compositions/PrivateAssistantSilo';
+import { PrivateAssistantSkills } from './compositions/PrivateAssistantSkills';
 import { Consultation } from './compositions/Consultation';
+import { ConsultationGap } from './compositions/ConsultationGap';
 import { Training } from './compositions/Training';
+import { TrainingResults } from './compositions/TrainingResults';
 
 export const RemotionRoot = () => {
   const commonProps = {
@@ -46,18 +50,12 @@ export const RemotionRoot = () => {
         component={PrivateAssistant}
         defaultProps={{}}
       />
-      <Composition
-        {...commonProps}
-        id="consultation"
-        component={Consultation}
-        defaultProps={{}}
-      />
-      <Composition
-        {...commonProps}
-        id="training"
-        component={Training}
-        defaultProps={{}}
-      />
+      <Composition {...commonProps} id="private-assistant-silo" component={PrivateAssistantSilo} defaultProps={{}} />
+      <Composition {...commonProps} id="private-assistant-skills" component={PrivateAssistantSkills} defaultProps={{}} />
+      <Composition {...commonProps} id="consultation" component={Consultation} defaultProps={{}} />
+      <Composition {...commonProps} id="consultation-gap" component={ConsultationGap} defaultProps={{}} />
+      <Composition {...commonProps} id="training" component={Training} defaultProps={{}} />
+      <Composition {...commonProps} id="training-results" component={TrainingResults} defaultProps={{}} />
     </Folder>
   );
 };

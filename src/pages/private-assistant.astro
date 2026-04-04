@@ -1,63 +1,244 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProductHero from '../components/ProductHero.astro';
 import Footer from '../components/Footer.astro';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
-import assistantHero from '../assets/private_assistant_hero.png';
 ---
 
 <Layout
     title="The Private Assistant | Done-For-You OpenClaw AI Setup | SystemPros.ai"
-    description="A done-for-you OpenClaw personal AI assistant on WhatsApp, Telegram, Discord, Slack & more. 3,000+ skills, persistent memory, and a personality crafted just for you."
+    description="Stop jumping between apps. We deploy your private OpenClaw AI assistant across 20+ platforms — WhatsApp, iMessage, Slack, Discord. 3,000+ skills, custom SOUL.md, your data stays yours."
 >
-    <ServiceSchema name="The Private Assistant" description="Done-for-you OpenClaw personal AI assistant setup, configuration, skill installation, and training service." serviceType="AIConsulting" />
+    <ServiceSchema name="The Private Assistant" description="Done-for-you OpenClaw private AI assistant deployment across 20+ messaging platforms with custom SOUL.md personality and 50+ hand-picked skills." serviceType="AIConsulting" />
     <Breadcrumbs currentTitle="The Private Assistant" />
 
     <main class="overflow-x-hidden">
 
-        <!-- Hero -->
-        <ProductHero
-            badge="Personal AI"
-            title='Your Personal AI.<br /><span class="text-gradient">Everywhere You Are.</span>'
-            subtitle="A done-for-you OpenClaw AI assistant on WhatsApp, Telegram, Discord, iMessage, Slack, and Teams. 3,000+ skills, persistent memory, and a personality crafted just for you."
-            ctaText="Get Your Assistant"
-            ctaLink="/contact"
-            secondaryCtaText="View Pricing"
-            secondaryCtaLink="/pricing"
-            heroImage={assistantHero}
-            heroImageAlt="Private AI assistant connected to messaging platforms"
-        />
+        <!-- ════════════════════════════════════════════════════════
+             HERO — Universal Assistant
+        ════════════════════════════════════════════════════════ -->
+        <section class="relative pt-32 pb-24 overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(139,92,246,0.18)_0%,transparent_60%)]" />
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-        <!-- What is OpenClaw -->
-        <section class="py-24 bg-surface/30 border-y border-white/5">
-            <div class="container mx-auto px-4">
-                <div class="max-w-5xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+                    <!-- Copy -->
                     <div>
-                        <span class="text-accent font-mono text-sm tracking-widest uppercase">Powered By</span>
-                        <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-8">What is <span class="text-gradient">OpenClaw?</span></h2>
-                        <div class="space-y-4 text-secondary leading-relaxed">
-                            <p>
-                                OpenClaw is the world's fastest-growing open-source AI assistant — <strong class="text-white">247,000+ GitHub stars</strong> and counting. It's a personal AI that lives on the messaging platforms you already use.
-                            </p>
-                            <p>
-                                Unlike ChatGPT or other web-based assistants, OpenClaw runs on <strong class="text-white">your device</strong>, keeps <strong class="text-white">your data private</strong>, and connects to <strong class="text-white">20+ messaging platforms</strong> so your AI is always one message away.
-                            </p>
+                        <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-purple-400 border border-purple-500/25 bg-purple-500/5 rounded-full px-4 py-2 mb-8">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 inline-block"></span>
+                            Personal AI
+                        </div>
+
+                        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-6">
+                            Stop Jumping<br />Between Apps.<br />
+                            <span class="text-gradient">Start Using Your Mind.</span>
+                        </h1>
+
+                        <p class="text-lg text-secondary leading-relaxed mb-10 max-w-xl">
+                            You don't need more tools — you need one intelligence that follows you everywhere. We deploy your private <strong class="text-white">OpenClaw Assistant</strong> across 20+ platforms: WhatsApp, iMessage, Slack, and Discord. It's your second brain, your executive assistant, and your researcher, all in one chat thread.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-base px-8 py-4">
+                                Get My Assistant
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                            <a href="#skills" class="inline-flex items-center gap-2 text-base px-8 py-4 rounded-xl border border-white/15 text-secondary hover:text-white hover:border-white/30 transition-all">
+                                Explore 3,000+ Skills
+                            </a>
+                        </div>
+
+                        <!-- Stats row -->
+                        <div class="grid grid-cols-3 gap-5 mt-12 pt-10 border-t border-white/8">
+                            {[
+                                { stat: '247K+', label: 'GitHub Stars' },
+                                { stat: '20+', label: 'Platforms' },
+                                { stat: '48–72h', label: 'Deploy Time' },
+                            ].map((item) => (
+                                <div>
+                                    <div class="text-2xl font-extrabold text-white">{item.stat}</div>
+                                    <div class="text-xs text-secondary mt-1">{item.label}</div>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-4">
+                    <!-- Video -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-purple-500/10 rounded-3xl blur-3xl -z-10 scale-105" />
+                        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
+                            <ProductVideoPlayer id="private-assistant" client:visible />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════
+             SECTION 2 — The Silo Tax (Problem)
+        ════════════════════════════════════════════════════════ -->
+        <section class="py-24 bg-[#080808] border-y border-white/5">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+                    <!-- Video LEFT -->
+                    <div class="relative order-2 lg:order-1">
+                        <div class="absolute inset-0 bg-red-500/8 rounded-3xl blur-3xl -z-10 scale-105" />
+                        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-red-500/10">
+                            <ProductVideoPlayer id="private-assistant-silo" client:visible />
+                        </div>
+                    </div>
+
+                    <!-- Copy RIGHT -->
+                    <div class="order-1 lg:order-2">
+                        <span class="text-red-400 font-mono text-xs tracking-widest uppercase">The Problem</span>
+                        <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-8 leading-tight">
+                            The High Cost of<br /><span class="text-red-400">Fragmented Focus</span>
+                        </h2>
+
+                        <div class="space-y-6">
+                            {[
+                                {
+                                    title: 'Context Switching',
+                                    desc: 'Every time you leave your workflow to "ask ChatGPT" something, you lose 20 minutes of deep focus. Multiply that by 15 times a day.',
+                                    color: 'border-red-500/30 bg-red-500/5',
+                                    icon: '⏱',
+                                },
+                                {
+                                    title: 'The Data Leak',
+                                    desc: 'Using standard AI means your pricing strategies, client secrets, and competitive insights are training someone else\'s model — for free.',
+                                    color: 'border-orange-500/30 bg-orange-500/5',
+                                    icon: '🔓',
+                                },
+                                {
+                                    title: 'The Setup Wall',
+                                    desc: 'OpenClaw is the world\'s most powerful open-source AI — but it\'s a technical nightmare to install. One wrong config line and your "Personal AI" is a brick.',
+                                    color: 'border-purple-500/30 bg-purple-500/5',
+                                    icon: '🧱',
+                                },
+                            ].map((item) => (
+                                <div class={`rounded-xl border p-5 ${item.color}`}>
+                                    <div class="flex items-start gap-4">
+                                        <span class="text-xl flex-shrink-0 mt-0.5">{item.icon}</span>
+                                        <div>
+                                            <h3 class="font-bold text-white mb-2">{item.title}</h3>
+                                            <p class="text-sm text-secondary leading-relaxed">{item.desc}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════
+             SECTION 3 — Power Pack Skills
+        ════════════════════════════════════════════════════════ -->
+        <section id="skills" class="py-24">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+
+                    <!-- Copy LEFT -->
+                    <div>
+                        <span class="text-purple-400 font-mono text-xs tracking-widest uppercase">ClawHub Marketplace</span>
+                        <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-6 leading-tight">
+                            The Skills People<br /><span class="text-gradient">Actually Want</span>
+                        </h2>
+                        <p class="text-secondary leading-relaxed mb-10">
+                            We hand-pick and install the top 50 skills from ClawHub relevant to your exact business role. Here are the four power packs we deploy most:
+                        </p>
+
+                        <div class="space-y-5">
+                            {[
+                                {
+                                    name: 'Executive Pack',
+                                    color: 'border-blue-500/30 bg-blue-500/5',
+                                    badge: 'text-blue-400',
+                                    examples: ['"Summarize this 40-min Zoom transcript"', '"Draft a reply to this angry email"', '"Find a time for a meeting with X"'],
+                                },
+                                {
+                                    name: 'Knowledge Pack',
+                                    color: 'border-purple-500/30 bg-purple-500/5',
+                                    badge: 'text-purple-400',
+                                    examples: ['"What did I decide about the marketing budget last Oct?"', 'Connects to Obsidian & Notion', 'Answers from YOUR data, instantly'],
+                                },
+                                {
+                                    name: 'Research Pack',
+                                    color: 'border-green-500/30 bg-green-500/5',
+                                    badge: 'text-green-400',
+                                    examples: ['"Find the top 5 competitors in [niche] with pricing"', 'Real-time web search', 'Competitor intelligence on demand'],
+                                },
+                                {
+                                    name: 'Creative Pack',
+                                    color: 'border-orange-500/30 bg-orange-500/5',
+                                    badge: 'text-orange-400',
+                                    examples: ['"Rewrite this LinkedIn post in my voice"', '"Generate a thumbnail concept for this idea"', 'Content that sounds like you'],
+                                },
+                            ].map((pack) => (
+                                <div class={`rounded-xl border p-5 ${pack.color}`}>
+                                    <div class={`text-xs font-bold tracking-widest uppercase mb-3 ${pack.badge}`}>{pack.name}</div>
+                                    <div class="space-y-1.5">
+                                        {pack.examples.map((ex) => (
+                                            <div class="flex items-center gap-2.5">
+                                                <div class="w-1 h-1 rounded-full bg-current opacity-60 flex-shrink-0" />
+                                                <span class="text-sm text-secondary">{ex}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <!-- Video RIGHT -->
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-purple-500/8 rounded-3xl blur-3xl -z-10 scale-105" />
+                        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
+                            <ProductVideoPlayer id="private-assistant-skills" client:visible />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ════════════════════════════════════════════════════════
+             SECTION 4 — Sovereign Advantage Comparison Table
+        ════════════════════════════════════════════════════════ -->
+        <section class="py-24 bg-[#080808] border-y border-white/5">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-14">
+                        <span class="text-accent font-mono text-xs tracking-widest uppercase">The Comparison</span>
+                        <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-4">
+                            The <span class="text-gradient">Sovereign Advantage</span>
+                        </h2>
+                        <p class="text-secondary max-w-xl mx-auto">
+                            "Bespoke" AI agencies sell locked-in workflows at $5,000+. We deploy the world's most powerful open-source AI — on your hardware, in your voice.
+                        </p>
+                    </div>
+
+                    <div class="rounded-2xl border border-white/10 overflow-hidden">
+                        <!-- Header -->
+                        <div class="grid grid-cols-3 bg-white/[0.03] border-b border-white/10">
+                            <div class="p-5 text-sm font-bold text-secondary uppercase tracking-widest">Feature</div>
+                            <div class="p-5 text-sm font-bold text-secondary uppercase tracking-widest border-l border-white/10 text-center">"Bespoke" Agencies ($5k+)</div>
+                            <div class="p-5 text-sm font-bold text-accent uppercase tracking-widest border-l border-accent/20 text-center bg-accent/5">SystemPros OpenClaw</div>
+                        </div>
+                        <!-- Rows -->
                         {[
-                            { stat: '247K+', label: 'GitHub Stars', sub: 'Open Source' },
-                            { stat: '3,000+', label: 'Community Skills', sub: 'Via ClawHub' },
-                            { stat: '20+', label: 'Messaging Platforms', sub: 'WhatsApp, Slack, etc.' },
-                            { stat: '24/7', label: 'Persistent Memory', sub: 'Never forgets context' },
-                        ].map((item) => (
-                            <div class="glass-card text-center p-6">
-                                <div class="text-2xl font-extrabold text-accent mb-1">{item.stat}</div>
-                                <div class="text-sm font-semibold text-white">{item.label}</div>
-                                <div class="text-xs text-secondary mt-1">{item.sub}</div>
+                            { feature: 'Platform', them: 'Web-only or custom app', us: 'WhatsApp, iMessage, Slack + 17 more' },
+                            { feature: 'Privacy', them: 'Data lives on their servers', us: 'Data lives on YOUR hardware' },
+                            { feature: 'Speed to Launch', them: '4–8 weeks', us: '48–72 hours' },
+                            { feature: 'Flexibility', them: 'Rigid, locked-in workflows', us: '3,000+ community skills (ClawHub)' },
+                            { feature: 'Personality', them: 'Generic AI "assistant"', us: 'Custom SOUL.md — your voice, your rules' },
+                        ].map((row, i) => (
+                            <div class={`grid grid-cols-3 border-b border-white/8 ${i % 2 === 0 ? '' : 'bg-white/[0.015]'}`}>
+                                <div class="p-5 text-sm font-semibold text-white">{row.feature}</div>
+                                <div class="p-5 text-sm text-secondary border-l border-white/8 text-center">{row.them}</div>
+                                <div class="p-5 text-sm text-white font-semibold border-l border-accent/15 text-center bg-accent/[0.03]">{row.us}</div>
                             </div>
                         ))}
                     </div>
@@ -65,96 +246,112 @@ import assistantHero from '../assets/private_assistant_hero.png';
             </div>
         </section>
 
-        <!-- MOTION INFOGRAPHIC VIDEO -->
-        <section class="py-20 bg-[#060606]">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <div class="text-center mb-12">
-                    <span class="text-accent font-mono text-xs tracking-widest uppercase">The System Visualized</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-3">Your AI Assistant <span class="text-gradient">In Motion</span></h2>
-                    <p class="text-secondary max-w-xl mx-auto">See how OpenClaw connects across 20+ platforms with 3,000+ skills — done for you from day one.</p>
-                </div>
-                <div class="max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10">
-                    <ProductVideoPlayer id="private-assistant" client:visible />
-                </div>
-            </div>
-        </section>
-
-        <!-- Platform Icons Section -->
-        <section class="py-20">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">One Assistant. <span class="text-gradient">Every Platform.</span></h2>
-                <p class="text-secondary mb-12 max-w-xl mx-auto">Your AI lives wherever you chat. No switching apps. No copy-pasting. Just message it.</p>
-
-                <div class="flex flex-wrap justify-center gap-6 max-w-3xl mx-auto">
-                    {['WhatsApp', 'Telegram', 'Discord', 'Slack', 'Teams', 'iMessage', 'Signal', 'Email'].map((platform) => (
-                        <div class="px-5 py-3 rounded-xl bg-surface/80 border border-white/10 text-sm font-medium text-white hover:border-accent/40 hover:bg-accent/5 transition-all">
-                            {platform}
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- What We Do For You -->
-        <section class="py-24 bg-[#080808]">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">The Done-For-You <span class="text-gradient">Package</span></h2>
-                    <p class="text-secondary max-w-xl mx-auto">OpenClaw is free. Setting it up properly isn't simple. That's where we come in.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                    {[
-                        { title: 'Install & Configure', desc: 'We install OpenClaw on your Mac, Windows, Linux, or remote server. Configured for optimal performance.' },
-                        { title: 'Connect Your Channels', desc: 'We link your WhatsApp, Telegram, Discord, Slack, Teams, iMessage — whatever you use.' },
-                        { title: 'Select & Install Skills', desc: 'We browse 3,000+ community skills on ClawHub and install the ones that match your workflow.' },
-                        { title: 'Write Your SOUL.md', desc: 'We craft a custom personality file that defines how your AI communicates, thinks, and behaves.' },
-                        { title: 'Train On Your Data', desc: 'We connect it to your Obsidian notes, files, and workflows. Your AI knows your world.' },
-                        { title: 'Ongoing Support', desc: 'We provide support, skill updates, and optimization as OpenClaw evolves and your needs change.' },
-                    ].map((item) => (
-                        <div class="glass-card group hover:-translate-y-1 transition-all duration-300">
-                            <h3 class="text-lg font-bold mb-3 text-white group-hover:text-accent transition-colors">{item.title}</h3>
-                            <p class="text-sm text-secondary leading-relaxed">{item.desc}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Use Cases -->
+        <!-- ════════════════════════════════════════════════════════
+             SECTION 5 — Done-For-You Deployment Checklist
+        ════════════════════════════════════════════════════════ -->
         <section class="py-24">
             <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">Built For <span class="text-gradient">Every Role</span></h2>
-                </div>
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <span class="text-accent font-mono text-xs tracking-widest uppercase">What We Handle</span>
+                        <h2 class="text-3xl md:text-5xl font-bold mt-4 mb-4">
+                            The Done-For-You <span class="text-gradient">Deployment</span>
+                        </h2>
+                        <p class="text-secondary max-w-xl mx-auto">
+                            OpenClaw is free. Setting it up <em>properly</em> — with the right personality, the right skills, and the right connections — is where most people fail. That's what we do.
+                        </p>
+                    </div>
 
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    {[
-                        { title: 'Executive Assistant', desc: 'Scheduling, email triage, meeting prep, reminders, and research — all via a single message thread.', color: 'border-blue-500/20 hover:border-blue-500/50' },
-                        { title: 'Content Creator', desc: 'Drafting posts, researching topics, scheduling content, and managing your editorial calendar.', color: 'border-purple-500/20 hover:border-purple-500/50' },
-                        { title: 'Developer Copilot', desc: 'Code review summaries, documentation lookups, deployment status checks, and PR management.', color: 'border-green-500/20 hover:border-green-500/50' },
-                        { title: 'Sales Intelligence', desc: 'CRM updates, lead research, follow-up reminders, and competitive intelligence — on demand.', color: 'border-orange-500/20 hover:border-orange-500/50' },
-                    ].map((useCase) => (
-                        <div class={`glass-card group transition-all duration-300 hover:-translate-y-1 ${useCase.color}`}>
-                            <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors">{useCase.title}</h3>
-                            <p class="text-secondary leading-relaxed">{useCase.desc}</p>
-                        </div>
-                    ))}
+                    <div class="grid md:grid-cols-2 gap-6">
+                        {[
+                            {
+                                check: true,
+                                title: 'Secure Server Environment',
+                                desc: 'We configure the "Hidden Factory" — Mac, Linux, or cloud — so your AI is on 24/7, even when your laptop is closed.',
+                                icon: '🖥',
+                            },
+                            {
+                                check: true,
+                                title: 'Multi-Channel Bridge',
+                                desc: 'We link your phone number and social accounts so your AI is literally a contact in your phone — one message away.',
+                                icon: '🔗',
+                            },
+                            {
+                                check: true,
+                                title: 'Personality Engineering',
+                                desc: 'We write your SOUL.md file — your AI\'s DNA. It doesn\'t just answer questions; it thinks and communicates like you.',
+                                icon: '🧬',
+                            },
+                            {
+                                check: true,
+                                title: 'Skill Injection',
+                                desc: 'We hand-pick and install the top 50 skills relevant to your specific business role. No bloat. Just power.',
+                                icon: '⚡',
+                            },
+                            {
+                                check: true,
+                                title: 'Second Brain Integration',
+                                desc: 'We connect your Obsidian vault or Notion workspace so your AI answers from your own notes and decisions.',
+                                icon: '🧠',
+                            },
+                            {
+                                check: true,
+                                title: 'Ongoing Support',
+                                desc: 'As OpenClaw evolves and your needs change, we keep your assistant sharp, updated, and optimized.',
+                                icon: '🔄',
+                            },
+                        ].map((item) => (
+                            <div class="glass-card group hover:-translate-y-1 transition-all duration-300 flex gap-5 items-start">
+                                <div class="flex-shrink-0 w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-lg group-hover:bg-accent/20 transition-colors">
+                                    {item.icon}
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <div class="w-4 h-4 rounded border-2 border-accent bg-accent/20 flex items-center justify-center flex-shrink-0">
+                                            <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
+                                                <path d="M1 3L3.5 5.5L8 1" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </div>
+                                        <h3 class="font-bold text-white group-hover:text-accent transition-colors">{item.title}</h3>
+                                    </div>
+                                    <p class="text-sm text-secondary leading-relaxed">{item.desc}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
+        <!-- ════════════════════════════════════════════════════════
+             SECTION 6 — The "Only One" Close
+        ════════════════════════════════════════════════════════ -->
         <section class="py-32 relative text-center overflow-hidden">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-main to-main z-0"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.15)_0%,transparent_65%)]" />
             <div class="container mx-auto px-4 relative z-10 max-w-3xl">
-                <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Your AI. Your Rules.<br/><span class="text-gradient">Your Data.</span></h2>
-                <p class="text-xl text-secondary mb-12 leading-relaxed">
-                    Private, powerful, and always available. Let us build your perfect assistant.
+                <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-purple-400 border border-purple-500/25 bg-purple-500/5 rounded-full px-4 py-2 mb-10">
+                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400 inline-block animate-pulse"></span>
+                    247,000 Developers. One Deployment Team.
+                </div>
+
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tighter leading-tight">
+                    There are 247,000 developers<br />building OpenClaw.<br />
+                    <span class="text-gradient">You only need one team to deploy it.</span>
+                </h2>
+
+                <p class="text-xl text-secondary mb-12 leading-relaxed max-w-2xl mx-auto">
+                    Don't waste weeks trying to DIY your AI. We give you a production-ready, private assistant in days. <strong class="text-white">Your data. Your rules. Your AI.</strong>
                 </p>
-                <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
-                    Get Your Private Assistant
-                </a>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+                        Build My Sovereign AI
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/pricing" class="inline-flex items-center gap-2 text-lg px-10 py-5 rounded-xl border border-white/15 text-secondary hover:text-white hover:border-white/30 transition-all">
+                        View Pricing
+                    </a>
+                </div>
             </div>
         </section>
 
