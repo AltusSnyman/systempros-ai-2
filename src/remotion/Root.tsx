@@ -8,6 +8,9 @@ import { LeadReactorChannels } from './compositions/LeadReactorChannels';
 import { PrivateAssistant } from './compositions/PrivateAssistant';
 import { PrivateAssistantSilo } from './compositions/PrivateAssistantSilo';
 import { PrivateAssistantSkills } from './compositions/PrivateAssistantSkills';
+import { OpenClawHub } from './compositions/OpenClawHub';
+import { OpenClawVsChatGPT } from './compositions/OpenClawVsChatGPT';
+import { OpenClawSetup } from './compositions/OpenClawSetup';
 import { Consultation } from './compositions/Consultation';
 import { ConsultationGap } from './compositions/ConsultationGap';
 import { Training } from './compositions/Training';
@@ -52,6 +55,9 @@ export const RemotionRoot = () => {
       />
       <Composition {...commonProps} id="private-assistant-silo" component={PrivateAssistantSilo} defaultProps={{}} />
       <Composition {...commonProps} id="private-assistant-skills" component={PrivateAssistantSkills} defaultProps={{}} />
+      <Composition {...commonProps} id="openclaw-hub" component={OpenClawHub} defaultProps={{}} />
+      <Composition {...commonProps} id="openclaw-vs-chatgpt" component={OpenClawVsChatGPT} defaultProps={{}} />
+      <Composition {...commonProps} id="openclaw-setup" component={OpenClawSetup} defaultProps={{}} />
       <Composition {...commonProps} id="consultation" component={Consultation} defaultProps={{}} />
       <Composition {...commonProps} id="consultation-gap" component={ConsultationGap} defaultProps={{}} />
       <Composition {...commonProps} id="training" component={Training} defaultProps={{}} />

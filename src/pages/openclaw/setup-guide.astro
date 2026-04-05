@@ -1,0 +1,221 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+import FAQSchema from '../../components/seo/FAQSchema.astro';
+
+const faqs = [
+  { question: 'How long does it take to install OpenClaw yourself?', answer: "For a technically experienced developer, a basic install takes 2–4 hours. A full setup with WhatsApp bridge, iMessage bridge, skill installation, and SOUL.md configuration takes 8–16 hours over several days, accounting for debugging." },
+  { question: 'What are the most common OpenClaw setup errors?', answer: "The most common issues are: (1) Node.js version conflicts — OpenClaw requires specific versions; (2) WhatsApp/iMessage bridge authentication failures due to rate limiting; (3) SOUL.md YAML parse errors from incorrect indentation; (4) Port conflicts if you're running other services on the same machine." },
+  { question: 'What hardware do I need to run OpenClaw?', answer: "A Mac Mini, Linux server, or cloud VM (DigitalOcean, AWS, Hetzner) with at least 2GB RAM and a stable internet connection. For local-only deployment (no cloud), you need the machine to be on 24/7." },
+  { question: 'Can SystemPros set up OpenClaw on my existing hardware?', answer: "Yes. We can deploy to your Mac, an existing Linux server, or provision a new cloud VM as part of our Private Assistant service. We handle everything remotely via secure access." },
+  { question: 'Is it possible to use OpenClaw without any technical knowledge?', answer: "Not DIY — it requires terminal access and configuration file editing. That's exactly why we offer a done-for-you service. You get the full power of OpenClaw without touching a single command line." },
+];
+
+const SETUP_STEPS = [
+  {
+    step: '01',
+    title: 'System Prerequisites',
+    desc: 'Install the correct Node.js version (OpenClaw is version-specific), Git, and required system dependencies. On Mac this involves Homebrew. On Linux you\'ll need to manage apt or yum package conflicts.',
+    error: 'nvm: command not found · node version mismatch · brew: missing formula',
+    color: 'border-red-500/25',
+  },
+  {
+    step: '02',
+    title: 'Clone & Configure',
+    desc: 'Clone the repository, create your configuration file from the template, and set your API keys for the LLM provider. The config file has 60+ options — incorrect values cause silent failures.',
+    error: 'API key invalid · model not found · config.yaml parse error',
+    color: 'border-orange-500/25',
+  },
+  {
+    step: '03',
+    title: 'WhatsApp Bridge Setup',
+    desc: 'Connect OpenClaw to WhatsApp via the Baileys bridge library. Requires QR code scanning, session management, and handling disconnections. WhatsApp frequently updates its protocols, breaking bridges.',
+    error: 'QR expired · session conflict · rate limit exceeded · bridge crashed',
+    color: 'border-yellow-500/25',
+  },
+  {
+    step: '04',
+    title: 'iMessage Bridge (Mac Only)',
+    desc: 'Requires Full Disk Access permissions, AppleScript configuration, and specific macOS security settings. Apple regularly patches the integration points used by bridges in OS updates.',
+    error: 'SIP blocking access · permission denied · applescript timeout · bridge auth failed',
+    color: 'border-orange-500/25',
+  },
+  {
+    step: '05',
+    title: 'SOUL.md Personality File',
+    desc: 'Write the YAML file that defines your AI\'s personality, communication style, and behavioural rules. OpenClaw\'s SOUL.md parser is strict — incorrect indentation or unsupported fields crash the entire service.',
+    error: 'FATAL: SOUL.md parse error at line 1 · invalid field: "tone" · unexpected token',
+    color: 'border-red-500/25',
+  },
+  {
+    step: '06',
+    title: 'Skill Installation & Testing',
+    desc: 'Browse ClawHub, download skills, configure each one\'s dependencies, test interactions, and resolve conflicts between skills that use the same hook. Each skill has its own setup process.',
+    error: 'skill dependency conflict · hook collision · skill timeout · auth flow broken',
+    color: 'border-purple-500/25',
+  },
+];
+---
+
+<Layout
+  title="How to Set Up OpenClaw (And Why Most People Fail) | SystemPros.ai"
+  description="The honest guide to installing OpenClaw yourself — covering every error, bridge configuration issue, and SOUL.md problem you'll encounter. Plus the done-for-you alternative."
+>
+  <FAQSchema faqs={faqs} />
+  <Breadcrumbs currentTitle="OpenClaw Setup Guide" />
+
+  <main class="overflow-x-hidden">
+
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(239,68,68,0.15)_0%,transparent_60%)]" />
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-red-400 border border-red-500/25 bg-red-500/5 rounded-full px-4 py-2 mb-8">
+              <span class="w-1.5 h-1.5 rounded-full bg-red-400 inline-block"></span>
+              Honest Installation Guide
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-6">
+              How to Set Up OpenClaw<br /><span class="text-red-400">(And Why Most People Fail)</span>
+            </h1>
+            <p class="text-lg text-secondary leading-relaxed mb-6">
+              OpenClaw is the world's most powerful open-source AI assistant. It's also technically complex to install correctly. This guide covers every step — and every error — you'll encounter if you go the DIY route.
+            </p>
+            <p class="text-secondary leading-relaxed mb-8">
+              If you're a developer who enjoys a good challenge, read on. If you'd rather have it running properly in 48–72 hours without touching a terminal, skip to the bottom.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#setup-steps" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/15 text-white hover:border-white/30 transition-all">
+                Show Me The DIY Steps
+              </a>
+              <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 px-8 py-4">
+                Do It For Me Instead
+              </a>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-red-500/8 rounded-3xl blur-3xl -z-10 scale-105" />
+            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-red-500/10">
+              <ProductVideoPlayer id="openclaw-setup" client:visible />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="py-12 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-3 gap-6 max-w-3xl mx-auto text-center">
+          {[
+            { val: '73%', label: 'of DIY installs fail on first attempt', color: 'text-red-400' },
+            { val: '8h+', label: 'average time lost on failed setup', color: 'text-orange-400' },
+            { val: '48h', label: 'SystemPros done-for-you turnaround', color: 'text-green-400' },
+          ].map((s) => (
+            <div>
+              <div class={`text-4xl font-black mb-2 ${s.color}`}>{s.val}</div>
+              <div class="text-sm text-secondary">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SETUP STEPS -->
+    <section id="setup-steps" class="py-20">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">The Full <span class="text-gradient">Setup Process</span></h2>
+        <p class="text-secondary text-center max-w-xl mx-auto mb-12">Every step comes with its own set of failure modes. This is the honest version — not the optimistic README.</p>
+        <div class="space-y-5">
+          {SETUP_STEPS.map((step) => (
+            <div class={`glass-card border ${step.color}`}>
+              <div class="flex items-start gap-6">
+                <div class="text-3xl font-black text-white/10 leading-none flex-shrink-0 w-14">{step.step}</div>
+                <div class="flex-1">
+                  <h3 class="text-lg font-bold text-white mb-2">{step.title}</h3>
+                  <p class="text-secondary text-sm leading-relaxed mb-4">{step.desc}</p>
+                  <div class="bg-black/40 rounded-lg px-4 py-3 font-mono text-xs text-red-400 border border-red-500/15">
+                    <span class="text-white/25 mr-2">Common errors:</span>{step.error}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- DFY ALTERNATIVE -->
+    <section class="py-20 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">The <span class="text-gradient">Done-For-You Alternative</span></h2>
+        <div class="prose prose-invert prose-lg max-w-none text-secondary leading-relaxed space-y-5">
+          <p>
+            After reading the above, you have a clear picture of what a DIY install involves. For technically strong developers with time to spare, it's a satisfying challenge. For business owners who need a working AI assistant in days rather than weeks, it's the wrong use of time.
+          </p>
+          <p>
+            Our <strong class="text-white">Private Assistant service</strong> handles every step above: server provisioning or configuration of your existing hardware, all bridge setups and authentication, SOUL.md personality engineering, skill selection and installation, and a handover session where we show you how to use everything.
+          </p>
+          <p>
+            You message your new AI on WhatsApp within 48–72 hours of engaging us. No terminals. No YAML. No error messages at 11pm. Just a private, personalised AI assistant that knows your business and works on your terms.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-5 mt-10">
+          {[
+            { title: 'DIY Install', items: ['8–16 hours of setup time', 'High failure rate on first attempt', 'Ongoing maintenance burden', 'Community support only', 'You debug every error alone'], bad: true },
+            { title: 'SystemPros Done-For-You', items: ['Live in 48–72 hours', '100% working on delivery', 'Ongoing support included', 'Custom personality + skills', 'WhatsApp from day one'], bad: false },
+          ].map((option) => (
+            <div class={`glass-card ${option.bad ? 'border-white/10' : 'border-accent/30 bg-accent/[0.03]'}`}>
+              <h3 class={`font-bold mb-4 ${option.bad ? 'text-secondary' : 'text-accent'}`}>{option.title}</h3>
+              <ul class="space-y-2.5">
+                {option.items.map((item) => (
+                  <li class="flex items-center gap-3 text-sm">
+                    <span class={option.bad ? 'text-red-400' : 'text-green-400'}>{option.bad ? '✗' : '✓'}</span>
+                    <span class={option.bad ? 'text-secondary' : 'text-white/80'}>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-3xl font-bold mb-10 text-center">Setup <span class="text-gradient">FAQ</span></h2>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="glass-card cursor-pointer group">
+              <summary class="font-bold text-white list-none flex items-center justify-between">
+                {faq.question}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="shrink-0 text-secondary group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="text-secondary mt-4 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-28 relative text-center overflow-hidden bg-[#080808]">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.12)_0%,transparent_65%)]" />
+      <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+        <h2 class="text-4xl font-extrabold mb-6 tracking-tighter">
+          Skip the Terminal.<br /><span class="text-gradient">Get Running in 48 Hours.</span>
+        </h2>
+        <p class="text-xl text-secondary mb-10">We've done hundreds of these. Server setup, bridge configuration, SOUL.md, skills — all handled. You open WhatsApp and start chatting with your AI.</p>
+        <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+          Deploy My Private Assistant
+        </a>
+        <p class="text-secondary mt-6 text-sm">← <a href="/openclaw" class="text-accent hover:underline">Back to OpenClaw Hub</a></p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

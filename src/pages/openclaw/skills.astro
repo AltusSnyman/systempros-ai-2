@@ -1,0 +1,184 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+
+const SKILL_CATEGORIES = [
+  {
+    name: 'Productivity & Admin',
+    color: 'border-blue-500/25 bg-blue-500/5',
+    badge: 'text-blue-400',
+    count: '400+',
+    skills: ['Calendar management', 'Email drafting & triage', 'Task list management', 'Meeting summaries', 'Travel booking research'],
+  },
+  {
+    name: 'Research & Intelligence',
+    color: 'border-purple-500/25 bg-purple-500/5',
+    badge: 'text-purple-400',
+    count: '350+',
+    skills: ['Real-time web search', 'Competitor analysis', 'Market research reports', 'News monitoring', 'Academic paper summaries'],
+  },
+  {
+    name: 'Knowledge Management',
+    color: 'border-green-500/25 bg-green-500/5',
+    badge: 'text-green-400',
+    count: '280+',
+    skills: ['Obsidian vault queries', 'Notion database search', 'Document Q&A', 'Personal knowledge graphs', 'Meeting notes indexing'],
+  },
+  {
+    name: 'Creative & Content',
+    color: 'border-orange-500/25 bg-orange-500/5',
+    badge: 'text-orange-400',
+    count: '320+',
+    skills: ['LinkedIn posts', 'Email newsletters', 'Blog outlines', 'Script writing', 'Brand voice matching'],
+  },
+  {
+    name: 'Developer Tools',
+    color: 'border-yellow-500/25 bg-yellow-500/5',
+    badge: 'text-yellow-400',
+    count: '500+',
+    skills: ['GitHub integration', 'Code review summaries', 'PR descriptions', 'Deploy status checks', 'Stack Overflow queries'],
+  },
+  {
+    name: 'Business Automation',
+    color: 'border-red-500/25 bg-red-500/5',
+    badge: 'text-red-400',
+    count: '450+',
+    skills: ['CRM updates via text', 'Invoice generation', 'Slack channel summaries', 'Sales pipeline tracking', 'Client onboarding flows'],
+  },
+];
+
+const TOP_SKILLS = [
+  { name: 'WebSearch', desc: 'Real-time web search with cited sources', stars: '12.4k' },
+  { name: 'ObsidianVault', desc: 'Query your personal notes database', stars: '9.1k' },
+  { name: 'CRMWhisperer', desc: 'Voice-to-CRM data entry via message', stars: '7.8k' },
+  { name: 'ZoomSummary', desc: 'Transcribe and summarise meeting recordings', stars: '11.2k' },
+  { name: 'VoiceClone', desc: 'Write content that sounds like you', stars: '8.6k' },
+  { name: 'DailyBriefing', desc: 'Morning digest of calendar, tasks, news', stars: '15.3k' },
+];
+---
+
+<Layout
+  title="OpenClaw Skills Guide: 3,000+ Powers on ClawHub | SystemPros.ai"
+  description="Everything you need to know about OpenClaw skills and ClawHub — the community marketplace with 3,000+ AI powers. Find the best skills for business productivity, research, CRM, and more."
+>
+  <Breadcrumbs currentTitle="OpenClaw Skills Guide" />
+
+  <main class="overflow-x-hidden">
+
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(139,92,246,0.15)_0%,transparent_60%)]" />
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-purple-400 border border-purple-500/25 bg-purple-500/5 rounded-full px-4 py-2 mb-8">
+              <span class="w-1.5 h-1.5 rounded-full bg-purple-400 inline-block"></span>
+              ClawHub Marketplace
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-6">
+              OpenClaw Skills:<br /><span class="text-gradient">3,000+ Powers for Your AI</span>
+            </h1>
+            <p class="text-lg text-secondary leading-relaxed mb-8">
+              Skills are the superpower system inside OpenClaw. Think of them as apps for your AI — each one adds a new capability, from querying your Obsidian notes to updating your CRM via text. The ClawHub community has built over 3,000 of them, and we install the right 50 for your specific workflow.
+            </p>
+            <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 px-8 py-4">
+              Get My Skills Installed
+            </a>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-purple-500/8 rounded-3xl blur-3xl -z-10 scale-105" />
+            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
+              <ProductVideoPlayer id="private-assistant-skills" client:visible />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT ARE SKILLS -->
+    <section class="py-20 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">What Are <span class="text-gradient">OpenClaw Skills?</span></h2>
+        <div class="prose prose-invert prose-lg max-w-none text-secondary leading-relaxed space-y-5">
+          <p>
+            Out of the box, OpenClaw is a capable AI assistant — it can answer questions, draft content, and hold a conversation. But its real power comes from <strong class="text-white">Skills</strong>: modular extensions that give it specific capabilities connected to real-world tools and data sources.
+          </p>
+          <p>
+            A skill is essentially a pre-built integration. The <em>WebSearch</em> skill connects OpenClaw to live internet data so it can answer questions about current events. The <em>ObsidianVault</em> skill indexes your personal notes so you can ask your AI what you wrote in a meeting three months ago. The <em>CRMWhisperer</em> skill connects to your CRM so a single text message creates a logged contact.
+          </p>
+          <p>
+            Skills are discovered and downloaded from <strong class="text-white">ClawHub</strong> — the community-run marketplace analogous to npm for Node or the App Store for iOS. Each skill has a star rating, installation instructions, and community reviews. The 247,000-strong OpenClaw developer community adds new skills weekly.
+          </p>
+          <p>
+            The challenge for most businesses isn't finding skills — it's knowing which 50 of the 3,000+ available skills are actually worth installing for their use case. That curation process is a core part of what we do when we deploy your private assistant.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILL CATEGORIES -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Skills by <span class="text-gradient">Category</span></h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {SKILL_CATEGORIES.map((cat) => (
+            <div class={`glass-card border ${cat.color}`}>
+              <div class="flex items-center justify-between mb-4">
+                <div class={`text-xs font-bold tracking-widest uppercase ${cat.badge}`}>{cat.name}</div>
+                <div class={`text-xs font-bold ${cat.badge} border ${cat.color.split(' ')[0]} px-2 py-0.5 rounded-full`}>{cat.count}</div>
+              </div>
+              <ul class="space-y-2">
+                {cat.skills.map((skill) => (
+                  <li class="flex items-center gap-2.5 text-sm text-secondary">
+                    <div class="w-1 h-1 rounded-full bg-current opacity-50 flex-shrink-0" />
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- TOP COMMUNITY SKILLS -->
+    <section class="py-20 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center">Most Popular <span class="text-gradient">Community Skills</span></h2>
+        <p class="text-secondary text-center max-w-xl mx-auto mb-12">The skills most commonly installed in our done-for-you deployments.</p>
+        <div class="grid md:grid-cols-2 gap-4">
+          {TOP_SKILLS.map((skill) => (
+            <div class="glass-card flex items-center gap-5 hover:-translate-y-0.5 transition-all duration-300">
+              <div class="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="flex-1">
+                <div class="font-bold text-white">{skill.name}</div>
+                <div class="text-sm text-secondary mt-0.5">{skill.desc}</div>
+              </div>
+              <div class="text-xs text-accent font-bold">⭐ {skill.stars}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-28 relative text-center overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.12)_0%,transparent_65%)]" />
+      <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+        <h2 class="text-4xl font-extrabold mb-6 tracking-tighter">
+          Stop Browsing ClawHub.<br /><span class="text-gradient">We'll Pick the Right 50.</span>
+        </h2>
+        <p class="text-xl text-secondary mb-10">We analyse your role and workflow, select the optimal skill stack, install and test everything, then hand you a production-ready assistant.</p>
+        <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+          Get My Skills Installed
+        </a>
+        <p class="text-secondary mt-6 text-sm">← <a href="/openclaw" class="text-accent hover:underline">Back to OpenClaw Hub</a></p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

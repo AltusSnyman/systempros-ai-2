@@ -1,0 +1,139 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+---
+
+<Layout
+  title="OpenClaw for Business: Your Always-On AI Employee | SystemPros.ai"
+  description="Learn how businesses are using OpenClaw as a private AI employee — available 24/7 on WhatsApp, handling admin, research, CRM updates, and more. No monthly fees. No data leaks."
+>
+  <Breadcrumbs currentTitle="OpenClaw for Business" />
+
+  <main class="overflow-x-hidden">
+
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(34,197,94,0.15)_0%,transparent_60%)]" />
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-green-400 border border-green-500/25 bg-green-500/5 rounded-full px-4 py-2 mb-8">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span>
+              Business Automation
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-6">
+              OpenClaw for Business:<br /><span class="text-gradient">Your Always-On AI Employee</span>
+            </h1>
+            <p class="text-lg text-secondary leading-relaxed mb-8">
+              Imagine hiring an executive assistant who never sleeps, never forgets a conversation, works on WhatsApp, Slack, and iMessage simultaneously, and costs a fraction of a junior hire. That's OpenClaw, deployed correctly for your business.
+            </p>
+            <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 px-8 py-4">
+              Get My Business AI Deployed
+            </a>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-green-500/8 rounded-3xl blur-3xl -z-10 scale-105" />
+            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-green-500/10">
+              <ProductVideoPlayer id="private-assistant" client:visible />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE BUSINESS CASE -->
+    <section class="py-20 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">The Business Case for <span class="text-gradient">Private AI</span></h2>
+        <div class="prose prose-invert prose-lg max-w-none text-secondary leading-relaxed space-y-5">
+          <p>
+            Most business owners interact with AI by opening a browser tab, typing a question, and hoping the answer is useful. This approach has three fatal flaws for serious businesses: the AI doesn't know your business context, the data you share trains a competitor's model, and you get zero continuity between sessions.
+          </p>
+          <p>
+            OpenClaw for business is a fundamentally different architecture. It runs on <strong class="text-white">your server or hardware</strong>, so it accumulates institutional knowledge over time. It knows your clients by name, your products and pricing, your communication style, and your recurring workflows. Every interaction builds on the last.
+          </p>
+          <p>
+            The financial case is compelling: the average knowledge worker switches between applications 1,200 times per day and loses roughly 20 minutes of deep focus per context switch. OpenClaw collapses these context switches into a single WhatsApp thread. Instead of opening seven apps, you send one message.
+          </p>
+          <p>
+            For SMEs operating across time zones — common for NZ and Australian businesses with US clients — OpenClaw operates 24/7 without a salary. It can handle inbound enquiries, update the CRM, send follow-up messages, and brief you on overnight activity before your morning coffee.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI BREAKDOWN -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Where Businesses <span class="text-gradient">Get Their Time Back</span></h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          {[
+            { area: 'Admin & Scheduling', before: '3–4 hrs/week juggling calendars, emails, and follow-ups manually', after: '15 min/week — AI handles scheduling, drafts emails, sets reminders', saving: '~3 hrs saved', color: 'border-blue-500/25', accent: 'text-blue-400' },
+            { area: 'CRM Data Entry', before: 'Manual logging after every call and meeting — often skipped entirely', after: 'Voice-to-CRM: text your AI what happened, record created instantly', saving: '~5 hrs saved', color: 'border-green-500/25', accent: 'text-green-400' },
+            { area: 'Research & Intel', before: 'Ad-hoc Google searches, browser tabs everywhere, outdated data', after: 'Real-time research queries via WhatsApp with structured output', saving: '~2 hrs saved', color: 'border-purple-500/25', accent: 'text-purple-400' },
+            { area: 'Content Production', before: 'Staring at blank pages, rewriting drafts, inconsistent brand voice', after: 'First draft in your voice in 30 seconds, ready to refine', saving: '~4 hrs saved', color: 'border-orange-500/25', accent: 'text-orange-400' },
+          ].map((item) => (
+            <div class={`glass-card border ${item.color}`}>
+              <div class={`text-xs font-bold tracking-widest uppercase mb-3 ${item.accent}`}>{item.area}</div>
+              <div class="mb-3">
+                <div class="text-xs text-secondary mb-1">BEFORE</div>
+                <p class="text-sm text-white/60">{item.before}</p>
+              </div>
+              <div class="mb-3 pt-3 border-t border-white/8">
+                <div class="text-xs text-secondary mb-1">AFTER OPENCLAW</div>
+                <p class="text-sm text-white/80">{item.after}</p>
+              </div>
+              <div class={`text-sm font-bold ${item.accent}`}>{item.saving} per week</div>
+            </div>
+          ))}
+        </div>
+        <div class="mt-10 text-center glass-card max-w-xl mx-auto">
+          <div class="text-4xl font-black text-accent mb-2">14+ hrs</div>
+          <div class="text-white font-bold mb-1">Saved per week, per person</div>
+          <div class="text-secondary text-sm">At $100/hr, that's $140,000/year in reclaimed capacity</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO IT'S BUILT FOR -->
+    <section class="py-20 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Who Gets the Most <span class="text-gradient">Out of OpenClaw</span></h2>
+        <div class="grid md:grid-cols-3 gap-5">
+          {[
+            { role: 'Founders & CEOs', desc: "You're the bottleneck in your own business. OpenClaw handles the 80% of cognitive admin that doesn't need your direct involvement — so you stay in the zone that actually moves the needle.", icon: '🚀' },
+            { role: 'Sales Professionals', desc: 'Pre-call research, post-call CRM logging, follow-up message drafts, objection scripts, and competitor comparisons. Your AI manages the before and after so you focus on the conversation itself.', icon: '💼' },
+            { role: 'Operations Teams', desc: 'Standard operating procedures queried in natural language. Workflows triggered by a message. Status updates from multiple systems consolidated into one morning brief. Operations at 10x the throughput.', icon: '⚙️' },
+            { role: 'Marketing Teams', desc: "Brand voice is consistent when your AI is trained on your tone. Campaign brief generation, content repurposing, SEO keyword queries, and competitor content analysis — all via Slack.", icon: '📣' },
+            { role: 'Consultants', desc: "Client notes, research synthesis, proposal drafts, and meeting summaries — all available on demand from your phone. You show up to every client interaction more prepared than anyone else in the room.", icon: '🧑‍💼' },
+            { role: 'Agency Owners', desc: 'Multiple clients, multiple contexts, multiple deliverables. OpenClaw becomes your knowledge management layer — instantly surfacing what matters for the client you\'re currently serving.', icon: '🏢' },
+          ].map((item) => (
+            <div class="glass-card group hover:-translate-y-1 transition-all duration-300">
+              <span class="text-2xl mb-3 block">{item.icon}</span>
+              <h3 class="font-bold text-white mb-2 group-hover:text-accent transition-colors">{item.role}</h3>
+              <p class="text-sm text-secondary leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-28 relative text-center overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(34,197,94,0.12)_0%,transparent_65%)]" />
+      <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+        <h2 class="text-4xl font-extrabold mb-6 tracking-tighter">
+          Ready to Give Your Business<br /><span class="text-gradient">an Always-On AI Employee?</span>
+        </h2>
+        <p class="text-xl text-secondary mb-10">We deploy, configure, and personalise your OpenClaw assistant in 48–72 hours. You message it on WhatsApp from day one.</p>
+        <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+          See The Private Assistant Service
+        </a>
+        <p class="text-secondary mt-6 text-sm">← <a href="/openclaw" class="text-accent hover:underline">Back to OpenClaw Hub</a> · <a href="/openclaw/use-cases" class="text-accent hover:underline">View All Use Cases</a></p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

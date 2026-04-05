@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+import FAQSchema from '../../components/seo/FAQSchema.astro';
+
+const faqs = [
+  { question: 'Is OpenClaw better than ChatGPT?', answer: "It depends what you optimise for. ChatGPT has a more capable base model for general tasks. OpenClaw wins on privacy (data stays on your hardware), platform coverage (20+ messaging apps), persistent memory, and extensibility via skills. For business use, OpenClaw is usually the better choice." },
+  { question: 'Can OpenClaw use GPT-4 or Claude?', answer: "Yes. OpenClaw is model-agnostic. You can connect it to OpenAI's API, Anthropic's Claude API, Ollama local models, or any other LLM provider. You get the power of any AI model combined with OpenClaw's platform integrations and privacy architecture." },
+  { question: 'Does OpenClaw work offline?', answer: "If you connect it to a local Ollama model, yes. If it uses a cloud API (OpenAI, Anthropic), it requires internet to process queries — but your conversation data still stays within your server rather than being stored by OpenClaw itself." },
+  { question: 'Is OpenClaw free?', answer: "The OpenClaw framework itself is free and open-source. You'll need to pay for the LLM API you connect it to (e.g., OpenAI or Anthropic API costs), and your own server or hardware. SystemPros charges a setup and configuration fee — contact us for pricing." },
+];
+
+const COMPARISON = [
+  { feature: 'Data Privacy', chatgpt: 'Stored on OpenAI servers. Used for training.', openclaw: 'On YOUR hardware. Zero data sharing.', winner: 'openclaw' },
+  { feature: 'Available Platforms', chatgpt: 'Web browser + mobile app only', openclaw: 'WhatsApp, iMessage, Slack, Discord + 17 more', winner: 'openclaw' },
+  { feature: 'Persistent Memory', chatgpt: 'Limited. Resets or requires paid tier.', openclaw: 'Full persistent memory across all sessions', winner: 'openclaw' },
+  { feature: 'Monthly Cost', chatgpt: '$20–$100/mo subscription', openclaw: 'One-time setup + your own API costs (~$5–20/mo)', winner: 'openclaw' },
+  { feature: 'Custom Personality', chatgpt: 'Custom instructions only (limited)', openclaw: 'Full SOUL.md personality file — sounds like you', winner: 'openclaw' },
+  { feature: 'Extensibility', chatgpt: 'Plugins (paid) and GPTs', openclaw: '3,000+ skills on ClawHub, community-built', winner: 'openclaw' },
+  { feature: 'Proactive Triggers', chatgpt: 'None — you must initiate every query', openclaw: 'Cron-style triggers, scheduled briefings', winner: 'openclaw' },
+  { feature: 'Base Model Quality', chatgpt: 'GPT-4o — industry-leading general capability', openclaw: 'Depends on connected model (can use GPT-4)', winner: 'chatgpt' },
+  { feature: 'Setup Complexity', chatgpt: 'Sign up and go — zero technical barrier', openclaw: 'Requires technical setup (we do this for you)', winner: 'chatgpt' },
+];
+---
+
+<Layout
+  title="OpenClaw vs ChatGPT: Why Privacy-First Businesses Are Switching | SystemPros.ai"
+  description="A detailed comparison of OpenClaw vs ChatGPT covering privacy, platforms, memory, cost, and extensibility. Find out which AI is right for your business in 2025."
+>
+  <FAQSchema faqs={faqs} />
+  <Breadcrumbs currentTitle="OpenClaw vs ChatGPT" />
+
+  <main class="overflow-x-hidden">
+
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.15)_0%,transparent_60%)]" />
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-accent border border-accent/25 bg-accent/5 rounded-full px-4 py-2 mb-8">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
+              2025 Comparison
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-6">
+              OpenClaw vs ChatGPT:<br /><span class="text-gradient">Why Privacy Wins</span>
+            </h1>
+            <p class="text-lg text-secondary leading-relaxed mb-8">
+              ChatGPT is a brilliant tool. But for businesses handling sensitive data, operating across multiple communication channels, or wanting an AI that truly knows their context — OpenClaw wins in almost every dimension that matters.
+            </p>
+            <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 px-8 py-4">
+              Get OpenClaw Deployed
+            </a>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-accent/8 rounded-3xl blur-3xl -z-10 scale-105" />
+            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10">
+              <ProductVideoPlayer id="openclaw-vs-chatgpt" client:visible />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PRIVACY ARGUMENT -->
+    <section class="py-20 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">The Case for <span class="text-gradient">Private AI</span></h2>
+        <div class="prose prose-invert prose-lg max-w-none text-secondary leading-relaxed space-y-5">
+          <p>
+            When you type into ChatGPT, you're interacting with a service that logs your conversation, associates it with your account, and may use it to improve future models. For personal queries about pasta recipes, this is fine. For business queries involving client names, contract terms, pricing strategies, or competitive intelligence — this is a significant data risk.
+          </p>
+          <p>
+            OpenClaw runs entirely on infrastructure you control. There is no third-party server receiving your inputs. The LLM processes your query via an API call (which is ephemeral and not stored by the API provider under standard enterprise agreements), but your <strong class="text-white">conversation history, your memory, your notes, your client data</strong> — all of it stays on your machine.
+          </p>
+          <p>
+            For NZ and Australian businesses subject to the Privacy Act 2020 and Australian Privacy Principles respectively, this distinction matters for compliance as well as competitive security. Using public AI to process customer data without appropriate controls is an increasingly flagged risk by privacy commissioners.
+          </p>
+          <p>
+            Privacy aside, OpenClaw's biggest practical advantage over ChatGPT is <strong class="text-white">where it lives</strong>. ChatGPT requires you to open a browser. OpenClaw is a contact on your phone. The friction difference is enormous — and friction is the enemy of habit.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Feature by Feature <span class="text-gradient">Breakdown</span></h2>
+        <div class="rounded-2xl border border-white/10 overflow-hidden">
+          <div class="grid grid-cols-3 bg-white/[0.03] border-b border-white/10">
+            <div class="p-4 text-xs font-bold text-secondary uppercase tracking-widest">Feature</div>
+            <div class="p-4 text-xs font-bold text-secondary uppercase tracking-widest border-l border-white/8 text-center">ChatGPT</div>
+            <div class="p-4 text-xs font-bold text-accent uppercase tracking-widest border-l border-accent/20 text-center bg-accent/5">OpenClaw</div>
+          </div>
+          {COMPARISON.map((row, i) => (
+            <div class={`grid grid-cols-3 border-b border-white/6 ${i % 2 === 0 ? '' : 'bg-white/[0.01]'}`}>
+              <div class="p-4 text-sm font-semibold text-white">{row.feature}</div>
+              <div class={`p-4 text-sm border-l border-white/6 text-center ${row.winner === 'chatgpt' ? 'text-green-400 font-semibold' : 'text-secondary'}`}>{row.chatgpt}</div>
+              <div class={`p-4 text-sm border-l border-accent/12 text-center bg-accent/[0.03] ${row.winner === 'openclaw' ? 'text-green-400 font-semibold' : 'text-secondary'}`}>{row.openclaw}</div>
+            </div>
+          ))}
+        </div>
+        <p class="text-secondary text-sm text-center mt-5">Green text = winner in that category. OpenClaw wins 7/9 categories for business use.</p>
+      </div>
+    </section>
+
+    <!-- WHEN TO CHOOSE WHICH -->
+    <section class="py-20 bg-[#080808] border-y border-white/5">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h2 class="text-3xl font-bold mb-10 text-center">When to Choose <span class="text-gradient">Which</span></h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="glass-card border-white/15">
+            <h3 class="font-bold text-white mb-4">Use ChatGPT if...</h3>
+            <ul class="space-y-3">
+              {["You just need quick one-off queries with no business context", "You're an individual with no sensitive data to protect", "You want the best possible raw language model performance right now", "You're not technical and can't get technical help setting up alternatives"].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-secondary">
+                  <span class="text-white/30 mt-0.5">→</span>{item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="glass-card border-accent/30 bg-accent/[0.03]">
+            <h3 class="font-bold text-accent mb-4">Use OpenClaw if...</h3>
+            <ul class="space-y-3">
+              {["You handle sensitive business or client data", "You want your AI on WhatsApp, iMessage, or Slack — not a browser", "You need an AI that remembers context across weeks and months", "You want to automate workflows and connect AI to your existing tools"].map((item) => (
+                <li class="flex items-start gap-3 text-sm text-white/80">
+                  <span class="text-accent mt-0.5">✓</span>{item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <h2 class="text-3xl font-bold mb-10 text-center">Frequently Asked <span class="text-gradient">Questions</span></h2>
+        <div class="space-y-4">
+          {faqs.map((faq) => (
+            <details class="glass-card cursor-pointer group">
+              <summary class="font-bold text-white list-none flex items-center justify-between">
+                {faq.question}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="shrink-0 text-secondary group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="text-secondary mt-4 leading-relaxed">{faq.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-28 relative text-center overflow-hidden bg-[#080808]">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12)_0%,transparent_65%)]" />
+      <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+        <h2 class="text-4xl font-extrabold mb-6 tracking-tighter">
+          Ready to Switch to<br /><span class="text-gradient">Private AI?</span>
+        </h2>
+        <p class="text-xl text-secondary mb-10">We handle the entire OpenClaw setup — server, channels, personality, skills. Running in 48–72 hours.</p>
+        <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+          Get My Private AI Assistant
+        </a>
+        <p class="text-secondary mt-6 text-sm">← <a href="/openclaw" class="text-accent hover:underline">Back to OpenClaw Hub</a></p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

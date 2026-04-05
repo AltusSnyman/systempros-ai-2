@@ -1,0 +1,169 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+
+const USE_CASES = [
+  {
+    num: '01',
+    title: 'Executive Assistant — Always On',
+    body: "Text your AI 'Prep me for my 2pm client call with Sarah' and receive a brief covering her last 3 emails, your CRM notes, and the agenda items you agreed on. Before OpenClaw, this took 20 minutes of tab-switching. Now it takes 8 seconds.",
+    tags: ['Scheduling', 'Email Triage', 'Meeting Prep'],
+    color: 'border-blue-500/25 bg-blue-500/5',
+    tag_color: 'text-blue-400 border-blue-500/30 bg-blue-500/8',
+  },
+  {
+    num: '02',
+    title: 'Second Brain — Query Your Own Notes',
+    body: "Connect OpenClaw to your Obsidian vault or Notion workspace and ask questions like 'What was my conclusion about the Q3 marketing budget?' Your AI searches your own writing and surfaces the exact note, with context, in seconds. It knows your intellectual history.",
+    tags: ['Obsidian', 'Notion', 'Knowledge Retrieval'],
+    color: 'border-purple-500/25 bg-purple-500/5',
+    tag_color: 'text-purple-400 border-purple-500/30 bg-purple-500/8',
+  },
+  {
+    num: '03',
+    title: 'CRM Whisperer — Voice-to-Data',
+    body: "Walking out of a meeting, you text your AI: 'Met Altus today. He's interested in the $10k package. Follow up next Monday.' OpenClaw automatically creates the contact in your CRM, logs the note, and sets the task. Zero manual data entry. Ever.",
+    tags: ['CRM Updates', 'Lead Logging', 'Task Creation'],
+    color: 'border-green-500/25 bg-green-500/5',
+    tag_color: 'text-green-400 border-green-500/30 bg-green-500/8',
+  },
+  {
+    num: '04',
+    title: 'Competitive Research on Demand',
+    body: "Text 'Find the top 5 competitors to my agency in New Zealand and summarise their pricing and positioning' — and receive a structured report within 60 seconds. The Research Pack skill connects to live web search so the data is current, not from a training cut-off.",
+    tags: ['Web Search', 'Market Research', 'Competitor Intel'],
+    color: 'border-orange-500/25 bg-orange-500/5',
+    tag_color: 'text-orange-400 border-orange-500/30 bg-orange-500/8',
+  },
+  {
+    num: '05',
+    title: 'Content in Your Voice',
+    body: "Share a rough idea and ask OpenClaw to write a LinkedIn post, email newsletter, or blog intro in your voice. Because your SOUL.md defines your communication style, tone, and vocabulary, the output doesn't sound like AI — it sounds like you on a particularly sharp day.",
+    tags: ['LinkedIn', 'Email Copy', 'Brand Voice'],
+    color: 'border-pink-500/25 bg-pink-500/5',
+    tag_color: 'text-pink-400 border-pink-500/30 bg-pink-500/8',
+  },
+  {
+    num: '06',
+    title: 'Meeting Summariser',
+    body: "Drop a Zoom transcript (or audio file) into the chat and ask for a structured summary with action items, decisions made, and who owns each task. A 60-minute call becomes a 90-second brief. The Executive Pack includes Whisper-powered transcription so you don't even need to paste text — just share the file.",
+    tags: ['Zoom Calls', 'Action Items', 'Transcription'],
+    color: 'border-cyan-500/25 bg-cyan-500/5',
+    tag_color: 'text-cyan-400 border-cyan-500/30 bg-cyan-500/8',
+  },
+  {
+    num: '07',
+    title: 'Developer Copilot',
+    body: "For technical teams, OpenClaw integrates with GitHub, reads your codebase, summarises PR diffs, checks deployment status, and answers questions about your own documentation. Ask 'What changed in the auth module last week?' and get a plain-English answer from your own repo history.",
+    tags: ['GitHub', 'Code Review', 'Deployment Status'],
+    color: 'border-yellow-500/25 bg-yellow-500/5',
+    tag_color: 'text-yellow-400 border-yellow-500/30 bg-yellow-500/8',
+  },
+  {
+    num: '08',
+    title: 'Proactive Daily Briefings',
+    body: "Set a cron-style trigger so OpenClaw texts you every morning at 7am with: today's calendar, 3 priority tasks from your task manager, weather for your location, and any flagged emails. You haven't opened your laptop yet and you're already oriented.",
+    tags: ['Daily Briefing', 'Calendar', 'Proactive AI'],
+    color: 'border-teal-500/25 bg-teal-500/5',
+    tag_color: 'text-teal-400 border-teal-500/30 bg-teal-500/8',
+  },
+  {
+    num: '09',
+    title: 'Sales Intelligence Engine',
+    body: "Before every sales call, ask 'What do I know about this prospect?' OpenClaw checks your CRM, emails, LinkedIn notes, and previous meeting summaries to give you a one-page intel brief. You walk into every call as if you've been preparing for an hour — because your AI has.",
+    tags: ['Sales Prep', 'Prospect Research', 'CRM'],
+    color: 'border-red-500/25 bg-red-500/5',
+    tag_color: 'text-red-400 border-red-500/30 bg-red-500/8',
+  },
+  {
+    num: '10',
+    title: 'Language & Translation Layer',
+    body: "Operating across NZ, Australia, and the USA means dealing with different dialects, cultural norms, and business conventions. OpenClaw can rewrite emails for different audiences, translate documents on demand, and flag cultural sensitivities before you send something that lands wrong.",
+    tags: ['Translation', 'Localisation', 'Multi-Region'],
+    color: 'border-indigo-500/25 bg-indigo-500/5',
+    tag_color: 'text-indigo-400 border-indigo-500/30 bg-indigo-500/8',
+  },
+];
+---
+
+<Layout
+  title="10 OpenClaw Use Cases for Business in 2025 | SystemPros.ai"
+  description="Discover 10 powerful OpenClaw use cases: executive assistant, CRM automation, second brain, competitive research, content creation, and more. Real examples from real businesses."
+>
+  <Breadcrumbs currentTitle="OpenClaw Use Cases" />
+
+  <main class="overflow-x-hidden">
+
+    <section class="relative pt-32 pb-20 overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.15)_0%,transparent_60%)]" />
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-accent border border-accent/25 bg-accent/5 rounded-full px-4 py-2 mb-8">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent inline-block"></span>
+              Real-World Applications
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-6">
+              10 OpenClaw Use Cases<br /><span class="text-gradient">for Business</span>
+            </h1>
+            <p class="text-lg text-secondary leading-relaxed mb-8">
+              OpenClaw isn't a chatbot — it's a private AI operating system for your business. Here are ten ways founders, executives, and operators are using it to save hours every week and eliminate entire categories of manual work.
+            </p>
+            <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 px-8 py-4">
+              Get OpenClaw Deployed For Me
+            </a>
+          </div>
+          <div class="relative">
+            <div class="absolute inset-0 bg-accent/8 rounded-3xl blur-3xl -z-10 scale-105" />
+            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10">
+              <ProductVideoPlayer id="private-assistant-skills" client:visible />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- USE CASES -->
+    <section class="py-20">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <div class="space-y-8">
+          {USE_CASES.map((uc) => (
+            <div class={`rounded-2xl border p-8 ${uc.color}`}>
+              <div class="flex items-start gap-6">
+                <div class="text-4xl font-black text-white/10 leading-none flex-shrink-0 w-16">{uc.num}</div>
+                <div class="flex-1">
+                  <h2 class="text-xl font-bold text-white mb-3">{uc.title}</h2>
+                  <p class="text-secondary leading-relaxed mb-4">{uc.body}</p>
+                  <div class="flex flex-wrap gap-2">
+                    {uc.tags.map((tag) => (
+                      <span class={`text-xs font-semibold px-3 py-1 rounded-full border ${uc.tag_color}`}>{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-28 relative text-center overflow-hidden bg-[#080808]">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12)_0%,transparent_65%)]" />
+      <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+        <h2 class="text-4xl font-extrabold mb-6 tracking-tighter">
+          Which Use Cases Apply<br /><span class="text-gradient">to Your Business?</span>
+        </h2>
+        <p class="text-xl text-secondary mb-10">We deploy OpenClaw with the exact skills and connections your workflow needs. Done-for-you in 48–72 hours.</p>
+        <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
+          Build My Private Assistant
+        </a>
+        <p class="text-secondary mt-6 text-sm">← <a href="/openclaw" class="text-accent hover:underline">Back to OpenClaw Hub</a></p>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

@@ -8,6 +8,9 @@ import { LeadReactorChannels } from '../remotion/compositions/LeadReactorChannel
 import { PrivateAssistant } from '../remotion/compositions/PrivateAssistant';
 import { PrivateAssistantSilo } from '../remotion/compositions/PrivateAssistantSilo';
 import { PrivateAssistantSkills } from '../remotion/compositions/PrivateAssistantSkills';
+import { OpenClawHub } from '../remotion/compositions/OpenClawHub';
+import { OpenClawVsChatGPT } from '../remotion/compositions/OpenClawVsChatGPT';
+import { OpenClawSetup } from '../remotion/compositions/OpenClawSetup';
 import { Consultation } from '../remotion/compositions/Consultation';
 import { ConsultationGap } from '../remotion/compositions/ConsultationGap';
 import { Training } from '../remotion/compositions/Training';
@@ -23,6 +26,9 @@ const compositions = {
   'private-assistant': PrivateAssistant,
   'private-assistant-silo': PrivateAssistantSilo,
   'private-assistant-skills': PrivateAssistantSkills,
+  'openclaw-hub': OpenClawHub,
+  'openclaw-vs-chatgpt': OpenClawVsChatGPT,
+  'openclaw-setup': OpenClawSetup,
   'consultation': Consultation,
   'consultation-gap': ConsultationGap,
   'training': Training,
