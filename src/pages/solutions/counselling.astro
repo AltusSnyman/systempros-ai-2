@@ -2,260 +2,414 @@
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
 import ROICalculator from '../../components/ROICalculator.jsx';
-import CounselingChatbot from '../../components/solutions/CounselingChatbot.tsx';
-import { Image } from 'astro:assets';
-import heroImage from '../../assets/counselling_hero_brain.png';
-import agitationImage from '../../assets/counselling_agitation_signal.png';
-import securityImage from '../../assets/counselling_security_vault.png';
-import roiBackground from '../../assets/counselling_roi_waves.png';
+import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+import AudioDemoModal from '../../components/AudioDemoModal';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
 
+const videoProps = {
+  industryName: 'Counselling',
+  emoji: '🧠',
+  tagline: 'HIPAA-compliant triage and after-hours intake.',
+  problemValue: '28',
+  problemLabel: 'after-hours calls missed per week',
+  problemCost: '$134k LTV lost',
+  applications: [
+    'Compassionate after-hours intake',
+    'Therapist match triage',
+    'Follows up referrals in <10s',
+    'Practice ops AI for admin',
+    'Growth strategy & audit',
+    'Team AI skills training',
+  ],
+  stats: [
+    { value: '0',      label: 'After-hours calls missed', color: '#22C55E' },
+    { value: 'HIPAA',  label: 'Compliant intake',         color: '#3B82F6' },
+    { value: '3×',     label: 'Correct therapist match',  color: '#F59E0B' },
+  ],
+};
 ---
 
-<Layout 
-    title="HIPAA-Compliant AI Intake for Therapists & Counselors | SystemPros"
-    description="Automate patient intake securely. Our HIPAA-compliant AI agent answers 24/7, triages crises, and integrates with your EHR (SimplePractice, Jane) to book sessions."
-    showChatWidget={false}
+<Layout
+  title="AI Systems for Counselling Practices | HIPAA-Compliant Intake & After-Hours"
+  description="The moment of courage shouldn't hit voicemail. Full-stack AI for counsellors: HIPAA-compliant intake, after-hours response, and practice automation."
+  showChatWidget={false}
 >
-    
-    <!-- SECTION 1: THE HERO (The "Crisis Doesn't Wait" Hook) -->
-    <section class="relative min-h-screen flex items-center pt-20 pb-10 overflow-hidden bg-main">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-main to-main z-0"></div>
-        
-        <div class="container mx-auto px-4 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Text Left -->
-            <div class="space-y-8 fade-up text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 backdrop-blur-sm">
-                    <span class="text-blue-400 text-xs font-bold tracking-wider uppercase">🧠 HIPAA Compliant AI Intake</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.1]">
-                    Crisis Doesn't Wait <br/>
-                    <span class="text-gradient from-blue-400 to-cyan-500">For Office Hours.</span>
-                </h1>
-                
-                <p class="text-xl text-secondary leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Your clients call when they finally build the courage—often at 9 PM or on weekends. If they get a voicemail, that courage fades. Our <strong>HIPAA-Compliant Intake Agent</strong> answers 24/7 with compassion, triages their needs, and books the intake session instantly.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#roi-calculator" class="btn-primary flex items-center justify-center gap-2 text-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-blue-500/20">
-                        Deploy Practice AI
-                    </a>
-                    <a href="https://harmony-hearts-web.lovable.app/" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-full border border-cyan-500/30 bg-cyan-500/10 hover:bg-cyan-500/20 backdrop-blur-sm transition-all font-semibold flex items-center justify-center gap-2 text-lg text-cyan-400 hover:text-cyan-300">
-                        View Live Demo
-                    </a>
-                </div>
-            </div>
+  <ServiceSchema
+    name="AI Intake & After-Hours Response for Counselling Practices"
+    description="Full-stack AI deployment for counselling practices covering HIPAA-compliant intake, after-hours response, therapist matching, and practice operations."
+    serviceType="Counselling Practice AI Automation"
+  />
+  <Breadcrumbs currentTitle="Counselling AI Solutions" />
 
-            <!-- Visual Right -->
-            <div class="relative fade-up delay-200">
-                <div class="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-                <!-- Interactive 3D/Image Container -->
-                <div class="relative z-10 rounded-2xl border border-white/10 bg-surface/50 backdrop-blur-xl overflow-hidden shadow-2xl shadow-blue-500/10 group hover:border-blue-500/30 transition-all duration-500">
-                    <Image src={heroImage} alt="Neural Network Brain Connected to Support" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
-                    <!-- HUD Overlay Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-main/80 to-transparent pointer-events-none"></div>
-                    <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between border-t border-white/10 pt-4">
-                        <div class="flex flex-col">
-                           <span class="text-xs text-blue-400 font-mono mb-1">INTAKE STATUS</span>
-                           <span class="text-white font-bold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> LISTENING (SECURE)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ============================================================
+       SECTION 1 — HERO
+  ============================================================ -->
+  <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-main">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/20 via-main to-main z-0"></div>
 
-    <!-- SECTION 2: THE AGITATION (The "Courage Gap") -->
-    <section class="py-24 relative overflow-hidden bg-surface/30 border-y border-white/5">
-        <div class="container mx-auto px-4 z-10 text-center max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">The <span class="text-gradient from-blue-400 to-cyan-500">Courage Gap.</span></h2>
-            <p class="text-xl text-secondary mb-12 leading-relaxed">
-                It takes a client weeks to build the nerve to call a therapist. That phone call is a fragile moment of resolve. If it goes to voicemail, 70% of callers hang up and never call back. You aren't just missing a session fee; you are missing the window to <strong class="text-white">intervene</strong>.
-            </p>
-            
-            <!-- Graphic: Generated Agitation Image -->
-            <div class="relative mx-auto max-w-4xl h-auto rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-blue-500/10 group">
-                <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                <Image src={agitationImage} alt="Signal Loss vs Established Connection" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: THE INTELLIGENT TRIAGE -->
-    <section class="py-24 relative">
-        <div class="container mx-auto px-4 z-10">
-             <div class="text-center mb-16">
-                 <h2 class="text-4xl font-bold mb-4">Context-Aware <span class="text-gradient from-blue-400 to-cyan-500">Intake Routing</span></h2>
-                 <p class="text-secondary">The Agent detects intent and switches empathy protocols instantly.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Lane 1 -->
-                <div class="p-8 rounded-2xl bg-surface/40 border border-white/10 hover:border-blue-500/50 transition-colors">
-                     <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 text-2xl">💞</div>
-                     <h3 class="text-xl font-bold text-white mb-2">Relationship & Marriage</h3>
-                     <p class="text-xs font-mono text-blue-400 mb-4">TRIGGER: "ARGUMENTS", "DIVORCE"</p>
-                     <p class="text-secondary text-sm">Checks for "Joint Session" availability. Asks: "Are you looking to come in together or individually?"</p>
-                </div>
-                 <!-- Lane 2 -->
-                 <div class="p-8 rounded-2xl bg-surface/40 border border-white/10 hover:border-cyan-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-cyan-500/20 rounded-full flex items-center justify-center mb-4 text-2xl">🛡️</div>
-                    <h3 class="text-xl font-bold text-white mb-2">Trauma & Anxiety</h3>
-                    <p class="text-xs font-mono text-cyan-400 mb-4">TRIGGER: "PANIC", "PTSD"</p>
-                    <p class="text-secondary text-sm">Uses "Calm Voice" latency. Prioritizes "Sooner Availability" checks. Marks file as "Sensitive."</p>
-               </div>
-                <!-- Lane 3 -->
-                <div class="p-8 rounded-2xl bg-surface/40 border border-white/10 hover:border-indigo-500/50 transition-colors">
-                    <div class="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center mb-4 text-2xl">🧭</div>
-                    <h3 class="text-xl font-bold text-white mb-2">General Counselling</h3>
-                    <p class="text-xs font-mono text-indigo-400 mb-4">TRIGGER: "SAD", "STUCK"</p>
-                    <p class="text-secondary text-sm">Standard Intake Script. Collects insurance vs. private pay preference.</p>
-               </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: THE PRACTICE TRIAD -->
-    <section class="py-32 relative bg-surface/20">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="glass-card hover:-translate-y-2 group border-blue-500/20 hover:border-blue-500/50">
-                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
-                        👂
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Agent 01: The Compassionate Intake</h3>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        Never sounds robotic. Trained on 'Therapeutic Presence' voice models. It collects demographics, insurance info, and presenting problems without rushing the caller.
-                    </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="glass-card hover:-translate-y-2 group border-cyan-500/20 hover:border-cyan-500/50">
-                    <div class="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300">
-                        📖
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Agent 02: The Directory Closer</h3>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        Paying for Psychology Today profiles? When a potential client emails you, Agent 02 calls them within 60 seconds. "I saw your inquiry about anxiety support—Dr. Smith has an opening Tuesday."
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card hover:-translate-y-2 group border-indigo-500/20 hover:border-indigo-500/50">
-                    <div class="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
-                        🔁
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Agent 03: The Retention Loop</h3>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        Client ghosted after 3 sessions? Agent 03 sends a gentle voice note or text: "Just thinking about our last session and wanted to see how you've been managing [Issue]." Soft re-engagement.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: SECURITY VAULT -->
-    <section class="py-24 relative overflow-hidden bg-[#050505] border-y border-blue-900/30">
-        <div class="container mx-auto px-4 z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-             <!-- Text -->
-             <div class="order-2 md:order-1">
-                 <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Bank-Grade Privacy. <br/><span class="text-blue-500">HIPAA Compliant.</span></h2>
-                 <p class="text-secondary text-lg mb-8">
-                     Your practice lives and dies on confidentiality. Our architecture ensures no call data trains public models. All intake transcripts are encrypted via AES-256 and deposited directly into your secure EHR (SimplePractice, Theranest, Jane).
-                 </p>
-                 <div class="flex gap-4">
-                     <span class="px-4 py-2 rounded bg-surface border border-white/10 text-xs font-mono text-gray-400">AES-256 ENCRYPTION</span>
-                     <span class="px-4 py-2 rounded bg-surface border border-white/10 text-xs font-mono text-gray-400">SOC-2 CERTIFIED</span>
-                 </div>
-             </div>
-             <!-- Visual -->
-             <div class="order-1 md:order-2">
-                 <Image src={securityImage} alt="Encrypted Digital Vault for Patient Data" class="w-full h-auto rounded-xl shadow-[0_0_50px_rgba(59,130,246,0.2)] border border-blue-500/20" />
-             </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: ROI CALCULATOR -->
-    <section id="roi-calculator" class="py-32 relative bg-surface/20 border-y border-white/5">
-        <!-- Abstract Background -->
-        <div class="absolute inset-0 opacity-30 pointer-events-none overflow-hidden">
-             <Image src={roiBackground} alt="Brain Waves Merging into Financial Graph" class="w-full h-full object-cover opacity-50 mix-blend-screen" />
-             <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:40px_40px]"></div>
+    <div class="container mx-auto px-4 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Copy -->
+      <div class="space-y-7 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5">
+          <span class="text-accent text-xs font-bold tracking-wider uppercase">🧠 Counselling AI Solutions</span>
         </div>
 
-        <div class="container mx-auto px-4 relative z-10 max-w-4xl">
-        <!-- ROI Logic Component -->
-        <ROICalculator 
-            client:visible 
-            jobValueLabel="Avg Client Lifetime Value"
-            defaultJobValue={1000}
-            defaultMissedCalls={10}
-            accentColor="blue"
-        />
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05]">
+          The Moment Of<br/>
+          Courage Shouldn't<br/>
+          <span class="text-gradient">Hit Voicemail.</span>
+        </h1>
+
+        <p class="text-xl text-secondary leading-relaxed max-w-xl mx-auto lg:mx-0">
+          People reach out for help at 9pm on a Tuesday — not at 10am on a Wednesday when your front desk opens. That moment of resolve is fragile. We deploy 6 AI systems that answer with compassion, route to the right therapist, and protect every intake with HIPAA compliance — around the clock.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start flex-wrap">
+          <a href="/contact" class="btn-primary flex items-center justify-center gap-2 text-lg">
+            Book Free Audit
+          </a>
+          <a href="#solutions" class="px-7 py-3 rounded-xl border border-white/15 hover:bg-white/5 transition-all font-semibold flex items-center gap-2 text-white">
+            See All 6 Systems
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+          <AudioDemoModal videoSrc="/assets/industry-videos/counseling.mp4" industryName="Counselling" client:visible />
+        </div>
+      </div>
+
+      <!-- Right: Remotion Video -->
+      <div class="relative">
+        <div class="absolute inset-0 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+        <div class="relative z-10">
+          <ProductVideoPlayer id="industry-showcase" inputProps={videoProps} client:visible />
+        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
-    <!-- SECTION 7: COMPARISON -->
-    <section class="py-24">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-center text-3xl font-bold mb-16">Burnout vs. <span class="text-gradient from-blue-400 to-cyan-500">Support</span></h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
-                <!-- Old Way -->
-                <div class="p-8 border-l-4 border-red-500/50 bg-surface/30 rounded-r-xl md:rounded-xl mb-8 md:mb-0">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <span class="text-red-500">❌</span> The Solo Practitioner Burnout
-                    </h3>
-                    <ul class="space-y-4 text-secondary">
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Answering calls between sessions (no reset time)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Playing "Phone Tag" for 3 days</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Losing clients to the "Next Available" therapist</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Stressing about filling cancellations</li>
-                    </ul>
-                </div>
-
-                <!-- SystemPros -->
-                <div class="p-8 border-l-4 border-blue-500 bg-blue-500/5 rounded-r-xl md:rounded-xl relative">
-                    <div class="absolute -top-3 -right-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-blue-500/50">RECOMMENDED</div>
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <span class="text-blue-500">✅</span> SystemPros Practice AI
-                    </h3>
-                    <ul class="space-y-4 text-white">
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 100% Focus on the client in the room</li>
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Intake is done BEFORE you speak</li>
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Calendar fills while you sleep</li>
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> HIPAA Compliant Security</li>
-                    </ul>
-                </div>
-            </div>
+  <!-- ============================================================
+       SECTION 2 — KNOWN PROBLEMS
+  ============================================================ -->
+  <section class="py-24 bg-surface/20 border-y border-white/5">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/5 mb-4">
+          <span class="text-red-400 text-xs font-bold tracking-wider uppercase">Known Pain Points</span>
         </div>
-    </section>
+        <h2 class="text-3xl md:text-5xl font-bold">You Already Know These Are <span class="text-red-400">Costing You</span></h2>
+      </div>
 
-    <!-- SECTION 8: FINAL CTA -->
-    <section class="py-32 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Focus on Healing. <br/> <span class="text-gradient from-blue-400 to-cyan-500">Automate the Intake.</span></h2>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="/contact" class="btn-primary text-xl px-12 py-6 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-[0_0_40px_rgba(59,130,246,0.4)]">
-                    Book A Demo
-                </a>
-                <a href="/pricing" class="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all font-semibold flex items-center justify-center gap-2">
-                    View Pricing
-                </a>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card border-red-500/20 hover:border-red-500/40 transition-colors">
+          <div class="text-3xl mb-4">🌙</div>
+          <h3 class="text-lg font-bold text-white mb-2">After-Hours Courage Gap</h3>
+          <p class="text-secondary text-sm leading-relaxed">70% of people in emotional distress reach out after business hours — when the resolve is highest and the courage is fresh. Your voicemail sends them a message that says their moment doesn't matter.</p>
         </div>
-    </section>
+        <div class="glass-card border-red-500/20 hover:border-red-500/40 transition-colors">
+          <div class="text-3xl mb-4">🔀</div>
+          <h3 class="text-lg font-bold text-white mb-2">Wrong Therapist Match</h3>
+          <p class="text-secondary text-sm leading-relaxed">A mismatched therapist in session one has an 80% likelihood of the client not returning. Without intake triage, you're assigning on availability — not clinical fit — and losing clients before they've started.</p>
+        </div>
+        <div class="glass-card border-red-500/20 hover:border-red-500/40 transition-colors">
+          <div class="text-3xl mb-4">📋</div>
+          <h3 class="text-lg font-bold text-white mb-2">Inconsistent HIPAA Intake</h3>
+          <p class="text-secondary text-sm leading-relaxed">Manual intake processes introduce compliance risk. Every staff member handles sensitive disclosures differently. One inconsistency is a liability — in a practice that handles mental health data, that risk is unacceptable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <Footer />
+  <!-- ============================================================
+       SECTION 3 — HIDDEN PROBLEMS
+  ============================================================ -->
+  <section class="py-24 bg-[#0a0a0a]">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/5 mb-4">
+          <span class="text-amber-400 text-xs font-bold tracking-wider uppercase">⚠ Hidden Revenue Leaks</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold">What You Probably <span class="text-amber-400">Haven't Measured</span></h2>
+        <p class="text-secondary mt-4 max-w-2xl mx-auto">These aren't obvious. But they're bleeding your practice every week.</p>
+      </div>
 
-    <CounselingChatbot client:load />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border border-amber-500/15 bg-amber-500/5">
+          <div class="text-4xl font-black text-amber-400 mb-2">70%</div>
+          <h3 class="text-base font-bold text-white mb-2">Crisis Callers Don't Call Back</h3>
+          <p class="text-secondary text-sm leading-relaxed">70% of people who reach a voicemail in a moment of emotional distress don't call again. That's not a missed booking — that's a person who needed help and didn't get it, and a practice that can't measure what it's losing.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-amber-500/15 bg-amber-500/5">
+          <div class="text-4xl font-black text-amber-400 mb-2">80%</div>
+          <h3 class="text-base font-bold text-white mb-2">Wrong Match = Client Gone After Session One</h3>
+          <p class="text-secondary text-sm leading-relaxed">Assigning a client to the wrong therapist because you're matching on availability rather than clinical speciality loses that client within 2 sessions. And they rarely tell you why they left.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-amber-500/15 bg-amber-500/5">
+          <div class="text-4xl font-black text-amber-400 mb-2">12–18%</div>
+          <h3 class="text-base font-bold text-white mb-2">Billing Errors From Manual Intake</h3>
+          <p class="text-secondary text-sm leading-relaxed">Practices running manual intake processes lose 12–18% of revenue to billing errors, insurance verification gaps, and coding inconsistencies. AI-standardised intake eliminates this entirely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — CONSEQUENCES
+  ============================================================ -->
+  <section class="py-24 border-y border-white/5 bg-surface/10">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-5xl font-bold">What Happens If <span class="text-red-400">Nothing Changes</span></h2>
+        <p class="text-secondary mt-4 max-w-xl mx-auto">This isn't a warning. It's a pattern every counselling practice without systems eventually hits.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="p-6 rounded-2xl border border-white/8 bg-surface/30 text-center">
+          <div class="text-2xl mb-3">📉</div>
+          <h3 class="font-bold text-white mb-2">Tonight</h3>
+          <p class="text-secondary text-sm">Someone reaches out at 9pm in their most vulnerable moment. Your voicemail tells them to call back tomorrow. 70% of them won't. That person doesn't get help, and your practice doesn't grow.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-white/8 bg-surface/30 text-center">
+          <div class="text-2xl mb-3">🔄</div>
+          <h3 class="font-bold text-white mb-2">Next 12 Months</h3>
+          <p class="text-secondary text-sm">Without a correct-match intake system, client attrition stays high. You're spending marketing budget acquiring clients who leave after 2 sessions because the fit wasn't right.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-white/8 bg-surface/30 text-center">
+          <div class="text-2xl mb-3">🏳️</div>
+          <h3 class="font-bold text-white mb-2">Year 3+</h3>
+          <p class="text-secondary text-sm">Practices with AI-managed after-hours intake and therapist matching have lower attrition, higher lifetime client value, and better clinical outcomes. It's not just a business advantage — it's a better service.</p>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-red-500/8 border border-red-500/20 text-center">
+        <p class="text-secondary text-sm uppercase tracking-widest font-mono mb-2">Estimated Annual Cost of Inaction</p>
+        <div class="text-5xl font-black text-red-400">$134,400+</div>
+        <p class="text-secondary mt-2 text-sm">Based on 8 after-hours missed calls/week × $4,800 average client lifetime value over 52 weeks</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — 6-SERVICE SOLUTION STACK
+  ============================================================ -->
+  <section id="solutions" class="py-24">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-20">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-4">
+          <span class="text-accent text-xs font-bold tracking-wider uppercase">The Full Stack</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold">6 Systems. Built For <span class="text-gradient">Counselling.</span></h2>
+        <p class="text-secondary mt-4 max-w-2xl mx-auto">Every SystemPros client gets all six. Each one engineered to the specific needs of your practice.</p>
+      </div>
+
+      <div class="space-y-24">
+
+        <!-- 1. Revenue Triad — video left, copy right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ProductVideoPlayer id="revenue-triad" client:visible />
+          </div>
+          <div class="space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-500/15 text-blue-400 border border-blue-500/25">Revenue Triad — Voice AI</span>
+            <h3 class="text-3xl font-bold text-white">Compassionate After-Hours Intake. Every Time Someone Calls.</h3>
+            <p class="text-secondary leading-relaxed">Your AI voice agent answers after-hours calls with calm, trained compassion — conducting intake triage, routing to the right therapist, and booking appointments overnight so no one falls through the cracks.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Answers after-hours calls with a calm, trained AI voice — not a voicemail prompt</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Conducts intake triage: presenting concern, urgency level, and therapy modality preference</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Routes to on-call therapist for crisis escalation — compliant with duty-of-care protocols</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Books initial appointments into your scheduling system overnight</li>
+            </ul>
+            <a href="/voice-ai" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors">
+              Explore Revenue Triad <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Lead Gen Websites — copy left, video right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/25">Lead Gen Websites</span>
+            <h3 class="text-3xl font-bold text-white">A Practice Website That Converts Visitors At Their Most Vulnerable Moment</h3>
+            <p class="text-secondary leading-relaxed">Your website needs to work when you don't. We build HIPAA-compliant intake flows, modality-specific landing pages, and after-hours booking widgets that capture clients when they're ready to commit.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>After-hours booking widget captures new clients when they're ready to commit</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Landing pages for specific modalities: anxiety, trauma, couples, LGBTQ+ affirming</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI chat handles 'do you offer sliding scale?' and intake FAQ without staff</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>HIPAA-compliant form collection and data handling built into the site architecture</li>
+            </ul>
+            <a href="/lead-gen-websites" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition-colors">
+              Explore Lead Gen Websites <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2">
+            <ProductVideoPlayer id="lead-gen-websites" client:visible />
+          </div>
+        </div>
+
+        <!-- 3. Lead Reactor — video left, copy right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ProductVideoPlayer id="lead-reactor-speed" client:visible />
+          </div>
+          <div class="space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25">Lead Reactor</span>
+            <h3 class="text-3xl font-bold text-white">Follow Up Every Referral Before The Moment of Motivation Fades</h3>
+            <p class="text-secondary leading-relaxed">Psychology Today, Zocdoc, and direct referrals followed up in under 10 seconds — warm, professional, and compliant. No-shows rescheduled automatically. Lapsed clients reached with care-continuation outreach.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Psychology Today, Zocdoc, and direct referrals followed up in under 10 seconds</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Multi-channel outreach: Voice, SMS, and email — warm, professional, and compliant</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Client no-shows automatically offered reschedule options without admin involvement</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Lapsed clients receive care-continuation outreach to reduce dropout</li>
+            </ul>
+            <a href="/lead-reactor" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold text-sm transition-colors">
+              Explore Lead Reactor <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Private Assistant — copy left, video right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-purple-500/15 text-purple-400 border border-purple-500/25">Private Assistant</span>
+            <h3 class="text-3xl font-bold text-white">Your Administrative Burden. Handled.</h3>
+            <p class="text-secondary leading-relaxed">A private AI that handles insurance verification, session documentation support, billing queries, and scheduling coordination — so your therapists spend their time with clients, not paperwork.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Insurance verification and benefits lookups handled before intake appointments</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Session notes templates and documentation support for practitioners</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Billing queries and insurance coding questions answered instantly for admin staff</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Scheduling coordination across multiple therapists managed via AI</li>
+            </ul>
+            <a href="/private-assistant" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-sm transition-colors">
+              Explore Private Assistant <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2">
+            <ProductVideoPlayer id="private-assistant" client:visible />
+          </div>
+        </div>
+
+        <!-- 5. Consultation — video left, copy right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ProductVideoPlayer id="consultation" client:visible />
+          </div>
+          <div class="space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-green-500/15 text-green-400 border border-green-500/25">Consultation</span>
+            <h3 class="text-3xl font-bold text-white">A Practice Growth Strategy That Doesn't Compromise Clinical Values</h3>
+            <p class="text-secondary leading-relaxed">Before we build, we audit. Our consultation maps your intake workflow, therapist match process, and attrition points — then designs the AI stack that fills your books without compromising care quality.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Audit of your intake workflow, therapist match process, and attrition points</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>After-hours coverage gap analysis and AI solution architecture</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom deployment roadmap for your practice size and therapeutic specialities</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Integration design for SimplePractice, Theranest, or Jane</li>
+            </ul>
+            <a href="/consulting" class="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-semibold text-sm transition-colors">
+              Explore Consultation <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Training — copy left, video right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/15 text-rose-400 border border-rose-500/25">Training</span>
+            <h3 class="text-3xl font-bold text-white">Equip Your Entire Team With AI Tools That Support, Not Replace, The Therapeutic Relationship</h3>
+            <p class="text-secondary leading-relaxed">We train therapists, admin staff, and practice managers to use AI ethically and efficiently — reducing documentation burden and administrative overhead so more time goes to clients.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI training for therapists, admin staff, and practice managers</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Clinical documentation and note-taking efficiency tools</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>HIPAA compliance training integrated with AI tool usage</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Workflows that reduce administrative burden so therapists can focus on clients</li>
+            </ul>
+            <a href="/training" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 font-semibold text-sm transition-colors">
+              Explore Training <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2">
+            <ProductVideoPlayer id="training-results" client:visible />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — ROI CALCULATOR
+  ============================================================ -->
+  <section class="py-24 bg-surface/20 border-y border-white/5">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold">See What Full Deployment Is Worth To Your <span class="text-gradient">Counselling Practice</span></h2>
+        <p class="text-secondary mt-3">Adjust the inputs to match your practice — see the savings instantly.</p>
+      </div>
+      <ROICalculator client:visible />
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — COMPARISON TABLE
+  ============================================================ -->
+  <section class="py-24">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-14">Today vs. <span class="text-gradient">With SystemPros Deployed</span></h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Without -->
+        <div class="p-8 rounded-2xl border border-red-500/20 bg-red-500/5">
+          <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <span class="text-red-400">✗</span> Today Without SystemPros
+          </h3>
+          <ul class="space-y-3 text-secondary text-sm">
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>After-hours calls hit voicemail — 70% of callers never try again</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>Therapist assignments based on availability, not clinical fit</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>Manual HIPAA intake creates compliance risk and inconsistency</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>No-shows managed manually — admin chases reschedules by hand</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>Insurance verification done ad hoc — 12–18% billing error rate</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>High client attrition from poor match and follow-through gaps</li>
+          </ul>
+        </div>
+
+        <!-- With -->
+        <div class="p-8 rounded-2xl border border-accent/25 bg-accent/5 relative">
+          <div class="absolute -top-3 -right-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">RECOMMENDED</div>
+          <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <span class="text-accent">✓</span> With SystemPros Deployed
+          </h3>
+          <ul class="space-y-3 text-sm text-white">
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Every after-hours call answered with compassion and routed correctly</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Intake triage matches clients to the right therapist before session one</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>HIPAA-compliant AI intake — standardised, documented, and auditable</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Automated reschedule offers eliminate the manual no-show process</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Insurance verified before intake — billing errors eliminated</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Correct match + retention follow-up keeps clients engaged in care</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — FINAL CTA
+  ============================================================ -->
+  <section class="py-32 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/25 via-main to-main"></div>
+    <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+      <div class="text-xs font-mono tracking-widest uppercase text-accent mb-4">Ready To Deploy</div>
+      <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6">
+        Someone Will Reach Out Tonight.<br/>
+        <span class="text-gradient">Will You Be There?</span>
+      </h2>
+      <p class="text-secondary text-lg mb-10 max-w-xl mx-auto">Book a free 30-minute audit. We'll map exactly how your practice can provide after-hours support, improve client match, and reduce attrition — before you spend a dollar.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary text-lg px-10 py-4 shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+          Book Your Free Audit
+        </a>
+        <a href="/pricing" class="px-8 py-4 rounded-xl border border-white/15 hover:bg-white/5 transition-all font-semibold text-white">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
-
-<style>
-    .fade-up {
-        @apply opacity-0 animate-[fade-up_0.8s_ease-out_forwards];
-    }
-</style>

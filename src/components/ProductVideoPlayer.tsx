@@ -1,4 +1,6 @@
 import { Player } from '@remotion/player';
+import { IndustriesOverview } from '../remotion/compositions/IndustriesOverview';
+import { IndustryShowcase, type IndustryShowcaseProps } from '../remotion/compositions/IndustryShowcase';
 import { RevenueTriad } from '../remotion/compositions/RevenueTriad';
 import { LeadGenWebsites } from '../remotion/compositions/LeadGenWebsites';
 import { LeadGenFactory } from '../remotion/compositions/LeadGenFactory';
@@ -17,33 +19,42 @@ import { Training } from '../remotion/compositions/Training';
 import { TrainingResults } from '../remotion/compositions/TrainingResults';
 
 const compositions = {
-  'revenue-triad': RevenueTriad,
-  'lead-gen-websites': LeadGenWebsites,
-  'lead-gen-factory': LeadGenFactory,
-  'lead-reactor': LeadReactor,
-  'lead-reactor-speed': LeadReactorSpeed,
+  'industries-overview': IndustriesOverview,
+  'industry-showcase':   IndustryShowcase,
+  'revenue-triad':       RevenueTriad,
+  'lead-gen-websites':   LeadGenWebsites,
+  'lead-gen-factory':    LeadGenFactory,
+  'lead-reactor':        LeadReactor,
+  'lead-reactor-speed':  LeadReactorSpeed,
   'lead-reactor-channels': LeadReactorChannels,
-  'private-assistant': PrivateAssistant,
-  'private-assistant-silo': PrivateAssistantSilo,
-  'private-assistant-skills': PrivateAssistantSkills,
-  'openclaw-hub': OpenClawHub,
+  'private-assistant':   PrivateAssistant,
+  'private-assistant-silo':    PrivateAssistantSilo,
+  'private-assistant-skills':  PrivateAssistantSkills,
+  'openclaw-hub':        OpenClawHub,
   'openclaw-vs-chatgpt': OpenClawVsChatGPT,
-  'openclaw-setup': OpenClawSetup,
-  'consultation': Consultation,
-  'consultation-gap': ConsultationGap,
-  'training': Training,
-  'training-results': TrainingResults,
+  'openclaw-setup':      OpenClawSetup,
+  'consultation':        Consultation,
+  'consultation-gap':    ConsultationGap,
+  'training':            Training,
+  'training-results':    TrainingResults,
 } as const;
+
+const durations: Partial<Record<keyof typeof compositions, number>> = {
+  'industries-overview': 750,
+  'industry-showcase':  1200,
+};
 
 type CompositionId = keyof typeof compositions;
 
 type Props = {
   id: CompositionId;
   className?: string;
+  inputProps?: IndustryShowcaseProps;
 };
 
-export const ProductVideoPlayer = ({ id, className }: Props) => {
-  const Comp = compositions[id];
+export const ProductVideoPlayer = ({ id, className, inputProps }: Props) => {
+  const Comp = compositions[id] as React.ComponentType<typeof inputProps>;
+  const durationInFrames = durations[id] ?? 600;
 
   return (
     <div
@@ -58,8 +69,8 @@ export const ProductVideoPlayer = ({ id, className }: Props) => {
     >
       <Player
         component={Comp}
-        inputProps={{}}
-        durationInFrames={600}
+        inputProps={inputProps ?? {}}
+        durationInFrames={durationInFrames}
         fps={30}
         compositionWidth={1080}
         compositionHeight={1080}

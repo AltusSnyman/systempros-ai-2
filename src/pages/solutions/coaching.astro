@@ -1,295 +1,414 @@
-```
 ---
 import Layout from '../../layouts/Layout.astro';
 import Footer from '../../components/Footer.astro';
 import ROICalculator from '../../components/ROICalculator.jsx';
-import { Image } from 'astro:assets';
-import heroImage from '../../assets/coaching_hero_ascension.png';
-import agitationImage from '../../assets/coaching_agitation_clock.png';
-import objectionImage from '../../assets/coaching_objection_flow.png';
-import roiBackground from '../../assets/coaching_roi_ladders.png';
+import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+import AudioDemoModal from '../../components/AudioDemoModal';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
 
+const videoProps = {
+  industryName: 'Coaching',
+  emoji: '🎯',
+  tagline: 'Book discovery calls and nurture leads on autopilot.',
+  problemValue: '12',
+  problemLabel: 'qualified leads lost to slow follow-up each week',
+  problemCost: '$60k lost',
+  applications: [
+    'Qualifies and books discovery calls',
+    'Follows up leads on every channel',
+    'Nurtures webinar no-shows',
+    'Business ops AI for coaches',
+    'Funnel strategy & audit',
+    'AI skills training for coaches',
+  ],
+  stats: [
+    { value: '0',    label: 'Qualified leads lost',   color: '#22C55E' },
+    { value: '7×',   label: 'Follow-up touchpoints',  color: '#06B6D4' },
+    { value: '2.4×', label: 'Enrollment conversion',  color: '#F59E0B' },
+  ],
+};
 ---
 
-<Layout 
-    title="AI Appointment Setter for High-Ticket Coaches | SystemPros.ai"
-    description="Scale your coaching business without a sales team. Our AI Setter qualifies leads, handles objections, and books calls on your calendar automatically."
+<Layout
+  title="AI Systems for Coaches | Discovery Call Booking & Lead Nurture Automation"
+  description="Stop wasting discovery calls on tire-kickers. Full-stack AI for coaches: Voice AI, Lead Gen, Lead Reactor, Private Assistant, Consultation & Training."
+  showChatWidget={false}
 >
-    
-    <!-- SECTION 1: THE HERO (Unqualified Lead Hook) -->
-    <section class="relative min-h-screen flex items-center pt-20 pb-10 overflow-hidden bg-main">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-900/10 via-main to-main z-0"></div>
-        
-        <div class="container mx-auto px-4 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <!-- Text Left -->
-            <div class="space-y-8 fade-up text-center lg:text-left">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/5 backdrop-blur-sm">
-                    <span class="text-blue-400 text-xs font-bold tracking-wider uppercase">🚀 High-Ticket Appointment Setter Agent</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.1]">
-                    Your Calendar is for Clients. <br/>
-                    <span class="text-gradient from-blue-400 to-cyan-500">Not Tire-Kickers.</span>
-                </h1>
-                
-                <p class="text-xl text-secondary leading-relaxed max-w-xl mx-auto lg:mx-0">
-                    Stop doing "free coaching" on sales calls with people who can't afford you. Our <strong>AI Setter Agent</strong> qualifies leads 24/7, filters for budget, and only books calls with prospects ready to invest in their growth.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="#roi-calculator" class="btn-primary flex items-center justify-center gap-2 text-lg bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-blue-500/20">
-                        Deploy The Setter
-                    </a>
-                </div>
-            </div>
+  <ServiceSchema
+    name="AI Lead Qualification & Enrollment Automation for Coaches"
+    description="Full-stack AI deployment for coaching businesses covering discovery call qualification, lead nurture, funnel automation, and business operations."
+    serviceType="Coaching Business AI Automation"
+  />
+  <Breadcrumbs currentTitle="Coaching AI Solutions" />
 
-            <!-- Visual Right -->
-            <div class="relative fade-up delay-200">
-                <div class="absolute inset-0 bg-blue-500/10 blur-[100px] rounded-full pointer-events-none"></div>
-                <!-- Interactive 3D/Image Container -->
-                <div class="relative z-10 rounded-2xl border border-white/10 bg-surface/50 backdrop-blur-xl overflow-hidden shadow-2xl shadow-blue-500/10 group hover:border-blue-500/30 transition-all duration-500">
-                    <Image src={heroImage} alt="Qualified Ascension Stairs" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
-                    <!-- HUD Overlay Effect -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-main/80 to-transparent pointer-events-none"></div>
-                    <div class="absolute bottom-6 left-6 right-6 flex items-center justify-between border-t border-white/10 pt-4">
-                        <div class="flex flex-col">
-                           <span class="text-xs text-blue-400 font-mono mb-1">FUNNEL STATUS</span>
-                           <span class="text-white font-bold flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> FILTERING ACTIVE</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ============================================================
+       SECTION 1 — HERO
+  ============================================================ -->
+  <section class="relative min-h-screen flex items-center pt-28 pb-16 overflow-hidden bg-main">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-900/20 via-main to-main z-0"></div>
 
-    <!-- SECTION 2: THE AGITATION (Discovery Call Trap) -->
-    <section class="py-24 relative overflow-hidden bg-surface/30 border-y border-white/5">
-        <div class="container mx-auto px-4 z-10 text-center max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6">The <span class="text-gradient from-blue-400 to-cyan-500">Discovery Call Trap.</span></h2>
-            <p class="text-xl text-secondary mb-12 leading-relaxed">
-                You spend 60 minutes digging deep, delivering value, and opening their eyes. Then they drop the bomb: "I don't have the money." You just wasted an hour of your life. If you want to scale to $100k/month, you cannot be the filter. You need a <strong class="text-white">Guard Dog</strong>.
-            </p>
-            
-            <!-- Graphic: Generated Agitation Image -->
-            <div class="relative mx-auto max-w-4xl h-auto rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-blue-500/10 group">
-                <div class="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                <Image src={agitationImage} alt="Wasted Time Disconnected from Budget" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: THE NICHE ROUTER (Coaching Matrix) -->
-    <section class="py-24 relative">
-        <div class="container mx-auto px-4 z-10 pl-40">
-             <div class="text-center mb-16 max-w-5xl mx-auto -ml-20">
-                 <h2 class="text-4xl font-bold mb-4">Trained on <span class="text-gradient from-blue-400 to-cyan-500">Your Methodology</span></h2>
-                 <p class="text-secondary">Context-aware qualification profiles for your specific coaching vertical.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto -ml-20">
-                <!-- Quadrant 1: Business -->
-                <div class="p-8 rounded-2xl bg-surface/40 border border-white/10 hover:border-blue-500/50 transition-colors flex gap-6">
-                     <div class="w-16 h-16 bg-blue-500/20 rounded-xl flex items-center justify-center text-4xl flex-shrink-0">💼</div>
-                     <div>
-                        <h3 class="text-xl font-bold text-white mb-2">Business Coaching (B2B)</h3>
-                        <p class="text-xs font-mono text-blue-400 mb-2">FOCUS: ROI & SYSTEMS</p>
-                        <ul class="text-sm text-secondary space-y-2">
-                            <li>• "What is your current monthly revenue?"</li>
-                            <li>• "What is your revenue goal?"</li>
-                        </ul>
-                     </div>
-                </div>
-                 <!-- Quadrant 2: Marketing -->
-                 <div class="p-8 rounded-2xl bg-surface/40 border border-white/10 hover:border-cyan-500/50 transition-colors flex gap-6">
-                    <div class="w-16 h-16 bg-cyan-500/20 rounded-xl flex items-center justify-center text-4xl flex-shrink-0">🎯</div>
-                    <div>
-                       <h3 class="text-xl font-bold text-white mb-2">Marketing Strategy</h3>
-                       <p class="text-xs font-mono text-cyan-400 mb-2">FOCUS: TRAFFIC & CONVERSION</p>
-                       <ul class="text-sm text-secondary space-y-2">
-                           <li>• "What is your current ad spend?"</li>
-                           <li>• "What is your biggest funnel bottleneck?"</li>
-                       </ul>
-                    </div>
-               </div>
-                <!-- Quadrant 3: Life/Growth -->
-                <div class="p-8 rounded-2xl bg-surface/40 border border-white/10 hover:border-indigo-500/50 transition-colors flex gap-6">
-                    <div class="w-16 h-16 bg-indigo-500/20 rounded-xl flex items-center justify-center text-4xl flex-shrink-0">🦋</div>
-                    <div>
-                       <h3 class="text-xl font-bold text-white mb-2">Life & Transformation</h3>
-                       <p class="text-xs font-mono text-indigo-400 mb-2">FOCUS: MINDSET & CLARITY</p>
-                       <ul class="text-sm text-secondary space-y-2">
-                           <li>• "On a scale of 1-10, how stuck do you feel?"</li>
-                           <li>• "What is this costing you emotionally?"</li>
-                       </ul>
-                    </div>
-               </div>
-                <!-- Quadrant 4: Fitness -->
-                <div class="p-8 rounded-2xl bg-surface/40 border border-white/10 hover:border-emerald-500/50 transition-colors flex gap-6">
-                    <div class="w-16 h-16 bg-emerald-500/20 rounded-xl flex items-center justify-center text-4xl flex-shrink-0">🧬</div>
-                    <div>
-                       <h3 class="text-xl font-bold text-white mb-2">Fitness & Wellness</h3>
-                       <p class="text-xs font-mono text-emerald-400 mb-2">FOCUS: PHYSICAL RESULTS</p>
-                       <ul class="text-sm text-secondary space-y-2">
-                           <li>• "What outcome are you committed to in 90 days?"</li>
-                           <li>• "Any current injuries or limitations?"</li>
-                       </ul>
-                    </div>
-               </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: THE SETTER TRIAD (3 Agents) -->
-    <section class="py-32 relative bg-surface/20">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="glass-card hover:-translate-y-2 group border-blue-500/20 hover:border-blue-500/50">
-                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
-                        ▶️
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Agent 01: The Funnel Setter</h3>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        They watched your webinar/VSL but didn't book? Agent 01 calls them: 'I saw you watched the training on [Topic]. Did you have any questions about applying that to your business?'
-                    </p>
-                    <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Inbound Converter</span>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="glass-card hover:-translate-y-2 group border-cyan-500/20 hover:border-cyan-500/50">
-                    <div class="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300">
-                        ✅
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Agent 02: The Gatekeeper</h3>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        Manages your application forms. If they answer 'No Money', it routes them to a downsell course. If they answer 'Ready to Invest', it fast-tracks them to your calendar.
-                    </p>
-                    <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Application Filter</span>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="glass-card hover:-translate-y-2 group border-indigo-500/20 hover:border-indigo-500/50">
-                    <div class="w-14 h-14 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
-                        🎟️
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Agent 03: The Masterclass Filler</h3>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        Hosting a challenge or webinar? Agent 03 calls your old lead list to fill the seats. 'Hey, we're doing a live workshop on [Topic] next week, wanted to see if you wanted a free ticket?'
-                    </p>
-                    <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Event Filler</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: OBJECTION HANDLER -->
-    <section class="py-24 relative overflow-hidden bg-[#050505] border-y border-blue-900/30">
-        <div class="container mx-auto px-4 z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-             <!-- Text -->
-             <div class="order-2 md:order-1 space-y-6">
-                 <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">It Doesn't just Book. <br/><span class="text-blue-500">It Handles Resistance.</span></h2>
-                 <p class="text-secondary text-lg">
-                     Our agents are trained on 'Sandler' and 'Challenger' sales methodologies. They know how to pivot.
-                 </p>
-                 
-                 <div class="bg-surface/50 border border-white/10 rounded-xl p-6">
-                    <p class="text-xs text-gray-400 uppercase mb-2 font-bold">Example Dialogue</p>
-                    <div class="space-y-4">
-                        <div class="flex gap-4 items-start">
-                            <span class="text-red-400 font-bold text-sm min-w-[50px]">LEAD:</span>
-                            <p class="text-white italic">"I'm just looking for information right now."</p>
-                        </div>
-                        <div class="flex gap-4 items-start">
-                            <span class="text-blue-400 font-bold text-sm min-w-[50px]">AI:</span>
-                            <p class="text-white">"Totally understand. To make sure I send the right information, are you looking to solve [Problem X] or [Problem Y]?"</p>
-                        </div>
-                    </div>
-                 </div>
-             </div>
-             <!-- Visual -->
-             <div class="order-1 md:order-2">
-                 <Image src={objectionImage} alt="Objection Handling Logic Flow" class="w-full h-auto rounded-xl shadow-[0_0_50px_rgba(59,130,246,0.2)] border border-blue-500/20" />
-             </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: ROI CALCULATOR -->
-    <section id="roi-calculator" class="py-32 relative bg-surface/20 border-y border-white/5">
-        <!-- Abstract Background -->
-        <div class="absolute inset-0 opacity-30 pointer-events-none overflow-hidden">
-             <Image src={roiBackground} alt="Ascension Ladders and Growth Curves" class="w-full h-full object-cover opacity-50 mix-blend-screen" />
-             <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:40px_40px]"></div>
+    <div class="container mx-auto px-4 z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Copy -->
+      <div class="space-y-7 text-center lg:text-left">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/5">
+          <span class="text-accent text-xs font-bold tracking-wider uppercase">🎯 Coaching AI Solutions</span>
         </div>
 
-        <div class="container mx-auto px-4 relative z-10 max-w-4xl">
-        <!-- ROI Logic Component -->
-        <ROICalculator 
-            client:visible 
-            jobValueLabel="Program Price"
-            defaultJobValue={5000}
-            defaultMissedCalls={5}
-            accentColor="cyan"
-        />
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.05]">
+          Your Calendar Is<br/>
+          For Clients. Not<br/>
+          <span class="text-gradient">Tire-Kickers.</span>
+        </h1>
+
+        <p class="text-xl text-secondary leading-relaxed max-w-xl mx-auto lg:mx-0">
+          You built a coaching business to transform people — not to spend 4 hours a day qualifying leads, chasing no-shows, and following up with people who say 'I need to think about it'. We deploy 6 AI systems so your calendar fills with qualified buyers while you focus on delivery.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start flex-wrap">
+          <a href="/contact" class="btn-primary flex items-center justify-center gap-2 text-lg">
+            Book Free Audit
+          </a>
+          <a href="#solutions" class="px-7 py-3 rounded-xl border border-white/15 hover:bg-white/5 transition-all font-semibold flex items-center gap-2 text-white">
+            See All 6 Systems
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Remotion Video -->
+      <div class="relative">
+        <div class="absolute inset-0 bg-cyan-500/10 blur-[80px] rounded-full pointer-events-none"></div>
+        <div class="relative z-10">
+          <ProductVideoPlayer id="industry-showcase" inputProps={videoProps} client:visible />
+        </div>
+      </div>
     </div>
-    </section>
+  </section>
 
-    <!-- SECTION 7: COMPARISON -->
-    <section class="py-24">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-center text-3xl font-bold mb-16">The VA vs. <span class="text-gradient from-blue-400 to-cyan-500">The System</span></h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
-                <!-- Human Setter -->
-                <div class="p-8 border-l-4 border-red-500/50 bg-surface/30 rounded-r-xl md:rounded-xl mb-8 md:mb-0">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <span class="text-red-500">❌</span> The Human Setter / VA
-                    </h3>
-                    <ul class="space-y-4 text-secondary">
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Sleeps 8 hours a day (Misses international leads)</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Gets discouraged by "No"</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Costs $3k/mo + 10-15% Commission</li>
-                        <li class="flex items-center gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full"></span> Inconsistent Energy</li>
-                    </ul>
-                </div>
-
-                <!-- SystemPros -->
-                <div class="p-8 border-l-4 border-blue-500 bg-blue-500/5 rounded-r-xl md:rounded-xl relative">
-                    <div class="absolute -top-3 -right-3 bg-blue-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-blue-500/50">SUPERIOR</div>
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <span class="text-blue-500">✅</span> SystemPros Coaching AI
-                    </h3>
-                    <ul class="space-y-4 text-white">
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Dials leads within 10 seconds of opt-in</li>
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Emotionally detached execution (Never burns out)</li>
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Costs a fraction of a human setter</li>
-                        <li class="flex items-center gap-3"><svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> Infinite Scalability</li>
-                    </ul>
-                </div>
-            </div>
+  <!-- ============================================================
+       SECTION 2 — KNOWN PROBLEMS
+  ============================================================ -->
+  <section class="py-24 bg-surface/20 border-y border-white/5">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/5 mb-4">
+          <span class="text-red-400 text-xs font-bold tracking-wider uppercase">Known Pain Points</span>
         </div>
-    </section>
+        <h2 class="text-3xl md:text-5xl font-bold">You Already Know These Are <span class="text-red-400">Costing You</span></h2>
+      </div>
 
-    <!-- SECTION 8: FINAL CTA -->
-    <section class="py-32 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
-        <div class="container mx-auto px-4 relative z-10">
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-8 tracking-tighter">Scale Your Impact. <br/> <span class="text-gradient from-blue-400 to-cyan-500">Protect Your Time.</span></h2>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="/contact" class="btn-primary text-xl px-12 py-6 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 shadow-[0_0_40px_rgba(59,130,246,0.4)]">
-                    Book A Strategy Session
-                </a>
-                <a href="/pricing" class="px-8 py-4 rounded-full border border-white/10 hover:bg-white/5 transition-all font-semibold flex items-center justify-center gap-2">
-                    View Pricing
-                </a>
-            </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card border-red-500/20 hover:border-red-500/40 transition-colors">
+          <div class="text-3xl mb-4">📞</div>
+          <h3 class="text-lg font-bold text-white mb-2">The Discovery Call Trap</h3>
+          <p class="text-secondary text-sm leading-relaxed">Most coaches spend 20–30% of their working week on discovery calls with people who have no budget, no urgency, and no decision authority. Every unqualified call is time you could have spent delivering to paying clients.</p>
         </div>
-    </section>
+        <div class="glass-card border-red-500/20 hover:border-red-500/40 transition-colors">
+          <div class="text-3xl mb-4">📣</div>
+          <h3 class="text-lg font-bold text-white mb-2">Manual DM Outreach Burnout</h3>
+          <p class="text-secondary text-sm leading-relaxed">Chasing leads through Instagram DMs, email, and follow-up calls takes 3–4 hours a day. That's delivery time you're trading for admin work — and it still doesn't scale.</p>
+        </div>
+        <div class="glass-card border-red-500/20 hover:border-red-500/40 transition-colors">
+          <div class="text-3xl mb-4">⏳</div>
+          <h3 class="text-lg font-bold text-white mb-2">The Launch-to-Enrollment Gap</h3>
+          <p class="text-secondary text-sm leading-relaxed">Most coaches lose 60–90 days between launching a program and getting their first payment. Without an automated funnel follow-up system, momentum dies and the launch resets to zero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <Footer />
+  <!-- ============================================================
+       SECTION 3 — HIDDEN PROBLEMS
+  ============================================================ -->
+  <section class="py-24 bg-[#0a0a0a]">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/5 mb-4">
+          <span class="text-amber-400 text-xs font-bold tracking-wider uppercase">⚠ Hidden Revenue Leaks</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold">What You Probably <span class="text-amber-400">Haven't Measured</span></h2>
+        <p class="text-secondary mt-4 max-w-2xl mx-auto">These aren't obvious. But they're bleeding your revenue every week.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border border-amber-500/15 bg-amber-500/5">
+          <div class="text-4xl font-black text-amber-400 mb-2">80%</div>
+          <h3 class="text-base font-bold text-white mb-2">Sales Happen On Follow-Up 3–7, Not Call 1</h3>
+          <p class="text-secondary text-sm leading-relaxed">60–80% of coaching program sales close on follow-up touchpoints 3 through 7. Most coaches stop at one or two. The revenue isn't lost — it's just not being chased.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-amber-500/15 bg-amber-500/5">
+          <div class="text-4xl font-black text-amber-400 mb-2">70%</div>
+          <h3 class="text-base font-bold text-white mb-2">Masterclass No-Shows Don't Come Back</h3>
+          <p class="text-secondary text-sm leading-relaxed">70% of masterclass registrants don't attend live. Without an automated replay sequence and follow-up, you pitched your best content to an empty room and got nothing for it.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-amber-500/15 bg-amber-500/5">
+          <div class="text-4xl font-black text-amber-400 mb-2">40%</div>
+          <h3 class="text-base font-bold text-white mb-2">Objections Are Costing You Closable Revenue</h3>
+          <p class="text-secondary text-sm leading-relaxed">"I need to think about it" objections go unhandled in most coaching funnels. AI follow-up with objection-specific sequences converts 40% of stalled leads that would otherwise go cold.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — CONSEQUENCES
+  ============================================================ -->
+  <section class="py-24 border-y border-white/5 bg-surface/10">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl md:text-5xl font-bold">What Happens If <span class="text-red-400">Nothing Changes</span></h2>
+        <p class="text-secondary mt-4 max-w-xl mx-auto">This isn't a warning. It's a pattern every coaching business without systems eventually hits.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="p-6 rounded-2xl border border-white/8 bg-surface/30 text-center">
+          <div class="text-2xl mb-3">📉</div>
+          <h3 class="font-bold text-white mb-2">This Launch</h3>
+          <p class="text-secondary text-sm">Unqualified discovery calls drain your energy and fill your calendar with people who never buy. Meanwhile, the qualified leads who said "I'll think about it" book with someone who followed up.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-white/8 bg-surface/30 text-center">
+          <div class="text-2xl mb-3">🔄</div>
+          <h3 class="font-bold text-white mb-2">Next 12 Months</h3>
+          <p class="text-secondary text-sm">Without a systematic follow-up sequence, every launch resets. You're starting from zero acquisition every 8–12 weeks instead of building a compounding enrolled client base.</p>
+        </div>
+        <div class="p-6 rounded-2xl border border-white/8 bg-surface/30 text-center">
+          <div class="text-2xl mb-3">🏳️</div>
+          <h3 class="font-bold text-white mb-2">Year 3+</h3>
+          <p class="text-secondary text-sm">Coaches with AI-managed funnels, follow-up, and qualifying have predictable enrollment — not feast-or-famine launches. The gap between you and them compounds every launch.</p>
+        </div>
+      </div>
+
+      <div class="p-8 rounded-2xl bg-red-500/8 border border-red-500/20 text-center">
+        <p class="text-secondary text-sm uppercase tracking-widest font-mono mb-2">Estimated Annual Cost of Inaction</p>
+        <div class="text-5xl font-black text-red-400">$312,000+</div>
+        <p class="text-secondary mt-2 text-sm">Based on 12 unqualified/missed leads per week × $5,000 average program × 52% conversion rate improvement</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — 6-SERVICE SOLUTION STACK
+  ============================================================ -->
+  <section id="solutions" class="py-24">
+    <div class="container mx-auto px-4 max-w-6xl">
+      <div class="text-center mb-20">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/5 mb-4">
+          <span class="text-accent text-xs font-bold tracking-wider uppercase">The Full Stack</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold">6 Systems. Built For <span class="text-gradient">Coaching.</span></h2>
+        <p class="text-secondary mt-4 max-w-2xl mx-auto">Every SystemPros client gets all six. Each one engineered to the specific pain points of your business.</p>
+      </div>
+
+      <div class="space-y-24">
+
+        <!-- 1. Revenue Triad — video left, copy right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ProductVideoPlayer id="revenue-triad" client:visible />
+          </div>
+          <div class="space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-blue-500/15 text-blue-400 border border-blue-500/25">Revenue Triad — Voice AI</span>
+            <h3 class="text-3xl font-bold text-white">Only Talk To People Who Are Ready To Buy</h3>
+            <p class="text-secondary leading-relaxed">Your AI voice agent pre-qualifies every discovery call applicant before they reach your calendar — screening for budget, urgency, and program fit so every call is a genuine sales conversation.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI pre-qualifies all discovery call applicants — budget, urgency, and fit screened first</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Unqualified leads routed to nurture sequences instead of your calendar</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Missed calls and voicemails followed up automatically — no lead left without a touchpoint</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-blue-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Past clients reactivated with upgrade program outreach automatically</li>
+            </ul>
+            <a href="/voice-ai" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold text-sm transition-colors">
+              Explore Revenue Triad <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Lead Gen Websites — copy left, video right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/15 text-cyan-400 border border-cyan-500/25">Lead Gen Websites</span>
+            <h3 class="text-3xl font-bold text-white">A Funnel That Converts Traffic To Discovery Calls Automatically</h3>
+            <p class="text-secondary leading-relaxed">Your current website is a brochure. We build a conversion machine — with AI-qualified booking pages, masterclass registration flows, and social proof architecture that turns traffic into booked calls around the clock.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>High-converting VSL and application pages built to filter qualified buyers</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI chat qualifies website visitors before they reach your booking page</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Masterclass registration pages with automated replay and follow-up sequences</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Testimonial and case study pages built for maximum social proof conversion</li>
+            </ul>
+            <a href="/lead-gen-websites" class="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-semibold text-sm transition-colors">
+              Explore Lead Gen Websites <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2">
+            <ProductVideoPlayer id="lead-gen-websites" client:visible />
+          </div>
+        </div>
+
+        <!-- 3. Lead Reactor — video left, copy right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ProductVideoPlayer id="lead-reactor-speed" client:visible />
+          </div>
+          <div class="space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/15 text-amber-400 border border-amber-500/25">Lead Reactor</span>
+            <h3 class="text-3xl font-bold text-white">Follow Up Every Lead Until They Say Yes Or No</h3>
+            <p class="text-secondary leading-relaxed">New inquiries, masterclass no-shows, and stalled "I need to think about it" leads all get automated multi-channel follow-up — 7+ touchpoints across Voice, SMS, and email without you lifting a finger.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>New lead inquiries followed up within 10 seconds via Voice, SMS, and email</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Masterclass no-shows receive automated replay + follow-up sequence</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>'I need to think about it' leads enter AI objection-handling sequences</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-amber-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Multi-channel follow-up continues for 7+ touchpoints without you lifting a finger</li>
+            </ul>
+            <a href="/lead-reactor" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 font-semibold text-sm transition-colors">
+              Explore Lead Reactor <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Private Assistant — copy left, video right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-purple-500/15 text-purple-400 border border-purple-500/25">Private Assistant</span>
+            <h3 class="text-3xl font-bold text-white">Run Your Entire Coaching Business From One AI Interface</h3>
+            <p class="text-secondary leading-relaxed">A private AI that knows your business — client onboarding, program curriculum, content scheduling, and revenue tracking. Accessible on demand. Answers your admin questions instantly so you can focus on coaching.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Client onboarding documents, contracts, and resources sent automatically</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Program curriculum questions answered by AI so you're not the bottleneck</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Content scheduling, social drafts, and email sequences generated on request</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-purple-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Revenue tracking, enrollment stats, and launch performance summaries delivered daily</li>
+            </ul>
+            <a href="/private-assistant" class="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-sm transition-colors">
+              Explore Private Assistant <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2">
+            <ProductVideoPlayer id="private-assistant" client:visible />
+          </div>
+        </div>
+
+        <!-- 5. Consultation — video left, copy right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <ProductVideoPlayer id="consultation" client:visible />
+          </div>
+          <div class="space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-green-500/15 text-green-400 border border-green-500/25">Consultation</span>
+            <h3 class="text-3xl font-bold text-white">A Funnel Architecture That Actually Converts Your Audience</h3>
+            <p class="text-secondary leading-relaxed">Before we build, we audit. Our consultation identifies every gap from lead magnet to enrollment — then architects the exact AI system stack for your program price, audience, and launch model.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Audit of your current funnel from lead magnet to enrollment</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Conversion gap analysis — where qualified buyers are dropping out of your pipeline</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom AI stack designed for your program price, audience, and launch model</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Offer positioning review to ensure your messaging attracts buyers, not browsers</li>
+            </ul>
+            <a href="/consulting" class="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-semibold text-sm transition-colors">
+              Explore Consultation <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Training — copy left, video right -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-2 lg:order-1 space-y-5">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/15 text-rose-400 border border-rose-500/25">Training</span>
+            <h3 class="text-3xl font-bold text-white">Build A Coaching Business That Runs On Systems, Not Your Time</h3>
+            <p class="text-secondary leading-relaxed">The systems are only as powerful as the person running them. We train you to use AI for content creation, program delivery, client communication, and admin — so your time stays in delivery, not operations.</p>
+            <ul class="space-y-2 text-sm text-secondary">
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI training for coaches on content creation, email writing, and funnel building</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Custom AI workflows for program delivery, client communication, and admin</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Frameworks for delegating discovery call qualification to AI permanently</li>
+              <li class="flex items-start gap-2"><svg class="w-4 h-4 text-rose-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Business systems curriculum so your time is always in the highest-leverage activity</li>
+            </ul>
+            <a href="/training" class="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 font-semibold text-sm transition-colors">
+              Explore Training <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div class="order-1 lg:order-2">
+            <ProductVideoPlayer id="training-results" client:visible />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — ROI CALCULATOR
+  ============================================================ -->
+  <section class="py-24 bg-surface/20 border-y border-white/5">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold">See What Full Deployment Is Worth To Your <span class="text-gradient">Coaching Business</span></h2>
+        <p class="text-secondary mt-3">Adjust the inputs to match your business — see the savings instantly.</p>
+      </div>
+      <ROICalculator client:visible />
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 7 — COMPARISON TABLE
+  ============================================================ -->
+  <section class="py-24">
+    <div class="container mx-auto px-4 max-w-5xl">
+      <h2 class="text-center text-3xl md:text-4xl font-bold mb-14">Today vs. <span class="text-gradient">With SystemPros Deployed</span></h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Without -->
+        <div class="p-8 rounded-2xl border border-red-500/20 bg-red-500/5">
+          <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <span class="text-red-400">✗</span> Today Without SystemPros
+          </h3>
+          <ul class="space-y-3 text-secondary text-sm">
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>Discovery calendar filled with unqualified leads</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>3–4 hours daily on manual DM and email follow-up</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>Launch momentum dies after 1–2 follow-up attempts</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>Masterclass no-shows never re-engaged</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>'I'll think about it' leads go cold permanently</li>
+            <li class="flex items-start gap-3"><span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-1.5 shrink-0"></span>Feast-or-famine launch cycle with no compounding revenue</li>
+          </ul>
+        </div>
+
+        <!-- With -->
+        <div class="p-8 rounded-2xl border border-accent/25 bg-accent/5 relative">
+          <div class="absolute -top-3 -right-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">RECOMMENDED</div>
+          <h3 class="text-lg font-bold text-white mb-6 flex items-center gap-2">
+            <span class="text-accent">✓</span> With SystemPros Deployed
+          </h3>
+          <ul class="space-y-3 text-sm text-white">
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>AI pre-qualifies all discovery applicants — only buyers get your time</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Automated 7+ touchpoint follow-up across every channel</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Launch follow-up runs for 30 days without your involvement</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Masterclass no-shows get automated replay and enrollment sequence</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Objection-handling sequences convert 40% of stalled leads</li>
+            <li class="flex items-start gap-3"><svg class="w-4 h-4 text-accent mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>Compounding enrolled client base grows between launches</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 8 — FINAL CTA
+  ============================================================ -->
+  <section class="py-32 text-center relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/25 via-main to-main"></div>
+    <div class="container mx-auto px-4 relative z-10 max-w-3xl">
+      <div class="text-xs font-mono tracking-widest uppercase text-accent mb-4">Ready To Deploy</div>
+      <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-6">
+        Your Next Client Already Said Yes.<br/>
+        <span class="text-gradient">They Just Need The Right Follow-Up.</span>
+      </h2>
+      <p class="text-secondary text-lg mb-10 max-w-xl mx-auto">Book a free 30-minute audit. We'll map exactly where your funnel is losing qualified buyers and design the AI systems that fill your calendar with people ready to enroll.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary text-lg px-10 py-4 shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+          Book Your Free Audit
+        </a>
+        <a href="/pricing" class="px-8 py-4 rounded-xl border border-white/15 hover:bg-white/5 transition-all font-semibold text-white">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
 </Layout>
-
-<style>
-    .fade-up {
-        @apply opacity-0 animate-[fade-up_0.8s_ease-out_forwards];
-    }
-</style>

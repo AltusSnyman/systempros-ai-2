@@ -1,4 +1,6 @@
 import { Composition, Folder } from 'remotion';
+import { IndustriesOverview } from './compositions/IndustriesOverview';
+import { IndustryShowcase } from './compositions/IndustryShowcase';
 import { RevenueTriad } from './compositions/RevenueTriad';
 import { LeadGenWebsites } from './compositions/LeadGenWebsites';
 import { LeadGenFactory } from './compositions/LeadGenFactory';
@@ -25,6 +27,11 @@ export const RemotionRoot = () => {
   };
 
   return (
+    <>
+    <Folder name="Industries">
+      <Composition durationInFrames={750}  fps={30} width={1080} height={1080} id="industries-overview" component={IndustriesOverview} defaultProps={{}} />
+      <Composition durationInFrames={1200} fps={30} width={1080} height={1080} id="industry-showcase"   component={IndustryShowcase}   defaultProps={{}} />
+    </Folder>
     <Folder name="Products">
       <Composition
         {...commonProps}
@@ -63,5 +70,6 @@ export const RemotionRoot = () => {
       <Composition {...commonProps} id="training" component={Training} defaultProps={{}} />
       <Composition {...commonProps} id="training-results" component={TrainingResults} defaultProps={{}} />
     </Folder>
+    </>
   );
 };
