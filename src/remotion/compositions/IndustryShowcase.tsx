@@ -6,17 +6,19 @@ import {
   spring,
   Easing,
 } from 'remotion';
+import { P } from '../palette';
 
 // ── Default Colours ──────────────────────────────────────────────────────────
-const ACCENT  = '#3B82F6';
-const CYAN    = '#06B6D4';
-const AMBER   = '#F59E0B';
-const PURPLE  = '#8B5CF6';
-const GREEN   = '#22C55E';
-const ROSE    = '#F43F5E';
-const RED     = '#EF4444';
-const BG      = '#0A0A0A';
-const FONT    = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT  = P.green;
+const CYAN    = P.greenMid;
+const AMBER   = P.copper;
+const PURPLE  = P.greenDeep;
+const GREEN   = P.copper;
+const ROSE    = P.copperDeep;
+const RED     = P.copperDark;
+const BG      = P.paper;
+const FONT    = P.fontSans;
+const MONO    = P.fontMono;
 const W = 1080;
 const H = 1080;
 
@@ -65,7 +67,7 @@ const Background = ({ frame, accent }: { frame: number; accent: string }) => {
   return (
     <>
       <AbsoluteFill style={{ backgroundColor: BG }} />
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 20%, ${accent}${Math.round(glow * 255).toString(16).padStart(2,'0')} 0%, transparent 55%)` }} />
+      <AbsoluteFill style={{ background: 'transparent' }} />
       <div style={{ position: 'absolute', top: 40, left: 40, width: 48, height: 48, borderTop: `2px solid ${accent}35`, borderLeft: `2px solid ${accent}35` }} />
       <div style={{ position: 'absolute', bottom: 40, right: 40, width: 48, height: 48, borderBottom: `2px solid ${accent}35`, borderRight: `2px solid ${accent}35` }} />
     </>
@@ -86,21 +88,21 @@ const Intro = ({ frame, fps, props }: { frame: number; fps: number; props: Requi
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 80, fontFamily: FONT }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24, opacity: badgeOp }}>
-        <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT, boxShadow: `0 0 12px ${ACCENT}` }} />
-        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>6 Systems — 1 Industry</span>
+        <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT, boxShadow: 'none'}} />
+        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' }}>6 Systems — 1 Industry</span>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: 20, marginBottom: 12 }}>
         <div style={{ fontSize: 80, opacity: emojiSp, transform: `scale(${interpolate(emojiSp, [0, 1], [0.4, 1])})` }}>{emoji}</div>
         <div style={{ opacity: t1Sp, transform: `translateX(${interpolate(t1Sp, [0, 1], [-40, 0])}px)` }}>
-          <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>{industryName.toUpperCase()}</div>
+          <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>{industryName.toUpperCase()}</div>
           <div style={{ color: ACCENT, fontSize: 24, fontWeight: 700, letterSpacing: '-0.01em', marginTop: 4 }}>AI</div>
         </div>
       </div>
 
       <div style={{ width: lineW, height: 3, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 24 }} />
 
-      <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 540 }}>
+      <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 540 }}>
         {tagline}
       </p>
     </AbsoluteFill>
@@ -125,10 +127,10 @@ const SceneA = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 0 }}>
-      <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 16 }}>
+      <div style={{ color: P.muted, fontSize: 12, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700, marginBottom: 16 }}>
         The Problem
       </div>
-      <div style={{ color: '#FFF', fontSize: 36, fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 48, textAlign: 'center', maxWidth: 700 }}>
+      <div style={{ color: P.ink, fontSize: 36, fontWeight: 800, letterSpacing: '-0.02em', marginBottom: 48, textAlign: 'center', maxWidth: 700 }}>
         The Cost of Doing Nothing
       </div>
 
@@ -137,11 +139,11 @@ const SceneA = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
         display: 'flex', flexDirection: 'column', alignItems: 'center',
         padding: '40px 60px', borderRadius: 24,
         border: `2px solid ${RED}35`, backgroundColor: `${RED}08`,
-        boxShadow: `0 0 ${40 + pulse * 20}px rgba(239,68,68,${0.12 + pulse * 0.1})`,
+        boxShadow: 'none',
         marginBottom: 32,
       }}>
         <div style={{ color: RED, fontSize: 100, fontWeight: 900, lineHeight: 1, letterSpacing: '-0.05em' }}>{counterVal}</div>
-        <div style={{ color: 'rgba(255,255,255,0.55)', fontSize: 18, fontWeight: 600, marginTop: 8, textAlign: 'center' }}>{problemLabel}</div>
+        <div style={{ color: P.muted, fontSize: 18, fontWeight: 600, marginTop: 8, textAlign: 'center' }}>{problemLabel}</div>
       </div>
 
       {/* Revenue cost card */}
@@ -149,18 +151,18 @@ const SceneA = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
         opacity: costSp,
         transform: `translateY(${interpolate(costSp, [0, 1], [30, 0])}px)`,
         padding: '20px 40px', borderRadius: 14,
-        border: `1.5px solid rgba(239,68,68,0.25)`, backgroundColor: 'rgba(239,68,68,0.05)',
+        border: `1.5px solid rgba(127,63,34,0.25)`, backgroundColor: 'rgba(127,63,34,0.05)',
         textAlign: 'center',
       }}>
-        <div style={{ color: RED, fontSize: 13, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase', marginBottom: 4 }}>Revenue at risk</div>
-        <div style={{ color: '#FFF', fontSize: 44, fontWeight: 900, letterSpacing: '-0.03em' }}>{problemCost}</div>
+        <div style={{ color: RED, fontSize: 13, fontWeight: 700, letterSpacing: '0.16em', fontFamily: MONO, textTransform: 'uppercase', marginBottom: 4 }}>Revenue at risk</div>
+        <div style={{ color: P.ink, fontSize: 44, fontWeight: 900, letterSpacing: '-0.03em' }}>{problemCost}</div>
       </div>
 
       {/* "There's a better way" fade in */}
       <div style={{
         position: 'absolute', bottom: 90,
         opacity: interpolate(lf, [220, 260], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }),
-        color: ACCENT, fontSize: 15, fontWeight: 700, letterSpacing: '0.12em',
+        color: ACCENT, fontSize: 15, fontWeight: 700, letterSpacing: '0.12em', fontFamily: MONO,
       }}>
         THERE IS A BETTER WAY ↓
       </div>
@@ -179,13 +181,13 @@ const SceneB = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
   return (
     <AbsoluteFill style={{ fontFamily: FONT, opacity: fadeIn }}>
       <div style={{ position: 'absolute', top: 65, left: 0, right: 0, textAlign: 'center' }}>
-        <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>The Solution</div>
-        <div style={{ color: '#FFF', fontSize: 32, fontWeight: 800, letterSpacing: '-0.02em' }}>6 Systems. Deployed Together.</div>
+        <div style={{ color: P.muted, fontSize: 12, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>The Solution</div>
+        <div style={{ color: P.ink, fontSize: 32, fontWeight: 800, letterSpacing: '-0.02em' }}>6 Systems. Deployed Together.</div>
       </div>
 
       <svg width={W} height={H} style={{ position: 'absolute', top: 0, left: 0 }}>
         {/* Orbit ring */}
-        <circle cx={CX} cy={CY} r={ORBIT_R} fill="none" stroke="rgba(59,130,246,0.08)" strokeWidth="1.5" />
+        <circle cx={CX} cy={CY} r={ORBIT_R} fill="none" stroke="rgba(31,92,69,0.08)" strokeWidth="1.5" />
 
         {/* Lines + particles */}
         {SERVICE_COLORS.map((color, i) => {
@@ -201,19 +203,19 @@ const SceneB = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
           return (
             <g key={i}>
               <line x1={CX + innerR * Math.cos(rad)} y1={CY + innerR * Math.sin(rad)} x2={x2} y2={y2} stroke={color} strokeWidth="1.5" opacity={0.4} />
-              <circle cx={px} cy={py} r={4} fill={color} opacity={pOp} style={{ filter: `drop-shadow(0 0 5px ${color})` }} />
+              <circle cx={px} cy={py} r={4} fill={color} opacity={pOp} style={{ filter: 'none' }} />
             </g>
           );
         })}
 
         {/* Hub */}
-        <circle cx={CX} cy={CY} r={62 + pulse * 4} fill="rgba(59,130,246,0.05)"
-          stroke={`rgba(59,130,246,${0.2 + pulse * 0.2})`} strokeWidth="1.5"
-          style={{ filter: `drop-shadow(0 0 ${14 + pulse * 12}px rgba(59,130,246,0.4))` }}
+        <circle cx={CX} cy={CY} r={62 + pulse * 4} fill="rgba(31,92,69,0.05)"
+          stroke={`rgba(31,92,69,${0.2 + pulse * 0.2})`} strokeWidth="1.5"
+          style={{ filter: 'none' }}
         />
-        <circle cx={CX} cy={CY} r={54} fill="rgba(59,130,246,0.13)" stroke={ACCENT} strokeWidth="2" />
-        <text x={CX} y={CY - 7} textAnchor="middle" fill={ACCENT} fontSize="13" fontWeight="900" fontFamily={FONT}>{industryName.toUpperCase()}</text>
-        <text x={CX} y={CY + 12} textAnchor="middle" fill={ACCENT} fontSize="11" fontWeight="700" fontFamily={FONT}>AI SYSTEM</text>
+        <circle cx={CX} cy={CY} r={54} fill="rgba(31,92,69,0.13)" stroke={ACCENT} strokeWidth="2" />
+        <text x={CX} y={CY - 7} textAnchor="middle" fill={ACCENT} fontSize="13" fontWeight="900" fontFamily={MONO}>{industryName.toUpperCase()}</text>
+        <text x={CX} y={CY + 12} textAnchor="middle" fill={ACCENT} fontSize="11" fontWeight="700" fontFamily={MONO}>AI SYSTEM</text>
 
         {/* Service nodes */}
         {SERVICE_COLORS.map((color, i) => {
@@ -228,11 +230,11 @@ const SceneB = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
           return (
             <g key={i} opacity={sp}>
               <circle cx={nx} cy={ny} r={r} fill={`${color}14`} stroke={color} strokeWidth="1.5"
-                style={{ filter: `drop-shadow(0 0 10px ${color}50)` }}
+                style={{ filter: 'none' }}
               />
-              <text x={nx} y={ny - 3} textAnchor="middle" fill={color} fontSize="9" fontWeight="800" fontFamily={FONT}>{SERVICE_NAMES[i].toUpperCase()}</text>
+              <text x={nx} y={ny - 3} textAnchor="middle" fill={color} fontSize="9" fontWeight="800" fontFamily={MONO}>{SERVICE_NAMES[i].toUpperCase()}</text>
               {/* Application label outside the node */}
-              <text x={lx} y={ly + 5} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="10" fontWeight="500" fontFamily={FONT}>{app}</text>
+              <text x={lx} y={ly + 5} textAnchor="middle" fill={P.muted} fontSize="10" fontWeight="500" fontFamily={MONO}>{app}</text>
             </g>
           );
         })}
@@ -248,7 +250,7 @@ const SceneC = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
   const fadeIn = interpolate(lf, [0, 22], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
 
   const BAR_DATA = [
-    { label: 'Before',     pct: 0.12, color: 'rgba(255,255,255,0.16)' },
+    { label: 'Before',     pct: 0.12, color: 'rgba(31,42,38,0.16)' },
     { label: 'Industry Avg', pct: 0.42, color: `${ACCENT}50`          },
     { label: 'SystemPros', pct: 1.00, color: ACCENT                   },
   ];
@@ -259,8 +261,8 @@ const SceneC = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
   return (
     <AbsoluteFill style={{ fontFamily: FONT, opacity: fadeIn }}>
       <div style={{ position: 'absolute', top: 65, left: 0, right: 0, textAlign: 'center' }}>
-        <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>Results</div>
-        <div style={{ color: '#FFF', fontSize: 32, fontWeight: 800, letterSpacing: '-0.02em' }}>{industryName} AI — By The Numbers</div>
+        <div style={{ color: P.muted, fontSize: 12, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>Results</div>
+        <div style={{ color: P.ink, fontSize: 32, fontWeight: 800, letterSpacing: '-0.02em' }}>{industryName} AI — By The Numbers</div>
       </div>
 
       {/* Stat cards */}
@@ -274,7 +276,7 @@ const SceneC = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
               border: `1.5px solid ${s.color}38`, backgroundColor: `${s.color}0A`, textAlign: 'center',
             }}>
               <div style={{ color: s.color, fontSize: 52, fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1 }}>{s.value}</div>
-              <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 13, fontWeight: 500, marginTop: 10, lineHeight: 1.4 }}>{s.label}</div>
+              <div style={{ color: P.muted, fontSize: 13, fontWeight: 500, marginTop: 10, lineHeight: 1.4 }}>{s.label}</div>
             </div>
           );
         })}
@@ -282,7 +284,7 @@ const SceneC = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
 
       {/* Comparison bar chart */}
       <svg width={W} height={H} style={{ position: 'absolute', top: 0, left: 0 }}>
-        <line x1={140} y1={BASELINE_Y} x2={940} y2={BASELINE_Y} stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+        <line x1={140} y1={BASELINE_Y} x2={940} y2={BASELINE_Y} stroke="rgba(31,42,38,0.08)" strokeWidth="1" />
         {BAR_DATA.map((b, i) => {
           const barH = interpolate(lf, [60 + i * 16, 110 + i * 16], [0, b.pct * BAR_MAX_H], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic) });
           const bx   = BAR_CX[i];
@@ -290,10 +292,10 @@ const SceneC = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
           return (
             <g key={b.label}>
               <rect x={bx - BAR_W / 2} y={BASELINE_Y - barH} width={BAR_W} height={Math.max(barH, 0)} rx={6}
-                fill={b.color} style={i === 2 ? { filter: `drop-shadow(0 0 14px ${ACCENT}70)` } : {}}
+                fill={b.color} style={i === 2 ? { filter: 'none' } : {}}
               />
-              <text x={bx} y={BASELINE_Y + 25} textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize="12" fontWeight="600" fontFamily={FONT} opacity={lOp}>{b.label}</text>
-              <text x={bx} y={BASELINE_Y - barH - 12} textAnchor="middle" fill={b.color} fontSize="12" fontWeight="800" fontFamily={FONT} opacity={lOp}>{Math.round(b.pct * 100)}%</text>
+              <text x={bx} y={BASELINE_Y + 25} textAnchor="middle" fill={P.muted} fontSize="12" fontWeight="600" fontFamily={MONO} opacity={lOp}>{b.label}</text>
+              <text x={bx} y={BASELINE_Y - barH - 12} textAnchor="middle" fill={b.color} fontSize="12" fontWeight="800" fontFamily={MONO} opacity={lOp}>{Math.round(b.pct * 100)}%</text>
             </g>
           );
         })}
@@ -308,7 +310,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 36, right: 52, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: 'rgba(255,255,255,0.28)', fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
     </div>
   );
 };

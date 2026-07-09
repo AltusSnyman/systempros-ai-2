@@ -1,458 +1,392 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Footer from '../components/Footer.astro';
-import ProductVideoPlayer from '../components/ProductVideoPlayer';
+import MediaFrame from '../components/MediaFrame.astro';
 import AudioDemoModal from '../components/AudioDemoModal';
-import { Image } from 'astro:assets';
-import customBuild from '../assets/blueprint-custom-build.png';
 
 const INDUSTRIES = [
-  {
-    name: 'Roofing',
-    emoji: '🏠',
-    category: 'Home Services',
-    tagline: 'Zero missed leads. Even during a storm.',
-    bullets: [
-      'Voice AI answers every storm call 24/7 — handles 1,000 concurrent lines',
-      'Lead Reactor follows up Meta ad leads in under 10 seconds',
-      'Lead Gen Website books estimates and captures roof damage enquiries',
-      'Private AI for field ops, crew scheduling, and job updates via WhatsApp',
-      'Consultation audit + AI Training for your entire sales and ops team',
-    ],
-    href: '/solutions/roofing',
-    videoSrc: '/assets/industry-videos/roofing.mp4',
-    videoProps: {
-      industryName: 'Roofing',
-      emoji: '🏠',
-      tagline: 'Zero missed leads. Even during a storm.',
-      problemValue: '37',
-      problemLabel: 'storm calls missed per week',
-      problemCost: '$74k lost',
-      applications: [
-        'Handles 1,000 storm calls 24/7',
-        'Books estimates online instantly',
-        'Follows Meta leads in <10s',
-        'Field ops AI via WhatsApp',
-        'Growth roadmap & audit',
-        'Crew AI upskilling',
-      ],
-      stats: [
-        { value: '0',   label: 'Missed storm calls',     color: '#22C55E' },
-        { value: '<10s',label: 'Lead response time',     color: '#3B82F6' },
-        { value: '3×',  label: 'More estimates booked',  color: '#F59E0B' },
-      ],
-    },
-  },
-  {
-    name: 'Landscaping',
-    emoji: '🌿',
-    category: 'Home Services',
-    tagline: 'Book estimates while running crews in the field.',
-    bullets: [
-      'Voice AI takes every call while you\'re operating equipment at 100dB',
-      'Lead Reactor converts spring rush Meta ads into booked estimates automatically',
-      'Lead Gen Website captures seasonal maintenance enquiries around the clock',
-      'Private AI for crew routing, job updates, and client follow-ups via WhatsApp',
-      'Consultation + Training to build a scalable AI-driven landscaping operation',
-    ],
-    href: '/solutions/landscaping',
-    videoSrc: '/assets/industry-videos/landscaping.mp4',
-    videoProps: {
-      industryName: 'Landscaping',
-      emoji: '🌿',
-      tagline: 'Book estimates while running crews in the field.',
-      problemValue: '22',
-      problemLabel: 'missed calls per spring week',
-      problemCost: '$44k lost',
-      applications: [
-        'Answers calls while crew works',
-        'Converts spring ads to bookings',
-        'Captures seasonal enquiries 24/7',
-        'Crew routing AI via WhatsApp',
-        'Scalable ops roadmap',
-        'AI tool training for team',
-      ],
-      stats: [
-        { value: '0',   label: 'Missed spring calls',    color: '#22C55E' },
-        { value: '24/7',label: 'Booking availability',   color: '#06B6D4' },
-        { value: '2.8×',label: 'More estimates booked',  color: '#F59E0B' },
-      ],
-    },
-  },
-  {
-    name: 'Dental',
-    emoji: '🦷',
-    category: 'Medical',
-    tagline: 'Fill the chair — even when the front desk is closed.',
-    bullets: [
-      'Voice AI handles 24/7 enquiries, emergencies, and appointment bookings',
-      'Lead Reactor follows up implant and Invisalign ad leads within seconds',
-      'Lead Gen Website books hygiene appointments and captures after-hours patients',
-      'Private AI for front desk admin, insurance questions, and recall management',
-      'HIPAA-aligned Consultation + Training for your entire practice team',
-    ],
-    href: '/solutions/dental',
-    videoSrc: '/assets/industry-videos/dental.mp4',
-    videoProps: {
-      industryName: 'Dental',
-      emoji: '🦷',
-      tagline: 'Fill the chair — even when the front desk is closed.',
-      problemValue: '15',
-      problemLabel: 'patients lost to competitors per week',
-      problemCost: '$7.5k lost',
-      applications: [
-        'Handles 24/7 bookings & emergencies',
-        'Books hygiene appointments online',
-        'Follows implant leads in <10s',
-        'Front desk AI & recall management',
-        'HIPAA-aligned ops roadmap',
-        'Practice team AI training',
-      ],
-      stats: [
-        { value: '70%', label: 'Reduction in front desk admin', color: '#22C55E' },
-        { value: '24/7',label: 'Emergency coverage',           color: '#3B82F6' },
-        { value: '2×',  label: 'More high-value cases closed', color: '#F59E0B' },
-      ],
-    },
-  },
-  {
-    name: 'Chiropractic',
-    emoji: '🦴',
-    category: 'Medical',
-    tagline: 'Automate intake, verify insurance, and book plans of care.',
-    bullets: [
-      'Voice AI screens new patients, verifies insurance, and books appointments',
-      'Lead Reactor converts injury and wellness ad leads into booked consultations',
-      'Lead Gen Website captures new patient enquiries with smart intake forms',
-      'Private AI manages patient follow-ups, plan-of-care reminders, and reviews',
-      'Consultation + Training to scale your practice with AI-driven operations',
-    ],
-    href: '/solutions/chiropractors',
-    videoSrc: '/assets/industry-videos/chiro.mp4',
-    videoProps: {
-      industryName: 'Chiropractic',
-      emoji: '🦴',
-      tagline: 'Automate intake, verify insurance, and book plans of care.',
-      problemValue: '18',
-      problemLabel: 'new patients lost per week',
-      problemCost: '$9k lost',
-      applications: [
-        'Screens patients & verifies insurance',
-        'Smart intake forms & online booking',
-        'Converts ad leads in <10s',
-        'Plan-of-care & review management',
-        'Practice growth roadmap',
-        'Staff AI operations training',
-      ],
-      stats: [
-        { value: '80%', label: 'Intake automation rate',     color: '#22C55E' },
-        { value: '0',   label: 'Missed new patient calls',   color: '#3B82F6' },
-        { value: '2.5×',label: 'More plans of care started', color: '#8B5CF6' },
-      ],
-    },
-  },
-  {
-    name: 'Counselling',
-    emoji: '🧠',
-    category: 'Medical',
-    tagline: 'HIPAA-compliant triage and after-hours intake.',
-    bullets: [
-      'Voice AI provides compassionate 24/7 triage and HIPAA-compliant intake',
-      'Lead Reactor follows up therapy and mental health ad enquiries sensitively',
-      'Lead Gen Website captures new client requests with secure intake forms',
-      'Private AI for scheduling management, session reminders, and follow-ups',
-      'Consultation + Training to ethically integrate AI into your practice',
-    ],
-    href: '/solutions/counselling',
-    videoSrc: '/assets/industry-videos/counseling.mp4',
-    videoProps: {
-      industryName: 'Counselling',
-      emoji: '🧠',
-      tagline: 'HIPAA-compliant triage and after-hours intake.',
-      problemValue: '100%',
-      problemLabel: 'of after-hours enquiries missed',
-      problemCost: '$12k lost/mo',
-      applications: [
-        'Compassionate 24/7 AI triage',
-        'Secure online intake forms',
-        'Sensitive ad lead follow-up',
-        'Scheduling & session reminders',
-        'Ethical AI integration roadmap',
-        'Practice staff AI training',
-      ],
-      stats: [
-        { value: '100%', label: 'After-hours enquiries captured', color: '#22C55E' },
-        { value: '0',    label: 'HIPAA compliance incidents',     color: '#3B82F6' },
-        { value: '40%',  label: 'Reduction in admin workload',    color: '#8B5CF6' },
-      ],
-    },
-  },
-  {
-    name: 'Auto Detailing',
-    emoji: '🚗',
-    category: 'Trades',
-    tagline: 'Automated quotes, deposits, and appointment reminders.',
-    bullets: [
-      'Voice AI handles booking calls while you\'re detailing — never miss a ceramic enquiry',
-      'Lead Reactor converts Meta and Google ad leads into booked appointments instantly',
-      'Lead Gen Website collects deposits and books ceramic coating packages automatically',
-      'Private AI for job tracking, client follow-ups, and review management',
-      'Consultation + Training to scale from 1-van to multi-location AI operation',
-    ],
-    href: '/solutions/auto-detailing',
-    videoSrc: '/assets/industry-videos/detailing.mp4',
-    videoProps: {
-      industryName: 'Auto Detailing',
-      emoji: '🚗',
-      tagline: 'Automated quotes, deposits, and reminders.',
-      problemValue: '12',
-      problemLabel: 'high-ticket bookings missed per week',
-      problemCost: '$6k lost',
-      applications: [
-        'Books calls while you detail',
-        'Collects deposits automatically',
-        'Ad leads booked in <10s',
-        'Job tracking & review AI',
-        'Multi-location growth plan',
-        'AI operations training',
-      ],
-      stats: [
-        { value: '90%', label: 'Automated deposit collection', color: '#22C55E' },
-        { value: '0',   label: 'Missed ceramic enquiries',     color: '#3B82F6' },
-        { value: '2×',  label: 'More high-ticket bookings',    color: '#F59E0B' },
-      ],
-    },
-  },
-  {
-    name: 'Coaching',
-    emoji: '🎯',
-    category: 'Business',
-    tagline: 'Book discovery calls and nurture leads on autopilot.',
-    bullets: [
-      'Voice AI handles inbound enquiries and books discovery calls 24/7',
-      'Lead Reactor converts webinar and ad leads into booked strategy calls instantly',
-      'Lead Gen Website captures high-intent coaching prospects with smart funnels',
-      'Private AI for content creation, client management, and course delivery support',
-      'Consultation + Training to build a fully automated coaching business',
-    ],
-    href: '/solutions/coaching',
-    videoSrc: null,
-    videoProps: {
-      industryName: 'Coaching',
-      emoji: '🎯',
-      tagline: 'Book discovery calls and nurture leads on autopilot.',
-      problemValue: '60%',
-      problemLabel: 'of leads never book a call',
-      problemCost: '$30k lost/mo',
-      applications: [
-        'Books discovery calls 24/7',
-        'Smart coaching funnel & intake',
-        'Converts webinar leads in <10s',
-        'Content & client management AI',
-        'Automated business roadmap',
-        'AI coaching tools training',
-      ],
-      stats: [
-        { value: '3×',  label: 'More discovery calls booked', color: '#22C55E' },
-        { value: '24/7',label: 'Lead nurture automation',     color: '#3B82F6' },
-        { value: '80%', label: 'Reduction in manual outreach',color: '#8B5CF6' },
-      ],
-    },
-  },
-  {
-    name: 'Senior Living',
-    emoji: '🌳',
-    category: 'Medical',
-    tagline: '24/7 family enquiry capture and automated follow-up.',
-    bullets: [
-      'Voice AI answers 100% of after-hours family enquiries compassionately',
-      'Lead Reactor follows up care enquiry ad leads while families are still deciding',
-      'Lead Gen Website captures and qualifies senior living enquiries around the clock',
-      'Private AI for staff communications, family updates, and care coordination',
-      'Consultation + Training to modernise operations with compliant AI systems',
-    ],
-    href: '/solutions/independent-living',
-    videoSrc: '/assets/industry-videos/ndis.mp4',
-    videoProps: {
-      industryName: 'Senior Living',
-      emoji: '🌳',
-      tagline: '24/7 family enquiry capture and follow-up.',
-      problemValue: '100%',
-      problemLabel: 'of after-hours enquiries unanswered',
-      problemCost: '$50k lost/mo',
-      applications: [
-        'Compassionate 24/7 family intake',
-        'Online enquiry & qualification forms',
-        'Follows ad leads while families decide',
-        'Staff comms & family update AI',
-        'Compliant ops roadmap',
-        'Staff AI transition training',
-      ],
-      stats: [
-        { value: '100%', label: 'After-hours enquiries captured', color: '#22C55E' },
-        { value: '40%',  label: 'Faster family response cycle',   color: '#3B82F6' },
-        { value: '2×',   label: 'More tours booked monthly',      color: '#F59E0B' },
-      ],
-    },
-  },
+	{
+		ref: 'SP-IND-01',
+		name: 'Roofing',
+		anchor: 'roofing',
+		category: 'Home services',
+		tagline: 'Zero missed leads. Even during a storm.',
+		bullets: [
+			'Voice AI answers every storm call 24/7 — handles 1,000 concurrent lines',
+			'Lead Reactor follows up Meta ad leads in under 10 seconds',
+			'Lead Gen Website books estimates and captures roof damage enquiries',
+			'Private AI for field ops, crew scheduling, and job updates via WhatsApp',
+			'Consultation audit + AI training for your entire sales and ops team',
+		],
+		href: '/solutions/roofing',
+		videoSrc: '/assets/industry-videos/roofing.mp4',
+		poster: '/assets/industry-videos/roofing.webp',
+		fig: 'FIG. 01',
+		caption: 'ROOFING — STORM-SEASON INTAKE',
+	},
+	{
+		ref: 'SP-IND-02',
+		name: 'Landscaping',
+		anchor: 'landscaping',
+		category: 'Home services',
+		tagline: 'Book estimates while running crews in the field.',
+		bullets: [
+			'Voice AI takes every call while you’re operating equipment at 100dB',
+			'Lead Reactor converts spring rush Meta ads into booked estimates automatically',
+			'Lead Gen Website captures seasonal maintenance enquiries around the clock',
+			'Private AI for crew routing, job updates, and client follow-ups via WhatsApp',
+			'Consultation + training to build a scalable AI-driven landscaping operation',
+		],
+		href: '/solutions/landscaping',
+		videoSrc: '/assets/industry-videos/landscaping.mp4',
+		poster: '/assets/industry-videos/landscaping.webp',
+		fig: 'FIG. 02',
+		caption: 'LANDSCAPING — QUOTE-TO-BOOKING',
+	},
+	{
+		ref: 'SP-IND-03',
+		name: 'Dental',
+		anchor: 'dental',
+		category: 'Medical',
+		tagline: 'Fill the chair — even when the front desk is closed.',
+		bullets: [
+			'Voice AI handles 24/7 enquiries, emergencies, and appointment bookings',
+			'Lead Reactor follows up implant and Invisalign ad leads within seconds',
+			'Lead Gen Website books hygiene appointments and captures after-hours patients',
+			'Private AI for front desk admin, insurance questions, and recall management',
+			'HIPAA-aligned consultation + training for your entire practice team',
+		],
+		href: '/solutions/dental',
+		videoSrc: '/assets/industry-videos/dental.mp4',
+		poster: '/assets/industry-videos/dental.webp',
+		fig: 'FIG. 03',
+		caption: 'DENTAL — FRONT-DESK OVERFLOW',
+	},
+	{
+		ref: 'SP-IND-04',
+		name: 'Chiropractic',
+		anchor: 'chiropractic',
+		category: 'Medical',
+		tagline: 'Automate intake, verify insurance, and book plans of care.',
+		bullets: [
+			'Voice AI screens new patients, verifies insurance, and books appointments',
+			'Lead Reactor converts injury and wellness ad leads into booked consultations',
+			'Lead Gen Website captures new patient enquiries with smart intake forms',
+			'Private AI manages patient follow-ups, plan-of-care reminders, and reviews',
+			'Consultation + training to scale your practice with AI-driven operations',
+		],
+		href: '/solutions/chiropractors',
+		videoSrc: '/assets/industry-videos/chiro.mp4',
+		poster: '/assets/industry-videos/chiro.webp',
+		fig: 'FIG. 04',
+		caption: 'CHIROPRACTIC — NEW PATIENT INTAKE',
+	},
+	{
+		ref: 'SP-IND-05',
+		name: 'Counselling',
+		anchor: 'counselling',
+		category: 'Medical',
+		tagline: 'HIPAA-compliant triage and after-hours intake.',
+		bullets: [
+			'Voice AI provides compassionate 24/7 triage and HIPAA-compliant intake',
+			'Lead Reactor follows up therapy and mental health ad enquiries sensitively',
+			'Lead Gen Website captures new client requests with secure intake forms',
+			'Private AI for scheduling management, session reminders, and follow-ups',
+			'Consultation + training to ethically integrate AI into your practice',
+		],
+		href: '/solutions/counselling',
+		videoSrc: '/assets/industry-videos/counseling.mp4',
+		poster: '/assets/industry-videos/counseling.webp',
+		fig: 'FIG. 05',
+		caption: 'COUNSELLING — AFTER-HOURS INTAKE',
+	},
+	{
+		ref: 'SP-IND-06',
+		name: 'Auto Detailing',
+		anchor: 'auto-detailing',
+		category: 'Trades',
+		tagline: 'Automated quotes, deposits, and appointment reminders.',
+		bullets: [
+			'Voice AI handles booking calls while you’re detailing — never miss a ceramic enquiry',
+			'Lead Reactor converts Meta and Google ad leads into booked appointments instantly',
+			'Lead Gen Website collects deposits and books ceramic coating packages automatically',
+			'Private AI for job tracking, client follow-ups, and review management',
+			'Consultation + training to scale from 1-van to multi-location AI operation',
+		],
+		href: '/solutions/auto-detailing',
+		videoSrc: '/assets/industry-videos/detailing.mp4',
+		poster: '/assets/industry-videos/detailing.webp',
+		fig: 'FIG. 06',
+		caption: 'DETAILING — CERAMIC ENQUIRY',
+	},
+	{
+		ref: 'SP-IND-07',
+		name: 'Coaching',
+		anchor: 'coaching',
+		category: 'Business',
+		tagline: 'Book discovery calls and nurture leads on autopilot.',
+		bullets: [
+			'Voice AI handles inbound enquiries and books discovery calls 24/7',
+			'Lead Reactor converts webinar and ad leads into booked strategy calls instantly',
+			'Lead Gen Website captures high-intent coaching prospects with smart funnels',
+			'Private AI for content creation, client management, and course delivery support',
+			'Consultation + training to build a fully automated coaching business',
+		],
+		href: '/solutions/coaching',
+		videoSrc: null,
+		poster: null,
+		fig: 'FIG. 07',
+		caption: 'COACHING — QUALIFICATION FUNNEL',
+	},
+	{
+		ref: 'SP-IND-08',
+		name: 'Senior Living',
+		anchor: 'senior-living',
+		category: 'Medical',
+		tagline: '24/7 family enquiry capture and automated follow-up.',
+		bullets: [
+			'Voice AI answers 100% of after-hours family enquiries compassionately',
+			'Lead Reactor follows up care enquiry ad leads while families are still deciding',
+			'Lead Gen Website captures and qualifies senior living enquiries around the clock',
+			'Private AI for staff communications, family updates, and care coordination',
+			'Consultation + training to modernise operations with compliant AI systems',
+		],
+		href: '/solutions/independent-living',
+		videoSrc: '/assets/industry-videos/ndis.mp4',
+		poster: '/assets/industry-videos/ndis.webp',
+		fig: 'FIG. 08',
+		caption: 'SENIOR LIVING — FAMILY INQUIRY',
+	},
 ];
 ---
 
 <Layout
-  title="AI Solutions by Industry | SystemPros.ai"
-  description="All 6 AI systems — Voice AI, Lead Gen Websites, Lead Reactor, Private Assistant, Consultation, and Training — deployed for your industry. Roofing, Dental, Landscaping, Coaching and more."
+	title="AI Solutions by Industry | SystemPros.ai"
+	description="All 6 AI systems — Voice AI, Lead Gen Websites, Lead Reactor, Private Assistant, Consultation, and Training — deployed for your industry. Roofing, Dental, Landscaping, Coaching and more."
 >
-  <main class="overflow-x-hidden">
+	<!-- 1. HERO -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<span>COMMISSIONING REGISTER — INDUSTRY DEPLOYMENTS</span>
+				<span class="hidden md:inline">NZ · AU · USA</span>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> 8 SECTORS ON REGISTER</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
 
-    <!-- HERO -->
-    <section class="relative pt-36 pb-16 overflow-hidden">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(59,130,246,0.13)_0%,transparent_55%)]" />
-      <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
-        <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-accent border border-accent/25 bg-accent/5 rounded-full px-4 py-2 mb-8">
-          <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse inline-block"></span>
-          Industry-Specific AI Deployment
-        </div>
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight mb-6">
-          AI Built for<br /><span class="text-gradient">Your Industry.</span>
-        </h1>
-        <p class="text-xl text-secondary leading-relaxed max-w-2xl mx-auto mb-10">
-          Every client receives all 6 of our AI systems — each one engineered to the specific workflows, pain points, and revenue drivers of your vertical.
-        </p>
-        <!-- 6 service pills -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
-          {[
-            { name: 'Revenue Triad',    cls: 'text-blue-400 border-blue-500/25 bg-blue-500/10'   },
-            { name: 'Lead Gen Sites',   cls: 'text-cyan-400 border-cyan-500/25 bg-cyan-500/10'   },
-            { name: 'Lead Reactor',     cls: 'text-amber-400 border-amber-500/25 bg-amber-500/10' },
-            { name: 'Private Asst.',    cls: 'text-purple-400 border-purple-500/25 bg-purple-500/10' },
-            { name: 'Consultation',     cls: 'text-green-400 border-green-500/25 bg-green-500/10' },
-            { name: 'Training',         cls: 'text-rose-400 border-rose-500/25 bg-rose-500/10'   },
-          ].map(p => (
-            <span class={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-bold border ${p.cls}`}>{p.name}</span>
-          ))}
-        </div>
-        <a href="#industries" class="inline-flex items-center gap-2 text-secondary hover:text-white transition-colors text-sm font-semibold">
-          Browse Industries
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-        </a>
-      </div>
-    </section>
+			<div class="py-14 lg:py-18 max-w-[54rem]">
+				<h1 class="face-display font-extrabold text-[clamp(2.6rem,6vw,5.2rem)] leading-[1.03] text-ink" data-reveal>
+					AI built for <span class="text-green">your industry.</span>
+				</h1>
+				<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[38rem]" data-reveal style="--reveal-delay: 120ms;">
+					Every client receives all six of our AI systems — each one engineered to the specific
+					workflows, pain points, and revenue drivers of your vertical. Below: the register of
+					sectors we install for, with live demonstrations.
+				</p>
+				<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
+					<a href="/contact" class="btn-primary">Book a Free Consultation</a>
+					<a href="#register" class="btn-secondary">
+						Open the register
+						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- INDUSTRY SHOWCASES -->
-    <section id="industries" class="py-8">
-      <div class="container mx-auto px-4 space-y-8 max-w-7xl">
+	<!-- 2. THE REGISTER — ruled table, not a card grid -->
+	<section id="register" class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.8vw,3rem)] leading-tight text-ink" data-reveal>
+					Register of sector installations.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SP-IND-01 — SP-IND-08 · ALL SIX SYSTEMS PER SECTOR</p>
+			</div>
 
-        {INDUSTRIES.map((ind, i) => {
-          const isEven = i % 2 === 0;
-          return (
-            <div class="glass-card p-0 overflow-hidden hover:border-white/15 transition-all duration-300">
-              <div class={`grid lg:grid-cols-2 ${isEven ? '' : 'lg:[&>*:first-child]:order-2'}`}>
+			<!-- header row -->
+			<div class="hidden md:grid grid-cols-[6.5rem_13rem_1fr_10rem_2rem] gap-x-6 pb-3 px-2 face-data text-muted">
+				<span>REF</span>
+				<span>SECTOR</span>
+				<span>SCOPE OF INSTALL</span>
+				<span>STATUS</span>
+				<span></span>
+			</div>
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{INDUSTRIES.map((ind, i) => (
+				<a
+					href={`#${ind.anchor}`}
+					class="spec-row group grid grid-cols-[6.5rem_1fr_2rem] md:grid-cols-[6.5rem_13rem_1fr_10rem_2rem] gap-x-6 gap-y-1 items-center py-5 px-2"
+					data-reveal
+					style={`--reveal-delay: ${i * 50}ms;`}
+				>
+					<span class="face-data text-copper">{ind.ref}</span>
+					<div>
+						<span class="font-bold text-ink text-lg group-hover:text-green transition-colors">{ind.name}</span>
+						<span class="face-data !text-[11px] text-muted block mt-0.5">{ind.category.toUpperCase()}</span>
+					</div>
+					<p class="hidden md:block text-[14px] text-muted max-w-[34rem]">{ind.tagline}</p>
+					<span class="hidden md:flex face-data text-green items-center gap-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"><polyline points="20 6 9 17 4 12"/></svg>
+						COMMISSIONED
+					</span>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="text-line group-hover:text-copper group-hover:translate-y-0.5 transition-all"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+				</a>
+			))}
+			<p class="face-data text-muted mt-5" data-reveal>SELECT A ROW FOR THE SECTOR ENTRY · FULL DOSSIERS LINKED BELOW</p>
+		</div>
+	</section>
 
-                <!-- Video Column -->
-                <div class="relative bg-[#050505] aspect-square lg:aspect-auto lg:min-h-[440px] flex items-center justify-center overflow-hidden">
-                  <div class="absolute inset-0 bg-accent/5" />
-                  <div class="w-full h-full">
-                    <ProductVideoPlayer
-                      id="industry-showcase"
-                      inputProps={ind.videoProps}
-                      client:visible
-                    />
-                  </div>
-                </div>
+	<!-- 3. SECTOR ENTRIES -->
+	<section class="py-(--spacing-section-sm)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="space-y-20">
+				{INDUSTRIES.map((ind, i) => (
+					<article id={ind.anchor} class="scroll-mt-28">
+						<div class="face-data text-muted flex flex-wrap justify-between gap-2 pb-3">
+							<span class="text-copper">{ind.ref}</span>
+							<span>{ind.category.toUpperCase()} · ALL SIX SYSTEMS DEPLOYED</span>
+						</div>
+						<div class="rule-ticked" data-draw-rule></div>
 
-                <!-- Content Column -->
-                <div class="flex flex-col justify-center p-8 lg:p-12 space-y-6">
-                  <!-- Badge + heading -->
-                  <div>
-                    <div class="flex items-center gap-3 mb-3">
-                      <span class="text-2xl">{ind.emoji}</span>
-                      <span class="text-xs font-bold tracking-widest uppercase text-secondary border border-white/10 rounded-full px-3 py-1">{ind.category}</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tighter text-white mb-2">{ind.name} AI</h2>
-                    <p class="text-accent font-semibold text-lg">{ind.tagline}</p>
-                  </div>
+						<div class={`grid lg:grid-cols-2 gap-12 items-center pt-9 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+							<div data-reveal>
+								{ind.videoSrc ? (
+									<MediaFrame fig={ind.fig} caption={ind.caption}>
+										<video
+											src={ind.videoSrc}
+											poster={ind.poster}
+											muted
+											loop
+											playsinline
+											preload="none"
+											class="w-full aspect-[4/5] object-cover"
+											data-hover-play
+										></video>
+									</MediaFrame>
+								) : (
+									<MediaFrame fig={ind.fig} caption={ind.caption}>
+										<div class="aspect-[4/5] flex items-center justify-center bg-green-faint" aria-hidden="true">
+											<svg viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-3/4">
+												<g stroke="var(--color-green)" stroke-width="1.5">
+													<path d="M 150 66 V 120" data-draw-path />
+													<path d="M 150 200 V 244 H 78 V 282" data-draw-path style="--reveal-delay: 250ms;" />
+													<path d="M 150 200 V 244 H 222 V 282" data-draw-path style="--reveal-delay: 400ms;" />
+												</g>
+												<g data-reveal>
+													<rect x="60" y="20" width="180" height="46" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+													<text x="150" y="48" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="11" fill="var(--color-ink)">ENQUIRIES &times;100</text>
+												</g>
+												<g data-reveal style="--reveal-delay: 150ms;">
+													<rect x="75" y="120" width="150" height="80" fill="var(--color-green)" />
+													<text x="150" y="156" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="11" fill="var(--color-paper-lit)">AI QUALIFY</text>
+													<text x="150" y="176" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="8.5" fill="var(--color-paper-dim)">BUDGET · URGENCY · FIT</text>
+												</g>
+												<g data-reveal style="--reveal-delay: 450ms;">
+													<rect x="18" y="282" width="120" height="46" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+													<text x="78" y="310" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9.5" fill="var(--color-ink)">NURTURE</text>
+													<rect x="162" y="282" width="120" height="46" stroke="var(--color-copper)" stroke-width="1.5" fill="var(--color-paper)" />
+													<text x="222" y="310" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9.5" fill="var(--color-copper)">BOOKED CALL</text>
+												</g>
+											</svg>
+										</div>
+									</MediaFrame>
+								)}
+							</div>
 
-                  <!-- Bullets -->
-                  <ul class="space-y-3">
-                    {ind.bullets.map(bullet => (
-                      <li class="flex items-start gap-3">
-                        <span class="text-accent mt-0.5 shrink-0">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        </span>
-                        <span class="text-secondary text-sm leading-relaxed">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+							<div>
+								<h2 class="face-display font-extrabold text-3xl md:text-4xl text-ink" data-reveal>{ind.name}</h2>
+								<p class="text-green font-semibold text-lg mt-2" data-reveal style="--reveal-delay: 60ms;">{ind.tagline}</p>
+								<ul class="mt-6">
+									{ind.bullets.map((b, j) => (
+										<li class="spec-row flex items-start gap-4 py-3 px-1 text-[14.5px] text-ink" data-reveal style={`--reveal-delay: ${120 + j * 50}ms;`}>
+											<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="square" class="shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg>
+											{b}
+										</li>
+									))}
+								</ul>
+								<div class="mt-8 flex flex-wrap gap-4" data-reveal style="--reveal-delay: 400ms;">
+									<a href={ind.href} class="btn-secondary !px-5 !py-2.5 !text-[14px]">
+										View full dossier
+										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+									</a>
+									{ind.videoSrc && (
+										<AudioDemoModal videoSrc={ind.videoSrc} industryName={ind.name} client:visible />
+									)}
+								</div>
+							</div>
+						</div>
+					</article>
+				))}
+			</div>
+		</div>
+	</section>
 
-                  <!-- Buttons -->
-                  <div class="flex flex-wrap gap-3 pt-2">
-                    <a
-                      href={ind.href}
-                      class="inline-flex items-center gap-2 px-6 py-3 rounded-xl btn-primary font-semibold text-sm"
-                    >
-                      View Full Solution
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                    {ind.videoSrc && (
-                      <AudioDemoModal
-                        videoSrc={ind.videoSrc}
-                        industryName={ind.name}
-                        client:visible
-                      />
-                    )}
-                  </div>
-                </div>
+	<!-- 4. CUSTOM ARCHITECTURE — drench -->
+	<section id="custom" class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-7">
+					<p class="face-data text-paper-dim" data-reveal>REGISTER ENTRY SP-IND-09 — RESERVED FOR YOUR SECTOR</p>
+					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4rem)] leading-[1.05] text-paper-lit mt-4" data-reveal style="--reveal-delay: 80ms;">
+						Don't see your industry? We'll architect it for you.
+					</h2>
+					<p class="mt-6 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 160ms;">
+						Thirty years of IT architecture means we can map any workflow, no matter how complex.
+						We build a custom AI system for your niche — trained on your SOPs and integrated with
+						your existing software.
+					</p>
+					<a href="/contact" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 260ms;">Request a Custom Architecture Build</a>
+				</div>
+				<div class="lg:col-span-5 hidden lg:block" aria-hidden="true">
+					<svg viewBox="0 0 400 260" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+						<g stroke="var(--color-paper-dim)" stroke-width="1.25">
+							<path d="M 80 50 H 170 V 108" data-draw-path />
+							<path d="M 80 210 H 170 V 152" data-draw-path style="--reveal-delay: 200ms;" />
+							<path d="M 250 130 H 330" data-draw-path style="--reveal-delay: 450ms;" />
+						</g>
+						<g data-reveal>
+							<rect x="16" y="26" width="64" height="46" stroke="var(--color-paper-dim)" stroke-width="1.25" fill="none" />
+							<text x="48" y="53" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9.5" fill="var(--color-paper-dim)">SOPS</text>
+							<rect x="16" y="188" width="64" height="46" stroke="var(--color-paper-dim)" stroke-width="1.25" fill="none" />
+							<text x="48" y="215" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9.5" fill="var(--color-paper-dim)">TOOLS</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 300ms;">
+							<rect x="140" y="108" width="110" height="44" fill="var(--color-paper-lit)" />
+							<text x="195" y="135" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-green-deep)">YOUR NICHE</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 550ms;">
+							<rect x="330" y="106" width="56" height="48" stroke="var(--color-copper)" stroke-width="1.5" fill="none" />
+							<text x="358" y="134" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9.5" fill="var(--color-copper)">AI</text>
+						</g>
+						<text x="200" y="252" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-paper-dim)" data-reveal style="--reveal-delay: 650ms;">CUSTOM SYSTEM · DRAWN, BUILT, COMMISSIONED</text>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</section>
 
-              </div>
-            </div>
-          );
-        })}
-
-      </div>
-    </section>
-
-    <!-- CUSTOM ARCHITECTURE -->
-    <section id="custom" class="py-32 relative bg-[#050505] overflow-hidden mt-12">
-      <div class="absolute inset-0 bg-[url('/assets/grid.svg')] bg-center opacity-10"></div>
-      <div class="container mx-auto px-4 text-center relative z-10">
-        <div class="max-w-4xl mx-auto mb-16">
-          <h2 class="text-4xl md:text-5xl font-bold mb-6">
-            Don't See Your Industry?<br/>
-            <span class="text-accent">We Will Architect It For You.</span>
-          </h2>
-          <p class="text-xl text-secondary leading-relaxed">
-            Our 30-year IT background means we can map any workflow, no matter how complex. We build a custom AI system for your niche — trained on your SOPs and integrated with your existing software.
-          </p>
-        </div>
-        <div class="relative max-w-3xl mx-auto mb-16 group">
-          <div class="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full group-hover:bg-blue-500/30 transition-colors duration-700"></div>
-          <Image
-            src={customBuild}
-            alt="Custom Architecture Build"
-            class="relative z-10 w-full rounded-xl shadow-2xl border border-white/10 hover:border-accent/50 transition-colors duration-500"
-          />
-        </div>
-        <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5 shadow-[0_0_40px_rgba(59,130,246,0.4)] hover:shadow-[0_0_60px_rgba(59,130,246,0.6)]">
-          Request Custom Architecture Build
-        </a>
-      </div>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="py-24 relative overflow-hidden">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.12)_0%,transparent_65%)]" />
-      <div class="container mx-auto px-4 relative z-10 text-center max-w-3xl">
-        <h2 class="text-3xl md:text-5xl font-bold mb-6 tracking-tighter">
-          These aren't just solutions.<br/>
-          <span class="text-gradient">They're fully deployed AI workforces.</span>
-        </h2>
-        <p class="text-xl text-secondary mb-10">Every system works together. Book a call and we'll show you what the full stack looks like for your industry.</p>
-        <a href="/contact" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
-          Book Your Deployment Call
-        </a>
-      </div>
-    </section>
-
-  </main>
-  <Footer />
+	<!-- 5. FINAL CTA -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>END OF REGISTER</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[24ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				These aren't demos. They're deployed AI workforces.
+			</h2>
+			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				Every system works together. Book a free consultation and we'll show you what the full
+				stack looks like for your industry.
+			</p>
+			<a href="/contact" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
 </Layout>
+
+<script>
+	document.querySelectorAll<HTMLVideoElement>('[data-hover-play]').forEach((v) => {
+		const frame = v.closest('figure') ?? v;
+		frame.addEventListener('mouseenter', () => v.play().catch(() => {}));
+		frame.addEventListener('mouseleave', () => v.pause());
+	});
+</script>

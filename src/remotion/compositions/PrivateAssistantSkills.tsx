@@ -5,14 +5,16 @@ import {
   interpolate,
   spring,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const GREEN = '#22C55E';
-const PURPLE = '#8B5CF6';
-const ORANGE = '#F97316';
-const YELLOW = '#EAB308';
-const BG = '#0A0A0A';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const GREEN = P.copper;
+const PURPLE = P.greenDeep;
+const ORANGE = P.copperDeep;
+const YELLOW = P.copper;
+const BG = P.paper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 const W = 1080;
 
 const Background = ({ frame }: { frame: number }) => {
@@ -20,9 +22,9 @@ const Background = ({ frame }: { frame: number }) => {
   return (
     <>
       <AbsoluteFill style={{ backgroundColor: BG }} />
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 10%, rgba(139,92,246,${glow}) 0%, transparent 55%)` }} />
-      <div style={{ position: 'absolute', top: 44, right: 44, width: 50, height: 50, borderTop: `2px solid rgba(139,92,246,0.3)`, borderRight: `2px solid rgba(139,92,246,0.3)` }} />
-      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 50, height: 50, borderBottom: `2px solid rgba(59,130,246,0.3)`, borderLeft: `2px solid rgba(59,130,246,0.3)` }} />
+      <AbsoluteFill style={{ background: 'transparent' }} />
+      <div style={{ position: 'absolute', top: 44, right: 44, width: 50, height: 50, borderTop: `2px solid rgba(20,61,49,0.3)`, borderRight: `2px solid rgba(20,61,49,0.3)` }} />
+      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 50, height: 50, borderBottom: `2px solid rgba(31,92,69,0.3)`, borderLeft: `2px solid rgba(31,92,69,0.3)` }} />
     </>
   );
 };
@@ -69,14 +71,14 @@ const Intro = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 80, fontFamily: FONT }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, opacity: catOp }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: PURPLE }} />
-        <span style={{ color: PURPLE, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>ClawHub Marketplace</span>
+        <span style={{ color: PURPLE, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' }}>ClawHub Marketplace</span>
       </div>
       <div style={{ transform: `translateY(${titleY}px)`, opacity: titleSp, marginBottom: 20 }}>
         <div style={{ color: PURPLE, fontSize: 100, fontWeight: 900, lineHeight: 0.95, letterSpacing: '-0.04em' }}>{counterVal.toLocaleString()}+</div>
-        <div style={{ color: '#FFF', fontSize: 72, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>SKILLS</div>
+        <div style={{ color: P.ink, fontSize: 72, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>SKILLS</div>
       </div>
       <div style={{ width: lineW, height: 4, backgroundColor: PURPLE, borderRadius: 2, marginBottom: 24 }} />
-      <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp }}>
+      <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp }}>
         Hand-picked and installed for your workflow
       </p>
     </AbsoluteFill>
@@ -99,8 +101,8 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ fontFamily: FONT, opacity: fadeIn }}>
       {/* Header */}
       <div style={{ position: 'absolute', top: 65, left: 0, right: 0, textAlign: 'center' }}>
-        <div style={{ color: PURPLE, fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>The Power Packs</div>
-        <div style={{ color: '#FFF', fontSize: 38, fontWeight: 900, letterSpacing: '-0.02em' }}>
+        <div style={{ color: PURPLE, fontSize: 12, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700, marginBottom: 6 }}>The Power Packs</div>
+        <div style={{ color: P.ink, fontSize: 38, fontWeight: 900, letterSpacing: '-0.02em' }}>
           What People <span style={{ color: PURPLE }}>Actually Want</span>
         </div>
       </div>
@@ -142,7 +144,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
               {pack.skills.map((skill) => (
                 <div key={skill} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <div style={{ width: 5, height: 5, borderRadius: '50%', backgroundColor: pack.color, flexShrink: 0 }} />
-                  <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: 13, fontWeight: 400 }}>{skill}</span>
+                  <span style={{ color: P.muted, fontSize: 13, fontWeight: 400 }}>{skill}</span>
                 </div>
               ))}
             </div>
@@ -155,7 +157,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
         position: 'absolute', bottom: 72, left: 0, right: 0, textAlign: 'center',
         opacity: interpolate(localFrame, [110, 140], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }),
       }}>
-        <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 13, fontWeight: 500 }}>
+        <span style={{ color: P.muted, fontSize: 13, fontWeight: 500 }}>
           + 2,950 more skills on ClawHub
         </span>
       </div>
@@ -182,8 +184,8 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 28 }}>
-      <div style={{ color: PURPLE, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>Knowledge Pack — Live Demo</div>
-      <div style={{ color: '#FFF', fontSize: 28, fontWeight: 800, textAlign: 'center' }}>
+      <div style={{ color: PURPLE, fontSize: 12, letterSpacing: '0.2em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700 }}>Knowledge Pack — Live Demo</div>
+      <div style={{ color: P.ink, fontSize: 28, fontWeight: 800, textAlign: 'center' }}>
         Your AI Knows <span style={{ color: PURPLE }}>Your Own Notes</span>
       </div>
 
@@ -191,19 +193,19 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
       <div style={{
         width: 580,
         borderRadius: 20,
-        border: `1.5px solid rgba(139,92,246,0.3)`,
-        backgroundColor: 'rgba(255,255,255,0.02)',
+        border: `1.5px solid rgba(20,61,49,0.3)`,
+        backgroundColor: 'rgba(31,42,38,0.02)',
         overflow: 'hidden',
         opacity: chatSp,
         transform: `translateY(${interpolate(chatSp, [0, 1], [30, 0])}px)`,
       }}>
         {/* Header */}
-        <div style={{ padding: '14px 22px', backgroundColor: 'rgba(139,92,246,0.12)', borderBottom: '1px solid rgba(139,92,246,0.2)', display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ padding: '14px 22px', backgroundColor: 'rgba(20,61,49,0.12)', borderBottom: '1px solid rgba(20,61,49,0.2)', display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{ width: 34, height: 34, borderRadius: '50%', backgroundColor: PURPLE, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: '#FFF', fontSize: 13, fontWeight: 800 }}>AI</span>
+            <span style={{ color: P.paper, fontSize: 13, fontWeight: 800 }}>AI</span>
           </div>
           <div>
-            <div style={{ color: '#FFF', fontSize: 14, fontWeight: 700 }}>Private Assistant</div>
+            <div style={{ color: P.ink, fontSize: 14, fontWeight: 700 }}>Private Assistant</div>
             <div style={{ color: GREEN, fontSize: 11, fontWeight: 500 }}>● Connected to Obsidian</div>
           </div>
         </div>
@@ -213,15 +215,15 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
           {/* User */}
           <div style={{ display: 'flex', justifyContent: 'flex-end', opacity: msg1Op }}>
             <div style={{ backgroundColor: PURPLE, borderRadius: '14px 14px 4px 14px', padding: '10px 16px', maxWidth: '78%' }}>
-              <span style={{ color: '#FFF', fontSize: 14 }}>What did I decide about the marketing budget last October?</span>
+              <span style={{ color: P.paper, fontSize: 14 }}>What did I decide about the marketing budget last October?</span>
             </div>
           </div>
 
           {/* Typing */}
           {typingVisible && (
             <div style={{ display: 'flex', justifyContent: 'flex-start', opacity: typingOp }}>
-              <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(139,92,246,0.2)', borderRadius: '14px 14px 14px 4px', padding: '10px 16px', display: 'flex', gap: 5, alignItems: 'center' }}>
-                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 11, marginRight: 4 }}>Searching Obsidian...</span>
+              <div style={{ backgroundColor: 'rgba(31,42,38,0.05)', border: '1px solid rgba(20,61,49,0.2)', borderRadius: '14px 14px 14px 4px', padding: '10px 16px', display: 'flex', gap: 5, alignItems: 'center' }}>
+                <span style={{ color: P.muted, fontSize: 11, marginRight: 4 }}>Searching Obsidian...</span>
                 {[0, 1, 2].map((di) => (
                   <div key={di} style={{
                     width: 7, height: 7, borderRadius: '50%', backgroundColor: PURPLE,
@@ -234,8 +236,8 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
 
           {/* AI response */}
           <div style={{ display: 'flex', justifyContent: 'flex-start', opacity: msg2Op }}>
-            <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(139,92,246,0.25)', borderRadius: '14px 14px 14px 4px', padding: '10px 16px', maxWidth: '82%' }}>
-              <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, lineHeight: 1.55 }}>
+            <div style={{ backgroundColor: 'rgba(31,42,38,0.05)', border: '1px solid rgba(20,61,49,0.25)', borderRadius: '14px 14px 14px 4px', padding: '10px 16px', maxWidth: '82%' }}>
+              <span style={{ color: P.ink, fontSize: 13, lineHeight: 1.55 }}>
                 📓 From your Oct 14 meeting note: You approved $8,500/mo for Meta ads and paused Google. Next review was set for Dec 1.
               </span>
             </div>
@@ -244,20 +246,20 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
           {/* User follow-up */}
           <div style={{ display: 'flex', justifyContent: 'flex-end', opacity: msg3Op }}>
             <div style={{ backgroundColor: PURPLE, borderRadius: '14px 14px 4px 14px', padding: '10px 16px', maxWidth: '70%' }}>
-              <span style={{ color: '#FFF', fontSize: 14 }}>Great. Draft a summary email for my team.</span>
+              <span style={{ color: P.paper, fontSize: 14 }}>Great. Draft a summary email for my team.</span>
             </div>
           </div>
 
           {/* AI typing again */}
           <div style={{ display: 'flex', justifyContent: 'flex-start', opacity: msg4Op }}>
-            <div style={{ backgroundColor: 'rgba(255,255,255,0.05)', border: '1px solid rgba(139,92,246,0.25)', borderRadius: '14px 14px 14px 4px', padding: '10px 16px' }}>
-              <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13 }}>✅ Draft ready. Want me to send it now?</span>
+            <div style={{ backgroundColor: 'rgba(31,42,38,0.05)', border: '1px solid rgba(20,61,49,0.25)', borderRadius: '14px 14px 14px 4px', padding: '10px 16px' }}>
+              <span style={{ color: P.ink, fontSize: 13 }}>✅ Draft ready. Want me to send it now?</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: 13, opacity: footerOp }}>
+      <div style={{ color: P.muted, fontSize: 13, opacity: footerOp }}>
         Answers from YOUR notes. Your data never leaves your device.
       </div>
     </AbsoluteFill>
@@ -280,8 +282,8 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 24 }}>
-      <div style={{ color: GREEN, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 700 }}>CRM Whisperer Skill</div>
-      <div style={{ color: '#FFF', fontSize: 34, fontWeight: 900, textAlign: 'center', letterSpacing: '-0.02em' }}>
+      <div style={{ color: GREEN, fontSize: 12, letterSpacing: '0.2em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700 }}>CRM Whisperer Skill</div>
+      <div style={{ color: P.ink, fontSize: 34, fontWeight: 900, textAlign: 'center', letterSpacing: '-0.02em' }}>
         Text Your AI. <span style={{ color: GREEN }}>CRM Updates Itself.</span>
       </div>
 
@@ -291,13 +293,13 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
         <div style={{
           padding: '18px 22px',
           borderRadius: 16,
-          border: `1.5px solid #25D36640`,
-          backgroundColor: '#25D3660A',
+          border: `1.5px solid ${P.copper}40`,
+          backgroundColor: `${P.copper}0a`,
           maxWidth: 320,
           opacity: msgOp,
         }}>
-          <div style={{ color: '#25D366', fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 8 }}>WhatsApp → Your AI</div>
-          <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: 14, lineHeight: 1.6 }}>
+          <div style={{ color: P.copper, fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', fontFamily: MONO, textTransform: 'uppercase', marginBottom: 8 }}>WhatsApp → Your AI</div>
+          <div style={{ color: P.ink, fontSize: 14, lineHeight: 1.6 }}>
             "Met Altus today, interested in $10k package, follow up next Monday"
           </div>
         </div>
@@ -317,7 +319,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
           maxWidth: 320,
           opacity: crmOp,
         }}>
-          <div style={{ color: ACCENT, fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: 10 }}>CRM Updated</div>
+          <div style={{ color: ACCENT, fontSize: 10, fontWeight: 700, letterSpacing: '0.14em', fontFamily: MONO, textTransform: 'uppercase', marginBottom: 10 }}>CRM Updated</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
             {[
               { label: 'Contact', val: 'Altus' },
@@ -326,8 +328,8 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
               { label: 'Status', val: '🟢 Interested' },
             ].map((row) => (
               <div key={row.label} style={{ display: 'flex', gap: 8 }}>
-                <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: 12, width: 72 }}>{row.label}:</span>
-                <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 12, fontWeight: 600 }}>{row.val}</span>
+                <span style={{ color: P.muted, fontSize: 12, width: 72 }}>{row.label}:</span>
+                <span style={{ color: P.ink, fontSize: 12, fontWeight: 600 }}>{row.val}</span>
               </div>
             ))}
           </div>
@@ -340,12 +342,12 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
         padding: '12px 24px', borderRadius: 100, border: `1px solid ${GREEN}35`, backgroundColor: `${GREEN}0A`,
       }}>
         <div style={{ width: 18, height: 18, borderRadius: '50%', backgroundColor: GREEN, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: '#fff', fontSize: 11, fontWeight: 900 }}>✓</span>
+          <span style={{ color: P.paper, fontSize: 11, fontWeight: 900 }}>✓</span>
         </div>
-        <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, fontWeight: 600 }}>Zero manual data entry. Ever.</span>
+        <span style={{ color: P.muted, fontSize: 14, fontWeight: 600 }}>Zero manual data entry. Ever.</span>
       </div>
 
-      <div style={{ color: 'rgba(255,255,255,0.3)', fontSize: 12, opacity: footerOp }}>
+      <div style={{ color: P.muted, fontSize: 12, opacity: footerOp }}>
         Speed-to-lead logic embedded in every interaction
       </div>
     </AbsoluteFill>
@@ -358,7 +360,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 56, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
     </div>
   );
 };

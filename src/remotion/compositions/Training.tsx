@@ -7,10 +7,12 @@ import {
   Sequence,
   Easing,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const BG = '#0A0A0A';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const BG = P.paper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 
 export type TrainingProps = Record<string, never>;
 
@@ -19,9 +21,9 @@ const Background = ({ frame }: { frame: number }) => {
   return (
     <>
       <AbsoluteFill style={{ backgroundColor: BG }} />
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 0%, rgba(59,130,246,${glow}) 0%, transparent 60%)` }} />
-      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(59,130,246,0.4)`, borderRight: `3px solid rgba(59,130,246,0.4)` }} />
-      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(59,130,246,0.4)`, borderLeft: `3px solid rgba(59,130,246,0.4)` }} />
+      <AbsoluteFill style={{ background: 'transparent' }} />
+      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(31,92,69,0.4)`, borderRight: `3px solid rgba(31,92,69,0.4)` }} />
+      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(31,92,69,0.4)`, borderLeft: `3px solid rgba(31,92,69,0.4)` }} />
     </>
   );
 };
@@ -31,7 +33,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: 'rgba(255,255,255,0.32)', fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
     </div>
   );
 };
@@ -48,13 +50,13 @@ const Intro = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '80px', fontFamily: FONT }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 22, opacity: catOp }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT }} />
-        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>1-on-1 Sessions</span>
+        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' }}>1-on-1 Sessions</span>
       </div>
       <div style={{ transform: `translateY(${titleY}px)`, opacity: titleSpring, marginBottom: 22 }}>
-        <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>TRAINING</div>
+        <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>TRAINING</div>
       </div>
       <div style={{ width: lineWidth, height: 4, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 24 }} />
-      <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>Learn the tools driving real results. By doing.</p>
+      <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>Learn the tools driving real results. By doing.</p>
     </AbsoluteFill>
   );
 };
@@ -75,7 +77,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 30 }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Tools We Train You On</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Tools We Train You On</div>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, justifyContent: 'center', width: 800 }}>
         {tools.map((tool, i) => {
           const cardSpring = spring({ frame: localFrame - (i * 16 + 10), fps, config: { damping: 160 } });
@@ -83,8 +85,8 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
           return (
             <div key={tool.name} style={{
               width: 230, height: 130, borderRadius: 16,
-              border: `1.5px solid rgba(59,130,246,0.3)`,
-              backgroundColor: 'rgba(59,130,246,0.06)',
+              border: `1.5px solid rgba(31,92,69,0.3)`,
+              backgroundColor: 'rgba(31,92,69,0.06)',
               display: 'flex', flexDirection: 'column', alignItems: 'flex-start', justifyContent: 'center',
               padding: '0 24px', gap: 8,
               opacity: cardSpring,
@@ -136,8 +138,8 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
                 )}
               </svg>
               <div>
-                <div style={{ color: '#FFF', fontSize: 15, fontWeight: 700 }}>{tool.name}</div>
-                <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 13, fontWeight: 500 }}>{tool.desc}</div>
+                <div style={{ color: P.ink, fontSize: 15, fontWeight: 700 }}>{tool.name}</div>
+                <div style={{ color: P.muted, fontSize: 13, fontWeight: 500 }}>{tool.desc}</div>
               </div>
             </div>
           );
@@ -165,8 +167,8 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 36 }}>
       <div style={{ opacity: titleOp, textAlign: 'center' }}>
-        <div style={{ color: ACCENT, fontSize: 13, letterSpacing: '0.2em', fontWeight: 700, textTransform: 'uppercase', marginBottom: 6 }}>Skill Development</div>
-        <div style={{ color: '#FFF', fontSize: 26, fontWeight: 800, letterSpacing: '-0.02em' }}>YOUR TEAM AFTER TRAINING</div>
+        <div style={{ color: ACCENT, fontSize: 13, letterSpacing: '0.2em', fontFamily: MONO, fontWeight: 700, textTransform: 'uppercase', marginBottom: 6 }}>Skill Development</div>
+        <div style={{ color: P.ink, fontSize: 26, fontWeight: 800, letterSpacing: '-0.02em' }}>YOUR TEAM AFTER TRAINING</div>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 22, width: 700 }}>
@@ -181,13 +183,13 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
           return (
             <div key={skill.label} style={{ display: 'flex', flexDirection: 'column', gap: 8, opacity: labelOp }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 15, fontWeight: 600 }}>{skill.label}</span>
+                <span style={{ color: P.ink, fontSize: 15, fontWeight: 600 }}>{skill.label}</span>
                 <span style={{ color: ACCENT, fontSize: 15, fontWeight: 800, opacity: pctOp }}>{Math.floor(barFill)}%</span>
               </div>
-              <div style={{ height: 10, backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: 6, overflow: 'hidden' }}>
+              <div style={{ height: 10, backgroundColor: 'rgba(31,42,38,0.06)', borderRadius: 6, overflow: 'hidden' }}>
                 <div style={{
                   height: '100%', width: `${barFill}%`, backgroundColor: ACCENT,
-                  borderRadius: 6, boxShadow: '0 0 10px rgba(59,130,246,0.4)',
+                  borderRadius: 6, boxShadow: 'none',
                   transition: 'none'
                 }} />
               </div>
@@ -217,16 +219,16 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 40 }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>1-on-1 Learning</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>1-on-1 Learning</div>
 
       <div style={{ position: 'relative', width: 800, height: 300 }}>
         <svg width="800" height="300" style={{ position: 'absolute', top: 0, left: 0 }}>
           {/* Left person */}
           <g opacity={leftSpring} transform={`translate(${interpolate(leftSpring, [0, 1], [-40, 0])}, 0)`}>
-            <circle cx="140" cy="100" r="40" fill="rgba(59,130,246,0.12)" stroke={ACCENT} strokeWidth="2" />
-            <circle cx="140" cy="80" r="18" fill="rgba(59,130,246,0.2)" stroke={ACCENT} strokeWidth="1.5" />
-            <path d="M105 140 Q140 120 175 140" fill="rgba(59,130,246,0.15)" stroke={ACCENT} strokeWidth="1.5" />
-            <text x="140" y="180" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="13" fontWeight="600" fontFamily={FONT}>You</text>
+            <circle cx="140" cy="100" r="40" fill="rgba(31,92,69,0.12)" stroke={ACCENT} strokeWidth="2" />
+            <circle cx="140" cy="80" r="18" fill="rgba(31,92,69,0.2)" stroke={ACCENT} strokeWidth="1.5" />
+            <path d="M105 140 Q140 120 175 140" fill="rgba(31,92,69,0.15)" stroke={ACCENT} strokeWidth="1.5" />
+            <text x="140" y="180" textAnchor="middle" fill={P.muted} fontSize="13" fontWeight="600" fontFamily={MONO}>You</text>
           </g>
 
           {/* Connection lines with flowing dots */}
@@ -261,22 +263,22 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
                 />
               );
             })}
-            <circle r="28" fill="rgba(59,130,246,0.15)" stroke={ACCENT} strokeWidth="2" />
-            <text textAnchor="middle" y="6" fill={ACCENT} fontSize="16" fontWeight="800" fontFamily={FONT}>AI</text>
+            <circle r="28" fill="rgba(31,92,69,0.15)" stroke={ACCENT} strokeWidth="2" />
+            <text textAnchor="middle" y="6" fill={ACCENT} fontSize="16" fontWeight="800" fontFamily={MONO}>AI</text>
           </g>
 
           {/* Right person */}
           <g opacity={rightSpring} transform={`translate(${interpolate(rightSpring, [0, 1], [40, 0])}, 0)`}>
-            <circle cx="660" cy="100" r="40" fill="rgba(59,130,246,0.12)" stroke={ACCENT} strokeWidth="2" />
-            <circle cx="660" cy="80" r="18" fill="rgba(59,130,246,0.2)" stroke={ACCENT} strokeWidth="1.5" />
-            <path d="M625 140 Q660 120 695 140" fill="rgba(59,130,246,0.15)" stroke={ACCENT} strokeWidth="1.5" />
-            <text x="660" y="180" textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize="13" fontWeight="600" fontFamily={FONT}>Expert</text>
+            <circle cx="660" cy="100" r="40" fill="rgba(31,92,69,0.12)" stroke={ACCENT} strokeWidth="2" />
+            <circle cx="660" cy="80" r="18" fill="rgba(31,92,69,0.2)" stroke={ACCENT} strokeWidth="1.5" />
+            <path d="M625 140 Q660 120 695 140" fill="rgba(31,92,69,0.15)" stroke={ACCENT} strokeWidth="1.5" />
+            <text x="660" y="180" textAnchor="middle" fill={P.muted} fontSize="13" fontWeight="600" fontFamily={MONO}>Expert</text>
           </g>
         </svg>
       </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
-        <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: 15, letterSpacing: '0.04em', textAlign: 'center', margin: 0, opacity: footerOp }}>
+        <p style={{ color: P.muted, fontSize: 15, letterSpacing: '0.04em', textAlign: 'center', margin: 0, opacity: footerOp }}>
           Custom curriculum. Recorded. Actionable.
         </p>
         <div style={{ opacity: badgeOp, display: 'flex', alignItems: 'center', gap: 12, backgroundColor: ACCENT, borderRadius: 100, padding: '10px 24px' }}>
@@ -284,7 +286,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
             <rect x="2" y="3" width="14" height="12" rx="2" stroke="white" strokeWidth="1.5" fill="none" />
             <line x1="2" y1="7" x2="16" y2="7" stroke="white" strokeWidth="1.5" />
           </svg>
-          <span style={{ color: '#FFF', fontSize: 15, fontWeight: 700 }}>Book a Session</span>
+          <span style={{ color: P.paper, fontSize: 15, fontWeight: 700 }}>Book a Session</span>
         </div>
       </div>
     </AbsoluteFill>

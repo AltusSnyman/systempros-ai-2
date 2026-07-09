@@ -6,15 +6,17 @@ import {
   spring,
   Easing,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const CYAN = '#06B6D4';
-const AMBER = '#F59E0B';
-const PURPLE = '#8B5CF6';
-const GREEN = '#22C55E';
-const ROSE = '#F43F5E';
-const BG = '#0A0A0A';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const CYAN = P.greenMid;
+const AMBER = P.copper;
+const PURPLE = P.greenDeep;
+const GREEN = P.copper;
+const ROSE = P.copperDeep;
+const BG = P.paper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 const W = 1080;
 const H = 1080;
 
@@ -24,9 +26,9 @@ const Background = ({ frame }: { frame: number }) => {
   return (
     <>
       <AbsoluteFill style={{ backgroundColor: BG }} />
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 25%, rgba(59,130,246,${glow}) 0%, transparent 60%)` }} />
-      <div style={{ position: 'absolute', top: 44, left: 44, width: 50, height: 50, borderTop: `2px solid rgba(59,130,246,0.2)`, borderLeft: `2px solid rgba(59,130,246,0.2)` }} />
-      <div style={{ position: 'absolute', bottom: 44, right: 44, width: 50, height: 50, borderBottom: `2px solid rgba(59,130,246,0.2)`, borderRight: `2px solid rgba(59,130,246,0.2)` }} />
+      <AbsoluteFill style={{ background: 'transparent' }} />
+      <div style={{ position: 'absolute', top: 44, left: 44, width: 50, height: 50, borderTop: `2px solid rgba(31,92,69,0.2)`, borderLeft: `2px solid rgba(31,92,69,0.2)` }} />
+      <div style={{ position: 'absolute', bottom: 44, right: 44, width: 50, height: 50, borderBottom: `2px solid rgba(31,92,69,0.2)`, borderRight: `2px solid rgba(31,92,69,0.2)` }} />
     </>
   );
 };
@@ -75,19 +77,19 @@ const Intro = ({ frame, fps }: { frame: number; fps: number }) => {
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 80, fontFamily: FONT }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 26, opacity: badgeOp }}>
-        <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT, boxShadow: `0 0 12px ${ACCENT}` }} />
-        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>
+        <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT, boxShadow: 'none'}} />
+        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' }}>
           9 Industries / 6 Solutions / 1 Partner
         </span>
       </div>
       <div style={{ opacity: t1Sp, transform: `translateY(${interpolate(t1Sp, [0, 1], [60, 0])}px)` }}>
-        <div style={{ color: '#FFF', fontSize: 86, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>YOUR INDUSTRY.</div>
+        <div style={{ color: P.ink, fontSize: 86, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>YOUR INDUSTRY.</div>
       </div>
       <div style={{ opacity: t2Sp, transform: `translateY(${interpolate(t2Sp, [0, 1], [60, 0])}px)` }}>
         <div style={{ color: ACCENT, fontSize: 86, fontWeight: 900, lineHeight: 1.05, letterSpacing: '-0.03em' }}>OUR SYSTEM.</div>
       </div>
       <div style={{ width: lineW, height: 3, backgroundColor: ACCENT, borderRadius: 2, marginTop: 26, marginBottom: 26 }} />
-      <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 560 }}>
+      <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 560 }}>
         Full-stack AI. Built for your vertical.
       </p>
     </AbsoluteFill>
@@ -103,10 +105,10 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ fontFamily: FONT, opacity: fadeIn }}>
       {/* Heading */}
       <div style={{ position: 'absolute', top: 68, left: 0, right: 0, textAlign: 'center' }}>
-        <div style={{ color: 'rgba(255,255,255,0.38)', fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
+        <div style={{ color: P.muted, fontSize: 12, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
           Every Vertical
         </div>
-        <div style={{ color: '#FFF', fontSize: 34, fontWeight: 800, letterSpacing: '-0.02em' }}>
+        <div style={{ color: P.ink, fontSize: 34, fontWeight: 800, letterSpacing: '-0.02em' }}>
           One Proven System.
         </div>
       </div>
@@ -121,7 +123,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
           const drawn = interpolate(lf, [38 + li * 5, 75 + li * 5], [len, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
           return (
             <line key={li} x1={fx} y1={fy} x2={tx} y2={ty}
-              stroke="rgba(59,130,246,0.18)" strokeWidth="1"
+              stroke="rgba(31,92,69,0.18)" strokeWidth="1"
               strokeDasharray={len} strokeDashoffset={drawn}
             />
           );
@@ -136,11 +138,11 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
           return (
             <g key={ind.name} opacity={nodeOp}>
               <circle cx={x} cy={y} r={r}
-                fill="rgba(59,130,246,0.07)" stroke="rgba(59,130,246,0.32)" strokeWidth="1.5"
-                style={{ filter: 'drop-shadow(0 0 10px rgba(59,130,246,0.22))' }}
+                fill="rgba(31,92,69,0.07)" stroke="rgba(31,92,69,0.32)" strokeWidth="1.5"
+                style={{ filter: 'none' }}
               />
-              <text x={x} y={y + 10} textAnchor="middle" fontSize="26" fontFamily={FONT}>{ind.emoji}</text>
-              <text x={x} y={y + 75} textAnchor="middle" fill="rgba(255,255,255,0.72)" fontSize="13" fontWeight="600" fontFamily={FONT}>{ind.name}</text>
+              <text x={x} y={y + 10} textAnchor="middle" fontSize="26" fontFamily={MONO}>{ind.emoji}</text>
+              <text x={x} y={y + 75} textAnchor="middle" fill={P.muted} fontSize="13" fontWeight="600" fontFamily={MONO}>{ind.name}</text>
             </g>
           );
         })}
@@ -158,17 +160,17 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
   return (
     <AbsoluteFill style={{ fontFamily: FONT, opacity: fadeIn }}>
       <div style={{ position: 'absolute', top: 68, left: 0, right: 0, textAlign: 'center' }}>
-        <div style={{ color: 'rgba(255,255,255,0.38)', fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
+        <div style={{ color: P.muted, fontSize: 12, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>
           The Full Stack
         </div>
-        <div style={{ color: '#FFF', fontSize: 34, fontWeight: 800, letterSpacing: '-0.02em' }}>
+        <div style={{ color: P.ink, fontSize: 34, fontWeight: 800, letterSpacing: '-0.02em' }}>
           6 Systems. Deployed Together.
         </div>
       </div>
 
       <svg width={W} height={H} style={{ position: 'absolute', top: 0, left: 0 }}>
         {/* Orbit ring */}
-        <circle cx={CX} cy={CY} r={ORBIT_R} fill="none" stroke="rgba(59,130,246,0.08)" strokeWidth="1.5" />
+        <circle cx={CX} cy={CY} r={ORBIT_R} fill="none" stroke="rgba(31,92,69,0.08)" strokeWidth="1.5" />
 
         {/* Lines + particles to each service */}
         {SERVICES.map((s, i) => {
@@ -192,20 +194,20 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
                 stroke={s.color} strokeWidth="1.5" opacity={0.42}
               />
               <circle cx={px} cy={py} r={4} fill={s.color} opacity={particleOp}
-                style={{ filter: `drop-shadow(0 0 5px ${s.color})` }}
+                style={{ filter: 'none' }}
               />
             </g>
           );
         })}
 
         {/* Central hub */}
-        <circle cx={CX} cy={CY} r={60 + pulse * 4} fill="rgba(59,130,246,0.05)"
-          stroke={`rgba(59,130,246,${0.18 + pulse * 0.22})`} strokeWidth="1.5"
-          style={{ filter: `drop-shadow(0 0 ${14 + pulse * 12}px rgba(59,130,246,0.4))` }}
+        <circle cx={CX} cy={CY} r={60 + pulse * 4} fill="rgba(31,92,69,0.05)"
+          stroke={`rgba(31,92,69,${0.18 + pulse * 0.22})`} strokeWidth="1.5"
+          style={{ filter: 'none' }}
         />
-        <circle cx={CX} cy={CY} r={52} fill="rgba(59,130,246,0.13)" stroke={ACCENT} strokeWidth="2" />
-        <text x={CX} y={CY - 8} textAnchor="middle" fill={ACCENT} fontSize="14" fontWeight="900" fontFamily={FONT}>YOUR</text>
-        <text x={CX} y={CY + 12} textAnchor="middle" fill={ACCENT} fontSize="14" fontWeight="900" fontFamily={FONT}>BUSINESS</text>
+        <circle cx={CX} cy={CY} r={52} fill="rgba(31,92,69,0.13)" stroke={ACCENT} strokeWidth="2" />
+        <text x={CX} y={CY - 8} textAnchor="middle" fill={ACCENT} fontSize="14" fontWeight="900" fontFamily={MONO}>YOUR</text>
+        <text x={CX} y={CY + 12} textAnchor="middle" fill={ACCENT} fontSize="14" fontWeight="900" fontFamily={MONO}>BUSINESS</text>
 
         {/* Service nodes */}
         {SERVICES.map((s, i) => {
@@ -224,10 +226,10 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
             <g key={s.name} opacity={sp}>
               <circle cx={nx} cy={ny} r={r}
                 fill={`${s.color}14`} stroke={s.color} strokeWidth="1.5"
-                style={{ filter: `drop-shadow(0 0 10px ${s.color}55)` }}
+                style={{ filter: 'none' }}
               />
-              <text x={nx} y={ny + 5} textAnchor="middle" fill={s.color} fontSize="10" fontWeight="800" fontFamily={FONT}>{s.short}</text>
-              <text x={lx} y={ly + 5} textAnchor="middle" fill="rgba(255,255,255,0.58)" fontSize="11" fontWeight="600" fontFamily={FONT}>{s.name}</text>
+              <text x={nx} y={ny + 5} textAnchor="middle" fill={s.color} fontSize="10" fontWeight="800" fontFamily={MONO}>{s.short}</text>
+              <text x={lx} y={ly + 5} textAnchor="middle" fill={P.muted} fontSize="11" fontWeight="600" fontFamily={MONO}>{s.name}</text>
             </g>
           );
         })}
@@ -248,7 +250,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
   ];
 
   const BAR_DATA = [
-    { label: 'Manual',     pct: 0.13, color: 'rgba(255,255,255,0.18)' },
+    { label: 'Manual',     pct: 0.13, color: 'rgba(31,42,38,0.18)' },
     { label: 'Partial AI', pct: 0.44, color: `${ACCENT}55`            },
     { label: 'SystemPros', pct: 1.00, color: ACCENT                   },
   ];
@@ -260,8 +262,8 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
   return (
     <AbsoluteFill style={{ fontFamily: FONT, opacity: fadeIn }}>
       <div style={{ position: 'absolute', top: 68, left: 0, right: 0, textAlign: 'center' }}>
-        <div style={{ color: 'rgba(255,255,255,0.38)', fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>Full Deployment</div>
-        <div style={{ color: '#FFF', fontSize: 34, fontWeight: 800, letterSpacing: '-0.02em' }}>What It Looks Like.</div>
+        <div style={{ color: P.muted, fontSize: 12, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase', fontWeight: 700, marginBottom: 8 }}>Full Deployment</div>
+        <div style={{ color: P.ink, fontSize: 34, fontWeight: 800, letterSpacing: '-0.02em' }}>What It Looks Like.</div>
       </div>
 
       {/* Stat cards */}
@@ -280,7 +282,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
               textAlign: 'center',
             }}>
               <div style={{ color: s.color, fontSize: 52, fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1 }}>{s.value}</div>
-              <div style={{ color: 'rgba(255,255,255,0.48)', fontSize: 13, fontWeight: 500, marginTop: 10, lineHeight: 1.4 }}>{s.label}</div>
+              <div style={{ color: P.muted, fontSize: 13, fontWeight: 500, marginTop: 10, lineHeight: 1.4 }}>{s.label}</div>
             </div>
           );
         })}
@@ -288,7 +290,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
 
       {/* Bar chart */}
       <svg width={W} height={H} style={{ position: 'absolute', top: 0, left: 0 }}>
-        <line x1={160} y1={BAR_Y} x2={920} y2={BAR_Y} stroke="rgba(255,255,255,0.08)" strokeWidth="1" />
+        <line x1={160} y1={BAR_Y} x2={920} y2={BAR_Y} stroke="rgba(31,42,38,0.08)" strokeWidth="1" />
         {BAR_DATA.map((b, i) => {
           const barH = interpolate(lf, [58 + i * 14, 105 + i * 14], [0, b.pct * BAR_MAX_H], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp', easing: Easing.out(Easing.cubic) });
           const bx = BARS_CX[i];
@@ -297,10 +299,10 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
             <g key={b.label}>
               <rect x={bx - BAR_W / 2} y={BAR_Y - barH} width={BAR_W} height={Math.max(barH, 0)} rx={6}
                 fill={b.color}
-                style={i === 2 ? { filter: `drop-shadow(0 0 14px ${ACCENT}70)` } : {}}
+                style={i === 2 ? { filter: 'none' } : {}}
               />
-              <text x={bx} y={BAR_Y + 26} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="12" fontWeight="600" fontFamily={FONT} opacity={labelOp}>{b.label}</text>
-              <text x={bx} y={BAR_Y - barH - 12} textAnchor="middle" fill={b.color} fontSize="13" fontWeight="800" fontFamily={FONT} opacity={labelOp}>
+              <text x={bx} y={BAR_Y + 26} textAnchor="middle" fill={P.muted} fontSize="12" fontWeight="600" fontFamily={MONO} opacity={labelOp}>{b.label}</text>
+              <text x={bx} y={BAR_Y - barH - 12} textAnchor="middle" fill={b.color} fontSize="13" fontWeight="800" fontFamily={MONO} opacity={labelOp}>
                 {Math.round(b.pct * 100)}%
               </text>
             </g>
@@ -317,8 +319,8 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 56, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
-      <span style={{ color: 'rgba(255,255,255,0.14)', fontSize: 12, letterSpacing: '0.08em' }}>The Full-Stack AI Partner</span>
+      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: 'rgba(31,42,38,0.14)', fontSize: 12, letterSpacing: '0.08em' }}>The Full-Stack AI Partner</span>
     </div>
   );
 };

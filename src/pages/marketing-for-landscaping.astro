@@ -1,444 +1,348 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Footer from '../components/Footer.astro';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
 import FAQSchema from '../components/seo/FAQSchema.astro';
 
 const faqs = [
-    {
-        question: "How does AI marketing work for landscaping companies?",
-        answer: "We combine AI-powered voice agents with targeted Meta and Google advertising. The AI answers every call 24/7 — even when your crew is on site — books estimates instantly, and follows up with leads who didn't convert. Our ad campaigns keep a steady pipeline of residential and commercial jobs flowing in all year round."
-    },
-    {
-        question: "How quickly will I see new leads coming in?",
-        answer: "Most landscaping companies see their first ad-generated enquiries within the first week. The AI receptionist is live within 48 hours of onboarding. Reactivation campaigns targeting past clients typically generate rebookings within the first 5 days — especially effective heading into spring and autumn."
-    },
-    {
-        question: "Does it work with my existing software?",
-        answer: "Yes. Our AI integrates with Jobber, LMN, Service Autopilot, Aspire, and most major landscaping business platforms. It also works with Google Calendar, Housecall Pro, and CRM tools. Nothing changes for your crews in the field."
-    },
-    {
-        question: "What if a client wants a custom design consultation?",
-        answer: "The AI handles routine enquiries, quote requests, scheduling, and follow-ups. Any client asking for a detailed design consultation or complex scope is transferred to you or your sales team instantly. You stay in control of every relationship."
-    },
-    {
-        question: "How much should I spend on ads?",
-        answer: "We recommend a minimum ad budget of $1,000/month for local landscaping campaigns. Most of our landscaping clients invest $1,500-$4,000/month and see 5-8x returns — a single hardscape or full-property project can pay for an entire quarter of ad spend."
-    }
+	{
+		question: "How does AI marketing work for landscaping companies?",
+		answer: "We combine AI-powered voice agents with targeted Meta and Google advertising. The AI answers every call 24/7 — even when your crew is out on a job — quotes seasonal packages, books site visits instantly, and follows up with leads who requested a price but didn't commit. Meanwhile, ad campaigns keep a steady flow of mowing contracts, garden makeovers, and commercial accounts coming in."
+	},
+	{
+		question: "How quickly will I see new jobs coming in?",
+		answer: "Most landscaping companies receive their first ad-generated enquiries within a week of launch. The AI is live within 48 hours of onboarding. Speed-to-lead automation contacts web enquiries within 10 seconds — far ahead of competitors who reply the next morning."
+	},
+	{
+		question: "Does it work with my existing scheduling software?",
+		answer: "Yes. Our AI integrates with Jobber, ServiceM8, LMN, Aspire, and most scheduling platforms used by landscaping businesses. Nothing changes for your crew — they just see more jobs on the calendar."
+	},
+	{
+		question: "What if a customer wants a complex landscape design quote?",
+		answer: "The AI handles routine enquiries, recurring mowing quotes, seasonal bookings, and FAQs. Any customer who needs a site assessment or complex design discussion is routed to your team instantly. You stay in control of every relationship."
+	},
+	{
+		question: "How much ad budget do I need?",
+		answer: "We recommend a minimum ad budget of $1,000/month for local landscaping campaigns. Most landscaping clients invest $1,500–$4,000/month and see strong returns because recurring contracts multiply the value — one annual mowing contract won through an ad can be worth $5,000–$15,000 over its life."
+	}
+];
+
+const pains = [
+	{ ref: 'LS-01', title: 'Calls hit voicemail while you're on site', figure: '$4,000+', label: 'per lawn contract lost to a competitor', body: 'A homeowner wants to lock in a new mowing schedule before summer. They call you — you're halfway through a commercial garden. No answer. They call the next landscaper on Google. That recurring contract, worth $80/week for 50 weeks, just walked out the door.' },
+	{ ref: 'LS-02', title: 'Seasonal spikes swamp your capacity to quote', figure: '68%', label: 'of unanswered enquiries go elsewhere', body: 'Spring hits and enquiries triple overnight. Your crew is booked. Your phone is ringing. But you can't quote fast enough. 68% of homeowners who can't reach you within the hour choose someone who can — and they sign a contract for the whole year.' },
+	{ ref: 'LS-03', title: 'Online leads sit in your inbox until they're cold', figure: '−90%', label: 'conversion per hour of delay', body: 'Your Google profile gets clicks. Your website gets form submissions. But you see them six hours later when the job is already gone. Every hour you wait, conversion drops 90%. A 10-second callback turns a browsing homeowner into a signed contract.' },
+	{ ref: 'LS-04', title: 'Word-of-mouth alone won't scale your operation', figure: '0', label: 'predictable new contracts from referrals', body: 'Your existing clients love you. But referrals come in when they feel like it. You can't plan crew hours, equipment purchases, or expansion on unpredictable word-of-mouth alone. You need a system generating new contracts every single week.' },
+];
+
+const engine = [
+	{
+		mark: 'A',
+		name: 'AI scheduler',
+		promise: 'Every call answered, every quote booked',
+		body: 'Answers every call — on-site, after hours, weekends. Quotes routine packages, books site visits, schedules recurring services. Sounds like a real office manager, not a phone tree. Integrates with your scheduling platform so jobs land directly in your calendar.',
+		points: ['24/7 call answering including seasonal peaks', 'Quotes recurring mowing and maintenance packages', 'Books site assessments for larger projects'],
+	},
+	{
+		mark: 'B',
+		name: 'Meta & Google ads',
+		promise: 'New contracts on demand, every week',
+		body: 'We build and manage hyper-local ad campaigns that put your business in front of homeowners and property managers the moment they're searching for landscaping. Spring lawn care, garden makeovers, irrigation, commercial maintenance — we target high-value work, not just one-off mowing.',
+		points: ['Geo-targeted to your service area and ideal suburbs', 'Seasonal and year-round campaign strategy', 'Full-funnel: ad → call → booked contract'],
+		core: true,
+	},
+	{
+		mark: 'C',
+		name: 'Speed-to-lead engine',
+		promise: 'Web enquiries called back in under 10 seconds',
+		body: 'When a homeowner submits a form or requests a quote online, our AI calls them back instantly — while they're still on your website. Your "office manager" is on the line booking the site visit before the homeowner even clicks to the next landscaper.',
+		points: ['Sub-10-second response to web forms', 'Works with any lead source including Google Local Services', 'Captures seasonal enquiry spikes automatically'],
+	},
+];
+
+const numbers = [
+	{ count: '95', suffix: '%', figure: '95%', name: 'Calls answered', note: 'including peak spring & summer spikes' },
+	{ count: null, suffix: '', figure: '<10s', name: 'Lead response time', note: 'web form to callback' },
+	{ count: null, suffix: '', figure: '5–10×', name: 'Ad spend ROI', note: 'recurring contracts multiply the value' },
+	{ count: '3', suffix: '×', figure: '3×', name: 'More signed contracts', note: 'from the same enquiry volume' },
+];
+
+const oldWay = [
+	'Miss calls while on-site — homeowners call the next landscaper',
+	'Check email hours later when the quote window has closed',
+	'Rely on referrals and seasonal word-of-mouth alone',
+	'Spend spring scrambling to quote instead of scaling',
+	'Hire an admin person at $50k+/year just to answer phones',
+];
+
+const newWay = [
+	'AI answers every call and books jobs 24/7 — even mid-autumn rush',
+	'Web enquiries get a callback in under 10 seconds',
+	'Meta & Google ads driving new contracts every week, year-round',
+	'Seasonal campaign surge built in — spring and autumn peaks covered',
+	'Full reporting dashboard — know your cost per signed contract',
+];
+
+const steps = [
+	{ n: '1', title: 'Free landscaping growth audit', body: 'We review your call answer rate, lead response time, and seasonal enquiry flow. You get a clear report showing where contracts are slipping away — and exactly what they're worth over a 12-month horizon.' },
+	{ n: '2', title: 'We build your growth engine', body: 'We deploy your AI scheduler, connect it to your job management platform, set up speed-to-lead automation, and launch your first ad campaigns — all within 48 hours. Your crew doesn't need to learn anything new.' },
+	{ n: '3', title: 'Watch your contracts grow', body: 'New customers call from ads. Seasonal spikes are handled automatically. Web enquiries convert before competitors even see them. You focus on the work — we keep the calendar full.' },
 ];
 ---
 
 <Layout
-    title="AI Marketing for Landscapers | Fill Your Pipeline Year-Round"
-    description="Stop losing jobs to competitors who answer faster. SystemPros combines AI voice agents with Meta and Google advertising to keep your landscaping schedule packed — even in the slow months."
-    showChatWidget={false}
+	title="AI Marketing for Landscaping Companies | More Contracts, Less Chasing"
+	description="Stop losing landscaping contracts to unanswered calls. SystemPros combines AI voice agents with Meta and Google advertising to keep your schedule packed and your recurring revenue growing."
 >
-    <ServiceSchema
-        name="AI Marketing for Landscaping Companies"
-        description="AI-powered marketing and advertising system for landscapers that captures every enquiry, books estimates 24/7, reactivates past clients, and drives new projects through Meta and Google ads."
-        serviceType="Landscaping Marketing Automation"
-    />
-    <FAQSchema faqs={faqs} />
+	<ServiceSchema
+		name="AI Marketing for Landscaping Companies"
+		description="AI-powered marketing and advertising system for landscaping businesses that captures every call, books recurring contracts 24/7, and drives new customers through Meta and Google ads."
+		serviceType="Landscaping Marketing Automation"
+	/>
+	<FAQSchema faqs={faqs} />
 
-    <!-- SECTION 1: HERO — The Seasonal Trap -->
-    <section class="relative min-h-screen flex items-center pt-20 pb-10 overflow-hidden bg-main">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-emerald-900/20 via-main to-main z-0"></div>
-        <div class="absolute inset-0 bg-[url('/assets/grid.svg')] bg-center opacity-[0.03] pointer-events-none z-0"></div>
+	<!-- 1. HERO -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<span>GROWTH DOSSIER — LANDSCAPING</span>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> SEASONAL PIPELINE ACTIVE</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
 
-        <div class="container mx-auto px-4 z-10 max-w-5xl text-center">
-            <div class="space-y-8 fade-up">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/5 backdrop-blur-sm">
-                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span class="text-emerald-300 text-xs font-bold tracking-wider uppercase">AI-Powered Landscaping Growth</span>
-                </div>
+			<div class="py-14 lg:py-18 max-w-[52rem]">
+				<h1 class="face-display font-extrabold text-[clamp(2.5rem,5.8vw,5rem)] leading-[1.03] text-ink" data-reveal>
+					Spring rings once. Make sure <span class="text-green">someone answers.</span>
+				</h1>
+				<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[38rem]" data-reveal style="--reveal-delay: 120ms;">
+					Your crew is on site. The phone rings. Nobody picks up. That homeowner
+					planning a full garden makeover calls the next landscaper on Google.
+					<strong class="text-ink font-semibold">That's a $4,000+ contract — gone because the phone rang out.</strong>
+					We make sure every call becomes a booked job.
+				</p>
+				<div class="mt-9" data-reveal style="--reveal-delay: 240ms;">
+					<a href="/contact" class="btn-primary">Book a Free Consultation</a>
+					<p class="face-data text-muted mt-4">NO CONTRACTS · NO PRESSURE · A CLEAR PLAN TO FILL YOUR SCHEDULE</p>
+				</div>
+			</div>
 
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[1.1]">
-                    Your Crews Are Booked. <br/>
-                    <span class="bg-gradient-to-r from-emerald-400 via-green-400 to-emerald-400 bg-clip-text text-transparent">Your Phone Isn't.</span> <br/>
-                    That's the Problem.
-                </h1>
+			<!-- Seasonal window diagram -->
+			<div class="rule-ticked" data-draw-rule></div>
+			<div class="py-10">
+				<p class="face-data text-muted mb-6" data-reveal>DWG. LS-01 — THE CONTRACT WINDOW, SPRING ENQUIRY</p>
+				<svg viewBox="0 0 960 250" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full" role="img" aria-label="Diagram: when a homeowner enquires about landscaping, they contact 2-3 companies. The first to respond gets the quote — and usually the contract.">
+					<g data-reveal>
+						<rect x="20" y="86" width="140" height="64" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+						<text x="90" y="110" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="11.5" fill="var(--color-ink)">HOMEOWNER</text>
+						<text x="90" y="130" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-muted)">WANTS QUOTE</text>
+						<text x="90" y="144" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-muted)">SPRING MAKEOVER</text>
+					</g>
+					<g stroke="var(--color-green)" stroke-width="1.5">
+						<path d="M 160 118 H 280" data-draw-path />
+						<path d="M 280 118 V 46 H 400" data-draw-path style="--reveal-delay: 250ms;" />
+						<path d="M 280 118 V 190 H 400" data-draw-path style="--reveal-delay: 400ms;" />
+						<path d="M 600 46 H 740" data-draw-path style="--reveal-delay: 650ms;" />
+					</g>
+					<g data-reveal style="--reveal-delay: 200ms;">
+						<text x="220" y="106" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-copper)">QUOTES 2–3 LANDSCAPERS</text>
+					</g>
+					<g data-reveal style="--reveal-delay: 450ms;">
+						<rect x="400" y="14" width="200" height="64" fill="var(--color-green)" />
+						<text x="500" y="42" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="11" fill="var(--color-paper-lit)">AI SCHEDULER</text>
+						<text x="500" y="60" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-paper-dim)">ANSWERS · QUOTES · BOOKS VISIT</text>
+					</g>
+					<g data-reveal style="--reveal-delay: 550ms;">
+						<rect x="400" y="158" width="200" height="64" stroke="var(--color-line)" stroke-width="1.5" fill="var(--color-paper)" />
+						<text x="500" y="186" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="11" fill="var(--color-muted)">YOUR VOICEMAIL</text>
+						<text x="500" y="204" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-muted)">→ NEXT LANDSCAPER ON GOOGLE</text>
+					</g>
+					<g data-reveal style="--reveal-delay: 750ms;">
+						<rect x="740" y="14" width="200" height="64" stroke="var(--color-copper)" stroke-width="1.5" fill="var(--color-paper)" />
+						<text x="840" y="42" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="11" fill="var(--color-copper)">CONTRACT SIGNED</text>
+						<text x="840" y="60" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-copper)">12-MONTH RECURRING · $4K+</text>
+					</g>
+					<text x="480" y="244" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9.5" fill="var(--color-muted)" data-reveal style="--reveal-delay: 850ms;">FIRST RESPONDER GETS THE CONTRACT · THE REST GET VOICEMAIL</text>
+				</svg>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
 
-                <p class="text-xl text-secondary leading-relaxed max-w-2xl mx-auto">
-                    Spring hits and every homeowner in town wants a quote. Your phone rings while your team is laying pavers. Nobody answers. That prospect calls the next landscaper on Google. <strong class="text-white">That's a $5,000-$50,000 project — gone before you even knew it existed.</strong>
-                </p>
+	<!-- 2. PAIN AUDIT -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.4rem)] leading-tight text-ink" data-reveal>
+					Sound familiar?
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>FOUR FINDINGS · MEASURED ON REAL LANDSCAPING OPERATIONS</p>
+			</div>
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{pains.map((p, i) => (
+				<div class="spec-row grid md:grid-cols-[4.5rem_1fr_12rem] gap-x-6 gap-y-2 py-6 px-2" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
+					<span class="face-data text-copper pt-1">{p.ref}</span>
+					<div>
+						<h3 class="font-bold text-ink text-lg">{p.title}</h3>
+						<p class="text-[15px] text-muted mt-1.5 max-w-[44rem]">{p.body}</p>
+					</div>
+					<div class="md:text-right">
+						<div class="face-data !text-[17px] text-green font-bold">{p.figure}</div>
+						<div class="face-data !text-[11px] text-muted mt-0.5">{p.label.toUpperCase()}</div>
+					</div>
+				</div>
+			))}
+			<p class="text-muted text-[15px] mt-6" data-reveal>You didn't start a landscaping business to spend your day chasing enquiries. But here you are.</p>
+		</div>
+	</section>
 
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="/contact" class="btn-primary flex items-center justify-center gap-2 text-lg px-10 py-5 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 shadow-[0_0_40px_rgba(16,185,129,0.4)]">
-                        Book Your Free Landscaping Growth Audit
-                    </a>
-                </div>
+	<!-- 3. THE LANDSCAPING GROWTH ENGINE -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="mb-12 max-w-[44rem]">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					The landscaping growth engine.
+				</h2>
+				<p class="text-muted text-lg mt-3" data-reveal style="--reveal-delay: 100ms;">
+					Three systems working around the clock so you can focus on the work — not chasing it.
+				</p>
+			</div>
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{engine.map((e, i) => (
+				<div class="spec-row grid lg:grid-cols-[4.5rem_minmax(0,24rem)_1fr] gap-x-8 gap-y-4 py-9 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<span class="face-data text-copper pt-1.5">{e.mark}</span>
+					<div>
+						<div class="flex items-center gap-3">
+							<h3 class="text-xl md:text-2xl font-bold text-ink">{e.name}</h3>
+							{e.core && <span class="face-data !text-[10px] text-paper-lit bg-green px-2 py-0.5">CORE</span>}
+						</div>
+						<p class="face-data text-green mt-1.5">{e.promise.toUpperCase()}</p>
+					</div>
+					<div class="self-center">
+						<p class="text-[15px] text-muted max-w-[40rem]">{e.body}</p>
+						<ul class="mt-4 flex flex-wrap gap-x-8 gap-y-2">
+							{e.points.map((pt) => (
+								<li class="flex items-center gap-2.5 text-[14px] text-ink">
+									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="square" class="shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+									{pt}
+								</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
 
-                <p class="text-sm text-secondary/60">No contracts. No pressure. Just a clear plan to fill your pipeline.</p>
-            </div>
-        </div>
-    </section>
+	<!-- 4. THE NUMBERS -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.8vw,3rem)] leading-tight text-ink" data-reveal>
+					What a full contract book actually looks like.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>OBSERVED SHIFTS · AI ON PHONES, ADS ON DEMAND</p>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+			<dl class="grid grid-cols-2 lg:grid-cols-4">
+				{numbers.map((n, i) => (
+					<div class={`py-7 pr-6 ${i < 3 ? 'lg:border-r border-line' : ''} ${i > 0 ? 'lg:pl-6' : ''}`} data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
+						<dd class="face-display font-extrabold text-4xl text-green">
+							{n.count ? <span data-count={n.count} data-count-suffix={n.suffix}>{n.figure}</span> : n.figure}
+						</dd>
+						<dt class="font-bold text-ink mt-2">{n.name}</dt>
+						<dd class="text-[13px] text-muted mt-1">{n.note}</dd>
+					</div>
+				))}
+			</dl>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
 
-    <!-- SECTION 2: PAIN POINTS -->
-    <section class="py-24 relative overflow-hidden bg-surface/30 border-y border-white/5">
-        <div class="container mx-auto px-4 z-10 max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-6">Sound Familiar?</h2>
-                <p class="text-xl text-secondary max-w-2xl mx-auto">
-                    You started a landscaping business to build beautiful outdoor spaces. Not to sit around waiting for the phone to ring.
-                </p>
-            </div>
+	<!-- 5. OLD WAY VS ENGINE -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink mb-12" data-reveal>
+				The old way vs. the engine.
+			</h2>
+			<div class="grid md:grid-cols-2 gap-x-14">
+				<div>
+					<p class="face-data text-muted pb-3" data-reveal>WHAT MOST LANDSCAPERS DO</p>
+					<div class="rule-ticked" data-draw-rule></div>
+					{oldWay.map((item, i) => (
+						<div class="spec-row flex items-start gap-4 py-4 px-1 text-[15px] text-muted" data-reveal style={`--reveal-delay: ${i * 50}ms;`}>
+							<span class="face-data text-muted shrink-0 pt-0.5">&#10005;</span>
+							{item}
+						</div>
+					))}
+				</div>
+				<div class="mt-10 md:mt-0">
+					<p class="face-data text-green pb-3" data-reveal>THE SYSTEMPROS LANDSCAPING ENGINE</p>
+					<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+					{newWay.map((item, i) => (
+						<div class="spec-row flex items-start gap-4 py-4 px-1 text-[15px] text-ink" data-reveal style={`--reveal-delay: ${i * 50}ms;`}>
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="square" class="shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg>
+							{item}
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Pain 1 -->
-                <div class="p-8 rounded-2xl border border-red-500/10 bg-red-500/5 hover:border-red-500/30 transition-all group">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-2xl shrink-0 group-hover:bg-red-500/20 transition-colors">
-                            📱
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white mb-2">Missed Calls = Lost Projects</h3>
-                            <p class="text-secondary text-sm leading-relaxed">
-                                A homeowner sees your truck in their neighbour's yard. They call for a quote. No answer — you're running a chainsaw. They Google the next company. That's not a missed call — that's <strong class="text-red-400">a $10,000+ project</strong> you'll never even quote on.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+	<!-- 6. LIVE IN 48 HOURS -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.8vw,3rem)] leading-tight text-ink" data-reveal>
+					Live in 48 hours.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>THREE STEPS · NO TECH SKILLS REQUIRED</p>
+			</div>
+			<div class="grid md:grid-cols-3">
+				{steps.map((s, i) => (
+					<div class={`border-t-2 ${i === 2 ? 'border-copper' : 'border-green'} pt-5 md:pr-10 pb-4`} data-reveal style={`--reveal-delay: ${i * 110}ms;`}>
+						<span class={`face-data ${i === 2 ? 'text-copper' : 'text-green'}`}>STEP {s.n}</span>
+						<h3 class="font-bold text-ink text-lg mt-2">{s.title}</h3>
+						<p class="text-[14.5px] text-muted mt-2 leading-relaxed">{s.body}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
 
-                <!-- Pain 2 -->
-                <div class="p-8 rounded-2xl border border-red-500/10 bg-red-500/5 hover:border-red-500/30 transition-all group">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-2xl shrink-0 group-hover:bg-red-500/20 transition-colors">
-                            ❄️
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white mb-2">The Winter Revenue Cliff</h3>
-                            <p class="text-secondary text-sm leading-relaxed">
-                                Spring and summer are slammed. Then winter arrives and revenue falls off a cliff. You've got crews to pay, equipment leases running, and <strong class="text-red-400">no system to generate off-season work</strong> — hardscaping, drainage projects, winter clean-ups, design consultations.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+	<!-- 7. FAQ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[820px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink mb-10" data-reveal>
+				Common questions.
+			</h2>
+			<div class="rule-ticked" data-draw-rule></div>
+			{faqs.map((faq, i) => (
+				<details class="spec-row group" data-reveal style={`--reveal-delay: ${i * 50}ms;`}>
+					<summary class="flex items-baseline justify-between gap-6 cursor-pointer py-5 px-1 font-semibold text-ink text-[16px] hover:text-green transition-colors list-none [&::-webkit-details-marker]:hidden">
+						<span>{faq.question}</span>
+						<span class="face-data text-muted group-open:rotate-45 transition-transform shrink-0" aria-hidden="true">+</span>
+					</summary>
+					<p class="px-1 pb-6 text-[15px] text-muted leading-relaxed max-w-[42rem]">{faq.answer}</p>
+				</details>
+			))}
+		</div>
+	</section>
 
-                <!-- Pain 3 -->
-                <div class="p-8 rounded-2xl border border-red-500/10 bg-red-500/5 hover:border-red-500/30 transition-all group">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-2xl shrink-0 group-hover:bg-red-500/20 transition-colors">
-                            🐌
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white mb-2">Slow Quotes Kill Your Close Rate</h3>
-                            <p class="text-secondary text-sm leading-relaxed">
-                                A homeowner submits a quote request on your website Saturday evening. You see it Monday morning. By then they've booked someone else. <strong class="text-red-400">78% of projects go to the first responder</strong> — and right now, that's your competitor.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Pain 4 -->
-                <div class="p-8 rounded-2xl border border-red-500/10 bg-red-500/5 hover:border-red-500/30 transition-all group">
-                    <div class="flex items-start gap-4">
-                        <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-2xl shrink-0 group-hover:bg-red-500/20 transition-colors">
-                            💤
-                        </div>
-                        <div>
-                            <h3 class="text-lg font-bold text-white mb-2">Past Clients Forget You Exist</h3>
-                            <p class="text-secondary text-sm leading-relaxed">
-                                You did an incredible patio build last year. The client raved about it. But when they need their garden redesigned, they Google "landscaper near me" instead of calling you. <strong class="text-red-400">Nobody is reminding them you exist.</strong> That repeat business is going to strangers.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 3: THE SOLUTION — The Landscaping Growth Engine -->
-    <section class="py-32 relative">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">
-                    The <span class="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">Landscaping Growth Engine</span>
-                </h2>
-                <p class="text-secondary text-lg max-w-2xl mx-auto">
-                    Three systems working together to fill your pipeline, eliminate dead seasons, and turn past clients into repeat revenue.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
-                <div class="glass-card hover:-translate-y-2 group">
-                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
-                        🤖
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">AI Receptionist</h3>
-                    <p class="text-sm text-emerald-300 font-semibold mb-3">Every enquiry captured, every estimate booked</p>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        Answers every call while your crew is on site. Books site visits, answers service questions, and handles scheduling. Sounds like your office manager — works around the clock for a fraction of the cost.
-                    </p>
-                    <ul class="space-y-2 text-sm text-secondary">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            24/7 call answering — weekends included
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Books estimates directly into your calendar
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Integrates with Jobber, LMN & more
-                        </li>
-                    </ul>
-                    <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden mt-6">
-                        <div class="h-full bg-emerald-500 w-0 group-hover:w-full transition-all duration-700"></div>
-                    </div>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="glass-card hover:-translate-y-2 group relative">
-                    <div class="absolute -top-3 -right-3 bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-emerald-500/50">CORE</div>
-                    <div class="w-14 h-14 rounded-xl bg-green-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-green-500 group-hover:text-white transition-colors duration-300">
-                        🎯
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Meta & Google Ads</h3>
-                    <p class="text-sm text-green-300 font-semibold mb-3">New projects on demand, year-round</p>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        We build and manage hyper-local ad campaigns that put your work in front of homeowners ready to invest. Patios, retaining walls, garden designs, lawn care — we target the services with the highest margins and run campaigns that convert.
-                    </p>
-                    <ul class="space-y-2 text-sm text-secondary">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Geo-targeted to your service radius
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Before & after project photos that sell
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-green-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Seasonal campaigns to kill the winter dip
-                        </li>
-                    </ul>
-                    <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden mt-6">
-                        <div class="h-full bg-green-500 w-0 group-hover:w-full transition-all duration-700 delay-100"></div>
-                    </div>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="glass-card hover:-translate-y-2 group">
-                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6 text-2xl group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
-                        🔄
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Client Reactivation</h3>
-                    <p class="text-sm text-emerald-300 font-semibold mb-3">Turn past clients into repeat revenue</p>
-                    <p class="text-secondary text-sm leading-relaxed mb-4">
-                        Our AI calls clients who haven't booked in 6+ months with a natural, personal message. "Hi Mark, it's been a while since we did your patio — we're booking autumn clean-ups and garden refreshes this month. Want me to schedule a visit?" Revenue from clients you've already won.
-                    </p>
-                    <ul class="space-y-2 text-sm text-secondary">
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Personalised AI outreach calls
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Seasonal upsell campaigns (spring prep, winter clean-up)
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Fills slow months with repeat business
-                        </li>
-                    </ul>
-                    <div class="h-1 w-full bg-white/5 rounded-full overflow-hidden mt-6">
-                        <div class="h-full bg-emerald-500 w-0 group-hover:w-full transition-all duration-700 delay-200"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 4: THE NUMBERS — What's Possible -->
-    <section class="py-24 relative bg-surface/30 border-y border-white/5">
-        <div class="absolute inset-0 opacity-20 pointer-events-none overflow-hidden">
-            <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(16,185,129,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:40px_40px]"></div>
-        </div>
-
-        <div class="container mx-auto px-4 relative z-10 max-w-5xl">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-bold mb-4">What a Full Pipeline <span class="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">Actually Looks Like</span></h2>
-                <p class="text-secondary text-lg max-w-2xl mx-auto">
-                    These are the shifts landscaping companies see when AI handles the phones and ads bring year-round work.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="text-center p-8 rounded-2xl border border-white/10 bg-surface/50 backdrop-blur-sm">
-                    <div class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-2">95%</div>
-                    <div class="text-sm text-secondary">Calls Answered</div>
-                    <div class="text-xs text-secondary/50 mt-1">even when crews are on site</div>
-                </div>
-                <div class="text-center p-8 rounded-2xl border border-white/10 bg-surface/50 backdrop-blur-sm">
-                    <div class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-2">5-8x</div>
-                    <div class="text-sm text-secondary">Ad Spend ROI</div>
-                    <div class="text-xs text-secondary/50 mt-1">one hardscape job covers months of ads</div>
-                </div>
-                <div class="text-center p-8 rounded-2xl border border-white/10 bg-surface/50 backdrop-blur-sm">
-                    <div class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-2">40%</div>
-                    <div class="text-sm text-secondary">Winter Revenue Increase</div>
-                    <div class="text-xs text-secondary/50 mt-1">seasonal campaigns + reactivation</div>
-                </div>
-                <div class="text-center p-8 rounded-2xl border border-white/10 bg-surface/50 backdrop-blur-sm">
-                    <div class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-2">35%</div>
-                    <div class="text-sm text-secondary">Past Clients Rebooked</div>
-                    <div class="text-xs text-secondary/50 mt-1">from AI reactivation in 30 days</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: OLD WAY vs. SYSTEMPROS -->
-    <section class="py-24">
-        <div class="container mx-auto px-4 max-w-5xl">
-            <h2 class="text-center text-3xl md:text-4xl font-bold mb-16">The old way vs. <span class="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">SystemPros</span></h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
-                <!-- Old Way -->
-                <div class="p-8 border-l-4 border-red-500/50 bg-surface/30 rounded-r-xl md:rounded-xl mb-8 md:mb-0">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <span class="text-red-500">&#10005;</span> What Most Landscapers Do
-                    </h3>
-                    <ul class="space-y-4 text-secondary">
-                        <li class="flex items-start gap-3">
-                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
-                            Miss calls while on jobs — prospects call the next company
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
-                            Return quote requests days late when the client has moved on
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
-                            Rely on yard signs, word-of-mouth, and "the truck being seen"
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
-                            Accept the winter revenue drop as "just how it is"
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <span class="w-1.5 h-1.5 bg-red-500 rounded-full mt-2 shrink-0"></span>
-                            Never follow up with past clients for repeat work
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- SystemPros -->
-                <div class="p-8 border-l-4 border-emerald-500 bg-emerald-500/5 rounded-r-xl md:rounded-xl relative">
-                    <div class="absolute -top-3 -right-3 bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg shadow-emerald-500/50">YOUR UNFAIR ADVANTAGE</div>
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                        The SystemPros Landscaping Engine
-                    </h3>
-                    <ul class="space-y-4 text-white">
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            AI answers every call and books estimates instantly — 24/7
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Targeted Meta & Google ads driving local projects weekly
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Seasonal ad campaigns eliminate the winter revenue cliff
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            AI reactivation calls bring past clients back for new work
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <svg class="w-4 h-4 text-emerald-400 mt-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                            Full reporting dashboard — know your cost per lead to the dollar
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 6: HOW IT WORKS -->
-    <section class="py-24 relative bg-surface/30 border-y border-white/5">
-        <div class="container mx-auto px-4 max-w-4xl">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Live in <span class="bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent">48 Hours</span></h2>
-                <p class="text-secondary text-lg">Three steps. No tech skills required.</p>
-            </div>
-
-            <div class="space-y-8">
-                <div class="flex items-start gap-6 group">
-                    <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-colors">1</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-1">Free Landscaping Growth Audit</h3>
-                        <p class="text-secondary text-sm leading-relaxed">We analyse your call answer rate, lead response time, seasonal revenue patterns, and client retention. You get a clear report showing exactly where projects are falling through the cracks — and how much they're worth.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-6 group">
-                    <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-colors">2</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-1">We Build Your Growth Engine</h3>
-                        <p class="text-secondary text-sm leading-relaxed">We deploy your AI receptionist, connect it to your scheduling platform, set up client reactivation campaigns, and launch your first ad campaigns — all within 48 hours. Your crews don't need to learn anything new.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-6 group">
-                    <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-lg shrink-0 group-hover:bg-emerald-500 group-hover:text-white transition-colors">3</div>
-                    <div>
-                        <h3 class="text-lg font-bold text-white mb-1">Watch Your Pipeline Fill Up</h3>
-                        <p class="text-secondary text-sm leading-relaxed">New clients book from ads. Past clients rebook from AI calls. Every enquiry is captured — weekdays, weekends, after hours. You focus on what you do best — transforming outdoor spaces.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 7: FAQ -->
-    <section class="py-24">
-        <div class="container mx-auto px-4 max-w-3xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Common Questions</h2>
-
-            <div class="space-y-4">
-                {faqs.map((faq) => (
-                    <details class="group rounded-2xl border border-white/10 bg-surface/50 backdrop-blur-sm overflow-hidden">
-                        <summary class="flex items-center justify-between cursor-pointer p-6 text-white font-semibold hover:text-emerald-300 transition-colors list-none [&::-webkit-details-marker]:hidden">
-                            <span>{faq.question}</span>
-                            <svg class="w-5 h-5 text-secondary group-open:rotate-45 transition-transform duration-200 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        </summary>
-                        <div class="px-6 pb-6 text-secondary text-sm leading-relaxed border-t border-white/5 pt-4">
-                            {faq.answer}
-                        </div>
-                    </details>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <!-- SECTION 8: FINAL CTA -->
-    <section class="py-32 text-center relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-emerald-900/20 to-transparent"></div>
-        <div class="absolute inset-0 bg-[url('/assets/grid.svg')] bg-center opacity-[0.03] pointer-events-none"></div>
-        <div class="container mx-auto px-4 relative z-10 max-w-3xl">
-            <h2 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tighter">
-                Stop Losing Projects <br/>to Missed Calls.
-            </h2>
-            <p class="text-xl text-secondary mb-10 max-w-xl mx-auto">
-                Get a free, no-obligation audit of your landscaping company's growth potential. We'll show you exactly how many projects you're missing, what they're worth, and how to capture every single one — year-round.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="/contact" class="btn-primary text-xl px-12 py-6 bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-500 hover:to-green-400 shadow-[0_0_40px_rgba(16,185,129,0.4)]">
-                    Book Your Free Landscaping Growth Audit
-                </a>
-            </div>
-            <p class="text-sm text-secondary/50 mt-6">Takes 15 minutes. Zero commitment. Real numbers.</p>
-        </div>
-    </section>
-
-    <Footer />
+	<!-- 8. FINAL CTA — drench -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-paper-dim" data-reveal>SIGN-OFF — LANDSCAPING GROWTH DOSSIER</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit mt-4 max-w-[20ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Stop losing contracts to voicemail.
+			</h2>
+			<p class="text-paper-dim text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				Get a free, no-obligation audit of your landscaping company's growth potential. We'll show
+				you exactly how many contracts you're missing, what they're worth over a full year, and
+				how to capture every single one.
+			</p>
+			<a href="/contact" class="btn-primary-inverse mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+			<p class="face-data text-paper-dim mt-6" data-reveal style="--reveal-delay: 320ms;">TAKES 15 MINUTES · ZERO COMMITMENT · REAL NUMBERS</p>
+		</div>
+	</section>
 </Layout>
-
-<style>
-    .fade-up {
-        @apply opacity-0 animate-[fade-up_0.8s_ease-out_forwards];
-    }
-</style>

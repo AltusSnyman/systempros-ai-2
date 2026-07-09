@@ -1,20 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import counselingHero from '../assets/counselling_hero_brain.png';
-import seniorLivingHero from '../assets/senior_living_hero_tree.png';
-import roofingHero from '../assets/roofing_neural.png';
-import dentalHero from '../assets/dental_hero_implant.png';
-import chiroHero from '../assets/chiropractic_hero_spine.png';
-import detailingHero from '../assets/auto_detailing_hero_scanner.png';
-import landscapingHero from '../assets/landscaping_hero_plan.png';
-
 const industries = [
     {
         id: 'counseling',
         category: 'Medical',
         title: 'The Empathy Engine',
         stat: 'HIPAA-Compliant Triage & Intake.',
-        image: counselingHero.src,
+        image: '/assets/industry-videos/counseling.webp',
         video: '/assets/industry-videos/counseling.mp4',
         link: '/solutions/counselling'
     },
@@ -23,7 +15,7 @@ const industries = [
         category: 'Medical',
         title: 'The Community Concierge',
         stat: 'Captures 100% of After-Hours Inquiries.',
-        image: seniorLivingHero.src,
+        image: '/assets/industry-videos/ndis.webp',
         video: '/assets/industry-videos/ndis.mp4',
         link: '/solutions/independent-living'
     },
@@ -32,7 +24,7 @@ const industries = [
         category: 'Home Services',
         title: 'The Storm-Chaser',
         stat: 'Zero Missed Leads During Peak Season.',
-        image: roofingHero.src,
+        image: '/assets/industry-videos/roofing.webp',
         video: '/assets/industry-videos/roofing.mp4',
         link: '/solutions/roofing'
     },
@@ -41,7 +33,7 @@ const industries = [
         category: 'Medical',
         title: 'The Practice Filler',
         stat: 'Reduces Front Desk Admin by 70%.',
-        image: dentalHero.src,
+        image: '/assets/industry-videos/dental.webp',
         video: '/assets/industry-videos/dental.mp4',
         link: '/solutions/dental'
     },
@@ -50,7 +42,7 @@ const industries = [
         category: 'Medical',
         title: 'The Patient Intake',
         stat: 'Verifies Insurance & Books Plans of Care.',
-        image: chiroHero.src,
+        image: '/assets/industry-videos/chiro.webp',
         video: '/assets/industry-videos/chiro.mp4',
         link: '/solutions/chiropractors'
     },
@@ -59,7 +51,7 @@ const industries = [
         category: 'Trades',
         title: 'The Ceramic Closer',
         stat: 'Automated Deposit Collection.',
-        image: detailingHero.src,
+        image: '/assets/industry-videos/detailing.webp',
         video: '/assets/industry-videos/detailing.mp4',
         link: '/solutions/auto-detailing'
     },
@@ -68,7 +60,7 @@ const industries = [
         category: 'Home Services',
         title: 'The Spring Scheduler',
         stat: 'Routes Crews & Books Estimates.',
-        image: landscapingHero.src,
+        image: '/assets/industry-videos/landscaping.webp',
         video: '/assets/industry-videos/landscaping.mp4',
         link: '/solutions/landscaping'
     }
@@ -110,18 +102,18 @@ const VideoModal = ({ videoSrc, onClose }) => {
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 transition-opacity duration-300"
+            className="fixed inset-0 z-40 flex items-center justify-center bg-ink/60 p-4 transition-opacity duration-300"
             onClick={handleBackdropClick}
         >
-            <div className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 animate-in fade-in zoom-in-95 duration-200">
+            <div className="relative w-full max-w-4xl bg-paper rounded-[2px] overflow-hidden border border-line">
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors border border-white/20"
+                    className="absolute top-4 right-4 z-10 p-2 bg-paper hover:bg-green-faint rounded-full text-ink transition-colors border border-line cursor-pointer"
                     aria-label="Close video"
                 >
-                    <CloseIcon size={24} fill="white" />
+                    <CloseIcon size={24} fill="currentColor" />
                 </button>
-                <div className="relative aspect-video w-full bg-black">
+                <div className="relative aspect-video w-full bg-ink">
                     <video
                         src={videoSrc}
                         className="w-full h-full"
@@ -161,9 +153,9 @@ export default function IndustriesVault() {
                     <button
                         key={cat}
                         onClick={() => setActiveCategory(cat)}
-                        className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 backdrop-blur-md border ${activeCategory === cat
-                            ? 'bg-blue-600/20 border-blue-500 text-blue-400 shadow-[0_0_15px_rgba(59,130,246,0.3)]'
-                            : 'bg-white/5 border-white/10 text-secondary hover:bg-white/10 hover:border-white/20'
+                        className={`px-6 py-2 rounded-[2px] text-sm font-medium transition-colors duration-300 border cursor-pointer ${activeCategory === cat
+                            ? 'bg-green border-green text-paper-lit'
+                            : 'bg-paper border-line text-muted hover:text-ink hover:border-ink'
                             }`}
                     >
                         {cat}
@@ -182,22 +174,23 @@ export default function IndustriesVault() {
                     return (
                         <div
                             key={item.id}
-                            className={`group relative overflow-hidden rounded-2xl bg-[#121212] border border-white/10 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-900/20 flex flex-col ${gridClass}`}
+                            className={`group relative overflow-hidden rounded-[2px] bg-paper border border-line hover:border-green transition-colors duration-300 flex flex-col ${gridClass}`}
                         >
-                            {/* Top Half - Image (Heroic) */}
-                            <div className="relative aspect-video w-full overflow-hidden bg-black/50">
+                            {/* Top Half - Demo still (real screen content) */}
+                            <div className="relative aspect-video w-full overflow-hidden bg-ink border-b border-line">
                                 <img
                                     src={item.image}
                                     alt={item.title}
-                                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    loading="lazy"
+                                    className="h-full w-full object-cover"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90"></div>
 
                                 {/* Play Button Overlay on Image */}
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-ink/25">
                                     <button
                                         onClick={() => openVideo(item.video)}
-                                        className="h-16 w-16 flex items-center justify-center rounded-full bg-blue-600/80 hover:bg-blue-500 text-white backdrop-blur-sm transition-transform hover:scale-110"
+                                        className="h-16 w-16 flex items-center justify-center rounded-full bg-paper text-green border border-line hover:bg-green-faint transition-colors cursor-pointer"
+                                        aria-label={`Play ${item.title} demo`}
                                     >
                                         <PlayIcon size={32} fill="currentColor" />
                                     </button>
@@ -206,23 +199,23 @@ export default function IndustriesVault() {
 
                             {/* Bottom Half - Content */}
                             <div className="p-6 relative z-10 flex flex-col flex-1">
-                                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                                <h3 className="text-xl font-bold text-ink mb-2">{item.title}</h3>
                                 <div className="flex items-center gap-2 mb-6">
-                                    <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                                    <p className="text-sm font-mono text-cyan-300">{item.stat}</p>
+                                    <span className="inline-block w-2 h-2 rounded-full bg-copper"></span>
+                                    <p className="font-mono text-[12px] text-muted">{item.stat}</p>
                                 </div>
 
                                 <div className="mt-auto flex items-center justify-between gap-4">
                                     <button
                                         onClick={() => openVideo(item.video)}
-                                        className="flex h-10 w-10 min-w-[40px] items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-500/30 hover:bg-blue-500 transition-all"
+                                        className="flex h-10 w-10 min-w-[40px] items-center justify-center rounded-full bg-green text-paper-lit hover:bg-green-hover transition-colors cursor-pointer"
                                         aria-label="Play video demo"
                                     >
                                         <PlayIcon size={18} fill="currentColor" />
                                     </button>
 
                                     <a href={item.link} className="flex-1 block">
-                                        <button className="w-full rounded-lg border border-white/10 bg-white/5 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/10 hover:border-white/20 transition-all">
+                                        <button className="w-full rounded-[2px] border border-ink bg-paper py-2.5 font-mono text-[11px] font-bold uppercase tracking-[0.04em] text-ink hover:text-green hover:border-green transition-colors cursor-pointer">
                                             View Blueprint
                                         </button>
                                     </a>

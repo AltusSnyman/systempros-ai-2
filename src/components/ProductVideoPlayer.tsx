@@ -61,7 +61,7 @@ export const ProductVideoPlayer = ({ id, className, inputProps }: Props) => {
       style={{
         width: '100%',
         aspectRatio: '1 / 1',
-        borderRadius: '16px',
+        borderRadius: '0',
         overflow: 'hidden',
         position: 'relative',
       }}

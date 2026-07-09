@@ -6,10 +6,12 @@ import {
   spring,
   Sequence,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const BG = '#0A0A0A';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const BG = P.paper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 
 export type PrivateAssistantProps = Record<string, never>;
 
@@ -18,9 +20,9 @@ const Background = ({ frame }: { frame: number }) => {
   return (
     <>
       <AbsoluteFill style={{ backgroundColor: BG }} />
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 0%, rgba(59,130,246,${glow}) 0%, transparent 60%)` }} />
-      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(59,130,246,0.4)`, borderRight: `3px solid rgba(59,130,246,0.4)` }} />
-      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(59,130,246,0.4)`, borderLeft: `3px solid rgba(59,130,246,0.4)` }} />
+      <AbsoluteFill style={{ background: 'transparent' }} />
+      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(31,92,69,0.4)`, borderRight: `3px solid rgba(31,92,69,0.4)` }} />
+      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(31,92,69,0.4)`, borderLeft: `3px solid rgba(31,92,69,0.4)` }} />
     </>
   );
 };
@@ -30,7 +32,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: 'rgba(255,255,255,0.32)', fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
     </div>
   );
 };
@@ -47,14 +49,14 @@ const Intro = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '80px', fontFamily: FONT }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 22, opacity: catOp }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT }} />
-        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>Personal AI</span>
+        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' }}>Personal AI</span>
       </div>
       <div style={{ transform: `translateY(${titleY}px)`, opacity: titleSpring, marginBottom: 22 }}>
-        <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE PRIVATE</div>
-        <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>ASSISTANT</div>
+        <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE PRIVATE</div>
+        <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>ASSISTANT</div>
       </div>
       <div style={{ width: lineWidth, height: 4, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 24 }} />
-      <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>One AI. Every platform. Done for you.</p>
+      <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>One AI. Every platform. Done for you.</p>
     </AbsoluteFill>
   );
 };
@@ -68,11 +70,11 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
   const pulse = 1 + 0.06 * Math.sin(localFrame / 18);
 
   const platforms = [
-    { name: 'WhatsApp', angle: 0, color: '#25D366' },
-    { name: 'Telegram', angle: 60, color: '#2AABEE' },
-    { name: 'Discord', angle: 120, color: '#5865F2' },
-    { name: 'Slack', angle: 180, color: '#E01E5A' },
-    { name: 'iMessage', angle: 240, color: '#34C759' },
+    { name: 'WhatsApp', angle: 0, color: P.copper },
+    { name: 'Telegram', angle: 60, color: P.greenMid },
+    { name: 'Discord', angle: 120, color: P.greenDeep },
+    { name: 'Slack', angle: 180, color: P.copperDeep },
+    { name: 'iMessage', angle: 240, color: P.copper },
     { name: 'Email', angle: 300, color: ACCENT },
   ];
 
@@ -83,19 +85,19 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ fontFamily: FONT, opacity: fadeIn }}>
       <svg width="1080" height="1080" style={{ position: 'absolute', top: 0, left: 0 }}>
         {/* Orbit ring */}
-        <circle cx={cx} cy={cy} r={orbitR} fill="none" stroke="rgba(59,130,246,0.1)" strokeWidth="1.5" />
+        <circle cx={cx} cy={cy} r={orbitR} fill="none" stroke="rgba(31,92,69,0.1)" strokeWidth="1.5" />
 
         {/* Center AI hex */}
         <g transform={`translate(${cx},${cy})`}>
           <polygon
             points="0,-70 60.6,-35 60.6,35 0,70 -60.6,35 -60.6,-35"
-            fill="rgba(59,130,246,0.15)"
+            fill="rgba(31,92,69,0.15)"
             stroke={ACCENT}
             strokeWidth="2"
             transform={`scale(${interpolate(centerSpring, [0, 1], [0.2, 1]) * pulse})`}
-            style={{ filter: 'drop-shadow(0 0 16px rgba(59,130,246,0.4))' }}
+            style={{ filter: 'none' }}
           />
-          <text textAnchor="middle" y={8} fill={ACCENT} fontSize="22" fontWeight="900" fontFamily={FONT} opacity={centerSpring}>AI</text>
+          <text textAnchor="middle" y={8} fill={ACCENT} fontSize="22" fontWeight="900" fontFamily={MONO} opacity={centerSpring}>AI</text>
         </g>
 
         {/* Platform nodes */}
@@ -126,15 +128,15 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
                 opacity={pSpring} transform={`scale(${interpolate(pSpring, [0, 1], [0.3, 1])} , ${interpolate(pSpring, [0, 1], [0.3, 1])})`}
                 style={{ transformOrigin: `${px}px ${py}px` }}
               />
-              <text x={px} y={py + 5} textAnchor="middle" fill={p.color} fontSize="12" fontWeight="700" fontFamily={FONT} opacity={pSpring}>{p.name.charAt(0)}</text>
-              <text x={px} y={py + 58} textAnchor="middle" fill="rgba(255,255,255,0.55)" fontSize="11" fontFamily={FONT} opacity={pSpring}>{p.name}</text>
+              <text x={px} y={py + 5} textAnchor="middle" fill={p.color} fontSize="12" fontWeight="700" fontFamily={MONO} opacity={pSpring}>{p.name.charAt(0)}</text>
+              <text x={px} y={py + 58} textAnchor="middle" fill={P.muted} fontSize="11" fontFamily={MONO} opacity={pSpring}>{p.name}</text>
             </g>
           );
         })}
       </svg>
       <div style={{
         position: 'absolute', bottom: 100, left: 0, right: 0, textAlign: 'center',
-        color: 'rgba(255,255,255,0.7)', fontSize: 15, fontWeight: 700, letterSpacing: '0.16em',
+        color: P.muted, fontSize: 15, fontWeight: 700, letterSpacing: '0.16em', fontFamily: MONO,
         textTransform: 'uppercase', opacity: labelOp
       }}>20+ Platforms Supported</div>
     </AbsoluteFill>
@@ -155,7 +157,7 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 32 }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>ClawHub Marketplace</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>ClawHub Marketplace</div>
 
       {/* Grid of skill squares */}
       <div style={{ display: 'flex', flexWrap: 'wrap', width: 360, gap: 6, justifyContent: 'center' }}>
@@ -164,12 +166,12 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
           return (
             <div key={i} style={{
               width: 44, height: 44, borderRadius: 8,
-              border: `1.5px solid rgba(59,130,246,${0.2 + (i % 3) * 0.15})`,
-              backgroundColor: `rgba(59,130,246,${0.05 + (i % 4) * 0.04})`,
+              border: `1.5px solid rgba(31,92,69,${0.2 + (i % 3) * 0.15})`,
+              backgroundColor: `rgba(31,92,69,${0.05 + (i % 4) * 0.04})`,
               opacity: sqOp, display: 'flex', alignItems: 'center', justifyContent: 'center'
             }}>
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M9 2 L11 7 L16 7 L12 10.5 L13.5 16 L9 13 L4.5 16 L6 10.5 L2 7 L7 7 Z" stroke={ACCENT} strokeWidth="1.2" fill="rgba(59,130,246,0.3)" />
+                <path d="M9 2 L11 7 L16 7 L12 10.5 L13.5 16 L9 13 L4.5 16 L6 10.5 L2 7 L7 7 Z" stroke={ACCENT} strokeWidth="1.2" fill="rgba(31,92,69,0.3)" />
               </svg>
             </div>
           );
@@ -179,7 +181,7 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
       {/* Counter */}
       <div style={{ textAlign: 'center' }}>
         <span style={{ color: ACCENT, fontSize: 80, fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1 }}>{counterVal.toLocaleString()}+</span>
-        <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 16, fontWeight: 600, letterSpacing: '0.1em', marginTop: 8 }}>SKILLS</div>
+        <div style={{ color: P.muted, fontSize: 16, fontWeight: 600, letterSpacing: '0.1em', marginTop: 8 }}>SKILLS</div>
       </div>
 
       {/* Pill features */}
@@ -187,10 +189,10 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
         {['Custom SOUL.md', 'Persistent Memory', 'Proactive Automation'].map((pill) => (
           <div key={pill} style={{
             padding: '10px 20px', borderRadius: 100,
-            border: `1.5px solid rgba(59,130,246,0.4)`,
-            backgroundColor: 'rgba(59,130,246,0.08)',
+            border: `1.5px solid rgba(31,92,69,0.4)`,
+            backgroundColor: 'rgba(31,92,69,0.08)',
           }}>
-            <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, fontWeight: 600 }}>{pill}</span>
+            <span style={{ color: P.ink, fontSize: 13, fontWeight: 600 }}>{pill}</span>
           </div>
         ))}
       </div>
@@ -216,24 +218,24 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 32 }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Live Chat Simulation</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Live Chat Simulation</div>
 
       {/* Phone mockup */}
       <div style={{
         width: 540, borderRadius: 24,
-        border: `2px solid rgba(59,130,246,0.3)`,
-        backgroundColor: 'rgba(255,255,255,0.03)',
+        border: `2px solid rgba(31,92,69,0.3)`,
+        backgroundColor: 'rgba(31,42,38,0.03)',
         overflow: 'hidden',
         opacity: phoneSpring, transform: `translateY(${interpolate(phoneSpring, [0, 1], [40, 0])}px)`
       }}>
         {/* Chat header */}
-        <div style={{ padding: '16px 24px', backgroundColor: 'rgba(59,130,246,0.12)', borderBottom: '1px solid rgba(59,130,246,0.2)', display: 'flex', alignItems: 'center', gap: 12 }}>
+        <div style={{ padding: '16px 24px', backgroundColor: 'rgba(31,92,69,0.12)', borderBottom: '1px solid rgba(31,92,69,0.2)', display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{ width: 36, height: 36, borderRadius: '50%', backgroundColor: ACCENT, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ color: '#FFF', fontSize: 14, fontWeight: 800 }}>AI</span>
+            <span style={{ color: P.paper, fontSize: 14, fontWeight: 800 }}>AI</span>
           </div>
           <div>
-            <div style={{ color: '#FFF', fontSize: 15, fontWeight: 700 }}>Private Assistant</div>
-            <div style={{ color: '#22c55e', fontSize: 12, fontWeight: 500 }}>● Online</div>
+            <div style={{ color: P.ink, fontSize: 15, fontWeight: 700 }}>Private Assistant</div>
+            <div style={{ color: P.copper, fontSize: 12, fontWeight: 500 }}>● Online</div>
           </div>
         </div>
 
@@ -242,14 +244,14 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
           {/* User message */}
           <div style={{ display: 'flex', justifyContent: 'flex-end', opacity: msg1Op }}>
             <div style={{ backgroundColor: ACCENT, borderRadius: '16px 16px 4px 16px', padding: '12px 18px', maxWidth: '70%' }}>
-              <span style={{ color: '#FFF', fontSize: 15, fontWeight: 500 }}>What's on my calendar today?</span>
+              <span style={{ color: P.paper, fontSize: 15, fontWeight: 500 }}>What's on my calendar today?</span>
             </div>
           </div>
 
           {/* Typing indicator */}
           {typingVisible && (
             <div style={{ display: 'flex', justifyContent: 'flex-start', opacity: typingOp }}>
-              <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '16px 16px 16px 4px', padding: '12px 18px', display: 'flex', gap: 6, alignItems: 'center' }}>
+              <div style={{ backgroundColor: 'rgba(31,42,38,0.06)', border: '1px solid rgba(31,42,38,0.1)', borderRadius: '16px 16px 16px 4px', padding: '12px 18px', display: 'flex', gap: 6, alignItems: 'center' }}>
                 {[0, 1, 2].map((di) => (
                   <div key={di} style={{
                     width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT,
@@ -263,8 +265,8 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
 
           {/* AI message */}
           <div style={{ display: 'flex', justifyContent: 'flex-start', opacity: msg2Op }}>
-            <div style={{ backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(59,130,246,0.3)', borderRadius: '16px 16px 16px 4px', padding: '12px 18px', maxWidth: '80%' }}>
-              <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: 15, lineHeight: 1.5 }}>
+            <div style={{ backgroundColor: 'rgba(31,42,38,0.06)', border: '1px solid rgba(31,92,69,0.3)', borderRadius: '16px 16px 16px 4px', padding: '12px 18px', maxWidth: '80%' }}>
+              <span style={{ color: P.ink, fontSize: 15, lineHeight: 1.5 }}>
                 You have 3 meetings: 9am standup, 2pm client call, 4pm review. Want me to prep briefs?
               </span>
             </div>
@@ -272,7 +274,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
         </div>
       </div>
 
-      <div style={{ opacity: footerOp, color: 'rgba(255,255,255,0.45)', fontSize: 15, letterSpacing: '0.04em', textAlign: 'center' }}>
+      <div style={{ opacity: footerOp, color: P.muted, fontSize: 15, letterSpacing: '0.04em', textAlign: 'center' }}>
         Remembers context. Learns your preferences.
       </div>
     </AbsoluteFill>

@@ -6,11 +6,13 @@ import {
   spring,
   Easing,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const RED = '#EF4444';
-const GREEN = '#22C55E';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const RED = P.copperDark;
+const GREEN = P.copper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 const W = 1080;
 const H = 1080;
 const CX = W / 2;
@@ -126,8 +128,8 @@ export const LeadGenFactory = () => {
             <path d={iconPath} />
           </svg>
           {/* Label */}
-          <text x={0} y={36} textAnchor="middle" fill="white" fontSize={13} fontWeight={700} fontFamily={FONT}>{label}</text>
-          <text x={0} y={52} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize={11} fontFamily={FONT}>{sublabel}</text>
+          <text x={0} y={36} textAnchor="middle" fill={P.ink} fontSize={13} fontWeight={700} fontFamily={MONO}>{label}</text>
+          <text x={0} y={52} textAnchor="middle" fill={P.muted} fontSize={11} fontFamily={MONO}>{sublabel}</text>
         </g>
       </g>
     );
@@ -153,10 +155,10 @@ export const LeadGenFactory = () => {
   };
 
   return (
-    <AbsoluteFill style={{ backgroundColor: '#0A0A0A', opacity: globalOpacity, fontFamily: FONT }}>
+    <AbsoluteFill style={{ backgroundColor: P.paper, opacity: globalOpacity, fontFamily: FONT }}>
 
       {/* Radial glow */}
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 50%, rgba(59,130,246,${bgPulse}) 0%, transparent 65%)` }} />
+      <AbsoluteFill style={{ background: 'transparent' }} />
 
       {/* Grid lines */}
       {Array.from({ length: 8 }, (_, i) => (
@@ -164,7 +166,7 @@ export const LeadGenFactory = () => {
           position: 'absolute',
           top: `${(i + 1) * (100 / 9)}%`,
           left: 0, right: 0, height: 1,
-          backgroundColor: 'rgba(255,255,255,0.03)',
+          backgroundColor: 'rgba(31,42,38,0.03)',
         }} />
       ))}
 
@@ -172,14 +174,14 @@ export const LeadGenFactory = () => {
       <AbsoluteFill style={{ opacity: introOp, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 100 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, opacity: catOpacity }}>
           <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT }} />
-          <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const }}>Website Conversion</span>
+          <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.2em', fontFamily: MONO, textTransform: 'uppercase' as const }}>Website Conversion</span>
         </div>
         <div style={{ transform: `translateY(${titleY}px)`, opacity: titleSpring, marginBottom: 18 }}>
-          <div style={{ color: '#fff', fontSize: 88, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE HIDDEN</div>
-          <div style={{ color: '#fff', fontSize: 88, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>FACTORY</div>
+          <div style={{ color: P.ink, fontSize: 88, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE HIDDEN</div>
+          <div style={{ color: P.ink, fontSize: 88, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>FACTORY</div>
         </div>
         <div style={{ width: lineW, height: 4, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 24 }} />
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subtitleOp, maxWidth: 680 }}>
+        <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subtitleOp, maxWidth: 680 }}>
           Your 24/7 automated lead processing system — invisible to visitors, unstoppable for your pipeline.
         </p>
       </AbsoluteFill>
@@ -190,8 +192,8 @@ export const LeadGenFactory = () => {
 
           {/* ── Connecting lines: inputs → hub ── */}
           {renderAnimatedLine(NODE_VISITOR.x + 60, NODE_VISITOR.y, HUB.x - 75, HUB.y - 80, lineVisitorProgress, ACCENT)}
-          {renderAnimatedLine(NODE_VOICE.x + 60, NODE_VOICE.y, HUB.x - 80, HUB.y, lineVoiceProgress, '#8B5CF6')}
-          {renderAnimatedLine(NODE_FORM.x + 60, NODE_FORM.y, HUB.x - 75, HUB.y + 80, lineFormProgress, '#10B981')}
+          {renderAnimatedLine(NODE_VOICE.x + 60, NODE_VOICE.y, HUB.x - 80, HUB.y, lineVoiceProgress, P.greenDeep)}
+          {renderAnimatedLine(NODE_FORM.x + 60, NODE_FORM.y, HUB.x - 75, HUB.y + 80, lineFormProgress, P.copper)}
 
           {/* ── Flowing dots: inputs → hub ── */}
           {dotsActive && [0, 0.35, 0.7].map((ph, i) => (
@@ -214,21 +216,21 @@ export const LeadGenFactory = () => {
 
           {/* ── Input Nodes ── */}
           {renderInputNode(NODE_VISITOR, visitorSpring, 'VISITOR', 'Website Traffic',
-            'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', '#60A5FA')}
+            'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', P.green)}
           {renderInputNode(NODE_VOICE, voiceSpring, 'VOICE AI', 'Click-to-Talk Widget',
-            'M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zM19 10v2a7 7 0 0 1-14 0v-2', '#A78BFA')}
+            'M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3zM19 10v2a7 7 0 0 1-14 0v-2', P.greenDeep)}
           {renderInputNode(NODE_FORM, formSpring, 'SMART FORM', 'Multi-Step Qualify',
-            'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', '#34D399')}
+            'M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11', P.copper)}
 
           {/* ── Central Hub Hexagon ── */}
           <g transform={`translate(${HUB.x}, ${HUB.y})`} opacity={interpolate(hubSpring, [0, 1], [0, 1])}>
             <g transform={`scale(${interpolate(hubSpring, [0, 1], [0.5, 1])})`}>
               {/* Outer glow ring */}
-              <circle r={92} fill="none" stroke={`rgba(59,130,246,0.2)`} strokeWidth={1} />
+              <circle r={92} fill="none" stroke={`rgba(31,92,69,0.2)`} strokeWidth={1} />
               {/* Hexagon */}
               <polygon
                 points={hexPoints(0, 0, 78)}
-                fill="rgba(59,130,246,0.12)"
+                fill="rgba(31,92,69,0.12)"
                 stroke={ACCENT}
                 strokeWidth={2.5}
               />
@@ -237,7 +239,7 @@ export const LeadGenFactory = () => {
                 <polygon
                   points={hexPoints(0, 0, 52)}
                   fill="none"
-                  stroke="rgba(59,130,246,0.35)"
+                  stroke="rgba(31,92,69,0.35)"
                   strokeWidth={1.5}
                   strokeDasharray="8 4"
                 />
@@ -247,14 +249,14 @@ export const LeadGenFactory = () => {
                 <circle cx={12} cy={12} r={3} />
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
               </svg>
-              <text y={30} textAnchor="middle" fill={ACCENT} fontSize={12} fontWeight={800} fontFamily={FONT} letterSpacing="0.12em">LEAD MACHINE</text>
+              <text y={30} textAnchor="middle" fill={ACCENT} fontSize={12} fontWeight={800} fontFamily={MONO} letterSpacing="0.12em">LEAD MACHINE</text>
             </g>
           </g>
 
           {/* ── Output Node: BOOKED MEETING ── */}
           <g transform={`translate(${NODE_OUTPUT.x}, ${NODE_OUTPUT.y})`} opacity={interpolate(outputSpring, [0, 1], [0, 1])}>
             <g transform={`scale(${interpolate(outputSpring, [0, 1], [0.5, 1])})`}>
-              <circle r={62} fill="rgba(34,197,94,0.12)" stroke={GREEN} strokeWidth={2.5} />
+              <circle r={62} fill="rgba(198,106,53,0.12)" stroke={GREEN} strokeWidth={2.5} />
               {/* Calendar icon */}
               <svg x={-18} y={-28} width={36} height={36} viewBox="0 0 24 24" fill="none" stroke={GREEN} strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                 <rect x={3} y={4} width={18} height={18} rx={2} ry={2} />
@@ -263,8 +265,8 @@ export const LeadGenFactory = () => {
                 <line x1={3} y1={10} x2={21} y2={10} />
                 <path d="M8 14l3 3 5-5" />
               </svg>
-              <text y={30} textAnchor="middle" fill={GREEN} fontSize={12} fontWeight={800} fontFamily={FONT}>BOOKED</text>
-              <text y={46} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize={10} fontFamily={FONT}>Meeting Confirmed</text>
+              <text y={30} textAnchor="middle" fill={GREEN} fontSize={12} fontWeight={800} fontFamily={MONO}>BOOKED</text>
+              <text y={46} textAnchor="middle" fill={P.muted} fontSize={10} fontFamily={MONO}>Meeting Confirmed</text>
             </g>
           </g>
 
@@ -293,7 +295,7 @@ export const LeadGenFactory = () => {
               transform: `translateY(${interpolate(op, [0, 1], [16, 0])}px)`,
             }}>
               <span style={{ color: ACCENT, fontSize: 28, fontWeight: 900, letterSpacing: '-0.02em' }}>{value}</span>
-              <span style={{ color: 'rgba(255,255,255,0.45)', fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{label}</span>
+              <span style={{ color: P.muted, fontSize: 13, letterSpacing: '0.08em', textTransform: 'uppercase' as const }}>{label}</span>
             </div>
           ))}
         </div>
@@ -313,11 +315,11 @@ export const LeadGenFactory = () => {
             gap: 10,
             padding: '8px 20px',
             borderRadius: 100,
-            border: `1px solid rgba(59,130,246,0.3)`,
-            backgroundColor: 'rgba(59,130,246,0.06)',
+            border: `1px solid rgba(31,92,69,0.3)`,
+            backgroundColor: 'rgba(31,92,69,0.06)',
           }}>
             <div style={{ width: 7, height: 7, borderRadius: '50%', backgroundColor: ACCENT }} />
-            <span style={{ color: ACCENT, fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' as const }}>
+            <span style={{ color: ACCENT, fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', fontFamily: MONO, textTransform: 'uppercase' as const }}>
               The Hidden Factory — Automated Lead Flow
             </span>
           </div>
@@ -333,7 +335,7 @@ export const LeadGenFactory = () => {
         justifyContent: 'center',
         padding: 100,
       }}>
-        <div style={{ color: '#fff', fontSize: 40, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, textAlign: 'center' }}>
+        <div style={{ color: P.ink, fontSize: 40, fontWeight: 900, letterSpacing: '-0.02em', marginBottom: 12, textAlign: 'center' }}>
           Monthly Leads: Before vs After
         </div>
         <div style={{ width: 180, height: 4, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 60 }} />
@@ -342,17 +344,17 @@ export const LeadGenFactory = () => {
         <div style={{ display: 'flex', gap: 100, alignItems: 'flex-end', height: 260 }}>
           {/* Before */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-            <div style={{ fontSize: 28, fontWeight: 800, color: '#6B7280' }}>3</div>
-            <div style={{ width: 100, height: oldBarH, backgroundColor: '#374151', borderRadius: '6px 6px 0 0' }} />
-            <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: 14, fontWeight: 600, textAlign: 'center' as const }}>
+            <div style={{ fontSize: 28, fontWeight: 800, color: P.muted }}>3</div>
+            <div style={{ width: 100, height: oldBarH, backgroundColor: P.line, borderRadius: '6px 6px 0 0' }} />
+            <div style={{ color: P.muted, fontSize: 14, fontWeight: 600, textAlign: 'center' as const }}>
               BEFORE<br />(Brochure Site)
             </div>
           </div>
           {/* After */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
             <div style={{ fontSize: 28, fontWeight: 800, color: ACCENT }}>47</div>
-            <div style={{ width: 100, height: newBarH, background: `linear-gradient(to top, ${ACCENT}, rgba(59,130,246,0.5))`, borderRadius: '6px 6px 0 0', boxShadow: `0 0 30px rgba(59,130,246,0.4)` }} />
-            <div style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, fontWeight: 600, textAlign: 'center' as const }}>
+            <div style={{ width: 100, height: newBarH, background: ACCENT, borderRadius: '6px 6px 0 0', boxShadow: 'none'}} />
+            <div style={{ color: P.muted, fontSize: 14, fontWeight: 600, textAlign: 'center' as const }}>
               AFTER<br />(Lead Machine)
             </div>
           </div>
@@ -360,7 +362,7 @@ export const LeadGenFactory = () => {
 
         <div style={{ marginTop: 40, display: 'flex', alignItems: 'center', gap: 12, opacity: interpolate(frame, [545, 565], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) }}>
           <div style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: GREEN }} />
-          <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 18, fontWeight: 500 }}>+1,467% more booked meetings per month</span>
+          <span style={{ color: P.muted, fontSize: 18, fontWeight: 500 }}>+1,467% more booked meetings per month</span>
         </div>
       </AbsoluteFill>
 
@@ -374,7 +376,7 @@ export const LeadGenFactory = () => {
         opacity: brandOp,
       }}>
         <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-        <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+        <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
       </div>
 
     </AbsoluteFill>

@@ -17,7 +17,7 @@ export default defineConfig({
       exclude: ['@remotion/cli']
     },
     ssr: {
-      noExternal: ['three', '@react-three/fiber', '@react-three/drei', 'detect-gpu', 'remotion', '@remotion/player', '@remotion/transitions']
+      noExternal: ['remotion', '@remotion/player', '@remotion/transitions']
     }
   }
 });

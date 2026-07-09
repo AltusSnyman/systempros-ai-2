@@ -1,286 +1,323 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ProductHero from '../components/ProductHero.astro';
-import Footer from '../components/Footer.astro';
-import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import MediaFrame from '../components/MediaFrame.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import ProcessTimeline from '../components/ProcessTimeline';
-import Breadcrumbs from '../components/seo/Breadcrumbs.astro';
-import leadgenHero from '../assets/leadgen_hero.png';
+import ServiceSchema from '../components/seo/ServiceSchema.astro';
+
+const breadcrumbSchema = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://systempros.ai/" },
+		{ "@type": "ListItem", "position": 2, "name": "Lead Gen Websites", "item": "https://systempros.ai/lead-gen-websites" },
+	],
+};
+
+const failures = [
+	{
+		label: 'FAILURE A',
+		name: 'The 24-hour death spiral',
+		desc: "When a lead fills a form and waits 24 hours for a reply, they've already booked with your competitor. Speed to lead is the only metric that matters.",
+	},
+	{
+		label: 'FAILURE B',
+		name: 'The inbox grave',
+		desc: 'Static forms send data to an email inbox where leads go to die. No automation. No instant booking. No pipeline. Just a spreadsheet of missed opportunities.',
+	},
+	{
+		label: 'FAILURE C',
+		name: 'The invisible visitor',
+		desc: 'Thousands of dollars in traffic hit your site and leave because there was no hook to keep them. Every bounce is a lost contract.',
+	},
+];
+
+const widgetPoints = [
+	'Visitor clicks → talks to AI in under 2 seconds',
+	'AI qualifies budget, urgency, and fit on the call',
+	'Meeting booked directly to your calendar — no back-and-forth',
+	'Smart forms run the same logic 24/7 when no one is talking',
+	'Every interaction auto-creates a CRM contact and pipeline entry',
+];
+
+const engines = [
+	{
+		label: 'ENGINE 1',
+		name: 'Smart multi-step forms',
+		desc: "Stop asking for just a name and email. Our forms qualify the lead's budget and urgency before they hit your calendar. Higher completion. Better leads. No wasted sales calls.",
+	},
+	{
+		label: 'ENGINE 2',
+		name: 'Instant booking calendars',
+		desc: 'Syncs with Google and Outlook. No back-and-forth emails, no phone tag. The moment they are qualified, they pick a time — and the meeting lands in both calendars in seconds.',
+	},
+	{
+		label: 'ENGINE 3',
+		name: 'Automated nurture flows',
+		desc: "The hidden factory at work. If they don't book, the system triggers SMS and email follow-ups until they do. No lead is ever forgotten.",
+	},
+];
+
+const comparison = [
+	{ label: 'Response time', old: '12–24 hours', new: '< 2 seconds' },
+	{ label: 'Lead handling', old: 'Manual email inbox', new: 'Full CRM automation' },
+	{ label: 'Engagement', old: 'Static text and images', new: 'Interactive voice and AI chat' },
+	{ label: 'Follow-up', old: 'Whoever remembers to call', new: 'Automated SMS + email sequences' },
+	{ label: 'Outcome', old: '"We\'ll call you soon"', new: '"Meeting confirmed for 10 AM"', highlight: true },
+];
 ---
 
 <Layout
-    title="Lead Gen Websites | Turn Your Website Into a Booking Machine | SystemPros.ai"
-    description="We rip out the friction and replace it with a Lead Generation Machine that qualifies, follows up, and books appointments while you sleep. No more ghost leads."
+	title="Lead Gen Websites | Turn Your Website Into a Booking Machine | SystemPros.ai"
+	description="We rip out the friction and replace it with a lead generation machine that qualifies, follows up, and books appointments while you sleep. Smart forms, calendars, voice AI widgets, full CRM automation."
 >
-    <ServiceSchema name="Lead Gen Websites" description="Website transformation service that converts brochure sites into lead generation machines with smart forms, calendars, Voice AI widgets, and full CRM automation." serviceType="WebDesign" />
-    <Breadcrumbs currentTitle="Lead Gen Websites" />
+	<ServiceSchema
+		name="Lead Gen Websites"
+		description="Website transformation service that converts brochure sites into lead generation machines with smart forms, calendars, Voice AI widgets, and full CRM automation."
+		serviceType="WebDesign"
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-    <main class="overflow-x-hidden">
+	<!-- ============================================ -->
+	<!-- HERO — dossier sheet SP-02                   -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
 
-        <!-- ── HERO ─────────────────────────────────────────────────────────────── -->
-        <ProductHero
-            badge="Lead Generation"
-            title='Your Website Should <span class="text-gradient">Book Meetings.</span><br />Not Just Look Pretty.'
-            subtitle="Most 'professional' websites are just $50,000 digital brochures. They look great, but they let leads die in your inbox. We rip out the friction and replace it with a Lead Generation Machine that qualifies, follows up, and books appointments while you sleep."
-            ctaText="Build My Lead Gen Site"
-            ctaLink="/contact"
-            secondaryCtaText="View Pricing"
-            secondaryCtaLink="/pricing"
-            heroImage={leadgenHero}
-            heroImageAlt="Lead generation website transformation"
-        />
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<nav aria-label="Breadcrumb">
+					<a href="/" class="hover:text-green transition-colors">INDEX</a>
+					<span aria-hidden="true"> / </span>
+					<span class="text-ink" aria-current="page">SP-02 · WEBSITE CONVERSION</span>
+				</nav>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> CAPTURING AROUND THE CLOCK</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
 
-        <!-- ── AGITATION: THE $50K BROCHURE PROBLEM ─────────────────────────────── -->
-        <section class="py-24 relative z-10 bg-[#080808]">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">You Paid $50k for a Digital Pamphlet.<br /><span class="text-gradient">Here's Why It's Failing You.</span></h2>
-                    <p class="text-secondary max-w-2xl mx-auto text-lg">The consequences of choosing "pretty" over "profitable."</p>
-                </div>
+			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
+				<div class="lg:col-span-7">
+					<h1 class="face-display font-extrabold text-[clamp(2.4rem,5.5vw,4.6rem)] leading-[1.04] text-ink" data-reveal>
+						Your website should <span class="text-green">book meetings</span>, not just look pretty.
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						Most "professional" websites are $50,000 digital brochures. They look great,
+						but they let leads die in your inbox. We rip out the friction and replace it
+						with a lead generation machine that qualifies, follows up, and books
+						appointments while you sleep.
+					</p>
+					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact" class="btn-primary">Book a Free Consultation</a>
+						<a href="/pricing" class="btn-secondary">View pricing</a>
+					</div>
+				</div>
 
-                <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <!-- Problem 1 -->
-                    <div class="glass-card group relative overflow-hidden hover:-translate-y-2 transition-all duration-300 border-red-500/10">
-                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-red-500/0 via-red-500/60 to-red-500/0"></div>
-                        <div class="relative z-10">
-                            <div class="mb-6 p-3 rounded-xl bg-red-500/10 w-fit border border-red-500/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-red-400">The 24-Hour Death Spiral</h3>
-                            <p class="text-sm text-secondary leading-relaxed">
-                                When a lead fills a form and waits 24 hours for a reply, they've already booked with your competitor. <strong class="text-white">Speed to lead is the only metric that matters.</strong>
-                            </p>
-                        </div>
-                    </div>
+				<div class="lg:col-span-5" data-reveal style="--reveal-delay: 200ms;">
+					<MediaFrame fig="FIG. 01" caption="SP-02 — BROCHURE SITE TO LEAD MACHINE">
+						<div class="aspect-square bg-ink">
+							<ProductVideoPlayer id="lead-gen-websites" client:visible />
+						</div>
+					</MediaFrame>
+				</div>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
 
-                    <!-- Problem 2 -->
-                    <div class="glass-card group relative overflow-hidden hover:-translate-y-2 transition-all duration-300 border-orange-500/10">
-                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500/0 via-orange-500/60 to-orange-500/0"></div>
-                        <div class="relative z-10">
-                            <div class="mb-6 p-3 rounded-xl bg-orange-500/10 w-fit border border-orange-500/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-orange-400">The Inbox Grave</h3>
-                            <p class="text-sm text-secondary leading-relaxed">
-                                Static forms send data to an email inbox where leads go to die. No automation. No instant booking. No pipeline. Just a spreadsheet of missed opportunities.
-                            </p>
-                        </div>
-                    </div>
+	<!-- ============================================ -->
+	<!-- FAULT REPORT — why the brochure site fails   -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink max-w-[22ch]" data-reveal>
+					You paid $50k for a digital pamphlet. Here's why it's failing you.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>FAULT REPORT · 3 FAILURE MODES</p>
+			</div>
 
-                    <!-- Problem 3 -->
-                    <div class="glass-card group relative overflow-hidden hover:-translate-y-2 transition-all duration-300 border-purple-500/10">
-                        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500/0 via-purple-500/60 to-purple-500/0"></div>
-                        <div class="relative z-10">
-                            <div class="mb-6 p-3 rounded-xl bg-purple-500/10 w-fit border border-purple-500/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3 text-purple-400">The Invisible Visitor</h3>
-                            <p class="text-sm text-secondary leading-relaxed">
-                                Thousands of dollars in traffic hit your site and leave because there was no "hook" to keep them. <strong class="text-white">Every bounce is a lost contract.</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{failures.map((f, i) => (
+				<div class="spec-row grid md:grid-cols-[8rem_18rem_1fr] gap-x-8 gap-y-2 py-7 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<span class="face-data text-copper">{f.label}</span>
+					<h3 class="text-xl font-bold text-ink">{f.name}</h3>
+					<p class="text-[15px] text-muted leading-relaxed max-w-[42rem]">{f.desc}</p>
+				</div>
+			))}
+		</div>
+	</section>
 
-        <!-- ── SYSTEM OVERVIEW VIDEO (Centered) ─────────────────────────────────── -->
-        <section class="py-20 bg-[#060606]">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <div class="text-center mb-12">
-                    <span class="text-accent font-mono text-xs tracking-widest uppercase">The Transformation Visualized</span>
-                    <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-3">From Brochure Site to <span class="text-gradient">Lead Machine</span></h2>
-                    <p class="text-secondary max-w-xl mx-auto">Real conversion stages, before/after data, and the full funnel — visualized in motion.</p>
-                </div>
-                <div class="max-w-md mx-auto rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-blue-500/10">
-                    <ProductVideoPlayer id="lead-gen-websites" client:visible />
-                </div>
-            </div>
-        </section>
+	<!-- ============================================ -->
+	<!-- THE SECRET WEAPON — voice AI on every page   -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-2 gap-14 items-center">
+				<div data-reveal>
+					<MediaFrame fig="FIG. 02" caption="SP-02 — THE HIDDEN FACTORY, ASSEMBLY VIEW">
+						<div class="aspect-square bg-ink">
+							<ProductVideoPlayer id="lead-gen-factory" client:visible />
+						</div>
+					</MediaFrame>
+				</div>
+				<div>
+					<p class="face-data text-copper" data-reveal>THE SECRET WEAPON</p>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink mt-3" data-reveal style="--reveal-delay: 60ms;">
+						Voice AI integration on every page.
+					</h2>
+					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 120ms;">
+						Don't make them wait for a callback. Our voice AI widget acts as a 24/7
+						receptionist directly on your page. Visitors click, talk to an AI that
+						understands their needs, and get booked into your calendar instantly.
+						This is how you beat the competition to the punch.
+					</p>
+					<ul class="mt-7">
+						{widgetPoints.map((p, j) => (
+							<li class="spec-row flex items-center gap-4 py-3 px-1 text-[14.5px] text-ink" data-reveal style={`--reveal-delay: ${180 + j * 60}ms;`}>
+								<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="square" class="shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
+								{p}
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
 
-        <!-- ── HIDDEN FACTORY: 2-COLUMN (Video + Copy) ──────────────────────────── -->
-        <section class="py-24 bg-[#060606] border-t border-white/5">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="text-center mb-20">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">From Static Page to <span class="text-gradient">SystemPros Lead Machine.</span></h2>
-                    <p class="text-secondary max-w-2xl mx-auto text-lg">We don't just "fix" your site. We plug it into a high-performance sales ecosystem.</p>
-                </div>
+	<!-- ============================================ -->
+	<!-- THE GUTS OF THE SYSTEM — three engines       -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					The guts of the system.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>THREE INTERCONNECTED ENGINES</p>
+			</div>
 
-                <div class="grid lg:grid-cols-2 gap-16 items-center">
-                    <!-- Left: Video -->
-                    <div class="relative group">
-                        <div class="absolute inset-0 bg-accent/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                        <div class="relative rounded-2xl overflow-hidden border border-white/10 aspect-square bg-[#0A0A0A]">
-                            <ProductVideoPlayer id="lead-gen-factory" client:visible />
-                        </div>
-                    </div>
+			<div class="rule-ticked" data-draw-rule></div>
+			{engines.map((e, i) => (
+				<div class="spec-row grid md:grid-cols-[8rem_18rem_1fr] gap-x-8 gap-y-2 py-7 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<span class="face-data text-copper">{e.label}</span>
+					<h3 class="text-xl font-bold text-ink">{e.name}</h3>
+					<p class="text-[15px] text-muted leading-relaxed max-w-[42rem]">{e.desc}</p>
+				</div>
+			))}
+		</div>
+	</section>
 
-                    <!-- Right: Copy -->
-                    <div class="space-y-8">
-                        <div>
-                            <span class="text-accent font-mono text-xs tracking-widest uppercase">The Secret Weapon</span>
-                            <h3 class="text-3xl font-bold mt-3 mb-4">Voice AI Integration<br /><span class="text-gradient">On Every Page.</span></h3>
-                            <p class="text-secondary leading-relaxed text-lg">
-                                Don't make them wait for a callback. Our <strong class="text-white">Voice AI Widget</strong> acts as a 24/7 receptionist directly on your page. Visitors click, talk to an AI that understands their needs, and get booked into your calendar instantly.
-                                <strong class="text-white"> This is how you beat the competition to the punch.</strong>
-                            </p>
-                        </div>
+	<!-- ============================================ -->
+	<!-- RIP & REPLACE — spec comparison table        -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) border-t border-line">
+		<div class="max-w-[1000px] mx-auto px-5">
+			<div class="text-center mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink" data-reveal>
+					The rip-and-replace comparison.
+				</h2>
+				<p class="text-muted text-lg mt-3" data-reveal style="--reveal-delay: 80ms;">The business logic — side by side.</p>
+			</div>
 
-                        <ul class="space-y-4">
-                            {[
-                                { text: 'Visitor clicks → talks to AI in under 2 seconds', color: 'text-accent' },
-                                { text: 'AI qualifies budget, urgency, and fit on the call', color: 'text-accent' },
-                                { text: 'Meeting booked directly to your calendar — no back-and-forth', color: 'text-accent' },
-                                { text: 'Smart forms run the same logic 24/7 when no one is talking', color: 'text-accent' },
-                                { text: 'Every interaction auto-creates a CRM contact and pipeline entry', color: 'text-accent' },
-                            ].map((item) => (
-                                <li class="flex items-start gap-3 text-sm text-secondary">
-                                    <span class={`${item.color} mt-0.5 font-bold text-base`}>&#10003;</span>
-                                    {item.text}
-                                </li>
-                            ))}
-                        </ul>
+			<div class="border border-line overflow-x-auto" data-reveal style="--reveal-delay: 140ms;">
+				<table class="w-full text-left min-w-[560px]">
+					<thead>
+						<tr class="border-b border-line">
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-40">CRITERION</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">OLD BROCHURE SITE</th>
+							<th scope="col" class="face-data text-green font-normal py-3.5 px-4 border-l border-line bg-green-faint">SYSTEMPROS MACHINE</th>
+						</tr>
+					</thead>
+					<tbody>
+						{comparison.map((row) => (
+							<tr class="border-t border-line">
+								<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">{row.label.toUpperCase()}</th>
+								<td class="py-4 px-4 text-[15px] text-muted border-l border-line">
+									<span class="face-data text-muted mr-2" aria-hidden="true">✗</span>{row.old}
+								</td>
+								<td class={`py-4 px-4 text-[15px] border-l border-line bg-green-faint ${row.highlight ? 'font-bold text-green' : 'text-ink'}`}>
+									<span class="face-data text-green mr-2" aria-hidden="true">✓</span>{row.new}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
 
-                        <a href="/contact" class="btn-cta inline-flex items-center gap-2">
-                            Build My Lead Machine
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+	<!-- ============================================ -->
+	<!-- PROCESS — 0 to lead machine (sequential)     -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="text-center mb-14">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Zero to lead machine.
+				</h2>
+				<p class="text-muted text-lg mt-3 max-w-[30rem] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+					Three phases. Straight to results.
+				</p>
+			</div>
+			<ProcessTimeline client:visible />
+		</div>
+	</section>
 
-        <!-- ── FEATURE STACK: 3 COLUMNS ──────────────────────────────────────────── -->
-        <section class="py-24 bg-surface/30 border-y border-white/5">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">The <span class="text-gradient">Guts of the System</span></h2>
-                    <p class="text-secondary max-w-xl mx-auto">Three interconnected engines that turn your site into a non-stop booking machine.</p>
-                </div>
+	<!-- ============================================ -->
+	<!-- DRENCH — the loss close                      -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12 items-center">
+				<div class="lg:col-span-8">
+					<p class="face-data text-copper" data-reveal>EVERY DAY YOU WAIT IS A LEAD YOUR COMPETITOR TAKES</p>
+					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit mt-4" data-reveal style="--reveal-delay: 80ms;">
+						Stop paying for a website that does nothing.
+					</h2>
+					<p class="mt-7 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 160ms;">
+						Get a system that works as hard as you do. It books meetings while you sleep,
+						follows up while you're with clients, and closes while you're on holiday.
+					</p>
+					<a href="/contact" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">Book a Free Consultation</a>
+				</div>
+				<div class="lg:col-span-4 hidden lg:block" aria-hidden="true" data-reveal style="--reveal-delay: 300ms;">
+					<div class="border border-line-drench p-6">
+						<p class="face-data text-paper-dim">OPERATING SCHEDULE</p>
+						<dl class="mt-4 space-y-3">
+							<div class="flex justify-between gap-4 border-b border-line-drench pb-3">
+								<dt class="text-paper-dim text-[14px]">While you sleep</dt>
+								<dd class="face-data text-paper-lit">BOOKING</dd>
+							</div>
+							<div class="flex justify-between gap-4 border-b border-line-drench pb-3">
+								<dt class="text-paper-dim text-[14px]">While you're with clients</dt>
+								<dd class="face-data text-paper-lit">FOLLOWING UP</dd>
+							</div>
+							<div class="flex justify-between gap-4">
+								<dt class="text-paper-dim text-[14px]">While you're on holiday</dt>
+								<dd class="face-data text-copper">CLOSING</dd>
+							</div>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <!-- Col 1 -->
-                    <div class="glass-card group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10">
-                            <div class="mb-5 p-3 rounded-xl bg-accent/10 w-fit border border-accent/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3">Smart Multi-Step Forms</h3>
-                            <p class="text-secondary text-sm leading-relaxed">
-                                Stop asking for just "Name and Email." Our forms qualify the lead's budget and urgency <em class="text-white not-italic">before</em> they hit your calendar. Higher completion. Better leads. No wasted sales calls.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Col 2 -->
-                    <div class="glass-card group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10">
-                            <div class="mb-5 p-3 rounded-xl bg-accent/10 w-fit border border-accent/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3">Instant Booking Calendars</h3>
-                            <p class="text-secondary text-sm leading-relaxed">
-                                Syncs with Google/Outlook. No back-and-forth emails. No phone tag. The moment they are qualified, they pick a time. Done. The meeting lands in both calendars in seconds.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Col 3 -->
-                    <div class="glass-card group hover:-translate-y-2 transition-all duration-300 relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="relative z-10">
-                            <div class="mb-5 p-3 rounded-xl bg-accent/10 w-fit border border-accent/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-accent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                            </div>
-                            <h3 class="text-xl font-bold mb-3">Automated Nurture Flows</h3>
-                            <p class="text-secondary text-sm leading-relaxed">
-                                The Hidden Factory at work. If they don't book, the system triggers SMS and Email follow-ups until they do. <strong class="text-white">No lead is ever forgotten.</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ── RIP & REPLACE COMPARISON TABLE ───────────────────────────────────── -->
-        <section class="py-24 relative">
-            <div class="container mx-auto px-4 max-w-4xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">The <span class="text-gradient">"Rip & Replace"</span> Comparison</h2>
-                    <p class="text-secondary max-w-xl mx-auto">The business logic — side by side.</p>
-                </div>
-
-                <div class="rounded-2xl overflow-hidden border border-white/10">
-                    <!-- Table header -->
-                    <div class="grid grid-cols-2">
-                        <div class="py-4 px-8 bg-red-900/20 border-b border-white/10 border-r border-white/10">
-                            <span class="text-red-400 font-bold text-sm uppercase tracking-widest">The Old "Brochure" Site</span>
-                        </div>
-                        <div class="py-4 px-8 bg-accent/10 border-b border-white/10">
-                            <span class="text-accent font-bold text-sm uppercase tracking-widest">The SystemPros Machine</span>
-                        </div>
-                    </div>
-                    <!-- Rows -->
-                    {[
-                        { label: 'Response Time', old: '12 – 24 Hours', new: '< 2 Seconds' },
-                        { label: 'Lead Handling', old: 'Manual Email Inbox', new: 'Full CRM Automation' },
-                        { label: 'Engagement', old: 'Static Text & Images', new: 'Interactive Voice & AI Chat' },
-                        { label: 'Follow-Up', old: 'Whoever remembers to call', new: 'Automated SMS + Email sequences' },
-                        { label: 'Outcome', old: '"We\'ll call you soon"', new: '"Meeting Confirmed for 10 AM"', highlight: true },
-                    ].map((row, i) => (
-                        <div class={`grid grid-cols-2 border-b border-white/5 last:border-b-0 ${i % 2 === 0 ? 'bg-white/[0.01]' : ''}`}>
-                            <div class="py-5 px-8 border-r border-white/10">
-                                <div class="text-xs text-secondary/60 uppercase tracking-wider mb-1">{row.label}</div>
-                                <div class="text-sm text-red-300/80 flex items-center gap-2">
-                                    <span class="text-red-500 text-base">✗</span> {row.old}
-                                </div>
-                            </div>
-                            <div class="py-5 px-8">
-                                <div class="text-xs text-secondary/60 uppercase tracking-wider mb-1">&nbsp;</div>
-                                <div class={`text-sm flex items-center gap-2 ${row.highlight ? 'text-accent font-bold text-base' : 'text-white/80'}`}>
-                                    <span class="text-accent text-base">✓</span> {row.new}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- ── PROCESS: 0 TO LEAD MACHINE (Scroll Timeline) ───────────────────── -->
-        <section class="py-24 bg-[#080808] border-t border-white/5">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-20">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">0 to <span class="text-gradient">Lead Machine</span></h2>
-                    <p class="text-secondary max-w-xl mx-auto">Three phases. Straight to results.</p>
-                </div>
-                <ProcessTimeline client:visible />
-            </div>
-        </section>
-
-        <!-- ── FINAL CTA: THE "LOSS" CLOSE ──────────────────────────────────────── -->
-        <section class="py-32 relative text-center overflow-hidden">
-            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/25 via-main to-main z-0"></div>
-            <div class="container mx-auto px-4 relative z-10 max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-500/30 bg-red-500/5 mb-8">
-                    <span class="text-red-400 text-xs font-bold tracking-wider uppercase">Every day you wait is a lead your competitor steals</span>
-                </div>
-                <h2 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tighter">
-                    Stop paying for a website<br />that <span class="text-gradient">does nothing.</span>
-                </h2>
-                <p class="text-xl text-secondary mb-12 leading-relaxed max-w-2xl mx-auto">
-                    Get a system that works as hard as you do. Books meetings while you sleep. Follows up while you're with clients. Closes while you're on holiday.
-                </p>
-                <a href="/contact" class="btn-cta inline-flex items-center gap-2 text-lg px-10 py-5">
-                    Your Website Should Book Meetings — Start Now
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-            </div>
-        </section>
-
-    </main>
-    <Footer />
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>SP-02 · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[20ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Your website should book meetings. Start now.
+			</h2>
+			<p class="text-muted text-lg mt-6 max-w-[32rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				A free consultation takes thirty minutes. We'll audit your current site,
+				find where the leads leak, and specify the machine that stops it.
+			</p>
+			<a href="/contact" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
 </Layout>

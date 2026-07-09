@@ -2,112 +2,163 @@
 import Layout from '../../layouts/Layout.astro';
 import ServiceSchema from '../../components/seo/ServiceSchema.astro';
 import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
-import { Image } from 'astro:assets';
-
-// Generated Images
-import heroImage from '../../assets/ai_business_solutions_hero.png';
-import contentImage from '../../assets/ai_business_solutions_content.png';
 
 const pageTitle = "Changing Business Solutions with AI | Enterprise Automation";
 const pageDescription = "Revolutionize your enterprise with SystemPros.ai. We transform traditional business models using advanced Voice AI, workflow automation, and predictive analytics.";
 
+const advantages = [
+	{
+		ref: 'ADV-01',
+		figure: '70%', count: '70', suffix: '%',
+		name: 'Cost reduction',
+		body: 'Replace recurring operational overhead with fixed-cost AI infrastructure that doesn’t sleep, call in sick, or quit.',
+	},
+	{
+		ref: 'ADV-02',
+		figure: '10×', count: '10', suffix: '×',
+		name: 'Speed',
+		body: 'Process leads, analyze data, and respond to customers instantly. Speed is the new currency of business.',
+	},
+	{
+		ref: 'ADV-03',
+		figure: '0', count: '0', suffix: '',
+		name: 'Error rate',
+		body: 'Eliminate human error in data entry, scheduling, and compliance tasks. Perfect execution, every time.',
+	},
+];
+
+const replaced = [
+	{ from: 'Manual data entry', to: 'Autonomous agents writing straight to your systems of record' },
+	{ from: 'Call centres and phone queues', to: 'Voice AI answering every line, every hour, in parallel' },
+	{ from: 'Spreadsheet workflow hand-offs', to: 'Engineered pipelines that move work without being asked' },
+	{ from: 'Gut-feel forecasting', to: 'Predictive analytics running on your live operational data' },
+];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-  <ServiceSchema
-    name="SystemPros Enterprise AI Solutions"
-    description={pageDescription}
-    serviceType="Business Process Automation"
-    areaServed={["US", "AU", "NZ", "GB"]}
-  />
+	<ServiceSchema
+		name="SystemPros Enterprise AI Solutions"
+		description={pageDescription}
+		serviceType="Business Process Automation"
+		areaServed={["US", "AU", "NZ", "GB"]}
+	/>
+	<Breadcrumbs currentTitle="AI Business Solutions" parent={{ name: 'Industries', url: '/industries' }} />
 
-  <div class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
-     <div class="absolute inset-0 z-0">
-        <Image src={heroImage} alt="Abstract AI Business Transformation" class="w-full h-full object-cover opacity-30" />
-        <div class="absolute inset-0 bg-gradient-to-br from-main via-main/90 to-transparent"></div>
-    </div>
+	<!-- 1. HERO -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-6 pb-4">
+				<span>DOSSIER — ENTERPRISE TRANSFORMATION</span>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> ACCEPTING COMMISSIONS</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
 
-    <div class="container mx-auto px-4 z-10 relative">
-        <Breadcrumbs currentTitle="AI Business Solutions" />
-        
-        <div class="max-w-4xl mt-10">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/5 backdrop-blur-sm mb-6 fade-up">
-                <span class="text-purple-400 text-xs font-bold tracking-wider uppercase">🚀 Enterprise Transformation</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-tight mb-8 fade-up delay-100">
-                Changing Business <br/>
-                <span class="text-gradient from-purple-400 to-blue-500">Solutions with AI.</span>
-            </h1>
-            
-            <p class="text-xl text-secondary leading-relaxed max-w-2xl mb-10 fade-up delay-200">
-                Traditional business models are obsolete. We replace manual workflows, call centers, and data entry with intelligent, autonomous agents that scale infinitely and cost a fraction of human labor.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row gap-4 fade-up delay-300">
-                <a href="/contact" class="btn-primary text-lg px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-500 hover:to-blue-400 shadow-[0_0_30px_rgba(168,85,247,0.4)]">
-                    Transform Your Business
-                </a>
-            </div>
-        </div>
-    </div>
-  </div>
+			<div class="grid lg:grid-cols-12 gap-10 items-center py-14 lg:py-20">
+				<div class="lg:col-span-7">
+					<h1 class="face-display font-extrabold text-[clamp(2.4rem,5.5vw,4.8rem)] leading-[1.04] text-ink" data-reveal>
+						Changing business solutions <span class="text-green">with AI.</span>
+					</h1>
+					<p class="mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						Traditional business models are obsolete. We replace manual workflows, call centres,
+						and data entry with intelligent, autonomous agents that scale infinitely and cost a
+						fraction of human labour — installed with the discipline of thirty years of
+						enterprise architecture.
+					</p>
+					<div class="mt-8" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact" class="btn-primary">Book a Free Consultation</a>
+					</div>
+				</div>
 
-  <section class="py-24 bg-surface/30 border-t border-white/5">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-             <div class="space-y-8">
-                <h2 class="text-3xl md:text-5xl font-bold">
-                    The AI Advantage <br/>
-                    <span class="text-gradient from-purple-400 to-blue-500">in Numbers.</span>
-                </h2>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-lg bg-green-500/10 flex items-center justify-center flex-shrink-0">
-                            <span class="text-2xl">📉</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">70% Cost Reduction</h3>
-                            <p class="text-secondary">Replace recurring operational overhead with fixed-cost AI infrastructure that doesn't sleep, call in sick, or quit.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0">
-                             <span class="text-2xl">🚀</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">10x Speed</h3>
-                            <p class="text-secondary">Process leads, analyze data, and respond to customers instantly. Speed is the new currency of business.</p>
-                        </div>
-                    </div>
-                    
-                     <div class="flex gap-4">
-                        <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                             <span class="text-2xl">🤖</span>
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-bold text-white mb-2">Zero Error Rate</h3>
-                            <p class="text-secondary">Eliminate human error in data entry, scheduling, and compliance tasks. Perfect execution, every time.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+				<!-- Transformation schematic -->
+				<div class="lg:col-span-5" aria-hidden="true">
+					<svg viewBox="0 0 440 340" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+						<g stroke="var(--color-green)" stroke-width="1.5">
+							<path d="M 90 60 H 168 V 138" data-draw-path />
+							<path d="M 90 170 H 168" data-draw-path style="--reveal-delay: 150ms;" />
+							<path d="M 90 280 H 168 V 202" data-draw-path style="--reveal-delay: 300ms;" />
+							<path d="M 290 170 H 360" data-draw-path style="--reveal-delay: 550ms;" />
+						</g>
+						<g data-reveal>
+							<rect x="14" y="36" width="76" height="48" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="52" y="64" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-ink)">CALLS</text>
+							<rect x="14" y="146" width="76" height="48" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="52" y="174" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-ink)">DATA</text>
+							<rect x="14" y="256" width="76" height="48" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="52" y="284" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-ink)">WORKFLOW</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 400ms;">
+							<rect x="168" y="138" width="122" height="64" fill="var(--color-green)" />
+							<text x="229" y="166" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10.5" fill="var(--color-paper-lit)">AGENT LAYER</text>
+							<text x="229" y="184" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="8.5" fill="var(--color-paper-dim)">AUTONOMOUS · 24/7</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 650ms;">
+							<rect x="360" y="142" width="70" height="56" stroke="var(--color-copper)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="395" y="168" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-copper)">OUTPUT</text>
+							<text x="395" y="184" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="8.5" fill="var(--color-copper)">&times;10 SPEED</text>
+						</g>
+						<text x="220" y="332" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-muted)" data-reveal style="--reveal-delay: 750ms;">MANUAL OPERATIONS → ENGINEERED AUTONOMY</text>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-                 <div class="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
-                 <Image src={contentImage} alt="Future of Business Automation" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" />
-            </div>
-        </div>
-    </div>
-  </section>
+	<!-- 2. THE ADVANTAGE IN NUMBERS -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.4rem)] leading-tight text-ink" data-reveal>
+					The AI advantage, in numbers.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MEASURED ACROSS COMMISSIONED INSTALLATIONS</p>
+			</div>
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{advantages.map((a, i) => (
+				<div class="spec-row grid md:grid-cols-[4.5rem_11rem_1fr] gap-x-8 gap-y-2 items-center py-8 px-2" data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
+					<span class="face-data text-copper">{a.ref}</span>
+					<div class="face-display font-extrabold text-4xl md:text-5xl text-green">
+						<span data-count={a.count} data-count-suffix={a.suffix}>{a.figure}</span>
+					</div>
+					<div>
+						<h3 class="font-bold text-ink text-lg">{a.name}</h3>
+						<p class="text-[15px] text-muted mt-1 max-w-[44rem]">{a.body}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</section>
 
-  <section class="py-24 text-center">
-      <div class="container mx-auto px-4">
-          <h2 class="text-4xl font-bold mb-6">Future-Proof Your Enterprise</h2>
-          <p class="text-xl text-secondary mb-10 max-w-2xl mx-auto">Don't get left behind. Implement the systems that will define the next decade of business.</p>
-          <a href="/contact" class="btn-primary text-xl px-12 py-5 bg-gradient-to-r from-purple-600 to-blue-500">Get an Audit</a>
-      </div>
-  </section>
+	<!-- 3. WHAT GETS REPLACED -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink mb-12" data-reveal>
+				What gets decommissioned — and what replaces it.
+			</h2>
+			<div class="rule-ticked" data-draw-rule></div>
+			{replaced.map((r, i) => (
+				<div class="spec-row grid md:grid-cols-[1fr_2.5rem_1fr] gap-x-6 gap-y-2 items-center py-6 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<p class="text-[15px] text-muted"><span class="face-data text-muted mr-3">&#10005;</span>{r.from}</p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2" stroke-linecap="square" class="hidden md:block mx-auto"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+					<p class="text-[15px] font-semibold text-ink">{r.to}</p>
+				</div>
+			))}
+		</div>
+	</section>
 
+	<!-- 4. FINAL CTA — drench -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-paper-dim" data-reveal>SIGN-OFF — ENTERPRISE DOSSIER</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit mt-4 max-w-[20ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Future-proof your enterprise.
+			</h2>
+			<p class="text-paper-dim text-lg mt-6 max-w-[32rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				Don't get left behind. Implement the systems that will define the next decade of business —
+				starting with a free consultation and a forensic audit of your operations.
+			</p>
+			<a href="/contact" class="btn-primary-inverse mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
 </Layout>

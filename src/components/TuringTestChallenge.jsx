@@ -92,20 +92,20 @@ export default function TuringTestChallenge() {
     };
 
     return (
-        <div className="w-full max-w-6xl mx-auto rounded-3xl bg-[#0F1115] border border-white/10 overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-[500px]">
+        <div className="w-full max-w-6xl mx-auto rounded-[2px] bg-paper border border-line overflow-hidden flex flex-col md:flex-row min-h-[500px]">
 
             {/* Left Panel: Controls & Visualizer */}
-            <div className="w-full md:w-1/2 p-8 md:p-12 bg-surface/50 backdrop-blur-md relative border-r border-white/5 flex flex-col justify-between">
+            <div className="w-full md:w-1/2 p-8 md:p-12 bg-paper relative border-b md:border-b-0 md:border-r border-line flex flex-col justify-between">
                 <div>
                     <div className="flex space-x-2 overflow-x-auto pb-4 scrollbar-hide mb-8">
                         {CHALLENGES.map((challenge) => (
                             <button
                                 key={challenge.id}
                                 onClick={() => handleTabChange(challenge)}
-                                className={`px-4 py-2 text-sm font-medium rounded-full transition-all whitespace-nowrap border
+                                className={`px-4 py-2 text-sm font-medium rounded-[2px] transition-colors whitespace-nowrap border cursor-pointer
                                 ${activeTab.id === challenge.id
-                                        ? 'bg-accent/20 border-accent text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]'
-                                        : 'bg-white/5 border-white/10 text-secondary hover:bg-white/10 hover:border-white/20'
+                                        ? 'bg-green border-green text-paper-lit'
+                                        : 'bg-paper border-line text-muted hover:text-ink hover:border-ink'
                                     }`}
                             >
                                 {challenge.label}
@@ -114,11 +114,11 @@ export default function TuringTestChallenge() {
                     </div>
 
                     <div className="space-y-4 mb-8">
-                        <h3 className="text-3xl font-bold text-white flex items-center gap-3">
+                        <h3 className="text-3xl font-bold text-ink flex items-center gap-3">
                             {activeTab.sub}
-                            {isPlaying && <span className="flex h-3 w-3"><span className="animate-ping absolute inline-flex h-3 w-3 rounded-full bg-red-400 opacity-75"></span><span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span></span>}
+                            {isPlaying && <span className="relative inline-flex rounded-full h-3 w-3 bg-copper animate-pulse"></span>}
                         </h3>
-                        <p className="text-secondary">Listen to how the AI handles complex human nuance, interruptions, and tone shifts.</p>
+                        <p className="text-muted">Listen to how the AI handles complex human nuance, interruptions, and tone shifts.</p>
                     </div>
                 </div>
 
@@ -128,7 +128,7 @@ export default function TuringTestChallenge() {
                         {visualizerBars.map((height, i) => (
                             <div
                                 key={i}
-                                className="w-2 bg-gradient-to-t from-accent/50 to-accent rounded-t transition-all duration-100 ease-linear"
+                                className="w-2 bg-green rounded-t-[2px] transition-all duration-100 ease-linear"
                                 style={{ height: `${height}%`, opacity: isPlaying ? 1 : 0.3 }}
                             ></div>
                         ))}
@@ -137,26 +137,27 @@ export default function TuringTestChallenge() {
                     {/* Play Button */}
                     <button
                         onClick={() => setIsPlaying(!isPlaying)}
-                        className="mx-auto w-20 h-20 rounded-full bg-white text-black flex items-center justify-center hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.4)] group"
+                        className="mx-auto w-20 h-20 rounded-full bg-green text-paper-lit flex items-center justify-center hover:bg-green-hover transition-colors group cursor-pointer"
+                        aria-label={isPlaying ? 'Pause demo' : 'Play demo'}
                     >
-                        {isPlaying ? <Pause className="text-black w-8 h-8 fill-current" /> : <Play className="ml-1 text-black w-8 h-8 fill-current group-hover:text-accent transition-colors" />}
+                        {isPlaying ? <Pause className="w-8 h-8 fill-current" /> : <Play className="ml-1 w-8 h-8 fill-current" />}
                     </button>
-                    <div className="text-center mt-4 text-sm font-mono text-accent/80">
+                    <div className="text-center mt-4 text-sm font-mono text-green">
                         {isPlaying ? 'AI THINKING...' : 'CLICK TO TEST'}
                     </div>
                 </div>
             </div>
 
             {/* Right Panel: Live Transcript */}
-            <div className="w-full md:w-1/2 bg-black/40 p-8 md:p-12 relative flex flex-col">
-                <div className="absolute top-0 left-0 right-0 p-4 border-b border-white/5 bg-[#0F1115]/80 backdrop-blur z-10 flex justify-between items-center">
-                    <span className="text-xs font-mono text-secondary uppercase tracking-widest flex items-center gap-2">
-                        <Activity className="w-4 h-4 text-green-500" /> Live Transcript
+            <div className="w-full md:w-1/2 bg-green-faint p-8 md:p-12 relative flex flex-col">
+                <div className="absolute top-0 left-0 right-0 p-4 border-b border-line bg-green-faint z-10 flex justify-between items-center">
+                    <span className="text-xs font-mono text-muted uppercase tracking-[0.04em] flex items-center gap-2">
+                        <Activity className="w-4 h-4 text-copper" /> Live Transcript
                     </span>
-                    <span className="text-xs font-mono text-secondary">Latency: 180ms</span>
+                    <span className="text-xs font-mono text-muted">Latency: 180ms</span>
                 </div>
 
-                <div ref={transcriptRef} className="flex-1 overflow-y-auto space-y-6 pt-16 pb-8 scrollbar-hide mask-gradient">
+                <div ref={transcriptRef} className="flex-1 overflow-y-auto space-y-6 pt-16 pb-8 scrollbar-hide">
                     {activeTab.transcript.map((msg, idx) => {
                         const isActive = currentTime >= msg.time;
                         const isFuture = currentTime < msg.time;
@@ -164,14 +165,14 @@ export default function TuringTestChallenge() {
                         return (
                             <div
                                 key={idx}
-                                className={`flex flex-col transition-all duration-500 ${isFuture ? 'opacity-30 blur-[2px]' : 'opacity-100 blur-0'} ${msg.sender === 'ai' ? 'items-start' : 'items-end'}`}
+                                className={`flex flex-col transition-opacity duration-500 ${isFuture ? 'opacity-30' : 'opacity-100'} ${msg.sender === 'ai' ? 'items-start' : 'items-end'}`}
                             >
-                                <span className={`text-[10px] uppercase font-bold mb-1 tracking-wider ${msg.sender === 'ai' ? 'text-accent' : 'text-gray-400'}`}>
+                                <span className={`font-mono text-[10px] uppercase font-bold mb-1 tracking-[0.04em] ${msg.sender === 'ai' ? 'text-green' : 'text-muted'}`}>
                                     {msg.sender === 'ai' ? 'SystemPros AI' : 'Human Lead'}
                                 </span>
-                                <div className={`p-4 rounded-2xl max-w-[90%] text-sm md:text-base leading-relaxed border ${msg.sender === 'ai'
-                                        ? 'bg-accent/10 border-accent/20 text-blue-100 rounded-tl-none'
-                                        : 'bg-white/5 border-white/10 text-gray-300 rounded-tr-none'
+                                <div className={`p-4 rounded-[2px] max-w-[90%] text-sm md:text-base leading-relaxed border ${msg.sender === 'ai'
+                                        ? 'bg-paper border-green/30 text-ink rounded-tl-none'
+                                        : 'bg-paper border-line text-ink rounded-tr-none'
                                     }`}>
                                     {msg.text}
                                 </div>
@@ -181,13 +182,7 @@ export default function TuringTestChallenge() {
                     {/* Spacer for scroll */}
                     <div className="h-12"></div>
                 </div>
-
-                {/* Overlay gradient for bottom fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0F1115] to-transparent pointer-events-none"></div>
             </div>
         </div>
     );
 }
-
-// Add CSS for masking the transcript top
-// .mask-gradient { mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); }

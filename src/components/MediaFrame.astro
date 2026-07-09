@@ -1,0 +1,15 @@
+---
+// Dossier figure frame: media in a ruled frame with a mono caption bar.
+// Usage: <MediaFrame fig="FIG. 01" caption="REVENUE TRIAD — CONTINUOUS OPERATION"> <video …/> </MediaFrame>
+const { fig = 'FIG. 01', caption = '' } = Astro.props;
+---
+
+<figure class="media-frame">
+  <div class="relative">
+    <slot />
+  </div>
+  <figcaption>
+    <span class="text-copper">{fig}</span>
+    <span class="truncate">{caption}</span>
+  </figcaption>
+</figure>

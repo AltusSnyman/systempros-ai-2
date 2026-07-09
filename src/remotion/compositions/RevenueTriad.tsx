@@ -6,10 +6,12 @@ import {
   spring,
   Sequence,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const BG = '#0A0A0A';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const BG = P.paper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 
 export type RevenueTriadProps = Record<string, never>;
 
@@ -21,11 +23,11 @@ const Background = ({ frame }: { frame: number }) => {
       <AbsoluteFill style={{ backgroundColor: BG }} />
       <AbsoluteFill
         style={{
-          background: `radial-gradient(ellipse at 50% 0%, rgba(59,130,246,${bgGlowOpacity}) 0%, transparent 60%)`,
+          background: 'transparent',
         }}
       />
-      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(59,130,246,0.4)`, borderRight: `3px solid rgba(59,130,246,0.4)` }} />
-      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(59,130,246,0.4)`, borderLeft: `3px solid rgba(59,130,246,0.4)` }} />
+      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(31,92,69,0.4)`, borderRight: `3px solid rgba(31,92,69,0.4)` }} />
+      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(31,92,69,0.4)`, borderLeft: `3px solid rgba(31,92,69,0.4)` }} />
     </>
   );
 };
@@ -58,7 +60,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: 'rgba(255,255,255,0.32)', fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
     </div>
   );
 };
@@ -75,14 +77,14 @@ const Intro = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '80px', fontFamily: FONT }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 22, opacity: catOp }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT }} />
-        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>Voice AI Agents</span>
+        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' }}>Voice AI Agents</span>
       </div>
       <div style={{ transform: `translateY(${titleY}px)`, opacity: titleSpring, marginBottom: 22 }}>
-        <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE REVENUE</div>
-        <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>TRIAD</div>
+        <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE REVENUE</div>
+        <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>TRIAD</div>
       </div>
       <div style={{ width: lineWidth, height: 4, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 24 }} />
-      <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>Three AI agents. Zero revenue leakage.</p>
+      <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>Three AI agents. Zero revenue leakage.</p>
     </AbsoluteFill>
   );
 };
@@ -119,12 +121,12 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
     const scale = interpolate(sp, [0, 1], [0.3, 1]);
     return (
       <g transform={`translate(${x},${y})`} style={{ opacity: sp }}>
-        <circle r={68} fill="rgba(59,130,246,0.12)" stroke={ACCENT} strokeWidth="2" transform={`scale(${scale})`} />
+        <circle r={68} fill="rgba(31,92,69,0.12)" stroke={ACCENT} strokeWidth="2" transform={`scale(${scale})`} />
         <foreignObject x={-22} y={-22} width={44} height={44} transform={`scale(${scale})`}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 44, height: 44 }}>{icon}</div>
         </foreignObject>
-        <text x={0} y={90} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={700} letterSpacing="0.12em" fontFamily={FONT}>{label}</text>
-        <text x={0} y={110} textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize={12} fontFamily={FONT}>{sublabel}</text>
+        <text x={0} y={90} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={700} letterSpacing="0.12em" fontFamily={MONO}>{label}</text>
+        <text x={0} y={110} textAnchor="middle" fill={P.muted} fontSize={12} fontFamily={MONO}>{sublabel}</text>
       </g>
     );
   };
@@ -149,7 +151,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
       </svg>
       <div style={{
         position: 'absolute', bottom: 100, left: 0, right: 0, textAlign: 'center',
-        color: 'rgba(255,255,255,0.8)', fontSize: 16, fontWeight: 700, letterSpacing: '0.18em',
+        color: P.ink, fontSize: 16, fontWeight: 700, letterSpacing: '0.18em', fontFamily: MONO,
         textTransform: 'uppercase', opacity: labelOp
       }}>COMPLETE REVENUE COVERAGE</div>
     </AbsoluteFill>
@@ -182,19 +184,19 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, marginBottom: 60, textTransform: 'uppercase' }}>Revenue Flow Diagram</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, marginBottom: 60, textTransform: 'uppercase' }}>Revenue Flow Diagram</div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 0, width: 900 }}>
         {/* NEW LEAD box */}
         <div style={{
-          width: 200, height: 140, border: `2px solid rgba(59,130,246,${pulseAmt * 0.8})`,
+          width: 200, height: 140, border: `2px solid rgba(31,92,69,${pulseAmt * 0.8})`,
           borderRadius: 16, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: 'rgba(59,130,246,0.08)', transform: `scale(${interpolate(box1Spring, [0, 1], [0.5, 1])})`, opacity: box1Spring, gap: 8
+          backgroundColor: 'rgba(31,92,69,0.08)', transform: `scale(${interpolate(box1Spring, [0, 1], [0.5, 1])})`, opacity: box1Spring, gap: 8
         }}>
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
             <circle cx="18" cy="14" r="7" stroke={ACCENT} strokeWidth="2" fill="none" />
             <path d="M6 32 C6 24 30 24 30 32" stroke={ACCENT} strokeWidth="2" fill="none" />
           </svg>
-          <span style={{ color: '#FFF', fontSize: 15, fontWeight: 700, letterSpacing: '0.08em' }}>NEW LEAD</span>
+          <span style={{ color: P.ink, fontSize: 15, fontWeight: 700, letterSpacing: '0.08em' }}>NEW LEAD</span>
         </div>
 
         {/* Arrow 1 */}
@@ -210,14 +212,14 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
         <div style={{
           width: 200, height: 140, border: `2px solid ${ACCENT}`, borderRadius: 16,
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: 'rgba(59,130,246,0.12)', transform: `scale(${interpolate(box2Spring, [0, 1], [0.5, 1])})`, opacity: box2Spring, gap: 8
+          backgroundColor: 'rgba(31,92,69,0.12)', transform: `scale(${interpolate(box2Spring, [0, 1], [0.5, 1])})`, opacity: box2Spring, gap: 8
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 3, height: 40 }}>
             {barHeights.map((h, i) => (
               <div key={i} style={{ width: 8, height: h, backgroundColor: ACCENT, borderRadius: 4, transition: 'none' }} />
             ))}
           </div>
-          <span style={{ color: '#FFF', fontSize: 15, fontWeight: 700, letterSpacing: '0.08em' }}>AI AGENT</span>
+          <span style={{ color: P.ink, fontSize: 15, fontWeight: 700, letterSpacing: '0.08em' }}>AI AGENT</span>
         </div>
 
         {/* Arrow 2 */}
@@ -231,19 +233,19 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
 
         {/* BOOKED box */}
         <div style={{
-          width: 200, height: 140, border: `2px solid #22c55e`,
+          width: 200, height: 140, border: `2px solid ${P.copper}`,
           borderRadius: 16, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: 'rgba(34,197,94,0.08)', transform: `scale(${interpolate(box3Spring, [0, 1], [0.5, 1])})`, opacity: box3Spring, gap: 8
+          backgroundColor: 'rgba(198,106,53,0.08)', transform: `scale(${interpolate(box3Spring, [0, 1], [0.5, 1])})`, opacity: box3Spring, gap: 8
         }}>
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <rect x="4" y="8" width="28" height="24" rx="3" stroke="#22c55e" strokeWidth="2" fill="none" />
-            <line x1="4" y1="14" x2="32" y2="14" stroke="#22c55e" strokeWidth="2" />
-            <path d="M12 22 L16 26 L24 18" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            <rect x="4" y="8" width="28" height="24" rx="3" stroke={P.copper} strokeWidth="2" fill="none" />
+            <line x1="4" y1="14" x2="32" y2="14" stroke={P.copper} strokeWidth="2" />
+            <path d="M12 22 L16 26 L24 18" stroke={P.copper} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
-          <span style={{ color: '#22c55e', fontSize: 15, fontWeight: 700, letterSpacing: '0.08em' }}>BOOKED</span>
+          <span style={{ color: P.copper, fontSize: 15, fontWeight: 700, letterSpacing: '0.08em' }}>BOOKED</span>
         </div>
       </div>
-      <div style={{ marginTop: 60, color: 'rgba(255,255,255,0.55)', fontSize: 20, letterSpacing: '0.05em', opacity: subtextOp }}>
+      <div style={{ marginTop: 60, color: P.muted, fontSize: 20, letterSpacing: '0.05em', opacity: subtextOp }}>
         Response time <span style={{ color: ACCENT, fontWeight: 700 }}>&lt; 30 seconds</span>
       </div>
     </AbsoluteFill>
@@ -266,41 +268,41 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, gap: 50 }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Results at a Glance</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Results at a Glance</div>
       <div style={{ display: 'flex', gap: 40 }}>
         {/* Card 1 */}
         <div style={{
-          width: 240, height: 280, border: `1.5px solid rgba(59,130,246,0.35)`, borderRadius: 20,
-          backgroundColor: 'rgba(59,130,246,0.07)', display: 'flex', flexDirection: 'column',
+          width: 240, height: 280, border: `1.5px solid rgba(31,92,69,0.35)`, borderRadius: 20,
+          backgroundColor: 'rgba(31,92,69,0.07)', display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
           opacity: card1Spring, transform: `translateY(${interpolate(card1Spring, [0, 1], [60, 0])}px)`, gap: 12
         }}>
           <span style={{ color: ACCENT, fontSize: 72, fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1 }}>24/7</span>
-          <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: 16, fontWeight: 500, letterSpacing: '0.06em' }}>Availability</span>
+          <span style={{ color: P.muted, fontSize: 16, fontWeight: 500, letterSpacing: '0.06em' }}>Availability</span>
         </div>
         {/* Card 2 */}
         <div style={{
-          width: 240, height: 280, border: `1.5px solid rgba(59,130,246,0.35)`, borderRadius: 20,
-          backgroundColor: 'rgba(59,130,246,0.07)', display: 'flex', flexDirection: 'column',
+          width: 240, height: 280, border: `1.5px solid rgba(31,92,69,0.35)`, borderRadius: 20,
+          backgroundColor: 'rgba(31,92,69,0.07)', display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
           opacity: card2Spring, transform: `translateY(${interpolate(card2Spring, [0, 1], [60, 0])}px)`, gap: 12
         }}>
           <svg width="180" height="130" viewBox="0 0 180 130">
-            <line x1="20" y1="125" x2="165" y2="125" stroke="rgba(255,255,255,0.2)" strokeWidth="1" />
+            <line x1="20" y1="125" x2="165" y2="125" stroke={P.muted} strokeWidth="1" />
             <rect x="30" y={125 - barHeight} width="50" height={barHeight} fill={ACCENT} rx="4" />
-            <text x="55" y={120 - barHeight} textAnchor="middle" fill="#FFF" fontSize="18" fontWeight="700" fontFamily={FONT}>73%</text>
+            <text x="55" y={120 - barHeight} textAnchor="middle" fill={P.ink} fontSize="18" fontWeight="700" fontFamily={MONO}>73%</text>
           </svg>
-          <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: 16, fontWeight: 500, letterSpacing: '0.04em', textAlign: 'center' }}>More Appointments</span>
+          <span style={{ color: P.muted, fontSize: 16, fontWeight: 500, letterSpacing: '0.04em', textAlign: 'center' }}>More Appointments</span>
         </div>
         {/* Card 3 */}
         <div style={{
-          width: 240, height: 280, border: `1.5px solid rgba(59,130,246,0.35)`, borderRadius: 20,
-          backgroundColor: 'rgba(59,130,246,0.07)', display: 'flex', flexDirection: 'column',
+          width: 240, height: 280, border: `1.5px solid rgba(31,92,69,0.35)`, borderRadius: 20,
+          backgroundColor: 'rgba(31,92,69,0.07)', display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
           opacity: card3Spring, transform: `translateY(${interpolate(card3Spring, [0, 1], [60, 0])}px)`, gap: 12
         }}>
           <span style={{ color: ACCENT, fontSize: 72, fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1 }}>{counterVal}+</span>
-          <span style={{ color: 'rgba(255,255,255,0.65)', fontSize: 16, fontWeight: 500, letterSpacing: '0.04em' }}>Leads Recovered</span>
+          <span style={{ color: P.muted, fontSize: 16, fontWeight: 500, letterSpacing: '0.04em' }}>Leads Recovered</span>
         </div>
       </div>
     </AbsoluteFill>

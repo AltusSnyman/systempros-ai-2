@@ -1,10 +1,22 @@
 ---
-const { currentTitle } = Astro.props;
+// Dossier breadcrumb trail — Fragment Mono ref line + BreadcrumbList schema.
+// Usage: <Breadcrumbs currentTitle="OpenClaw Use Cases" parent={{ name: 'OpenClaw', url: '/openclaw' }} />
+interface Crumb {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  currentTitle: string;
+  parent?: Crumb;
+}
+
+const { currentTitle, parent = { name: 'Systems', url: '/#systems' } } = Astro.props;
 
 const paths = [
-  { name: "Home", url: "/" },
-  { name: "Solutions", url: "/#vault" },
-  { name: currentTitle, url: Astro.url.href }
+  { name: 'Home', url: '/' },
+  parent,
+  { name: currentTitle, url: Astro.url.pathname },
 ];
 
 const schema = {
@@ -14,22 +26,18 @@ const schema = {
     "@type": "ListItem",
     "position": index + 1,
     "name": item.name,
-    "item": `https://systempros.ai${item.url.replace('https://systempros.ai', '')}` // Ensure absolute URL for schema
-  }))
+    "item": `https://systempros.ai${item.url.replace('https://systempros.ai', '')}`,
+  })),
 };
 ---
 
-<nav aria-label="Breadcrumb" class="container mx-auto px-4 pt-4 pb-2 relative z-20">
-  <ol class="flex items-center gap-2 text-sm text-secondary/60">
-    <li>
-      <a href="/" class="hover:text-accent transition-colors">Home</a>
-    </li>
-    <li>/</li>
-    <li>
-      <a href="/#vault" class="hover:text-accent transition-colors">Solutions</a>
-    </li>
-    <li>/</li>
-    <li class="text-white font-medium" aria-current="page">{currentTitle}</li>
+<nav aria-label="Breadcrumb" class="max-w-[1200px] mx-auto px-5 pt-7">
+  <ol class="face-data text-muted flex flex-wrap items-center gap-x-2.5 gap-y-1">
+    <li><a href="/" class="hover:text-green transition-colors">HOME</a></li>
+    <li aria-hidden="true" class="text-line">/</li>
+    <li><a href={parent.url} class="hover:text-green transition-colors">{parent.name.toUpperCase()}</a></li>
+    <li aria-hidden="true" class="text-line">/</li>
+    <li class="text-ink" aria-current="page">{currentTitle.toUpperCase()}</li>
   </ol>
 </nav>
 

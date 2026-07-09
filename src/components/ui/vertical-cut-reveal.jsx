@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { cn } from '../../lib/utils';
 
 export const VerticalCutReveal = ({
@@ -12,9 +12,8 @@ export const VerticalCutReveal = ({
     staggerFrom = "first",
     reverse = false,
     transition = {
-        type: "spring",
-        stiffness: 200,
-        damping: 20,
+        duration: 0.55,
+        ease: [0.16, 1, 0.3, 1],
     }
 }) => {
     const words = typeof children === 'string' ? children.split(" ") : [];

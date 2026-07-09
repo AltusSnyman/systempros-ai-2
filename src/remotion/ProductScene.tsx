@@ -5,6 +5,7 @@ import {
   interpolate,
   spring,
 } from 'remotion';
+import { P } from './palette';
 
 export type ProductSceneProps = {
   category: string;
@@ -15,8 +16,9 @@ export type ProductSceneProps = {
   ctaText: string;
 };
 
-const ACCENT = '#3B82F6';
-const FONT = "'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif";
+const ACCENT = P.green;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 
 export const ProductScene = ({
   category,
@@ -90,7 +92,7 @@ export const ProductScene = ({
   return (
     <AbsoluteFill
       style={{
-        backgroundColor: '#0A0A0A',
+        backgroundColor: P.paper,
         opacity: globalOpacity,
         fontFamily: FONT,
       }}
@@ -98,7 +100,7 @@ export const ProductScene = ({
       {/* Animated radial glow */}
       <AbsoluteFill
         style={{
-          background: `radial-gradient(ellipse at 50% 0%, rgba(59,130,246,${bgGlowOpacity}) 0%, transparent 62%)`,
+          background: 'transparent',
         }}
       />
 
@@ -142,7 +144,7 @@ export const ProductScene = ({
               left: 0,
               right: 0,
               height: 1,
-              backgroundColor: 'rgba(255,255,255,1)',
+              backgroundColor: P.ink,
               opacity: lineOpacity * 0.04,
             }}
           />
@@ -157,8 +159,8 @@ export const ProductScene = ({
           right: 44,
           width: 55,
           height: 55,
-          borderTop: `3px solid rgba(59,130,246,0.45)`,
-          borderRight: `3px solid rgba(59,130,246,0.45)`,
+          borderTop: `3px solid rgba(31,92,69,0.45)`,
+          borderRight: `3px solid rgba(31,92,69,0.45)`,
           opacity: catOpacity,
         }}
       />
@@ -171,8 +173,8 @@ export const ProductScene = ({
           left: 44,
           width: 55,
           height: 55,
-          borderBottom: `3px solid rgba(59,130,246,0.45)`,
-          borderLeft: `3px solid rgba(59,130,246,0.45)`,
+          borderBottom: `3px solid rgba(31,92,69,0.45)`,
+          borderLeft: `3px solid rgba(31,92,69,0.45)`,
           opacity: catOpacity,
         }}
       />
@@ -210,7 +212,7 @@ export const ProductScene = ({
               color: ACCENT,
               fontSize: 13,
               fontWeight: 700,
-              letterSpacing: '0.22em',
+              letterSpacing: '0.22em', fontFamily: MONO,
               textTransform: 'uppercase' as const,
             }}
           >
@@ -228,7 +230,7 @@ export const ProductScene = ({
         >
           <div
             style={{
-              color: '#FFFFFF',
+              color: P.ink,
               fontSize: 82,
               fontWeight: 900,
               lineHeight: 1.0,
@@ -240,7 +242,7 @@ export const ProductScene = ({
           {titleLine2 && (
             <div
               style={{
-                color: '#FFFFFF',
+                color: P.ink,
                 fontSize: 82,
                 fontWeight: 900,
                 lineHeight: 1.0,
@@ -266,7 +268,7 @@ export const ProductScene = ({
         {/* Tagline */}
         <p
           style={{
-            color: 'rgba(255,255,255,0.62)',
+            color: P.muted,
             fontSize: 21,
             fontWeight: 400,
             lineHeight: 1.5,
@@ -298,7 +300,7 @@ export const ProductScene = ({
                   height: 22,
                   borderRadius: '50%',
                   border: `2px solid ${ACCENT}`,
-                  backgroundColor: 'rgba(59,130,246,0.12)',
+                  backgroundColor: 'rgba(31,92,69,0.12)',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -318,7 +320,7 @@ export const ProductScene = ({
               </div>
               <span
                 style={{
-                  color: 'rgba(255,255,255,0.82)',
+                  color: P.ink,
                   fontSize: 19,
                   fontWeight: 500,
                   letterSpacing: '-0.01em',
@@ -347,7 +349,7 @@ export const ProductScene = ({
         >
           <span
             style={{
-              color: '#FFFFFF',
+              color: P.ink,
               fontSize: 17,
               fontWeight: 700,
               letterSpacing: '0.01em',
@@ -355,7 +357,7 @@ export const ProductScene = ({
           >
             {ctaText}
           </span>
-          <span style={{ color: '#FFFFFF', fontSize: 18 }}>→</span>
+          <span style={{ color: P.ink, fontSize: 18 }}>→</span>
         </div>
       </AbsoluteFill>
 
@@ -381,10 +383,10 @@ export const ProductScene = ({
         />
         <span
           style={{
-            color: 'rgba(255,255,255,0.32)',
+            color: P.muted,
             fontSize: 13,
             fontWeight: 600,
-            letterSpacing: '0.14em',
+            letterSpacing: '0.14em', fontFamily: MONO,
           }}
         >
           SYSTEMPROS.AI

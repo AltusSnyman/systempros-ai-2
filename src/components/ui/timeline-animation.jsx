@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { cn } from '../../lib/utils';
 
 export const TimelineContent = ({
@@ -23,13 +23,13 @@ export const TimelineContent = ({
             transition: {
                 delay: i * 0.2,
                 duration: 0.5,
-                ease: "easeOut"
+                ease: [0.16, 1, 0.3, 1],
             }
         }),
     };
 
     return (
-        <Component className={className} {...props}>
+        <Component className={cn(className)} {...props}>
             <motion.div
                 initial="hidden"
                 whileInView="visible"

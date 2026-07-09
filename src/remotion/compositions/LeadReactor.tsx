@@ -6,10 +6,12 @@ import {
   spring,
   Sequence,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const BG = '#0A0A0A';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const BG = P.paper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 
 export type LeadReactorProps = Record<string, never>;
 
@@ -18,9 +20,9 @@ const Background = ({ frame }: { frame: number }) => {
   return (
     <>
       <AbsoluteFill style={{ backgroundColor: BG }} />
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 0%, rgba(59,130,246,${glow}) 0%, transparent 60%)` }} />
-      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(59,130,246,0.4)`, borderRight: `3px solid rgba(59,130,246,0.4)` }} />
-      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(59,130,246,0.4)`, borderLeft: `3px solid rgba(59,130,246,0.4)` }} />
+      <AbsoluteFill style={{ background: 'transparent' }} />
+      <div style={{ position: 'absolute', top: 44, right: 44, width: 55, height: 55, borderTop: `3px solid rgba(31,92,69,0.4)`, borderRight: `3px solid rgba(31,92,69,0.4)` }} />
+      <div style={{ position: 'absolute', bottom: 44, left: 44, width: 55, height: 55, borderBottom: `3px solid rgba(31,92,69,0.4)`, borderLeft: `3px solid rgba(31,92,69,0.4)` }} />
     </>
   );
 };
@@ -30,7 +32,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: 'rgba(255,255,255,0.32)', fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
     </div>
   );
 };
@@ -47,14 +49,14 @@ const Intro = ({ frame, fps }: { frame: number; fps: number }) => {
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '80px', fontFamily: FONT }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 22, opacity: catOp }}>
         <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT }} />
-        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' }}>Paid Ads Automation</span>
+        <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' }}>Paid Ads Automation</span>
       </div>
       <div style={{ transform: `translateY(${titleY}px)`, opacity: titleSpring, marginBottom: 22 }}>
-        <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE LEAD</div>
-        <div style={{ color: '#FFF', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>REACTOR</div>
+        <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE LEAD</div>
+        <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>REACTOR</div>
       </div>
       <div style={{ width: lineWidth, height: 4, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 24 }} />
-      <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>Ad click to booked appointment. Automatically.</p>
+      <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: tagOp }}>Ad click to booked appointment. Automatically.</p>
     </AbsoluteFill>
   );
 };
@@ -83,12 +85,12 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
       <div style={{ display: 'flex', alignItems: 'center', gap: 40, width: 960 }}>
         {/* Meta logo + label */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16, opacity: metaSpring, transform: `scale(${interpolate(metaSpring, [0, 1], [0.5, 1])})` }}>
-          <div style={{ width: 100, height: 100, borderRadius: 20, backgroundColor: '#1877F2', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: 100, height: 100, borderRadius: 20, backgroundColor: P.green, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
-              <path d="M28 8 C16.95 8 8 16.95 8 28 C8 37.92 14.8 46.2 24 48.4 L24 34 L19 34 L19 28 L24 28 L24 23.6 C24 18.68 26.93 16 31.4 16 C33.54 16 35.6 16.36 35.6 16.36 L35.6 21.2 L33.33 21.2 C31.1 21.2 30.4 22.6 30.4 24.04 L30.4 28 L35.36 28 L34.56 34 L30.4 34 L30.4 48.4 C39.6 46.2 46.4 37.92 46.4 28 C46.4 16.95 37.45 8 26.4 8 Z" fill="white" />
+              <path d="M28 8 C16.95 8 8 16.95 8 28 C8 37.92 14.8 46.2 24 48.4 L24 34 L19 34 L19 28 L24 28 L24 23.6 C24 18.68 26.93 16 31.4 16 C33.54 16 35.6 16.36 35.6 16.36 L35.6 21.2 L33.33 21.2 C31.1 21.2 30.4 22.6 30.4 24.04 L30.4 28 L35.36 28 L34.56 34 L30.4 34 L30.4 48.4 C39.6 46.2 46.4 37.92 46.4 28 C46.4 16.95 37.45 8 26.4 8 Z" fill={P.paper} />
             </svg>
           </div>
-          <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, fontWeight: 700, letterSpacing: '0.1em' }}>AD CLICKED</span>
+          <span style={{ color: P.muted, fontSize: 14, fontWeight: 700, letterSpacing: '0.1em' }}>AD CLICKED</span>
         </div>
 
         {/* Burst / explosion */}
@@ -113,7 +115,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
               );
             })}
             <circle r={18} fill={ACCENT} opacity={burstProgress} />
-            <text textAnchor="middle" y={6} fill="white" fontSize="14" fontWeight="800" fontFamily={FONT} opacity={burstProgress}>⚡</text>
+            <text textAnchor="middle" y={6} fill="white" fontSize="14" fontWeight="800" fontFamily={MONO} opacity={burstProgress}>⚡</text>
           </svg>
         </div>
 
@@ -129,20 +131,20 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
               }}>
                 <div style={{
                   width: 44, height: 44, borderRadius: 12,
-                  backgroundColor: chSpring > 0.5 ? 'rgba(59,130,246,0.2)' : 'rgba(255,255,255,0.05)',
-                  border: `1.5px solid ${chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.1)'}`,
+                  backgroundColor: chSpring > 0.5 ? 'rgba(31,92,69,0.2)' : 'rgba(31,42,38,0.05)',
+                  border: `1.5px solid ${chSpring > 0.5 ? ACCENT : 'rgba(31,42,38,0.1)'}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   transform: `scale(${scale})`
                 }}>
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    {ch.icon === 'phone' && <path d="M4 4C4 3.5 4.5 3 5 3h3l1.5 3.5-2 1.5C8.3 10.7 11.3 13.7 13 14.5l1.5-2 3.5 1.5v3c0 .5-.5 1-1 1C8 18 4 11 4 4Z" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.5" fill="none" />}
-                    {ch.icon === 'sms' && <><rect x="2" y="4" width="18" height="12" rx="3" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.5" fill="none" /><path d="M7 10 H9 M11 10 H13" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.5" strokeLinecap="round" /></>}
-                    {ch.icon === 'whatsapp' && <><circle cx="11" cy="11" r="9" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.5" fill="none" /><path d="M7 14.5 C7 14.5 8.5 16 11 16 C14 16 16 14 16 11 C16 8 14 6 11 6 C8 6 6 8 6 11 C6 12.3 6.5 13.5 7 14.5 L6 16 Z" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.2" fill="none" /></>}
-                    {ch.icon === 'imessage' && <><rect x="2" y="4" width="18" height="13" rx="4" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.5" fill="none" /><path d="M7 17 L9 14" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.5" strokeLinecap="round" /></>}
-                    {ch.icon === 'messenger' && <><circle cx="11" cy="11" r="9" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.5" fill="none" /><path d="M6 14 L8 10 L11 12 L14 8 L16 12 L11 15 Z" stroke={chSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.4)'} strokeWidth="1.2" fill="none" /></>}
+                    {ch.icon === 'phone' && <path d="M4 4C4 3.5 4.5 3 5 3h3l1.5 3.5-2 1.5C8.3 10.7 11.3 13.7 13 14.5l1.5-2 3.5 1.5v3c0 .5-.5 1-1 1C8 18 4 11 4 4Z" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.5" fill="none" />}
+                    {ch.icon === 'sms' && <><rect x="2" y="4" width="18" height="12" rx="3" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.5" fill="none" /><path d="M7 10 H9 M11 10 H13" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.5" strokeLinecap="round" /></>}
+                    {ch.icon === 'whatsapp' && <><circle cx="11" cy="11" r="9" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.5" fill="none" /><path d="M7 14.5 C7 14.5 8.5 16 11 16 C14 16 16 14 16 11 C16 8 14 6 11 6 C8 6 6 8 6 11 C6 12.3 6.5 13.5 7 14.5 L6 16 Z" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.2" fill="none" /></>}
+                    {ch.icon === 'imessage' && <><rect x="2" y="4" width="18" height="13" rx="4" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.5" fill="none" /><path d="M7 17 L9 14" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.5" strokeLinecap="round" /></>}
+                    {ch.icon === 'messenger' && <><circle cx="11" cy="11" r="9" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.5" fill="none" /><path d="M6 14 L8 10 L11 12 L14 8 L16 12 L11 15 Z" stroke={chSpring > 0.5 ? ACCENT : P.muted} strokeWidth="1.2" fill="none" /></>}
                   </svg>
                 </div>
-                <span style={{ color: chSpring > 0.5 ? 'rgba(255,255,255,0.85)' : 'rgba(255,255,255,0.35)', fontSize: 14, fontWeight: 600 }}>{ch.label}</span>
+                <span style={{ color: chSpring > 0.5 ? P.ink : P.muted, fontSize: 14, fontWeight: 600 }}>{ch.label}</span>
               </div>
             );
           })}
@@ -172,10 +174,10 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 40 }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Speed to Lead</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>Speed to Lead</div>
       <div style={{ position: 'relative', width: 300, height: 300 }}>
         <svg width="300" height="300" viewBox="0 0 300 300">
-          <circle cx="150" cy="150" r={r} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="16" />
+          <circle cx="150" cy="150" r={r} fill="none" stroke="rgba(31,42,38,0.08)" strokeWidth="16" />
           <circle
             cx="150" cy="150" r={r}
             fill="none"
@@ -184,12 +186,12 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
             strokeLinecap="round"
             strokeDasharray={`${arcLen} ${circumference}`}
             transform="rotate(-225 150 150)"
-            style={{ filter: 'drop-shadow(0 0 8px rgba(59,130,246,0.6))' }}
+            style={{ filter: 'none' }}
           />
         </svg>
         <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <span style={{ color: ACCENT, fontSize: 36, fontWeight: 900, lineHeight: 1, opacity: labelOp }}>&lt;10</span>
-          <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: 16, fontWeight: 600, opacity: labelOp }}>SECONDS</span>
+          <span style={{ color: P.muted, fontSize: 16, fontWeight: 600, opacity: labelOp }}>SECONDS</span>
         </div>
       </div>
 
@@ -197,20 +199,20 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
       <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: 600 }}>
         <div style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: 8 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: 14, fontWeight: 600 }}>Industry Average</span>
+            <span style={{ color: P.muted, fontSize: 14, fontWeight: 600 }}>Industry Average</span>
             <span style={{ color: 'rgba(255,100,100,0.8)', fontSize: 14, fontWeight: 700 }}>4+ hours</span>
           </div>
-          <div style={{ height: 16, backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: 8 }}>
-            <div style={{ height: '100%', width: competitorBar, backgroundColor: 'rgba(239,68,68,0.5)', borderRadius: 8, maxWidth: '100%' }} />
+          <div style={{ height: 16, backgroundColor: 'rgba(31,42,38,0.06)', borderRadius: 8 }}>
+            <div style={{ height: '100%', width: competitorBar, backgroundColor: 'rgba(127,63,34,0.5)', borderRadius: 8, maxWidth: '100%' }} />
           </div>
         </div>
         <div style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: 8 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span style={{ color: 'rgba(255,255,255,0.85)', fontSize: 14, fontWeight: 600 }}>SystemPros</span>
+            <span style={{ color: P.ink, fontSize: 14, fontWeight: 600 }}>SystemPros</span>
             <span style={{ color: ACCENT, fontSize: 14, fontWeight: 700 }}>&lt; 10 seconds</span>
           </div>
-          <div style={{ height: 16, backgroundColor: 'rgba(255,255,255,0.06)', borderRadius: 8 }}>
-            <div style={{ height: '100%', width: ourBar, backgroundColor: ACCENT, borderRadius: 8, boxShadow: '0 0 12px rgba(59,130,246,0.5)' }} />
+          <div style={{ height: 16, backgroundColor: 'rgba(31,42,38,0.06)', borderRadius: 8 }}>
+            <div style={{ height: '100%', width: ourBar, backgroundColor: ACCENT, borderRadius: 8, boxShadow: 'none'}} />
           </div>
         </div>
       </div>
@@ -228,7 +230,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
 
   return (
     <AbsoluteFill style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', fontFamily: FONT, opacity: fadeIn, gap: 50 }}>
-      <div style={{ fontSize: 14, letterSpacing: '0.2em', color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>The Pipeline</div>
+      <div style={{ fontSize: 14, letterSpacing: '0.2em', fontFamily: MONO, color: ACCENT, fontWeight: 700, textTransform: 'uppercase' }}>The Pipeline</div>
       <div style={{ display: 'flex', alignItems: 'center', width: 940 }}>
         {stages.map((stage, i) => {
           const stageSpring = spring({ frame: localFrame - i * 18, fps, config: { damping: 160 } });
@@ -242,14 +244,14 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
                 <div style={{
                   width: 110, height: 70, borderRadius: 12,
-                  border: `2px solid ${isLast ? '#22c55e' : stageSpring > 0.5 ? ACCENT : 'rgba(255,255,255,0.1)'}`,
-                  backgroundColor: isLast ? 'rgba(34,197,94,0.1)' : stageSpring > 0.5 ? 'rgba(59,130,246,0.12)' : 'rgba(255,255,255,0.03)',
+                  border: `2px solid ${isLast ? P.copper : stageSpring > 0.5 ? ACCENT : 'rgba(31,42,38,0.1)'}`,
+                  backgroundColor: isLast ? 'rgba(198,106,53,0.1)' : stageSpring > 0.5 ? 'rgba(31,92,69,0.12)' : 'rgba(31,42,38,0.03)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   opacity: stageSpring,
                   transform: `scale(${interpolate(stageSpring, [0, 1], [0.6, 1])})`,
-                  boxShadow: isLast && stageSpring > 0.5 ? '0 0 20px rgba(34,197,94,0.3)' : stageSpring > 0.5 ? '0 0 20px rgba(59,130,246,0.2)' : 'none'
+                  boxShadow: 'none'
                 }}>
-                  <span style={{ color: isLast ? '#22c55e' : stageSpring > 0.5 ? '#FFF' : 'rgba(255,255,255,0.3)', fontSize: 13, fontWeight: 700, textAlign: 'center', padding: '0 8px' }}>{stage}</span>
+                  <span style={{ color: isLast ? P.copper : stageSpring > 0.5 ? P.ink : P.muted, fontSize: 13, fontWeight: 700, textAlign: 'center', padding: '0 8px' }}>{stage}</span>
                 </div>
               </div>
               {!isLast && (
@@ -264,7 +266,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
           );
         })}
       </div>
-      <div style={{ opacity: subtextOp, color: 'rgba(255,255,255,0.45)', fontSize: 16, letterSpacing: '0.05em' }}>
+      <div style={{ opacity: subtextOp, color: P.muted, fontSize: 16, letterSpacing: '0.05em' }}>
         Scales with every dollar you spend
       </div>
     </AbsoluteFill>

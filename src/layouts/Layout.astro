@@ -2,25 +2,22 @@
 import '../styles/global.css';
 
 import Navbar from '../components/Navbar.astro';
-import HeroCanvas from '../components/HeroCanvas.jsx';
-import ChatbotWidget from '../components/ChatbotWidget.jsx';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
 	description?: string;
-    image?: string;
-    type?: string;
-    hideCTA?: boolean;
-    showChatWidget?: boolean;
+	image?: string;
+	type?: string;
+	hideCTA?: boolean;
 }
 
-const { 
-    title, 
-    description = "SystemPros.ai - Enterprise AI Integration. We build the workforce of tomorrow using 30 years of enterprise architecture experience.",
-    image = "/social-preview.png",
-    type = "website",
-    hideCTA = false, 
-    showChatWidget = true 
+const {
+	title,
+	description = "SystemPros.ai — AI systems, engineered and installed. Voice AI agents, lead gen websites, automated outreach, private AI assistants, consulting and training. 30 years of enterprise architecture behind every install.",
+	image = "/social-preview.png",
+	type = "website",
+	hideCTA = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -28,107 +25,157 @@ const socialImageURL = new URL(image, Astro.url);
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-        
-        <!-- Canonical URL -->
-        <link rel="canonical" href={canonicalURL} />
 
-        <!-- Primary Meta Tags -->
+		<link rel="canonical" href={canonicalURL} />
+
 		<title>{title}</title>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:type" content={type} />
-        <meta property="og:url" content={canonicalURL} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={socialImageURL} />
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content={type} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={socialImageURL} />
 
-        <!-- Twitter -->
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content={canonicalURL} />
-        <meta property="twitter:title" content={title} />
-        <meta property="twitter:description" content={description} />
-        <meta property="twitter:image" content={socialImageURL} />
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={socialImageURL} />
 
-        <!-- LocalBusiness Schema -->
-        <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "ConsultingService",
-              "name": "SystemPros.ai",
-              "url": "https://systempros.ai",
-              "logo": "https://systempros.ai/logo.png",
-              "telephone": "+18446979038",
-              "areaServed": ["US", "AU", "NZ", "GB"],
-              "contactPoint": [
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+1-844-697-9038",
-                  "contactType": "customer service",
-                  "areaServed": "US",
-                  "availableLanguage": "English"
-                },
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+61-2-5563-2110",
-                  "contactType": "customer service",
-                  "areaServed": "AU",
-                  "availableLanguage": "English"
-                },
-                {
-                  "@type": "ContactPoint",
-                  "telephone": "+64-2-125-50493",
-                  "contactType": "customer service",
-                  "areaServed": "NZ",
-                  "availableLanguage": "English"
-                }
-              ],
-              "sameAs": [
-                "https://twitter.com/systempros",
-                "https://linkedin.com/company/systempros"
-              ],
-              "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "AI Products & Services",
-                "itemListElement": [
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Revenue Triad", "url": "https://systempros.ai/voice-ai" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Gen Websites", "url": "https://systempros.ai/lead-gen-websites" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Lead Reactor", "url": "https://systempros.ai/lead-reactor" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Private Assistant", "url": "https://systempros.ai/private-assistant" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consultation", "url": "https://systempros.ai/consulting" } },
-                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Training", "url": "https://systempros.ai/training" } }
-                ]
-              }
-            }
-        </script>
-        <!-- PWA & Mobile -->
-        <meta name="theme-color" content="#0A0A0A" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+		<!-- Fonts: Archivo variable (with width axis) + Fragment Mono -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Fragment+Mono:ital@0;1&display=swap"
+		/>
 
+		<!-- Organization Schema -->
+		<script type="application/ld+json" is:inline>
+			{
+			  "@context": "https://schema.org",
+			  "@type": "ConsultingService",
+			  "name": "SystemPros.ai",
+			  "url": "https://systempros.ai",
+			  "logo": "https://systempros.ai/logo.png",
+			  "telephone": "+18446979038",
+			  "areaServed": ["US", "AU", "NZ", "GB"],
+			  "contactPoint": [
+			    { "@type": "ContactPoint", "telephone": "+1-844-697-9038", "contactType": "customer service", "areaServed": "US", "availableLanguage": "English" },
+			    { "@type": "ContactPoint", "telephone": "+61-2-5563-2110", "contactType": "customer service", "areaServed": "AU", "availableLanguage": "English" },
+			    { "@type": "ContactPoint", "telephone": "+64-2-125-50493", "contactType": "customer service", "areaServed": "NZ", "availableLanguage": "English" }
+			  ],
+			  "sameAs": [
+			    "https://twitter.com/systempros",
+			    "https://linkedin.com/company/systempros"
+			  ],
+			  "hasOfferCatalog": {
+			    "@type": "OfferCatalog",
+			    "name": "AI Products & Services",
+			    "itemListElement": [
+			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Revenue Triad", "url": "https://systempros.ai/voice-ai" } },
+			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Gen Websites", "url": "https://systempros.ai/lead-gen-websites" } },
+			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Lead Reactor", "url": "https://systempros.ai/lead-reactor" } },
+			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Private Assistant", "url": "https://systempros.ai/private-assistant" } },
+			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consultation", "url": "https://systempros.ai/consulting" } },
+			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Training", "url": "https://systempros.ai/training" } }
+			    ]
+			  }
+			}
+		</script>
+
+		<meta name="theme-color" content="#ffffff" />
+		<link rel="manifest" href="/manifest.json" />
+		<link rel="apple-touch-icon" href="/favicon.svg" />
+
+		<!-- Arm the animation vocabulary before paint so pre-states apply without flash.
+		     Runs only when IntersectionObserver exists; no-JS keeps everything visible. -->
+		<script is:inline>
+			if ('IntersectionObserver' in window) {
+				document.documentElement.classList.add('is-armed');
+			}
+		</script>
 	</head>
-	<body class="bg-main text-primary overflow-x-hidden font-body antialiased selection:bg-accent selection:text-white relative">
-        <!-- Accessibility Skip Link -->
-        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 bg-accent text-white px-4 py-2 rounded-md">
-            Skip to content
-        </a>
+	<body class="bg-paper text-ink overflow-x-hidden antialiased">
+		<a
+			href="#main-content"
+			class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 bg-green text-paper-lit px-4 py-2 rounded-[2px]"
+		>
+			Skip to content
+		</a>
 
-		<div class="fixed inset-0 z-[-1] pointer-events-none">
-            <HeroCanvas client:idle />
-			<div class="absolute inset-0 bg-[url('/assets/grid.svg')] bg-[size:50px_50px] opacity-[0.05]"></div>
-			<div class="absolute inset-0 bg-gradient-to-b from-transparent via-main/50 to-main"></div>
-		</div>
-        <Navbar hideCTA={hideCTA} />
+		<Navbar hideCTA={hideCTA} />
 		<main id="main-content">
 			<slot />
 		</main>
-        {showChatWidget && <ChatbotWidget client:idle />}
+		<Footer />
+
+		<!-- Shared scroll animation driver: reveals, rule draws, path draws, count-ups -->
+		<script>
+			const armed = document.documentElement.classList.contains('is-armed');
+			if (armed) {
+				// Prepare SVG paths for self-drawing
+				document.querySelectorAll<SVGPathElement>('[data-draw-path]').forEach((path) => {
+					const len = path.getTotalLength();
+					path.style.strokeDasharray = `${len}`;
+					path.style.strokeDashoffset = `${len}`;
+				});
+
+				const io = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('is-on');
+								io.unobserve(entry.target);
+							}
+						}
+					},
+					{ rootMargin: '0px 0px -12% 0px', threshold: 0.05 }
+				);
+
+				document
+					.querySelectorAll('[data-reveal], [data-draw-rule], [data-draw-path]')
+					.forEach((el) => io.observe(el));
+
+				// Count-up figures: <span data-count="847" data-count-suffix="+">847+</span>
+				const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+				const counters = document.querySelectorAll<HTMLElement>('[data-count]');
+				if (!reduceMotion && counters.length) {
+					const cio = new IntersectionObserver(
+						(entries) => {
+							for (const entry of entries) {
+								if (!entry.isIntersecting) continue;
+								cio.unobserve(entry.target);
+								const el = entry.target as HTMLElement;
+								const target = parseFloat(el.dataset.count || '0');
+								const suffix = el.dataset.countSuffix || '';
+								const decimals = (el.dataset.count || '').includes('.') ? 1 : 0;
+								const start = performance.now();
+								const dur = 1100;
+								const tick = (now: number) => {
+									const t = Math.min((now - start) / dur, 1);
+									const eased = 1 - Math.pow(1 - t, 4);
+									el.textContent = (target * eased).toFixed(decimals) + suffix;
+									if (t < 1) requestAnimationFrame(tick);
+								};
+								requestAnimationFrame(tick);
+							}
+						},
+						{ threshold: 0.4 }
+					);
+					counters.forEach((el) => cio.observe(el));
+				}
+			}
+		</script>
 	</body>
 </html>

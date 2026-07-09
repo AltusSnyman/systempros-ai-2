@@ -1,148 +1,284 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Footer from '../../components/Footer.astro';
+import MediaFrame from '../../components/MediaFrame.astro';
 import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
 import ServiceSchema from '../../components/seo/ServiceSchema.astro';
 import ProductVideoPlayer from '../../components/ProductVideoPlayer';
 
-const subPages = [
-  { title: 'OpenClaw Use Cases', desc: '10 real-world ways businesses are using OpenClaw right now.', href: '/openclaw/use-cases', icon: '💡' },
-  { title: 'OpenClaw for Business', desc: 'How OpenClaw becomes your always-on AI employee.', href: '/openclaw/for-business', icon: '🏢' },
-  { title: 'OpenClaw vs ChatGPT', desc: 'Why privacy-first businesses are making the switch.', href: '/openclaw/vs-chatgpt', icon: '⚔️' },
-  { title: 'OpenClaw Skills Guide', desc: '3,000+ skills on ClawHub — what they are and how to use them.', href: '/openclaw/skills', icon: '⚡' },
-  { title: 'OpenClaw Setup Guide', desc: 'Why most DIY installs fail, and what to do instead.', href: '/openclaw/setup-guide', icon: '🔧' },
+const capabilities = [
+	{
+		label: 'PRIVACY',
+		title: 'Fully private, by architecture',
+		desc: 'Runs on your hardware. Conversation history, memory and client data never leave your device — no cloud logging, no model training on your business.',
+	},
+	{
+		label: 'CHANNELS',
+		title: '20+ messaging platforms',
+		desc: 'WhatsApp, iMessage, Slack, Discord, Telegram, Teams, Signal and more. One assistant, reachable on every channel you already use.',
+	},
+	{
+		label: 'MEMORY',
+		title: 'Persistent, long-horizon memory',
+		desc: 'Remembers context across weeks and months. Ask "what did I say about that client last Tuesday?" — it knows, because it was there.',
+	},
+	{
+		label: 'SKILLS',
+		title: '3,000+ installable skills',
+		desc: 'Extend capability from ClawHub: web search, CRM updates, note querying, meeting summaries, image generation and more.',
+	},
+	{
+		label: 'PERSONALITY',
+		title: 'Custom SOUL.md personality',
+		desc: 'A personality file that defines how your AI thinks, communicates and behaves. Trained on your tone, it genuinely sounds like you.',
+	},
+	{
+		label: 'AUTOMATION',
+		title: 'Proactive triggers',
+		desc: 'Cron-style schedules make your assistant act unprompted: morning briefings, reminders, summaries and status updates arrive before you ask.',
+	},
+];
+
+const dossierIndex = [
+	{
+		ref: 'OC-01',
+		title: 'OpenClaw use cases',
+		desc: '10 real-world ways businesses are using OpenClaw right now — from executive assistant to sales intelligence.',
+		href: '/openclaw/use-cases',
+	},
+	{
+		ref: 'OC-02',
+		title: 'OpenClaw for business',
+		desc: 'How OpenClaw becomes your always-on AI employee, and where the hours actually come back from.',
+		href: '/openclaw/for-business',
+	},
+	{
+		ref: 'OC-03',
+		title: 'OpenClaw vs ChatGPT',
+		desc: 'A nine-criteria comparison record: privacy, platforms, memory, cost, extensibility. Why privacy-first businesses switch.',
+		href: '/openclaw/vs-chatgpt',
+	},
+	{
+		ref: 'OC-04',
+		title: 'OpenClaw skills guide',
+		desc: '3,000+ skills on ClawHub — what they are, how they are categorised, and which ones are worth installing.',
+		href: '/openclaw/skills',
+	},
+	{
+		ref: 'OC-05',
+		title: 'OpenClaw setup guide',
+		desc: 'The honest installation procedure: every step, every failure mode, and the done-for-you alternative.',
+		href: '/openclaw/setup-guide',
+	},
 ];
 ---
 
 <Layout
-  title="What is OpenClaw? The World's Most Powerful Private AI Assistant | SystemPros.ai"
-  description="OpenClaw is the open-source AI assistant with 247,000+ GitHub stars. It runs on your hardware, works on 20+ messaging platforms, and never sends your data to Big Tech. Learn everything about OpenClaw here."
+	title="What is OpenClaw? The World's Most Powerful Private AI Assistant | SystemPros.ai"
+	description="OpenClaw is the open-source AI assistant with 247,000+ GitHub stars. It runs on your hardware, works on 20+ messaging platforms, and never sends your data to Big Tech. Learn everything about OpenClaw here."
 >
-  <ServiceSchema name="OpenClaw Setup & Deployment" description="Done-for-you OpenClaw AI assistant deployment across WhatsApp, iMessage, Slack and 17 more platforms." serviceType="AIConsulting" />
-  <Breadcrumbs currentTitle="What is OpenClaw?" />
+	<ServiceSchema
+		name="OpenClaw Setup & Deployment"
+		description="Done-for-you OpenClaw AI assistant deployment across WhatsApp, iMessage, Slack and 17 more platforms."
+		serviceType="AIConsulting"
+	/>
+	<Breadcrumbs currentTitle="What is OpenClaw?" parent={{ name: 'Private Assistant', url: '/private-assistant' }} />
 
-  <main class="overflow-x-hidden">
+	<!-- ============================================ -->
+	<!-- 1. HERO                                      -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-6 pb-4">
+				<span>OPENCLAW DOSSIER — OC-00 / OVERVIEW</span>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> OPEN SOURCE · ACTIVELY MAINTAINED</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
 
-    <!-- HERO -->
-    <section class="relative pt-32 pb-20 overflow-hidden">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(139,92,246,0.18)_0%,transparent_60%)]" />
-      <div class="container mx-auto px-4 relative z-10">
-        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div class="inline-flex items-center gap-2 text-xs font-mono tracking-widest uppercase text-purple-400 border border-purple-500/25 bg-purple-500/5 rounded-full px-4 py-2 mb-8">
-              <span class="w-1.5 h-1.5 rounded-full bg-purple-400 inline-block"></span>
-              247,000+ GitHub Stars
-            </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight tracking-tighter mb-6">
-              What is <span class="text-gradient">OpenClaw?</span>
-            </h1>
-            <p class="text-lg text-secondary leading-relaxed mb-6">
-              OpenClaw is the world's fastest-growing open-source AI assistant — a personal AI that lives on <strong class="text-white">your hardware</strong>, works on <strong class="text-white">20+ messaging platforms</strong>, and never sends your data to someone else's servers.
-            </p>
-            <p class="text-secondary leading-relaxed mb-10">
-              Unlike ChatGPT or Claude's web interface, OpenClaw is installed privately on your Mac, Linux server, or cloud VM. You message it on WhatsApp, iMessage, Slack, or Discord — and it responds instantly, remembers everything, and acts as your personal executive assistant, researcher, and automation engine.
-            </p>
-            <div class="flex flex-wrap gap-4">
-              <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 px-8 py-4">
-                Get It Deployed For Me
-              </a>
-              <a href="/openclaw/setup-guide" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-white/15 text-secondary hover:text-white hover:border-white/30 transition-all">
-                DIY Setup Guide
-              </a>
-            </div>
-          </div>
-          <div class="relative">
-            <div class="absolute inset-0 bg-purple-500/10 rounded-3xl blur-3xl -z-10 scale-105" />
-            <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-purple-500/10">
-              <ProductVideoPlayer id="openclaw-hub" client:visible />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+			<div class="grid lg:grid-cols-12 gap-10 items-center py-12 lg:py-16">
+				<div class="lg:col-span-7">
+					<h1 class="face-display font-extrabold text-[clamp(2.6rem,6vw,5.2rem)] leading-[1.02] text-ink" data-reveal>
+						What is <span class="text-green">OpenClaw?</span>
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						The world's fastest-growing open-source AI assistant — a personal AI that lives on
+						<strong class="text-ink font-semibold">your hardware</strong>, works on
+						<strong class="text-ink font-semibold">20+ messaging platforms</strong>,
+						and never sends your data to someone else's servers.
+					</p>
+					<p class="mt-4 text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 180ms;">
+						Unlike ChatGPT or Claude's web interface, OpenClaw is installed privately on your Mac,
+						Linux server or cloud VM. You message it on WhatsApp, iMessage, Slack or Discord — and it
+						responds instantly, remembers everything, and acts as your executive assistant, researcher
+						and automation engine.
+					</p>
+					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 260ms;">
+						<a href="/private-assistant" class="btn-primary">Get It Deployed For Me</a>
+						<a href="/openclaw/setup-guide" class="btn-secondary">
+							DIY setup guide
+							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					</div>
+				</div>
 
-    <!-- WHAT MAKES IT DIFFERENT -->
-    <section class="py-20 bg-[#080808] border-y border-white/5">
-      <div class="container mx-auto px-4 max-w-4xl">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">Why OpenClaw is <span class="text-gradient">Different</span></h2>
-        <div class="prose prose-invert prose-lg max-w-none text-secondary leading-relaxed space-y-5">
-          <p>
-            Most AI tools follow the same model: you go to a website, type a question, get an answer, and the conversation resets. Every query you make is logged, analysed, and potentially used to train future models. Your business strategies, your client names, your revenue figures — all of it flows through someone else's cloud.
-          </p>
-          <p>
-            OpenClaw breaks this model entirely. It's an <strong class="text-white">open-source framework</strong> that you (or we) install on your own hardware. Once running, it connects to the messaging apps you already use — WhatsApp, iMessage, Slack, Discord, Telegram — so your AI is literally a contact in your phone. You text it. It responds. And everything stays within your four walls.
-          </p>
-          <p>
-            The "<strong class="text-white">Claw</strong>" in OpenClaw refers to the system's core philosophy: an AI that grabs onto your existing workflows and holds on. It doesn't replace your tools — it becomes the intelligent layer that connects them all.
-          </p>
-          <p>
-            With <strong class="text-white">3,000+ community skills on ClawHub</strong> (think of it as an app store for AI capabilities), you can extend OpenClaw to handle anything from summarising Zoom calls to updating your CRM, querying your Obsidian notes, or running competitive research in real time.
-          </p>
-        </div>
-      </div>
-    </section>
+				<div class="lg:col-span-5" data-reveal style="--reveal-delay: 200ms;">
+					<MediaFrame fig="FIG. 01" caption="OPENCLAW — PRIVATE AI, INSTALLED ON YOUR HARDWARE">
+						<div class="aspect-square bg-ink">
+							<ProductVideoPlayer id="openclaw-hub" client:visible />
+						</div>
+					</MediaFrame>
+				</div>
+			</div>
 
-    <!-- KEY FEATURES -->
-    <section class="py-20">
-      <div class="container mx-auto px-4 max-w-5xl">
-        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">Core <span class="text-gradient">Features</span></h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { icon: '🔐', title: 'Fully Private', desc: 'Runs on your hardware. Your data never leaves your device. No cloud logging, no model training on your conversations.' },
-            { icon: '📱', title: '20+ Platforms', desc: 'WhatsApp, iMessage, Slack, Discord, Telegram, Teams, Signal, and more. One AI across every channel you use.' },
-            { icon: '🧠', title: 'Persistent Memory', desc: 'Remembers context across weeks and months. Ask "what did I say about that client last Tuesday?" — it knows.' },
-            { icon: '⚡', title: '3,000+ Skills', desc: 'Install skills from ClawHub to extend capabilities: web search, CRM updates, note querying, image generation, and more.' },
-            { icon: '🧬', title: 'Custom SOUL.md', desc: 'A personality file that defines how your AI thinks, communicates, and behaves. It genuinely sounds like you.' },
-            { icon: '🔄', title: 'Proactive Automation', desc: 'Set cron-style triggers so your AI proactively sends reminders, summaries, or updates without being asked.' },
-          ].map((f) => (
-            <div class="glass-card group hover:-translate-y-1 transition-all duration-300">
-              <span class="text-2xl mb-3 block">{f.icon}</span>
-              <h3 class="font-bold text-white mb-2 group-hover:text-accent transition-colors">{f.title}</h3>
-              <p class="text-sm text-secondary leading-relaxed">{f.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+			<!-- Commissioning figures -->
+			<div class="rule-ticked" data-draw-rule></div>
+			<dl class="grid grid-cols-2 md:grid-cols-4">
+				<div class="py-6 pr-6 md:border-r border-line" data-reveal>
+					<dt class="face-data text-muted">ADOPTION</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink"><span data-count="247" data-count-suffix="k+">247k+</span></dd>
+					<dd class="text-[13px] text-muted">GitHub stars</dd>
+				</div>
+				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 80ms;">
+					<dt class="face-data text-muted">CHANNELS</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink"><span data-count="20" data-count-suffix="+">20+</span></dd>
+					<dd class="text-[13px] text-muted">messaging platforms</dd>
+				</div>
+				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 160ms;">
+					<dt class="face-data text-muted">EXTENSIONS</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">3,000+</dd>
+					<dd class="text-[13px] text-muted">skills on ClawHub</dd>
+				</div>
+				<div class="py-6 md:pl-6" data-reveal style="--reveal-delay: 240ms;">
+					<dt class="face-data text-muted">DATA LOCATION</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">Yours</dd>
+					<dd class="text-[13px] text-muted">your hardware, your four walls</dd>
+				</div>
+			</dl>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
 
-    <!-- EXPLORE HUB -->
-    <section class="py-20 bg-[#080808] border-y border-white/5">
-      <div class="container mx-auto px-4 max-w-5xl">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-bold mb-4">Explore the <span class="text-gradient">OpenClaw Hub</span></h2>
-          <p class="text-secondary max-w-xl mx-auto">Everything you need to understand, evaluate, and deploy OpenClaw for your business.</p>
-        </div>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {subPages.map((page) => (
-            <a href={page.href} class="glass-card group hover:-translate-y-1 hover:border-accent/30 transition-all duration-300 flex flex-col">
-              <span class="text-2xl mb-3 block">{page.icon}</span>
-              <h3 class="font-bold text-white mb-2 group-hover:text-accent transition-colors">{page.title}</h3>
-              <p class="text-sm text-secondary leading-relaxed mb-4 flex-1">{page.desc}</p>
-              <div class="flex items-center gap-1.5 text-accent text-xs font-semibold">
-                Read Guide
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+	<!-- ============================================ -->
+	<!-- 2. WHY IT'S DIFFERENT — prose brief          -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line mt-(--spacing-section-sm)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-10">
+				<div class="lg:col-span-4">
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink lg:sticky lg:top-28" data-reveal>
+						Why OpenClaw is different.
+					</h2>
+				</div>
+				<div class="lg:col-span-7 lg:col-start-6 space-y-5 text-muted text-lg leading-relaxed max-w-[70ch]">
+					<p data-reveal>
+						Most AI tools follow the same model: you go to a website, type a question, get an answer,
+						and the conversation resets. Every query is logged, analysed, and potentially used to train
+						future models. Your business strategies, your client names, your revenue figures — all of it
+						flows through someone else's cloud.
+					</p>
+					<p data-reveal style="--reveal-delay: 80ms;">
+						OpenClaw breaks this model entirely. It's an <strong class="text-ink font-semibold">open-source
+						framework</strong> that you (or we) install on your own hardware. Once running, it connects to
+						the messaging apps you already use — WhatsApp, iMessage, Slack, Discord, Telegram — so your AI
+						is literally a contact in your phone. You text it. It responds. And everything stays within
+						your four walls.
+					</p>
+					<p data-reveal style="--reveal-delay: 160ms;">
+						The "<strong class="text-ink font-semibold">Claw</strong>" in OpenClaw refers to the system's
+						core philosophy: an AI that grabs onto your existing workflows and holds on. It doesn't replace
+						your tools — it becomes the intelligent layer that connects them all.
+					</p>
+					<p data-reveal style="--reveal-delay: 240ms;">
+						With <strong class="text-ink font-semibold">3,000+ community skills on ClawHub</strong> —
+						think of it as an app store for AI capabilities — you can extend OpenClaw to handle anything
+						from summarising Zoom calls to updating your CRM, querying your Obsidian notes, or running
+						competitive research in real time.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!-- CTA -->
-    <section class="py-28 relative text-center overflow-hidden">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.14)_0%,transparent_65%)]" />
-      <div class="container mx-auto px-4 relative z-10 max-w-3xl">
-        <h2 class="text-4xl md:text-5xl font-extrabold mb-6 tracking-tighter">
-          Want OpenClaw Running<br /><span class="text-gradient">on Your Devices in 48 Hours?</span>
-        </h2>
-        <p class="text-xl text-secondary mb-10 leading-relaxed">We handle installation, channel connections, SOUL.md personality, and skill setup. You get a production-ready private AI assistant without touching a terminal.</p>
-        <a href="/private-assistant" class="btn-primary inline-flex items-center gap-2 text-lg px-10 py-5">
-          See The Private Assistant Service
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </section>
+	<!-- ============================================ -->
+	<!-- 3. CAPABILITY SPEC SHEET                     -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Core capabilities.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SPECIFICATION — AS INSTALLED</p>
+			</div>
 
-  </main>
-  <Footer />
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{capabilities.map((c, i) => (
+				<div
+					class="spec-row grid md:grid-cols-[10rem_18rem_1fr] gap-x-8 gap-y-1.5 py-6 px-2"
+					data-reveal
+					style={`--reveal-delay: ${i * 60}ms;`}
+				>
+					<span class="face-data text-copper pt-1">{c.label}</span>
+					<h3 class="text-lg font-bold text-ink">{c.title}</h3>
+					<p class="text-[15px] text-muted leading-relaxed max-w-[46rem]">{c.desc}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- 4. THE DOSSIER INDEX — subpages              -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+						The OpenClaw dossier.
+					</h2>
+					<p class="text-muted text-lg mt-3 max-w-[38rem]" data-reveal style="--reveal-delay: 80ms;">
+						Everything you need to understand, evaluate and deploy OpenClaw for your business — filed in order.
+					</p>
+				</div>
+				<p class="face-data text-muted pb-2" data-reveal>INDEX · OC-01 — OC-05</p>
+			</div>
+
+			<div class="rule-ticked" data-draw-rule></div>
+			{dossierIndex.map((page, i) => (
+				<a
+					href={page.href}
+					class="spec-row group grid grid-cols-[3.5rem_1fr] md:grid-cols-[4.5rem_1fr_2rem] gap-x-6 gap-y-1.5 items-center py-6 px-2"
+					data-reveal
+					style={`--reveal-delay: ${i * 60}ms;`}
+				>
+					<span class="face-data text-copper">{page.ref}</span>
+					<div>
+						<h3 class="text-xl font-bold text-ink group-hover:text-green transition-colors">{page.title}</h3>
+						<p class="text-[15px] text-muted mt-1 max-w-[46rem]">{page.desc}</p>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			))}
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- 5. DRENCH CTA                                -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="max-w-[46rem]">
+				<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit" data-reveal>
+					OpenClaw running on your devices in 48 hours.
+				</h2>
+				<p class="mt-7 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+					We handle installation, channel connections, the SOUL.md personality, and skill setup.
+					You get a production-ready private AI assistant without touching a terminal.
+				</p>
+				<a href="/private-assistant" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">
+					See The Private Assistant Service
+					<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			</div>
+		</div>
+	</section>
 </Layout>

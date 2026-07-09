@@ -6,13 +6,15 @@ import {
   spring,
   Easing,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const RED = '#EF4444';
-const ORANGE = '#F97316';
-const YELLOW = '#EAB308';
-const GREEN = '#22C55E';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const RED = P.copperDark;
+const ORANGE = P.copperDeep;
+const YELLOW = P.copper;
+const GREEN = P.copper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 const W = 1080;
 
 export const LeadReactorSpeed = () => {
@@ -80,7 +82,7 @@ export const LeadReactorSpeed = () => {
   const sceneCOp = interpolate(frame, [475, 505], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   const seqSteps = [
     { label: 'AD CLICKED', sublabel: 'T + 0s', color: ACCENT },
-    { label: 'AI CALLS', sublabel: 'T + 3s', color: '#8B5CF6' },
+    { label: 'AI CALLS', sublabel: 'T + 3s', color: P.greenDeep },
     { label: 'QUALIFIED', sublabel: 'T + 8s', color: YELLOW },
     { label: 'BOOKED', sublabel: 'T + 10s', color: GREEN },
   ];
@@ -95,24 +97,24 @@ export const LeadReactorSpeed = () => {
   const brandOp = interpolate(frame, [548, 570], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
 
   return (
-    <AbsoluteFill style={{ backgroundColor: '#0A0A0A', opacity: globalOpacity, fontFamily: FONT }}>
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 20%, rgba(239,68,68,${bgPulse * 0.6}) 0%, rgba(59,130,246,${bgPulse * 0.4}) 40%, transparent 70%)` }} />
+    <AbsoluteFill style={{ backgroundColor: P.paper, opacity: globalOpacity, fontFamily: FONT }}>
+      <AbsoluteFill style={{ background: 'transparent' }} />
       {Array.from({ length: 7 }, (_, i) => (
-        <div key={i} style={{ position: 'absolute', top: `${(i + 1) * (100 / 8)}%`, left: 0, right: 0, height: 1, backgroundColor: 'rgba(255,255,255,0.03)' }} />
+        <div key={i} style={{ position: 'absolute', top: `${(i + 1) * (100 / 8)}%`, left: 0, right: 0, height: 1, backgroundColor: 'rgba(31,42,38,0.03)' }} />
       ))}
 
       {/* ── INTRO ──────────────────────────────────────────────────────────────── */}
       <AbsoluteFill style={{ opacity: introOp, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 100 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, opacity: catOp }}>
           <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: RED }} />
-          <span style={{ color: RED, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' as const }}>Speed to Lead</span>
+          <span style={{ color: RED, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' as const }}>Speed to Lead</span>
         </div>
         <div style={{ transform: `translateY(${interpolate(titleSp, [0, 1], [50, 0])}px)`, opacity: titleSp, marginBottom: 18 }}>
-          <div style={{ color: '#fff', fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE 5-MINUTE</div>
+          <div style={{ color: P.ink, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE 5-MINUTE</div>
           <div style={{ color: RED, fontSize: 80, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>DEATH ZONE</div>
         </div>
         <div style={{ width: lineW, height: 4, backgroundColor: RED, borderRadius: 2, marginBottom: 24 }} />
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 680 }}>
+        <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 680 }}>
           If you don't contact a Meta lead in under 5 minutes, your conversion probability drops by 400%.
         </p>
       </AbsoluteFill>
@@ -122,8 +124,8 @@ export const LeadReactorSpeed = () => {
 
         {/* Section label */}
         <div style={{ position: 'absolute', top: 60, left: 0, right: 0, display: 'flex', justifyContent: 'center', opacity: sceneAOp }}>
-          <div style={{ padding: '8px 24px', borderRadius: 100, border: '1px solid rgba(239,68,68,0.3)', backgroundColor: 'rgba(239,68,68,0.06)' }}>
-            <span style={{ color: RED, fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' as const }}>Response Time vs Conversion Rate</span>
+          <div style={{ padding: '8px 24px', borderRadius: 100, border: '1px solid rgba(127,63,34,0.3)', backgroundColor: 'rgba(127,63,34,0.06)' }}>
+            <span style={{ color: RED, fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', fontFamily: MONO, textTransform: 'uppercase' as const }}>Response Time vs Conversion Rate</span>
           </div>
         </div>
 
@@ -140,8 +142,8 @@ export const LeadReactorSpeed = () => {
                   <rect x={barX + xOffset} y={barY} width={zoneW} height={barH} fill={zone.color} opacity={0.85} rx={i === 0 ? 8 : 0} />
                   {barReveal > 0.95 && (
                     <>
-                      <text x={barX + xOffset + fullZoneW / 2} y={barY - 16} textAnchor="middle" fill={zone.color} fontSize={13} fontWeight={700} fontFamily={FONT}>{zone.label}</text>
-                      <text x={barX + xOffset + fullZoneW / 2} y={barY + barH + 22} textAnchor="middle" fill="rgba(255,255,255,0.5)" fontSize={11} fontFamily={FONT}>{zone.sublabel}</text>
+                      <text x={barX + xOffset + fullZoneW / 2} y={barY - 16} textAnchor="middle" fill={zone.color} fontSize={13} fontWeight={700} fontFamily={MONO}>{zone.label}</text>
+                      <text x={barX + xOffset + fullZoneW / 2} y={barY + barH + 22} textAnchor="middle" fill={P.muted} fontSize={11} fontFamily={MONO}>{zone.sublabel}</text>
                     </>
                   )}
                 </g>
@@ -156,7 +158,7 @@ export const LeadReactorSpeed = () => {
             <g>
               <line x1={barX + zones[0].pct * barW} y1={barY - 40} x2={barX + zones[0].pct * barW} y2={barY + barH + 40} stroke={ACCENT} strokeWidth={2} strokeDasharray="5 3" opacity={0.8} />
               <circle cx={barX + zones[0].pct * barW} cy={barY - 50} r={8} fill={ACCENT} />
-              <text x={barX + zones[0].pct * barW + 12} y={barY - 46} fill={ACCENT} fontSize={11} fontWeight={700} fontFamily={FONT}>SYSTEMSPROS RESPONSE</text>
+              <text x={barX + zones[0].pct * barW + 12} y={barY - 46} fill={ACCENT} fontSize={11} fontWeight={700} fontFamily={MONO}>SYSTEMSPROS RESPONSE</text>
             </g>
           )}
 
@@ -168,19 +170,19 @@ export const LeadReactorSpeed = () => {
             return (
               <g key={`conv-${i}`}>
                 <rect x={cx - convBarW / 2} y={convBarY - convH} width={convBarW} height={convH} fill={zone.color} opacity={0.75} rx={4} />
-                <text x={cx} y={convBarY + 20} textAnchor="middle" fill="rgba(255,255,255,0.6)" fontSize={12} fontFamily={FONT}>{convRates[i]}%</text>
+                <text x={cx} y={convBarY + 20} textAnchor="middle" fill={P.muted} fontSize={12} fontFamily={MONO}>{convRates[i]}%</text>
               </g>
             );
           })}
 
           {/* Y-axis label */}
           {convBarsReveal[0] > 0.5 && (
-            <text x={barX - 20} y={650} textAnchor="end" fill="rgba(255,255,255,0.4)" fontSize={11} fontFamily={FONT} transform={`rotate(-90, ${barX - 20}, 650)`}>Conversion Rate</text>
+            <text x={barX - 20} y={650} textAnchor="end" fill={P.muted} fontSize={11} fontFamily={MONO} transform={`rotate(-90, ${barX - 20}, 650)`}>Conversion Rate</text>
           )}
 
           {/* 400% drop label */}
           <g opacity={dropLabelOp}>
-            <text x={W / 2} y={850} textAnchor="middle" fill="rgba(239,68,68,0.9)" fontSize={22} fontWeight={800} fontFamily={FONT}>↓ 400% conversion drop after 5 minutes</text>
+            <text x={W / 2} y={850} textAnchor="middle" fill="rgba(127,63,34,0.9)" fontSize={22} fontWeight={800} fontFamily={MONO}>↓ 400% conversion drop after 5 minutes</text>
           </g>
         </svg>
       </AbsoluteFill>
@@ -188,45 +190,45 @@ export const LeadReactorSpeed = () => {
       {/* ── SCENE B: SPEED COMPARISON ───────────────────────────────────────────── */}
       <AbsoluteFill style={{ opacity: Math.min(sceneBOp, sceneBExit) }}>
         <div style={{ position: 'absolute', top: 60, left: 0, right: 0, display: 'flex', justifyContent: 'center' }}>
-          <div style={{ padding: '8px 24px', borderRadius: 100, border: '1px solid rgba(255,255,255,0.1)', backgroundColor: 'rgba(255,255,255,0.04)' }}>
-            <span style={{ color: 'rgba(255,255,255,0.5)', fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' as const }}>Response Time Comparison</span>
+          <div style={{ padding: '8px 24px', borderRadius: 100, border: '1px solid rgba(31,42,38,0.1)', backgroundColor: 'rgba(31,42,38,0.04)' }}>
+            <span style={{ color: P.muted, fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', fontFamily: MONO, textTransform: 'uppercase' as const }}>Response Time Comparison</span>
           </div>
         </div>
 
         <svg width={W} height={1080} style={{ position: 'absolute', inset: 0 }}>
           {/* Competitor bar */}
           <g>
-            <rect x={200} y={700 - competitorBarH} width={200} height={competitorBarH} fill="#374151" rx={6} />
+            <rect x={200} y={700 - competitorBarH} width={200} height={competitorBarH} fill={P.line} rx={6} />
             <g opacity={interpolate(compLabelOp, [0, 1], [0, 1])}>
-              <text x={300} y={700 - competitorBarH - 20} textAnchor="middle" fill="#9CA3AF" fontSize={28} fontWeight={900} fontFamily={FONT}>4+ HOURS</text>
-              <text x={300} y={740} textAnchor="middle" fill="rgba(255,255,255,0.4)" fontSize={14} fontFamily={FONT}>COMPETITOR</text>
-              <text x={300} y={760} textAnchor="middle" fill="rgba(239,68,68,0.7)" fontSize={11} fontFamily={FONT}>"When we get to it"</text>
+              <text x={300} y={700 - competitorBarH - 20} textAnchor="middle" fill={P.muted} fontSize={28} fontWeight={900} fontFamily={MONO}>4+ HOURS</text>
+              <text x={300} y={740} textAnchor="middle" fill={P.muted} fontSize={14} fontFamily={MONO}>COMPETITOR</text>
+              <text x={300} y={760} textAnchor="middle" fill="rgba(127,63,34,0.7)" fontSize={11} fontFamily={MONO}>"When we get to it"</text>
             </g>
           </g>
 
           {/* SystemPros bar */}
           <g>
             <rect x={680} y={700 - systemProsBarH} width={200} height={systemProsBarH} fill={ACCENT} rx={6}
-              style={{ filter: `drop-shadow(0 0 ${30 * glowPulse}px rgba(59,130,246,0.6))` }} />
+              style={{ filter: 'none' }} />
             <g opacity={interpolate(spLabelOp, [0, 1], [0, 1])}>
-              <text x={780} y={700 - systemProsBarH - 20} textAnchor="middle" fill={ACCENT} fontSize={28} fontWeight={900} fontFamily={FONT}>{'< 10 SEC'}</text>
-              <text x={780} y={740} textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize={14} fontFamily={FONT}>SYSTEMSPROS</text>
-              <text x={780} y={760} textAnchor="middle" fill="rgba(59,130,246,0.8)" fontSize={11} fontFamily={FONT}>Instant automated response</text>
+              <text x={780} y={700 - systemProsBarH - 20} textAnchor="middle" fill={ACCENT} fontSize={28} fontWeight={900} fontFamily={MONO}>{'< 10 SEC'}</text>
+              <text x={780} y={740} textAnchor="middle" fill={P.muted} fontSize={14} fontFamily={MONO}>SYSTEMSPROS</text>
+              <text x={780} y={760} textAnchor="middle" fill="rgba(31,92,69,0.8)" fontSize={11} fontFamily={MONO}>Instant automated response</text>
             </g>
           </g>
 
           {/* Center "vs" */}
           {Math.min(compLabelOp, spLabelOp) > 0.5 && (
-            <text x={W / 2} y={590} textAnchor="middle" fill="rgba(255,255,255,0.2)" fontSize={48} fontWeight={900} fontFamily={FONT}>VS</text>
+            <text x={W / 2} y={590} textAnchor="middle" fill={P.muted} fontSize={48} fontWeight={900} fontFamily={MONO}>VS</text>
           )}
 
           {/* Baseline */}
-          <line x1={160} y1={700} x2={920} y2={700} stroke="rgba(255,255,255,0.1)" strokeWidth={1} />
+          <line x1={160} y1={700} x2={920} y2={700} stroke="rgba(31,42,38,0.1)" strokeWidth={1} />
 
           {/* Win badge */}
           <g opacity={interpolate(spLabelOp, [0, 1], [0, 1])}>
             <rect x={680} y={700 - systemProsBarH - 80} width={200} height={32} rx={16} fill={GREEN} opacity={0.9} />
-            <text x={780} y={700 - systemProsBarH - 58} textAnchor="middle" fill="white" fontSize={12} fontWeight={700} fontFamily={FONT}>✓ 1ST CONTACT WINS</text>
+            <text x={780} y={700 - systemProsBarH - 58} textAnchor="middle" fill={P.paper} fontSize={12} fontWeight={700} fontFamily={MONO}>✓ 1ST CONTACT WINS</text>
           </g>
         </svg>
       </AbsoluteFill>
@@ -236,10 +238,10 @@ export const LeadReactorSpeed = () => {
         opacity: sceneCOp,
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 80,
       }}>
-        <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 16 }}>
+        <div style={{ color: P.muted, fontSize: 13, fontWeight: 700, letterSpacing: '0.2em', fontFamily: MONO, textTransform: 'uppercase' as const, marginBottom: 16 }}>
           What happens in 10 seconds
         </div>
-        <div style={{ color: '#fff', fontSize: 48, fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 12, textAlign: 'center' as const }}>
+        <div style={{ color: P.ink, fontSize: 48, fontWeight: 900, letterSpacing: '-0.03em', marginBottom: 12, textAlign: 'center' as const }}>
           If You Aren't First,<br />
           <span style={{ color: RED }}>You're Last.</span>
         </div>
@@ -260,12 +262,12 @@ export const LeadReactorSpeed = () => {
                   backgroundColor: `${step.color}20`,
                   border: `2px solid ${step.color}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: `0 0 24px ${step.color}40`,
+                  boxShadow: 'none',
                 }}>
                   <span style={{ color: step.color, fontSize: 22, fontWeight: 900 }}>{i + 1}</span>
                 </div>
                 <div style={{ textAlign: 'center' as const }}>
-                  <div style={{ color: '#fff', fontSize: 14, fontWeight: 700 }}>{step.label}</div>
+                  <div style={{ color: P.ink, fontSize: 14, fontWeight: 700 }}>{step.label}</div>
                   <div style={{ color: step.color, fontSize: 12, fontWeight: 600, marginTop: 2 }}>{step.sublabel}</div>
                 </div>
               </div>
@@ -285,7 +287,7 @@ export const LeadReactorSpeed = () => {
           ))}
         </div>
 
-        <div style={{ marginTop: 60, color: 'rgba(255,255,255,0.45)', fontSize: 16, textAlign: 'center' as const }}>
+        <div style={{ marginTop: 60, color: P.muted, fontSize: 16, textAlign: 'center' as const }}>
           First contact = <span style={{ color: GREEN, fontWeight: 700 }}>50% close rate</span> &nbsp;·&nbsp; 2nd contact = <span style={{ color: ORANGE, fontWeight: 700 }}>25%</span> &nbsp;·&nbsp; 3rd+ = <span style={{ color: RED, fontWeight: 700 }}>{'< 5%'}</span>
         </div>
       </AbsoluteFill>
@@ -293,7 +295,7 @@ export const LeadReactorSpeed = () => {
       {/* Brand */}
       <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: brandOp }}>
         <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-        <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+        <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
       </div>
     </AbsoluteFill>
   );

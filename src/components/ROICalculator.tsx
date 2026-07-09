@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Calculator, DollarSign, Clock, TrendingUp } from 'lucide-react';
 
 export default function ROICalculator() {
@@ -38,93 +38,94 @@ export default function ROICalculator() {
     }, [callsPerDay, avgDuration, hourlyRate]);
 
     return (
-        <div className="w-full max-w-4xl mx-auto p-6 md:p-10 bg-surface/50 backdrop-blur-xl border border-white/10 rounded-3xl shadow-2xl">
+        <div className="w-full max-w-4xl mx-auto p-6 md:p-10 bg-paper border border-line rounded-[2px]">
             <div className="text-center mb-10">
                 <h3 className="text-3xl font-bold flex items-center justify-center gap-3 mb-2">
-                    <Calculator className="w-8 h-8 text-accent" />
-                    <span className="text-white">Calculate Your KPI Savings</span>
+                    <Calculator className="w-8 h-8 text-green" />
+                    <span className="text-ink">Calculate Your KPI Savings</span>
                 </h3>
-                <p className="text-secondary">See how much you could save by switching to SystemPros Voice AI.</p>
+                <p className="text-muted">See how much you could save by switching to SystemPros Voice AI.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">
                 {/* Inputs */}
                 <div className="space-y-6">
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-secondary">Inbound Calls Per Day</label>
+                        <label className="font-mono text-[12px] uppercase tracking-[0.02em] text-muted">Inbound Calls Per Day</label>
                         <input
                             type="range"
                             min="5"
                             max="200"
                             value={callsPerDay}
                             onChange={(e) => setCallsPerDay(Number(e.target.value))}
-                            className="w-full accent-accent h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                            className="w-full accent-green h-2 bg-green-faint rounded-[2px] appearance-none cursor-pointer"
                         />
-                        <div className="flex justify-between text-white font-mono bg-white/5 p-2 rounded">
+                        <div className="flex justify-between text-ink font-mono bg-green-faint border border-line p-2 rounded-[2px]">
                             <span>{callsPerDay} calls</span>
                         </div>
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-secondary">Avg. Call Duration (Minutes)</label>
+                        <label className="font-mono text-[12px] uppercase tracking-[0.02em] text-muted">Avg. Call Duration (Minutes)</label>
                         <input
                             type="range"
                             min="1"
                             max="20"
                             value={avgDuration}
                             onChange={(e) => setAvgDuration(Number(e.target.value))}
-                            className="w-full accent-accent h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                            className="w-full accent-green h-2 bg-green-faint rounded-[2px] appearance-none cursor-pointer"
                         />
-                        <div className="flex justify-between text-white font-mono bg-white/5 p-2 rounded">
+                        <div className="flex justify-between text-ink font-mono bg-green-faint border border-line p-2 rounded-[2px]">
                             <span>{avgDuration} mins</span>
                         </div>
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-medium text-secondary">Staff Hourly Rate ({currency})</label>
+                        <label className="font-mono text-[12px] uppercase tracking-[0.02em] text-muted">Staff Hourly Rate ({currency})</label>
                         <input
                             type="range"
                             min="23" // Minimum wage approx
                             max="60"
                             value={hourlyRate}
                             onChange={(e) => setHourlyRate(Number(e.target.value))}
-                            className="w-full accent-accent h-2 bg-white/10 rounded-lg appearance-none cursor-pointer"
+                            className="w-full accent-green h-2 bg-green-faint rounded-[2px] appearance-none cursor-pointer"
                         />
-                        <div className="flex justify-between text-white font-mono bg-white/5 p-2 rounded">
+                        <div className="flex justify-between text-ink font-mono bg-green-faint border border-line p-2 rounded-[2px]">
                             <span>${hourlyRate} / hr</span>
                         </div>
-                        <p className="text-xs text-secondary/60 italic">*Includes estimated overheads (ACC, KiwiSaver)</p>
+                        <p className="text-xs text-muted italic">*Includes estimated overheads (ACC, KiwiSaver)</p>
                     </div>
                 </div>
 
                 {/* Results */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-between">
+                <div className="bg-green-faint border border-line rounded-[2px] p-6 flex flex-col justify-between">
                     <div className="space-y-6">
-                        <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                            <span className="text-secondary">Current Monthly Cost</span>
-                            <span className="text-xl font-mono text-white">${humanCost.toLocaleString()}</span>
+                        <div className="flex justify-between items-center pb-4 border-b border-line">
+                            <span className="text-muted">Current Monthly Cost</span>
+                            <span className="text-xl font-mono text-ink">${humanCost.toLocaleString()}</span>
                         </div>
-                        <div className="flex justify-between items-center pb-4 border-b border-white/10">
-                            <span className="text-secondary">Predicted AI Cost</span>
-                            <span className="text-xl font-mono text-accent">${aiCost.toLocaleString()}</span>
+                        <div className="flex justify-between items-center pb-4 border-b border-line">
+                            <span className="text-muted">Predicted AI Cost</span>
+                            <span className="text-xl font-mono text-green">${aiCost.toLocaleString()}</span>
                         </div>
                     </div>
 
                     <div className="mt-8">
-                        <h4 className="text-lg text-secondary mb-2 flex items-center gap-2">
-                            <TrendingUp className="w-5 h-5 text-green-400" />
+                        <h4 className="text-lg text-muted mb-2 flex items-center gap-2">
+                            <TrendingUp className="w-5 h-5 text-green" />
                             Projected Annual Savings
                         </h4>
                         <motion.div
                             key={yearlySavings}
-                            initial={{ scale: 0.9, opacity: 0 }}
+                            initial={{ scale: 0.96, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 font-mono tracking-tight"
+                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                            className="text-5xl font-bold text-copper font-mono tracking-tight"
                         >
                             ${yearlySavings.toLocaleString()}
                         </motion.div>
-                        <p className="text-sm text-secondary mt-4">
-                            That's enough to hire <span className="text-white font-bold">{Math.floor(yearlySavings / 70000)}</span> more senior sales reps.
+                        <p className="text-sm text-muted mt-4">
+                            That's enough to hire <span className="text-ink font-bold">{Math.floor(yearlySavings / 70000)}</span> more senior sales reps.
                         </p>
                     </div>
                 </div>

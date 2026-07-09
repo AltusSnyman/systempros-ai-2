@@ -1,150 +1,302 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/*
+  SystemPros.ai — "Commissioning Dossier" design system.
+  Single source of truth: /DESIGN.md at repo root.
+*/
+
 @theme {
-    --color-main: #0A0A0A;
-    --color-surface: #1A1A1A;
-    --color-glass: rgba(26, 26, 26, 0.6);
-    --color-highlight: rgba(59, 130, 246, 0.3);
+    /* Color roles */
+    --color-paper:       oklch(1 0 0);
+    --color-ink:         oklch(0.21 0.02 165);
+    --color-muted:       oklch(0.45 0.025 165);
+    --color-green:       oklch(0.38 0.09 160);
+    --color-green-hover: oklch(0.33 0.08 160);
+    --color-green-deep:  oklch(0.27 0.055 162);
+    --color-green-faint: oklch(0.965 0.012 160);
+    --color-copper:      oklch(0.60 0.14 45);
+    --color-copper-deep: oklch(0.52 0.13 45);
+    --color-line:        oklch(0.87 0.01 165);
+    /* On-drench (green-deep) text roles */
+    --color-paper-lit:   oklch(0.97 0.01 160);
+    --color-paper-dim:   oklch(0.82 0.03 160);
+    --color-line-drench: oklch(0.38 0.05 162);
 
-    --color-primary: #FFFFFF;
-    --color-secondary: #A3A3A3;
-    --color-accent: #3B82F6;
+    /* Type */
+    --font-sans: 'Archivo', system-ui, sans-serif;
+    --font-mono: 'Fragment Mono', 'Courier New', monospace;
 
-    --font-mono: 'JetBrains Mono', monospace;
+    /* Fluid section spacing */
+    --spacing-section: clamp(5rem, 12vh, 9rem);
+    --spacing-section-sm: clamp(3rem, 7vh, 5rem);
 
-    --animate-border-beam: border-beam 2s linear infinite;
-    --animate-spin-slow: spin 30s linear infinite;
-    --animate-fade-in-up: fade-up 0.8s ease-out forwards;
-
-    @keyframes border-beam {
-        100% {
-            offset-distance: 100%;
-        }
-    }
-
-    @keyframes fade-up {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
+    --ease-engage: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Custom utilities */
+/* Semantic z-scale */
+:root {
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-overlay: 30;
+    --z-modal: 40;
+    --z-toast: 50;
+}
+
+/* ---------- Base ---------- */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-variation-settings: "wdth" 100;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    text-wrap: balance;
+    font-variation-settings: "wdth" 122;
+    letter-spacing: -0.02em;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+::selection {
+    background: var(--color-green);
+    color: var(--color-paper-lit);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 2px;
+}
+
+/* Display face helper: expanded Archivo */
+.face-display {
+    font-variation-settings: "wdth" 125;
+    letter-spacing: -0.02em;
+}
+
+/* Dossier data face */
+.face-data {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
+}
+
+/* ---------- Buttons ---------- */
+
 .btn-primary {
-    @apply px-8 py-4 bg-accent text-white font-semibold rounded-full hover:bg-blue-600 transition-all duration-300 hover:-translate-y-1;
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 font-semibold text-[15px] text-paper-lit bg-green rounded-[2px] transition-all duration-300 relative;
+    box-shadow: 0 0 0 0 transparent;
 }
 
-.glass-card {
-    @apply bg-surface/80 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-accent/40 transition-colors duration-500;
+.btn-primary:hover {
+    background: var(--color-green-hover);
+    box-shadow: 3px 3px 0 0 var(--color-copper);
+    transform: translate(-1px, -1px);
 }
 
-.text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-accent;
+.btn-primary:active {
+    box-shadow: 1px 1px 0 0 var(--color-copper);
+    transform: translate(0, 0);
 }
 
-.nav-link {
-    @apply text-sm text-secondary hover:text-white transition-colors duration-200 font-medium;
+.btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 font-semibold text-[15px] text-ink bg-transparent border border-ink rounded-[2px] transition-all duration-300;
 }
 
-/* Marquee animation */
-.marquee-wrapper {
+.btn-secondary:hover {
+    border-color: var(--color-green);
+    color: var(--color-green);
+    box-shadow: 3px 3px 0 0 var(--color-line);
+    transform: translate(-1px, -1px);
+}
+
+/* On-drench variants */
+.btn-primary-inverse {
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 font-semibold text-[15px] rounded-[2px] transition-all duration-300;
+    background: var(--color-paper-lit);
+    color: var(--color-green-deep);
+}
+
+.btn-primary-inverse:hover {
+    box-shadow: 3px 3px 0 0 var(--color-copper);
+    transform: translate(-1px, -1px);
+}
+
+/* ---------- Links ---------- */
+
+.link-ink {
+    color: var(--color-green);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s var(--ease-engage);
+}
+
+.link-ink:hover {
+    color: var(--color-copper);
+}
+
+/* ---------- Dossier layout devices ---------- */
+
+/* Hairline rule with dimension ticks at both ends */
+.rule-ticked {
+    position: relative;
+    height: 1px;
+    background: var(--color-line);
+}
+
+.rule-ticked::before,
+.rule-ticked::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    width: 1px;
+    height: 9px;
+    background: var(--color-line);
+}
+
+.rule-ticked::before { left: 0; }
+.rule-ticked::after { right: 0; }
+
+.rule-ticked-green {
+    background: var(--color-green);
+}
+.rule-ticked-green::before,
+.rule-ticked-green::after {
+    background: var(--color-green);
+}
+
+/* Spec-sheet row: ruled top border rows instead of cards */
+.spec-row {
+    border-top: 1px solid var(--color-line);
+    transition: background-color 0.25s var(--ease-engage);
+}
+
+.spec-row:last-child {
+    border-bottom: 1px solid var(--color-line);
+}
+
+.spec-row:hover {
+    background: var(--color-green-faint);
+}
+
+/* Figure/media frame with mono caption bar */
+.media-frame {
+    border: 1px solid var(--color-line);
+    border-radius: 2px;
     overflow: hidden;
-    width: 100%;
+    background: var(--color-paper);
 }
 
-.marquee-track {
+.media-frame > figcaption {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding: 0.6rem 0.9rem;
+    border-top: 1px solid var(--color-line);
     display: flex;
-    width: max-content;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
-.marquee-left {
-    animation: marquee-scroll-left 35s linear infinite;
+/* Drench section (green-deep) */
+.drench {
+    background: var(--color-green-deep);
+    color: var(--color-paper-lit);
 }
 
-.marquee-right {
-    animation: marquee-scroll-right 35s linear infinite;
+.drench .rule-ticked,
+.drench .rule-ticked::before,
+.drench .rule-ticked::after {
+    background: var(--color-line-drench);
 }
 
-.marquee-content {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    padding-right: 3rem;
+/* ---------- Shared animation vocabulary ----------
+   Elements are visible by default; JS adds .is-armed to <html> early,
+   which sets the pre-state, then IntersectionObserver adds .is-on.
+   Without JS (or headless render) everything stays visible. */
+
+html.is-armed [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
 }
 
-.marquee-item {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    white-space: nowrap;
-    opacity: 0.5;
-    transition: opacity 0.3s;
+html.is-armed [data-reveal].is-on {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 0.7s var(--ease-engage),
+        transform 0.7s var(--ease-engage);
+    transition-delay: var(--reveal-delay, 0ms);
 }
 
-.marquee-item:hover {
-    opacity: 0.8;
+/* Rules that draw in horizontally */
+html.is-armed [data-draw-rule] {
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
-.marquee-logo {
-    height: 22px;
-    width: auto;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
+html.is-armed [data-draw-rule].is-on {
+    transform: scaleX(1);
+    transition: transform 0.9s var(--ease-engage);
+    transition-delay: var(--reveal-delay, 0ms);
 }
 
-.marquee-logo-square {
-    height: 28px;
-    width: 28px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
+/* SVG schematic paths that draw themselves (JS sets dasharray) */
+html.is-armed [data-draw-path].is-on {
+    animation: draw-path 1.4s var(--ease-engage) forwards;
+    animation-delay: var(--reveal-delay, 0ms);
 }
 
-.marquee-label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.02em;
+@keyframes draw-path {
+    to { stroke-dashoffset: 0; }
 }
 
-.marquee-text-logo {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.02em;
+/* Live indicator dot (copper) */
+.dot-live {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-copper);
+    animation: dot-pulse 2.4s ease-in-out infinite;
 }
 
-@keyframes marquee-scroll-left {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-@keyframes marquee-scroll-right {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+@keyframes dot-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .marquee-left,
-    .marquee-right {
+    html.is-armed [data-reveal],
+    html.is-armed [data-draw-rule] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    html.is-armed [data-draw-path],
+    html.is-armed [data-draw-path].is-on {
+        stroke-dasharray: none !important;
+        stroke-dashoffset: 0 !important;
         animation: none;
     }
-}
 
-.btn-cta {
-    @apply px-8 py-4 font-semibold rounded-full transition-all duration-300 hover:-translate-y-1 cursor-pointer;
-    background: linear-gradient(135deg, #F97316, #EA580C);
-    color: white;
-    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
-}
+    .dot-live {
+        animation: none;
+    }
 
-.btn-cta:hover {
-    box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+    html {
+        scroll-behavior: auto;
+    }
 }

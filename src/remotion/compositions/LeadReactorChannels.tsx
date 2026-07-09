@@ -6,20 +6,22 @@ import {
   spring,
   Easing,
 } from 'remotion';
+import { P } from '../palette';
 
-const ACCENT = '#3B82F6';
-const GREEN = '#22C55E';
-const FONT = "'Inter', system-ui, -apple-system, sans-serif";
+const ACCENT = P.green;
+const GREEN = P.copper;
+const FONT = P.fontSans;
+const MONO = P.fontMono;
 const W = 1080;
 const H = 1080;
 
 const CHANNELS = [
-  { label: 'VOICE AI', sublabel: 'Instant AI Call', color: '#3B82F6', openRate: 95, angleDeg: -90 },
-  { label: 'iMESSAGE', sublabel: '98% Open Rate', color: '#A855F7', openRate: 98, angleDeg: -30 },
-  { label: 'WHATSAPP', sublabel: 'Direct Message', color: '#22C55E', openRate: 93, angleDeg: 30 },
-  { label: 'SMS', sublabel: 'Text Fallback', color: '#F59E0B', openRate: 90, angleDeg: 90 },
-  { label: 'EMAIL', sublabel: 'Smart Nurture', color: '#EC4899', openRate: 22, angleDeg: 150 },
-  { label: 'MESSENGER', sublabel: 'Facebook Chat', color: '#06B6D4', openRate: 85, angleDeg: 210 },
+  { label: 'VOICE AI', sublabel: 'Instant AI Call', color: P.green, openRate: 95, angleDeg: -90 },
+  { label: 'iMESSAGE', sublabel: '98% Open Rate', color: P.greenDeep, openRate: 98, angleDeg: -30 },
+  { label: 'WHATSAPP', sublabel: 'Direct Message', color: P.copper, openRate: 93, angleDeg: 30 },
+  { label: 'SMS', sublabel: 'Text Fallback', color: P.copper, openRate: 90, angleDeg: 90 },
+  { label: 'EMAIL', sublabel: 'Smart Nurture', color: P.copperDeep, openRate: 22, angleDeg: 150 },
+  { label: 'MESSENGER', sublabel: 'Facebook Chat', color: P.greenMid, openRate: 85, angleDeg: 210 },
 ];
 
 const toRad = (deg: number) => (deg * Math.PI) / 180;
@@ -107,24 +109,24 @@ export const LeadReactorChannels = () => {
   const brandOp = interpolate(frame, [548, 570], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
 
   return (
-    <AbsoluteFill style={{ backgroundColor: '#0A0A0A', opacity: globalOpacity, fontFamily: FONT }}>
-      <AbsoluteFill style={{ background: `radial-gradient(ellipse at 50% 50%, rgba(59,130,246,${bgPulse}) 0%, transparent 60%)` }} />
+    <AbsoluteFill style={{ backgroundColor: P.paper, opacity: globalOpacity, fontFamily: FONT }}>
+      <AbsoluteFill style={{ background: 'transparent' }} />
       {Array.from({ length: 7 }, (_, i) => (
-        <div key={i} style={{ position: 'absolute', top: `${(i + 1) * (100 / 8)}%`, left: 0, right: 0, height: 1, backgroundColor: 'rgba(255,255,255,0.03)' }} />
+        <div key={i} style={{ position: 'absolute', top: `${(i + 1) * (100 / 8)}%`, left: 0, right: 0, height: 1, backgroundColor: 'rgba(31,42,38,0.03)' }} />
       ))}
 
       {/* ── INTRO ──────────────────────────────────────────────────────────────── */}
       <AbsoluteFill style={{ opacity: introOp, display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 100 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, opacity: catOp }}>
           <div style={{ width: 8, height: 8, borderRadius: '50%', backgroundColor: ACCENT }} />
-          <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase' as const }}>Multi-Channel Automation</span>
+          <span style={{ color: ACCENT, fontSize: 13, fontWeight: 700, letterSpacing: '0.22em', fontFamily: MONO, textTransform: 'uppercase' as const }}>Multi-Channel Automation</span>
         </div>
         <div style={{ transform: `translateY(${interpolate(titleSp, [0, 1], [50, 0])}px)`, opacity: titleSp, marginBottom: 18 }}>
-          <div style={{ color: '#fff', fontSize: 82, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE CHAIN</div>
+          <div style={{ color: P.ink, fontSize: 82, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>THE CHAIN</div>
           <div style={{ color: ACCENT, fontSize: 82, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.03em' }}>REACTION</div>
         </div>
         <div style={{ width: lineW, height: 4, backgroundColor: ACCENT, borderRadius: 2, marginBottom: 24 }} />
-        <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 680 }}>
+        <p style={{ color: P.muted, fontSize: 22, fontWeight: 400, lineHeight: 1.5, margin: 0, opacity: subOp, maxWidth: 680 }}>
           6 channels. Simultaneously. In under 10 seconds. Because one channel is one chance to lose them.
         </p>
       </AbsoluteFill>
@@ -183,8 +185,8 @@ export const LeadReactorChannels = () => {
                     <path d={CHANNEL_ICONS[ch.label]} />
                   </svg>
                   {/* Label outside */}
-                  <text x={lx - nx} y={ly - ny - 8} textAnchor="middle" fill="white" fontSize={12} fontWeight={700} fontFamily={FONT}>{ch.label}</text>
-                  <text x={lx - nx} y={ly - ny + 8} textAnchor="middle" fill="rgba(255,255,255,0.45)" fontSize={10} fontFamily={FONT}>{ch.sublabel}</text>
+                  <text x={lx - nx} y={ly - ny - 8} textAnchor="middle" fill={P.ink} fontSize={12} fontWeight={700} fontFamily={MONO}>{ch.label}</text>
+                  <text x={lx - nx} y={ly - ny + 8} textAnchor="middle" fill={P.muted} fontSize={10} fontFamily={MONO}>{ch.sublabel}</text>
                 </g>
               </g>
             );
@@ -193,24 +195,24 @@ export const LeadReactorChannels = () => {
           {/* Central node */}
           <g>
             <circle cx={centerX} cy={centerY} r={centerPulse + 20} fill="none" stroke={ACCENT} strokeWidth={1} opacity={centerRingOp * 0.4} />
-            <circle cx={centerX} cy={centerY} r={58} fill="rgba(59,130,246,0.12)" stroke={ACCENT} strokeWidth={2.5} />
-            <text x={centerX} y={centerY - 8} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={800} fontFamily={FONT}>LEAD</text>
-            <text x={centerX} y={centerY + 10} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={800} fontFamily={FONT}>SUBMITS</text>
+            <circle cx={centerX} cy={centerY} r={58} fill="rgba(31,92,69,0.12)" stroke={ACCENT} strokeWidth={2.5} />
+            <text x={centerX} y={centerY - 8} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={800} fontFamily={MONO}>LEAD</text>
+            <text x={centerX} y={centerY + 10} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={800} fontFamily={MONO}>SUBMITS</text>
           </g>
 
           {/* Timer */}
           {dotsActive && (
             <g>
-              <rect x={centerX - 55} y={centerY + 75} width={110} height={30} rx={15} fill="rgba(59,130,246,0.15)" stroke={ACCENT} strokeWidth={1} />
-              <text x={centerX} y={centerY + 95} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={700} fontFamily={FONT}>T + {timerCount}s</text>
+              <rect x={centerX - 55} y={centerY + 75} width={110} height={30} rx={15} fill="rgba(31,92,69,0.15)" stroke={ACCENT} strokeWidth={1} />
+              <text x={centerX} y={centerY + 95} textAnchor="middle" fill={ACCENT} fontSize={13} fontWeight={700} fontFamily={MONO}>T + {timerCount}s</text>
             </g>
           )}
         </svg>
 
         {/* Label */}
         <div style={{ position: 'absolute', top: 60, left: 0, right: 0, display: 'flex', justifyContent: 'center', opacity: sceneAOp }}>
-          <div style={{ padding: '8px 24px', borderRadius: 100, border: `1px solid rgba(59,130,246,0.3)`, backgroundColor: 'rgba(59,130,246,0.06)' }}>
-            <span style={{ color: ACCENT, fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase' as const }}>{'6 simultaneous channels — < 10 seconds'}</span>
+          <div style={{ padding: '8px 24px', borderRadius: 100, border: `1px solid rgba(31,92,69,0.3)`, backgroundColor: 'rgba(31,92,69,0.06)' }}>
+            <span style={{ color: ACCENT, fontSize: 12, fontWeight: 700, letterSpacing: '0.18em', fontFamily: MONO, textTransform: 'uppercase' as const }}>{'6 simultaneous channels — < 10 seconds'}</span>
           </div>
         </div>
       </AbsoluteFill>
@@ -218,8 +220,8 @@ export const LeadReactorChannels = () => {
       {/* ── SCENE B: OPEN RATE BARS ──────────────────────────────────────────────── */}
       <AbsoluteFill style={{ opacity: Math.min(sceneBOp, sceneBExit) }}>
         <div style={{ position: 'absolute', top: 80, left: 0, right: 0, textAlign: 'center' as const }}>
-          <div style={{ color: '#fff', fontSize: 36, fontWeight: 900, letterSpacing: '-0.02em' }}>Why We Hit Every Channel</div>
-          <div style={{ color: 'rgba(255,255,255,0.4)', fontSize: 16, marginTop: 8 }}>Open / Answer Rates by Channel</div>
+          <div style={{ color: P.ink, fontSize: 36, fontWeight: 900, letterSpacing: '-0.02em' }}>Why We Hit Every Channel</div>
+          <div style={{ color: P.muted, fontSize: 16, marginTop: 8 }}>Open / Answer Rates by Channel</div>
         </div>
 
         <svg width={W} height={H} style={{ position: 'absolute', inset: 0 }}>
@@ -230,18 +232,18 @@ export const LeadReactorChannels = () => {
             return (
               <g key={i}>
                 {/* Background track */}
-                <rect x={200} y={y + 20} width={barMaxW} height={44} rx={6} fill="rgba(255,255,255,0.04)" />
+                <rect x={200} y={y + 20} width={barMaxW} height={44} rx={6} fill="rgba(31,42,38,0.04)" />
                 {/* Filled bar */}
                 <rect x={200} y={y + 20} width={filledW} height={44} rx={6} fill={ch.color} opacity={0.8} />
                 {/* Label */}
-                <text x={180} y={y + 48} textAnchor="end" fill="rgba(255,255,255,0.7)" fontSize={14} fontWeight={700} fontFamily={FONT}>{ch.label}</text>
+                <text x={180} y={y + 48} textAnchor="end" fill={P.muted} fontSize={14} fontWeight={700} fontFamily={MONO}>{ch.label}</text>
                 {/* Value */}
-                <text x={200 + filledW + 12} y={y + 48} fill={ch.color} fontSize={16} fontWeight={800} fontFamily={FONT}>{Math.round(barFills[i])}%</text>
+                <text x={200 + filledW + 12} y={y + 48} fill={ch.color} fontSize={16} fontWeight={800} fontFamily={MONO}>{Math.round(barFills[i])}%</text>
               </g>
             );
           })}
           {/* Email note */}
-          <text x={200 + (22 / 100) * 560 + 65} y={820} fill="rgba(236,72,153,0.6)" fontSize={11} fontFamily={FONT}>← single-channel reliance</text>
+          <text x={200 + (22 / 100) * 560 + 65} y={820} fill="rgba(236,72,153,0.6)" fontSize={11} fontFamily={MONO}>← single-channel reliance</text>
         </svg>
       </AbsoluteFill>
 
@@ -249,7 +251,7 @@ export const LeadReactorChannels = () => {
       <AbsoluteFill style={{
         opacity: sceneCOp, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 100,
       }}>
-        <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: 13, fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const, marginBottom: 24 }}>
+        <div style={{ color: P.muted, fontSize: 13, fontWeight: 700, letterSpacing: '0.2em', fontFamily: MONO, textTransform: 'uppercase' as const, marginBottom: 24 }}>
           The end goal of every channel
         </div>
 
@@ -258,7 +260,7 @@ export const LeadReactorChannels = () => {
           backgroundColor: `${GREEN}18`,
           border: `3px solid ${GREEN}`,
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-          boxShadow: `0 0 60px ${GREEN}40`,
+          boxShadow: 'none',
           transform: `scale(${interpolate(convSp, [0, 1], [0, 1])})`,
           opacity: interpolate(convSp, [0, 1], [0, 1]),
           marginBottom: 32,
@@ -269,10 +271,10 @@ export const LeadReactorChannels = () => {
           <span style={{ color: GREEN, fontSize: 13, fontWeight: 800, letterSpacing: '0.1em', marginTop: 8 }}>BOOKED</span>
         </div>
 
-        <div style={{ color: '#fff', fontSize: 44, fontWeight: 900, letterSpacing: '-0.03em', textAlign: 'center' as const, marginBottom: 16 }}>
+        <div style={{ color: P.ink, fontSize: 44, fontWeight: 900, letterSpacing: '-0.03em', textAlign: 'center' as const, marginBottom: 16 }}>
           6 Channels →<br /><span style={{ color: GREEN }}>1 Booked Meeting</span>
         </div>
-        <div style={{ color: 'rgba(255,255,255,0.45)', fontSize: 18, textAlign: 'center' as const, maxWidth: 560 }}>
+        <div style={{ color: P.muted, fontSize: 18, textAlign: 'center' as const, maxWidth: 560 }}>
           Synced directly to your Google or Outlook calendar.<br />You just show up.
         </div>
       </AbsoluteFill>
@@ -280,7 +282,7 @@ export const LeadReactorChannels = () => {
       {/* Brand */}
       <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: brandOp }}>
         <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-        <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+        <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
       </div>
     </AbsoluteFill>
   );
