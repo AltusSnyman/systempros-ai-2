@@ -428,7 +428,7 @@ const industryClips = [
 						<div data-reveal>
 							<MediaFrame fig={`FIG. 0${i + 2}`} caption={`${d.ref} — ${d.name.toUpperCase()}`}>
 								<div class="aspect-square bg-ink">
-									<ProductVideoPlayer id={d.player} client:visible />
+									<ProductVideoPlayer id={d.player as any} client:visible />
 								</div>
 							</MediaFrame>
 						</div>

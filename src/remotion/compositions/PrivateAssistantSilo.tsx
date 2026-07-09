@@ -106,9 +106,8 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
             <g key={app.name} opacity={bOp}>
               <line x1={cx} y1={cy} x2={px} y2={py} stroke={app.color} strokeWidth="1" opacity={lineOp} strokeDasharray="4 6" />
               <circle cx={px} cy={py} r={38} fill={`${app.color}18`} stroke={app.color} strokeWidth="1.5"
-                style={{ filter: 'none' }}
+                style={{ filter: 'none', transformOrigin: `${px}px ${py}px` }}
                 transform={`scale(${interpolate(bSpring, [0, 1], [0.2, 1])})`}
-                style2={{ transformOrigin: `${px}px ${py}px` }}
               />
               <text x={px} y={py + 5} textAnchor="middle" fill={app.color} fontSize="11" fontWeight="800" fontFamily={MONO}>{app.initials}</text>
             </g>

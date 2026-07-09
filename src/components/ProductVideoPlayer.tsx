@@ -68,7 +68,7 @@ export const ProductVideoPlayer = ({ id, className, inputProps }: Props) => {
       className={className}
     >
       <Player
-        component={Comp}
+        component={Comp as any}
         inputProps={inputProps ?? {}}
         durationInFrames={durationInFrames}
         fps={30}
