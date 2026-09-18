@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Free AI Readiness Audit | SystemPros.ai"
+	description="Find out exactly where your business is losing revenue to slow responses, missed calls, and manual processes. Free audit — takes 2 minutes."
+	hideCTA={true}
+>
+	<section class="relative">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<span>AI READINESS AUDIT</span>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> FREE — NO OBLIGATION</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<div class="py-12 lg:py-16 max-w-[760px]">
+				<h1 class="face-display font-extrabold text-[clamp(2.4rem,4.6vw,3.8rem)] leading-[1.05] text-ink" data-reveal>
+					Find out what your business is <span class="text-green">losing</span>.
+				</h1>
+				<p class="mt-6 text-lg text-muted leading-relaxed max-w-[38rem]" data-reveal style="--reveal-delay: 100ms;">
+					Answer a few questions about how your business handles calls, leads, and follow-up. We'll show you exactly where revenue is leaking — and what it's costing you every month.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="pb-20 lg:pb-28">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="rule-ticked mb-10" data-draw-rule></div>
+			<div id="audit-widget">
+				<script is:inline src="https://services.leadconnectorhq.com/prospecting/client/widget-embed.js" data-widget-id="6aa7c18ffb2551d4916e52d3"></script>
+			</div>
+		</div>
+	</section>
+</Layout>
