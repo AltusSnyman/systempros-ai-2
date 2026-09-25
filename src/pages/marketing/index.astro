@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import ServiceSchema from '../../components/seo/ServiceSchema.astro';
 import FAQ from '../../components/seo/FAQ.astro';
 import { MARKETING_SERVICES, MARKETING_INDUSTRY_LINKS } from '../../data/marketing';
+import { PHONES } from '../../lib/site';
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -16,15 +17,15 @@ const breadcrumbSchema = {
 const faqs = [
 	{
 		question: 'What marketing services does System Pros AI run?',
-		answer: "Google Business Profile management and optimisation, automated content posting to Google Business Profile and Meta (Facebook and Instagram), review generation and review replies, and Facebook/Instagram ads management. If those ads produce leads, the Lead Reactor handles the follow-up. All of it runs through one AI-assisted system rather than four separate logins you have to manage.",
+		answer: "Google Business Profile management and optimisation, automated content posting to Google Business Profile and Meta (Facebook and Instagram), review generation and review replies, and Facebook/Instagram and Google Ads management. If those ads produce leads, the Lead Reactor handles the follow-up. All of it runs through one AI-assisted system rather than five separate logins you have to manage.",
 	},
 	{
 		question: 'Is this software I run myself, or do you run it?',
 		answer: "We run it. You get a working profile, a posting schedule, review replies going out and, if you choose it, ads running — not a dashboard and a login to figure out on your own. You tell us what changed in the business (new hours, a new service, a job worth posting about); the system handles the rest.",
 	},
 	{
-		question: 'Do I need all four services, or can I start with one?',
-		answer: "Start with one. Most businesses begin with Google Business Profile management or reviews, because both feed directly into local search and cost nothing extra in ad spend. Social posting and Meta ads layer on once the fundamentals are running. We'll recommend a starting point in the free consultation based on what your profile and ad accounts look like today.",
+		question: 'Do I need all five services, or can I start with one?',
+		answer: "Start with one. Most businesses begin with Google Business Profile management or reviews, because both feed directly into local search and cost nothing extra in ad spend. Social posting, Meta ads and Google Ads layer on once the fundamentals are running. We'll recommend a starting point in the free consultation based on what your profile and ad accounts look like today.",
 	},
 	{
 		question: 'How much does marketing management cost?',
@@ -35,11 +36,11 @@ const faqs = [
 
 <Layout
 	title="AI-Native Marketing for Local Businesses | System Pros AI"
-	description="AI-native digital marketing agency for local businesses in NZ and Australia: GBP management, reviews, social posting and Meta ads, run for you."
+	description="AI-native marketing agency for local businesses in NZ and Australia: GBP management, reviews, social posting and Google & Meta ads, run for you."
 >
 	<ServiceSchema
 		name="AI-Native Marketing for Local Businesses"
-		description="Marketing management for local businesses: Google Business Profile management and optimisation, automated posting to Google and Meta, review generation and replies, and Facebook/Instagram ads management, run through one AI-assisted system."
+		description="Marketing management for local businesses: Google Business Profile management and optimisation, automated posting to Google and Meta, review generation and replies, and Facebook/Instagram and Google Ads management, run through one AI-assisted system."
 		serviceType="MarketingAgency"
 		areaServed={['NZ', 'AU']}
 	/>
@@ -75,7 +76,7 @@ const faqs = [
 					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
 						<a href="/contact/" class="btn-primary">Book a Free Consultation</a>
 						<a href="#services" class="btn-secondary">
-							See the four services
+							See the five services
 							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
 						</a>
 					</div>
@@ -92,8 +93,8 @@ const faqs = [
 				</div>
 				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 80ms;">
 					<dt class="face-data text-muted">SERVICES</dt>
-					<dd class="mt-1 text-2xl font-bold text-ink">4</dd>
-					<dd class="text-[13px] text-muted">GBP, reviews, social, ads</dd>
+					<dd class="mt-1 text-2xl font-bold text-ink">5</dd>
+					<dd class="text-[13px] text-muted">GBP, reviews, social, paid ads</dd>
 				</div>
 				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 160ms;">
 					<dt class="face-data text-muted">COVERAGE</dt>
@@ -147,19 +148,32 @@ const faqs = [
 	</section>
 
 	<!-- ============================================ -->
-	<!-- FOUR SERVICES — spec rows                    -->
+	<!-- FIVE SERVICES — spec rows, grouped           -->
 	<!-- ============================================ -->
 	<section id="services" class="py-(--spacing-section)">
 		<div class="max-w-[1200px] mx-auto px-5">
 			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
 				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
-					Four services. One system.
+					Five services. One system.
 				</h2>
-				<p class="face-data text-muted pb-2" data-reveal>MKT-01–04 · SERVICE SET</p>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-01–05 · SERVICE SET</p>
 			</div>
 
 			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
-			{MARKETING_SERVICES.map((s, i) => (
+			{MARKETING_SERVICES.filter((s) => s.group !== 'ads').map((s, i) => (
+				<a href={s.href} class="spec-row group grid md:grid-cols-[9rem_1fr_2rem] gap-x-8 gap-y-2 items-center py-7 px-2" data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
+					<span class="face-data text-copper">{s.ref}</span>
+					<div>
+						<h3 class="text-lg font-bold text-ink group-hover:text-green transition-colors">{s.name}</h3>
+						<p class="text-[14.5px] text-muted mt-1 max-w-[42rem]">{s.blurb}</p>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			))}
+
+			<p class="face-data text-muted pt-8 pb-3" data-reveal>PAID ADS</p>
+			<div class="rule-ticked" data-draw-rule></div>
+			{MARKETING_SERVICES.filter((s) => s.group === 'ads').map((s, i) => (
 				<a href={s.href} class="spec-row group grid md:grid-cols-[9rem_1fr_2rem] gap-x-8 gap-y-2 items-center py-7 px-2" data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
 					<span class="face-data text-copper">{s.ref}</span>
 					<div>
@@ -172,11 +186,49 @@ const faqs = [
 			<div class="rule-ticked" data-draw-rule></div>
 
 			<p class="text-muted leading-relaxed mt-8 max-w-[42rem]" data-reveal>
-				Running Meta ads already? The half of the funnel that happens after someone
-				clicks — the instant multi-channel follow-up that turns a lead into a booked
-				appointment — is a separate, dedicated system:
+				Running Meta or Google ads already? The half of the funnel that happens
+				after someone clicks — the instant multi-channel follow-up that turns a
+				lead into a booked appointment — is a separate, dedicated system:
 				<a href="/lead-reactor/" class="link-ink">see what happens after the click on the Lead Reactor page</a>.
 			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- MARKETING AGENCY — city coverage             -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-2 gap-14 items-start">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						Marketing agency for Auckland, Sydney and Melbourne businesses.
+					</h2>
+					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						We work as a marketing agency for local businesses in Auckland,
+						Sydney and Melbourne, and across New Zealand and Australia more
+						broadly. Every service on this page — profile management, reviews,
+						social posting and paid ads — is delivered remotely over video call,
+						the same way we run voice AI and consulting, so a business in any of
+						those cities gets the same managed system without needing a local
+						office to visit.
+					</p>
+				</div>
+				<div>
+					<div class="rule-ticked" data-draw-rule></div>
+					<dl>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line" data-reveal style="--reveal-delay: 120ms;">
+							<dt class="face-data text-muted">NZ</dt>
+							<dd class="text-[15px] text-ink"><a href={PHONES.NZ.tel} class="link-ink">{PHONES.NZ.display}</a></dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 200ms;">
+							<dt class="face-data text-muted">AU</dt>
+							<dd class="text-[15px] text-ink"><a href={PHONES.AU.tel} class="link-ink">{PHONES.AU.display}</a></dd>
+						</div>
+					</dl>
+					<a href="/contact/" class="btn-primary mt-8" data-reveal style="--reveal-delay: 260ms;">Book a Free Consultation</a>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -207,7 +259,7 @@ const faqs = [
 						</div>
 						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 200ms;">
 							<dt class="face-data text-paper-dim">AD SPEND</dt>
-							<dd class="text-[15px] text-paper-lit">Paid directly to Meta, separate from our fee.</dd>
+							<dd class="text-[15px] text-paper-lit">Paid directly to Meta or Google, separate from our fee.</dd>
 						</div>
 						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 280ms;">
 							<dt class="face-data text-paper-dim">SCOPE</dt>

@@ -1,0 +1,275 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
+import { MARKETING_SERVICES } from '../../data/marketing';
+
+const breadcrumbSchema = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://systempros.ai/" },
+		{ "@type": "ListItem", "position": 2, "name": "Marketing", "item": "https://systempros.ai/marketing/" },
+		{ "@type": "ListItem", "position": 3, "name": "Google Ads Agency", "item": "https://systempros.ai/marketing/google-ads/" },
+	],
+};
+
+const faqs = [
+	{
+		question: 'How much does a Google Ads agency cost?',
+		answer: "It varies by agency and scope, so we won't quote a number that doesn't apply to you. We charge a fixed monthly management fee, agreed after a free consultation, set by how many campaigns you're running and how much hands-on optimisation your account needs. Your ad spend is paid directly to Google and is completely separate from our fee — we don't mark it up.",
+	},
+	{
+		question: 'Is $500 a month enough for Google Ads?',
+		answer: "It can be a reasonable place to start testing in a lower-competition market, but it depends heavily on your industry and cost per click. A tighter budget means fewer clicks and a slower read on what's working; a larger one gets you a clearer signal faster. We'll tell you what a realistic test budget looks like for your industry in the free consultation, before you commit anything.",
+	},
+	{
+		question: 'How much should I pay someone to manage my Google Ads?',
+		answer: "Management fees are typically separate from ad spend and scale with the size and complexity of the account — more campaigns, more ad groups and more active optimisation cost more to manage properly. We price a fixed monthly fee after seeing your account or your goals in a free consultation, rather than a flat rate that ignores what the work actually involves.",
+	},
+	{
+		question: 'Can I keep my own Google Ads account?',
+		answer: "Yes. We manage campaigns inside your own Google Ads account rather than requiring you to move into an agency-owned account. You keep ownership and visibility of your campaigns, conversion data and billing throughout.",
+	},
+];
+---
+
+<Layout
+	title="Google Ads Agency | System Pros AI"
+	description="Google Ads agency for local businesses in NZ and Australia: campaigns built, run and optimised in your own account, leads followed up by the Lead Reactor."
+>
+	<ServiceSchema
+		name="Google Ads Agency"
+		description="Google Ads management: campaign build, keyword targeting, ad copy and ongoing optimisation, run as a managed AI-assisted service inside the client's own Google Ads account."
+		serviceType="Google Ads Agency"
+		areaServed={['NZ', 'AU']}
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+	<!-- ============================================ -->
+	<!-- HERO — dossier sheet MKT-05                  -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<nav aria-label="Breadcrumb">
+					<a href="/" class="hover:text-green transition-colors">INDEX</a>
+					<span aria-hidden="true"> / </span>
+					<a href="/marketing/" class="hover:text-green transition-colors">MARKETING</a>
+					<span aria-hidden="true"> / </span>
+					<span class="text-ink" aria-current="page">MKT-05 · GOOGLE ADS</span>
+				</nav>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> CAMPAIGNS LIVE</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
+				<div class="lg:col-span-8">
+					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink" data-reveal>
+						Google Ads management that <span class="text-green">feeds your pipeline</span>.
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[40rem]" data-reveal style="--reveal-delay: 120ms;">
+						We build, run and optimise your Google Ads campaigns — keyword
+						targeting, ad copy, budget and ongoing management, handled through an
+						AI-assisted system inside your own Google Ads account. And because a
+						lead is worth nothing until it's contacted, every lead these campaigns
+						produce can be handed straight to the Lead Reactor for instant
+						follow-up.
+					</p>
+					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact/" class="btn-primary">Book a Free Consultation</a>
+						<a href="#after-the-click" class="btn-secondary">
+							See what happens after the click
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- THE PROBLEM — RUNNING ADS ALONE ISN'T ENOUGH -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-2 gap-14 items-start">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						Most agencies stop at "the campaign is live."
+					</h2>
+					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						A Google Ads specialist who sets a campaign up once and leaves it
+						running isn't the same as a ppc agency actually managing it —
+						keywords pruned, negative keywords added, ad copy tested, budget
+						moved toward what converts. An account nobody's watching quietly
+						burns spend on searches that were never going to buy.
+					</p>
+				</div>
+				<ul>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 160ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT A</span>
+						<div>
+							<h3 class="font-bold text-ink">Set-and-forget campaigns</h3>
+							<p class="text-[14.5px] text-muted mt-1">An account nobody's actively managing keeps bidding on keywords that stopped converting weeks ago.</p>
+						</div>
+					</li>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 240ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT B</span>
+						<div>
+							<h3 class="font-bold text-ink">Broad keywords, wasted spend</h3>
+							<p class="text-[14.5px] text-muted mt-1">Without a disciplined negative-keyword list, budget leaks to searches that were never going to become a customer.</p>
+						</div>
+					</li>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 320ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT C</span>
+						<div>
+							<h3 class="font-bold text-ink">The click works, then the lead goes cold</h3>
+							<p class="text-[14.5px] text-muted mt-1">A well-run campaign that hands off to slow manual follow-up is still leaking revenue — just at a different stage.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- HOW IT RUNS — spec table                     -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					What we do. What you do.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-05 · SCOPE OF WORK</p>
+			</div>
+
+			<div class="border border-line overflow-x-auto" data-reveal>
+				<table class="w-full text-left min-w-[560px]">
+					<thead>
+						<tr class="border-b border-line">
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-44">WORK ITEM</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">RUNS ON THE SYSTEM</th>
+							<th scope="col" class="face-data text-green font-normal py-3.5 px-4 border-l border-line bg-green-faint">YOUR PART</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">CAMPAIGN BUILD</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Keyword research, ad groups, ad copy and conversion tracking set up inside your Google Ads account.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Approve the offer and the budget you're comfortable testing with.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">ONGOING OPTIMISATION</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Search terms reviewed, negative keywords added and bids adjusted against what's converting.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Nothing — this runs in the background.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">AD SPEND</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Billed by Google directly, separate from our management fee.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Set and fund the budget you want to test.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">LEAD FOLLOW-UP</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Handed to the Lead Reactor for instant multi-channel outreach, if you run it.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Decide whether ad leads go to your team or the Lead Reactor.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- AFTER THE CLICK — LEAD REACTOR HANDOFF       -->
+	<!-- ============================================ -->
+	<section id="after-the-click" class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12">
+				<div class="lg:col-span-7">
+					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit" data-reveal>
+						The click is only half the job.
+					</h2>
+					<p class="mt-7 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						A campaign that generates leads is only worth what happens next. If
+						those leads sit in an inbox until someone gets to them, the ad spend
+						that earned them is wasted. This page covers the ads — building,
+						running and optimising the campaigns themselves. What happens the
+						instant someone clicks and fills out a form is a separate, dedicated
+						system: the Lead Reactor, which reaches new leads across voice,
+						iMessage, WhatsApp and SMS within seconds.
+					</p>
+					<a href="/lead-reactor/" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">See the Lead Reactor</a>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="rule-ticked" data-draw-rule></div>
+					<dl>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 120ms;">
+							<dt class="face-data text-paper-dim">THIS PAGE</dt>
+							<dd class="text-[15px] text-paper-lit">Runs and manages the ads themselves</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 200ms;">
+							<dt class="face-data text-paper-dim">LEAD REACTOR</dt>
+							<dd class="text-[15px] text-paper-lit">Follows up every lead the ads produce</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 280ms;">
+							<dt class="face-data text-paper-dim">TOGETHER</dt>
+							<dd class="text-[15px] text-paper-lit">One connected path from click to booked call</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- CROSS-LINKS                                  -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.8rem,3.4vw,2.6rem)] leading-tight text-ink" data-reveal>
+					The rest of the marketing system.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SEE THE OTHER SERVICES</p>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+			{MARKETING_SERVICES.filter((s) => s.href !== '/marketing/google-ads/').map((s, i) => (
+				<a href={s.href} class="spec-row group grid md:grid-cols-[9rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-5 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<span class="face-data text-copper">{s.ref}</span>
+					<h3 class="text-[15px] font-semibold text-ink group-hover:text-green transition-colors">{s.name}</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			))}
+			<a href="/marketing/" class="link-ink font-semibold text-[15px] mt-6 inline-block" data-reveal>← Back to the marketing overview</a>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Google Ads questions, answered." label="MKT-05 · FAQ" />
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>MKT-05 · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[22ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Let's see what a managed account would change.
+			</h2>
+			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				A free consultation takes thirty minutes. We'll look at your ad account
+				or your offer and tell you what a realistic budget and setup looks
+				like.
+			</p>
+			<a href="/contact/" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
+</Layout>

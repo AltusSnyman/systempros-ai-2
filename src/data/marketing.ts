@@ -8,6 +8,8 @@ export interface MarketingService {
 	href: string;
 	tag: string;
 	blurb: string;
+	/** 'ads' groups under the "Paid ads" heading on the hub; 'core' is everything else. */
+	group?: 'core' | 'ads';
 }
 
 export const MARKETING_HUB_HREF = '/marketing/';
@@ -19,6 +21,7 @@ export const MARKETING_SERVICES: MarketingService[] = [
 		href: '/marketing/google-business-profile/',
 		tag: 'GBP MANAGEMENT',
 		blurb: 'Your profile built out, corrected and kept current, with a posting schedule that runs on its own.',
+		group: 'core',
 	},
 	{
 		ref: 'MKT-02',
@@ -26,6 +29,7 @@ export const MARKETING_SERVICES: MarketingService[] = [
 		href: '/marketing/reviews-reputation/',
 		tag: 'REVIEWS',
 		blurb: 'Customers asked for a review after the job, automatically, and every review answered.',
+		group: 'core',
 	},
 	{
 		ref: 'MKT-03',
@@ -33,6 +37,7 @@ export const MARKETING_SERVICES: MarketingService[] = [
 		href: '/marketing/social-media-management/',
 		tag: 'SOCIAL',
 		blurb: 'Google and Meta posted to on a schedule, without you opening a content calendar.',
+		group: 'core',
 	},
 	{
 		ref: 'MKT-04',
@@ -40,6 +45,15 @@ export const MARKETING_SERVICES: MarketingService[] = [
 		href: '/marketing/facebook-instagram-ads/',
 		tag: 'META ADS',
 		blurb: 'Meta ads built, run and optimised, handed straight to the Lead Reactor for follow-up.',
+		group: 'ads',
+	},
+	{
+		ref: 'MKT-05',
+		name: 'Google Ads Agency',
+		href: '/marketing/google-ads/',
+		tag: 'GOOGLE ADS',
+		blurb: 'Google Ads campaigns built, run and optimised in your own account, handed straight to the Lead Reactor for follow-up.',
+		group: 'ads',
 	},
 ];
 

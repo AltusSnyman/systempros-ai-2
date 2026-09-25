@@ -22,6 +22,8 @@ export const BRAND = {
 	googleReviewCount: 17,
 	/** Knowledge-graph URL for the Google listing (used in schema sameAs). */
 	googleKgUrl: 'https://www.google.com/search?kgmid=/g/11l30pgtcl',
+	/** Google Maps listing URL, cid 6678588339145064926 ("Ai and Automation Agency") — used in schema sameAs. */
+	googleMapsUrl: 'https://www.google.com/maps?cid=6678588339145064926',
 	bookingUrl: `${SITE_URL}/contact/`,
 } as const;
 
