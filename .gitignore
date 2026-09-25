@@ -26,3 +26,15 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# growth kit (project-local tooling; keep reports, never credentials)
+.env
+.env.*
+tools/mcp-gsc/.venv/
+tools/mcp-gsc/credentials/
+tools/mcp-gsc/__pycache__/
+tools/geo-optimizer/.venv/
+tools/claude-seo/.venv/
+tools/claude-seo/data/
+tools/dataforseo/outputs/
+.claude/skills/seo/scripts/__pycache__/

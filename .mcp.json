@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "gsc": {
+      "command": "/Volumes/KINGSTON/projects/systemprosai-upgrade/tools/mcp-gsc/.venv/bin/python",
+      "args": ["/Volumes/KINGSTON/projects/systemprosai-upgrade/tools/mcp-gsc/gsc_server.py"],
+      "env": {
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "/Volumes/KINGSTON/projects/systemprosai-upgrade/tools/mcp-gsc/credentials/client_secrets.json",
+        "GSC_CONFIG_DIR": "/Volumes/KINGSTON/projects/systemprosai-upgrade/tools/mcp-gsc/credentials",
+        "GSC_DATA_STATE": "all"
+      }
+    },
+    "geo-optimizer": {
+      "command": "/Volumes/KINGSTON/projects/systemprosai-upgrade/tools/geo-optimizer/.venv/bin/geo-mcp",
+      "env": { "PYTHONUNBUFFERED": "1" }
+    }
+  }
+}
