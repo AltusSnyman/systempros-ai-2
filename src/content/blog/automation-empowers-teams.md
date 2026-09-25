@@ -1,6 +1,7 @@
 ---
 title: "Automation vs. Replacement: Why AI is Your Team's New Superpower"
-description: "The fear of AI replacing jobs is real, but the reality is different. Discover how automation removes drudgery and empowers your team to do their best work."
+seoTitle: "AI: Empowers Teams vs. Replaces Jobs"
+description: "AI automation removes drudgery from jobs, empowering teams to focus on high-impact work. Learn how AI boosts staff retention and organizational creativity."
 pubDate: "2024-06-05"
 heroImage: "../../assets/automation_empowerment_hero.png"
 author: "System Pros AI Team"
@@ -62,9 +63,9 @@ Staff retention goes up because people are doing the work they were hired to doâ
 
 The best businesses don't use AI to cut costs. They use it to multiply value. They take their existing team and give them superpowers.
 
-<div class="bg-blue-900/20 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
-  <h3 class="text-xl font-bold text-white mb-2">Give your team superpowers.</h3>
-  <p class="text-gray-300">
-    Discover which tasks are slowing your team down. <a href="/consulting/australia" class="text-blue-400 hover:text-blue-300 font-bold underline">Book a workflow audit</a> with System Pros AI today.
+<div class="border-l-2 border-green bg-green-faint p-6 my-8">
+  <h3 class="text-xl font-bold text-ink mb-2">Give your team superpowers.</h3>
+  <p class="text-ink">
+    Discover which tasks are slowing your team down. <a href="/contact" class="text-green hover:text-copper font-bold underline underline-offset-[3px]">Book a Free Consultation</a> with System Pros AI today.
   </p>
 </div>

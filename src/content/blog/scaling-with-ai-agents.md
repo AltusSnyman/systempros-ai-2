@@ -1,6 +1,6 @@
 ---
 title: "The 24/7 Advantage: Scaling Your Business with AI Agents"
-description: "How local businesses are using AI agents to operate 24/7, capture missed leads, and scale without increasing headcount."
+description: "Scale revenue without headcount. AI Agents operate 24/7, capture missed leads, handle thousands of calls—while payroll and headcount stay fixed."
 pubDate: "2024-05-29"
 heroImage: "../../assets/scaling_ai_agents_hero.png"
 author: "System Pros AI Team"
@@ -82,9 +82,9 @@ Ready to scale your business without scaling your stress?
 
 If you're turning away work because you can't handle the admin, or if you're burning out trying to answer the phone while doing the actual work, it's time to look at AI.
 
-<div class="bg-orange-900/20 border-l-4 border-orange-500 p-6 my-8 rounded-r-lg">
-  <h3 class="text-xl font-bold text-white mb-2">Stop missing opportunities.</h3>
-  <p class="text-gray-300">
-    See how much revenue you're leaving on the table. <a href="/consulting/new-zealand" class="text-orange-400 hover:text-orange-300 font-bold underline">Talk to an expert</a> about deploying your own 24/7 AI agent.
+<div class="border-l-2 border-green bg-green-faint p-6 my-8">
+  <h3 class="text-xl font-bold text-ink mb-2">Stop missing opportunities.</h3>
+  <p class="text-ink">
+    See how much revenue you're leaving on the table. <a href="/contact" class="text-green hover:text-copper font-bold underline underline-offset-[3px]">Book a Free Consultation</a> about deploying your own 24/7 AI agent.
   </p>
 </div>

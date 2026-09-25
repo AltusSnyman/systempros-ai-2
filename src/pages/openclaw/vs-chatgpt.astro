@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import MediaFrame from '../../components/MediaFrame.astro';
 import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
-import FAQSchema from '../../components/seo/FAQSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
 import ProductVideoPlayer from '../../components/ProductVideoPlayer';
 
 const faqs = [
@@ -54,10 +54,9 @@ const chooseOpenClaw = [
 ---
 
 <Layout
-	title="OpenClaw vs ChatGPT: Why Privacy-First Businesses Are Switching | System Pros AI"
-	description="A detailed comparison of OpenClaw vs ChatGPT covering privacy, platforms, memory, cost, and extensibility. Find out which AI is right for your business."
+	title="OpenClaw vs ChatGPT for Business | System Pros AI"
+	description="OpenClaw vs ChatGPT for business: compare privacy, platforms, memory, cost and extensibility to see which private AI assistant fits your company."
 >
-	<FAQSchema faqs={faqs} />
 	<Breadcrumbs currentTitle="vs ChatGPT" parent={{ name: 'OpenClaw', url: '/openclaw' }} />
 
 	<!-- ============================================ -->
@@ -236,25 +235,7 @@ const chooseOpenClaw = [
 	<!-- ============================================ -->
 	<!-- 5. FAQ                                       -->
 	<!-- ============================================ -->
-	<section class="py-(--spacing-section-sm) bg-green-faint border-t border-line">
-		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="max-w-[52rem]">
-				<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink mb-10" data-reveal>
-					Frequently asked questions.
-				</h2>
-				<div class="rule-ticked" data-draw-rule></div>
-				{faqs.map((faq, i) => (
-					<details class="spec-row group px-2" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
-						<summary class="flex items-center justify-between gap-6 py-5 cursor-pointer list-none font-bold text-ink text-[16px] hover:text-green transition-colors">
-							{faq.question}
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="shrink-0 text-muted group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
-						</summary>
-						<p class="text-[15px] text-muted leading-relaxed pb-6 max-w-[60ch]">{faq.answer}</p>
-					</details>
-				))}
-			</div>
-		</div>
-	</section>
+	<FAQ faqs={faqs} heading="Frequently asked questions." label="OC-03 / FAQ" />
 
 	<!-- ============================================ -->
 	<!-- 6. FINAL CTA                                 -->

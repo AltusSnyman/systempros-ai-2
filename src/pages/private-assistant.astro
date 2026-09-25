@@ -3,6 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import MediaFrame from '../components/MediaFrame.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import FAQ from '../components/seo/FAQ.astro';
+
+const faqs = [
+	{
+		question: 'How much does a private AI assistant cost?',
+		answer: "There's no fixed number — the OpenClaw software is free and open source, so your ongoing cost is the AI model API usage plus hosting or hardware. A done-for-you deployment from System Pros AI is a fixed price agreed after a free consultation, based on the channels, skills, integrations and hosting your setup needs.",
+	},
+	{
+		question: 'What is a private AI assistant?',
+		answer: "A private AI assistant is an OpenClaw deployment that runs on infrastructure you control rather than a shared cloud service. It has persistent memory, a custom personality, and access to the messaging apps and tools you already use — so it behaves like a dedicated assistant rather than a browser tab you have to open.",
+	},
+	{
+		question: 'Where does my data go?',
+		answer: "It stays on the hardware you or we provision — your Mac, a Linux server, or a cloud VM you control. Conversation history and memory are not sent to a third party for storage or training. The LLM you connect processes each query via an API call, which is the only point your data leaves your environment.",
+	},
+	{
+		question: 'Which messaging apps does it work on?',
+		answer: "We deploy on WhatsApp, iMessage, Slack and Discord, connecting your assistant to the platforms your team already uses day to day.",
+	},
+	{
+		question: 'Can you set up OpenClaw for me?',
+		answer: "Yes — that's the Private Assistant service. We provision or configure your server, connect the messaging bridges, write your SOUL.md personality file, hand-pick and install the right skills, and hand it over working. No terminal access required on your side.",
+	},
+];
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -93,8 +117,8 @@ const deployment = [
 ---
 
 <Layout
-	title="The Private Assistant | Done-For-You OpenClaw AI Setup | System Pros AI"
-	description="Stop jumping between apps. We deploy your private OpenClaw AI assistant across 20+ platforms — WhatsApp, iMessage, Slack, Discord. 3,000+ skills, custom SOUL.md, your data stays yours."
+	title="Private AI Assistant: Done-For-You OpenClaw | System Pros AI"
+	description="A private AI assistant, done for you: System Pros AI deploys OpenClaw across WhatsApp, iMessage and Slack with a custom personality, skills and support."
 >
 	<ServiceSchema
 		name="The Private Assistant"
@@ -308,6 +332,9 @@ const deployment = [
 						the right skills, and the right connections — is where most people fail.
 						That's what we do.
 					</p>
+					<p class="mt-3 text-[14px] text-muted" data-reveal style="--reveal-delay: 120ms;">
+						Want to see what's involved first? Read the <a href="/openclaw/setup-guide/" class="link-ink">OpenClaw setup guide</a>.
+					</p>
 				</div>
 				<p class="face-data text-muted pb-2" data-reveal>INSTALLATION SEQUENCE · 6 STEPS</p>
 			</div>
@@ -326,6 +353,11 @@ const deployment = [
 			</div>
 		</div>
 	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Private assistant questions, answered." label="SP-04 / FAQ" />
 
 	<!-- ============================================ -->
 	<!-- DRENCH — the "only one" close                -->

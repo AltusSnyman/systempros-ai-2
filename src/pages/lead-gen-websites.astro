@@ -4,6 +4,26 @@ import MediaFrame from '../components/MediaFrame.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import ProcessTimeline from '../components/ProcessTimeline';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import FAQ from '../components/seo/FAQ.astro';
+
+const faqs = [
+	{
+		question: 'What is a lead generation website?',
+		answer: "A lead generation website is built to capture and qualify every visitor, not just describe your business. It combines smart forms, an instant booking calendar, chat or voice widgets, and CRM automation so a visitor becomes a logged, followed-up lead automatically.",
+	},
+	{
+		question: 'How much does a lead generation website cost?',
+		answer: "It's a fixed price agreed after a free consultation, not a flat rate — what drives it is the state of your existing site, which forms and calendar you need, whether you want chat or voice widgets, and how much CRM automation is involved.",
+	},
+	{
+		question: 'Do I need a new website?',
+		answer: "No. We re-engineer the website you already have — adding the forms, calendar, widgets and automation it's missing — rather than starting over from scratch.",
+	},
+	{
+		question: 'How long does it take?',
+		answer: "There's no fixed timeframe we quote up front. The timeline is set out in the written scope you get after a free consultation, once we know what's involved for your specific site.",
+	},
+];
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -68,8 +88,8 @@ const comparison = [
 ---
 
 <Layout
-	title="Lead Gen Websites | Turn Your Website Into a Booking Machine | System Pros AI"
-	description="We rip out the friction and replace it with a lead generation machine that qualifies, follows up, and books appointments while you sleep. Smart forms, calendars, voice AI widgets, full CRM automation."
+	title="Lead Generation Websites That Book Jobs | System Pros AI"
+	description="Lead generation websites that book jobs: smart qualifying forms, instant booking calendars, voice AI widgets and CRM automation working while you sleep."
 >
 	<ServiceSchema
 		name="Lead Gen Websites"
@@ -97,7 +117,7 @@ const comparison = [
 			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
 				<div class="lg:col-span-7">
 					<h1 class="face-display font-extrabold text-[clamp(2.4rem,5.5vw,4.6rem)] leading-[1.04] text-ink" data-reveal>
-						Your website should <span class="text-green">book meetings</span>, not just look pretty.
+						A lead generation website should <span class="text-green">book meetings</span>, not just look pretty.
 					</h1>
 					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
 						Most "professional" websites are $50,000 digital brochures. They look great,
@@ -301,6 +321,11 @@ const comparison = [
 			</div>
 		</div>
 	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Lead generation website questions, answered." label="SP-02 / FAQ" />
 
 	<!-- ============================================ -->
 	<!-- FINAL CTA                                    -->

@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import MediaFrame from '../components/MediaFrame.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
-import FAQSchema from '../components/seo/FAQSchema.astro';
+import FAQ from '../components/seo/FAQ.astro';
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -58,21 +58,23 @@ const audiences = [
 const faqs = [
 	{ question: 'How are training sessions delivered?', answer: '1-on-1 via video call (Zoom or Google Meet). We share screens, build together in real-time, and record the session for you to review later.' },
 	{ question: 'Do I need technical experience?', answer: "No. We tailor each session to your level. Whether you're a complete beginner or an experienced developer, we meet you where you are." },
-	{ question: 'Can I book training for my team?', answer: 'Yes. We offer team training sessions and can create custom curricula for your organization. Contact us for team pricing.' },
+	{ question: 'Can I book training for my team?', answer: 'Yes. We build custom curricula for teams and can train several people in the same session. Tell us your group size and what you want covered in a free consultation.' },
 	{ question: 'How long is each session?', answer: 'Standard sessions are 60-90 minutes. We focus on hands-on application, not lectures. You build real things in every session.' },
+	{ question: 'How much does Claude Code training cost?', answer: "Priced per engagement after a free consultation. What it costs depends on the number of sessions, how many people you're training, which tools we cover, and whether you want us to build alongside you. There's no fixed rate to quote here — book a free consultation and we'll scope it." },
+	{ question: 'How much does AI training cost?', answer: "Same answer as Claude Code: priced per engagement after a free consultation, based on session count, group size, the tools covered, and whether builds are included. We agree the scope and price before anything starts." },
+	{ question: 'Do you offer n8n training?', answer: 'Yes. N8N is one of the nine subjects covered in 1-on-1 training, and we also run a dedicated n8n training and automation builds programme with its own curriculum and a done-for-you build option — see the n8n training page for what it covers.' },
 ];
 ---
 
 <Layout
-	title="1-on-1 AI Training | Claude Code, GoHighLevel, N8N, Voice AI & More | System Pros AI"
-	description="Hands-on 1-on-1 training on AI agents, Claude Code, GoHighLevel, N8N, Make.com, Voice AI, and OpenClaw. No theory — pure application from people who build with these tools every day."
+	title="Claude Code Training & 1-on-1 AI Training | System Pros AI"
+	description="1-on-1 Claude Code, n8n, GoHighLevel, Make.com, voice AI and OpenClaw training built around your own tools. Sessions recorded, run for you or your team."
 >
 	<ServiceSchema
-		name="AI Training"
+		name="Claude Code and AI Training"
 		description="1-on-1 hands-on training sessions covering AI fundamentals, AI agents, Claude Code, GoHighLevel, N8N, Make.com, Voice AI, and OpenClaw."
 		serviceType="EducationalService"
 	/>
-	<FAQSchema faqs={faqs} />
 	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
 	<!-- ============================================ -->
@@ -217,6 +219,9 @@ const faqs = [
 				</table>
 			</div>
 			<p class="face-data text-muted mt-3">FORMAT — 1-ON-1 VIA VIDEO CALL · 60–90 MIN · RECORDED FOR YOUR TEAM</p>
+			<p class="mt-4">
+				<a href="/training/n8n/" class="link-ink font-semibold">n8n training and automation builds →</a>
+			</p>
 		</div>
 	</section>
 
@@ -269,26 +274,9 @@ const faqs = [
 	<!-- ============================================ -->
 	<!-- FAQ                                          -->
 	<!-- ============================================ -->
-	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
-		<div class="max-w-[880px] mx-auto px-5">
-			<div class="text-center mb-10">
-				<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink" data-reveal>
-					Frequently asked questions.
-				</h2>
-			</div>
-
-			<div class="rule-ticked" data-draw-rule></div>
-			{faqs.map((faq) => (
-				<details class="spec-row group px-2 bg-paper">
-					<summary class="flex items-center justify-between gap-6 py-5 px-2 cursor-pointer list-none font-bold text-ink [&::-webkit-details-marker]:hidden">
-						{faq.question}
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="shrink-0 text-green group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
-					</summary>
-					<p class="text-muted leading-relaxed px-2 pb-6 max-w-[44rem]">{faq.answer}</p>
-				</details>
-			))}
-		</div>
-	</section>
+	<div class="bg-green-faint border-y border-line">
+		<FAQ faqs={faqs} heading="Frequently asked questions." label="SP-06 · FAQ" />
+	</div>
 
 	<!-- ============================================ -->
 	<!-- DRENCH — practitioners, not theorists        -->

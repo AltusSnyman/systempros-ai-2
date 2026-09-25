@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import MediaFrame from '../components/MediaFrame.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import FAQ from '../components/seo/FAQ.astro';
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -49,6 +50,41 @@ const agents = [
 	},
 ];
 
+const faqs = [
+	{
+		question: 'How much does an AI receptionist cost?',
+		answer: "There's a fixed price, agreed after a free consultation — we don't publish a blanket rate because it depends on real variables: how many calls you get, how many agents you need (receptionist, speed-to-lead, reactivation), which CRM or calendar we integrate with, which phone numbers and carrier you're on, and how much ongoing call volume you run. Book a free consultation and we'll scope it properly.",
+	},
+	{
+		question: 'What does an AI receptionist do?',
+		answer: "It answers every inbound call, day or night, sounds like a real person, qualifies who's calling, answers routine questions, and books the appointment straight into your calendar or CRM. It hands off to a person whenever a call needs one.",
+	},
+	{
+		question: 'Can an AI receptionist replace my receptionist?',
+		answer: "Not entirely, and we won't pretend otherwise. It's built to cover after-hours calls, overflow when your lines are busy, and the routine bookings and questions that eat up a receptionist's day, then hand off to a person for anything that needs a human touch. Most businesses we work with keep staff for in-person work and complex conversations; the AI receptionist takes the calls that would otherwise go to voicemail.",
+	},
+	{
+		question: 'What is an AI voice agent?',
+		answer: 'An AI voice agent is software that holds a real phone conversation. It listens, understands what the caller wants, responds naturally, and takes action such as booking a job, answering a question, or transferring the call, without a human on the line. The Revenue Triad uses three of them, each doing a different job: answering inbound calls, calling new leads back fast, and working a dormant contact list.',
+	},
+	{
+		question: 'How much do AI voice agents cost?',
+		answer: "Same answer as the receptionist question: fixed price, fixed scope, agreed after a free consultation. Cost is driven by call volume, the number of agents you deploy, which systems we integrate with, and your carrier and phone number setup, not a flat per-seat fee.",
+	},
+	{
+		question: "Will callers know they're talking to AI?",
+		answer: "We won't claim callers can never tell. Some can, some can't, and that gap keeps closing. Where disclosure is required by law or by your industry, we build it in. If being upfront about AI on the line matters to your brand or your regulator, tell us during the consultation and we configure it that way.",
+	},
+	{
+		question: 'Which CRMs and calendars does it work with?',
+		answer: 'GoHighLevel, HubSpot, Salesforce, ServiceTitan, Jobber, and most major CRMs and calendar platforms. On the carrier side we build on Telnyx, Twilio, or Vonage. If your stack is not on that list, ask; we integrate with anything that has an API.',
+	},
+	{
+		question: 'Do you set it up in Australia and New Zealand?',
+		answer: "Yes. We operate across New Zealand, Australia, and the US, and voice AI setup is localised per country. If you're in Australia, see our AI Receptionist Australia page for city-specific detail on Sydney, Melbourne, and Brisbane.",
+	},
+];
+
 const infrastructure = [
 	{ label: 'NETWORK', value: 'Low-latency global voice network — seamless whether your agents answer in New York, chase leads in London, or reactivate databases in Sydney.' },
 	{ label: 'SOVEREIGNTY', value: 'Strict data-sovereignty adherence, with dedicated environments for high-volume clients instead of public, shared infrastructure.' },
@@ -58,12 +94,12 @@ const infrastructure = [
 ---
 
 <Layout
-	title="The Revenue Triad Architecture | Voice AI Agents | System Pros AI"
-	description="Stop hiring receptionists. Deploy the 3-agent voice AI architecture: The Gatekeeper (24/7 receptionist), The Hunter (speed-to-lead), and The Miner (database reactivation). Complete revenue automation."
+	title="AI Receptionist & Voice AI Agents | System Pros AI"
+	description="AI receptionist that answers calls 24/7, books into your calendar, calls new leads in seconds, and reactivates dormant contacts."
 >
 	<ServiceSchema
-		name="The Revenue Triad"
-		description="3-Agent Voice AI Architecture: The Gatekeeper (24/7 receptionist), The Hunter (speed-to-lead), and The Miner (database reactivation). Complete revenue automation."
+		name="AI Receptionist and Voice AI Agents (The Revenue Triad)"
+		description="Three AI voice agents working together: a 24/7 AI receptionist that answers and books calls, a speed-to-lead agent that calls new leads within seconds, and a reactivation agent that works a business's dormant contact list."
 		serviceType="VoiceAI"
 	/>
 	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -90,9 +126,10 @@ const infrastructure = [
 						Stop hiring receptionists. Install a <span class="text-green">revenue ecosystem</span>.
 					</h1>
 					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[34rem]" data-reveal style="--reveal-delay: 120ms;">
-						The Revenue Triad is a 3-agent voice AI architecture. It doesn't just answer
-						your phones — it chases web leads the moment they arrive and resurrects
-						dormant clients automatically. One platform, engineered end to end.
+						The Revenue Triad is a 3-agent voice AI architecture built around an
+						AI receptionist that answers your phones 24/7. It doesn't stop there —
+						it chases web leads the moment they arrive and resurrects dormant
+						clients automatically. One platform, engineered end to end.
 					</p>
 					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
 						<a href="/contact" class="btn-primary">Book a Free Consultation</a>
@@ -329,6 +366,28 @@ const infrastructure = [
 			</div>
 		</div>
 	</section>
+
+	<!-- ============================================ -->
+	<!-- SERVING AUSTRALIA                            -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="spec-row flex flex-wrap items-center justify-between gap-4 py-6 px-2" data-reveal>
+				<p class="text-[15px] text-ink">
+					Deploying in Australia? We localise voice AI setup by country.
+				</p>
+				<div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+					<a href="/voice-ai/australia/" class="link-ink font-semibold text-[15px]">AI receptionist for Australian businesses →</a>
+					<a href="/pricing/" class="link-ink text-[15px]">See pricing</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Questions on the AI receptionist." label="SP-01 · FIELD MANUAL" />
 
 	<!-- ============================================ -->
 	<!-- FINAL CTA                                    -->

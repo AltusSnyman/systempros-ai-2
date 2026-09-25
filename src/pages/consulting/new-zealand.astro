@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ServiceSchema from '../../components/seo/ServiceSchema.astro';
-import FAQSchema from '../../components/seo/FAQSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
 
-const pageTitle = "AI Consulting New Zealand | Artificial Intelligence Strategy | System Pros AI";
-const pageDescription = "Premier AI consulting for New Zealand businesses. We automate workflows, reduce overheads, and implement secure AI agents for Kiwi enterprises. Book a strategy session.";
+const pageTitle = "AI Agency NZ & AI Consultant Auckland | System Pros AI";
+const pageDescription = "AI agency and AI consultant for New Zealand businesses, based in Auckland and serving clients nationwide — audit, roadmap, then the build.";
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -23,11 +23,11 @@ const faqs = [
 	},
 	{
 		question: "Is AI expensive to implement for a small Kiwi business?",
-		answer: "Contrary to popular belief, AI is a deflationary technology. While there is an upfront investment for strategy and setup, the ongoing operational costs are a fraction of human labor. For example, a System Pros AI Voice AI agent costs roughly $0.20 per hour of conversation, compared to the NZ Minimum Wage of over $23/hour. Our consulting services are tiered, making enterprise-grade automation accessible to SMEs in Auckland, Wellington, and Christchurch."
+		answer: "AI is priced differently to labor — usage-based rather than an hourly wage, so the ongoing cost scales with how much it's actually used rather than a fixed shift. There's an upfront investment for strategy and setup; we agree a fixed quote scoped to your business during the free consultation. Our consulting engagements are tiered, so automation is accessible to SMEs in Auckland, Wellington and Christchurch, not just large enterprises."
 	},
 	{
 		question: "Will AI replace my current employees?",
-		answer: "AI replaces tasks, not necessarily people. Our goal is to remove the 'robotic' work from your human staff. Data entry, appointment reminders, invoice chasing, and basic triage should be automated. This allows your Kiwi team to focus on high-value interactions, complex problem solving, and relationship building—work that actually drives revenue. Most of our clients find their staff are happier when relieved of the drudgery of repetitive admin."
+		answer: "AI replaces tasks, not necessarily people. Our goal is to remove the repetitive work from your human staff. Data entry, appointment reminders, invoice chasing, and basic triage should be automated. This allows your team to focus on high-value interactions, complex problem solving, and relationship building — work that actually drives revenue. Businesses that make this shift often find their staff more engaged without the drudgery of repetitive admin."
 	},
 	{
 		question: "How secure is my business data with AI?",
@@ -35,7 +35,7 @@ const faqs = [
 	},
 	{
 		question: "Do you serve businesses outside of Auckland?",
-		answer: "Absolutely. System Pros AI operates fully remotely across New Zealand. We have active implementations in Wellington, Christchurch, Hamilton, Tauranga, and Dunedin. AI infrastructure is cloud-based, meaning we can deploy and update your digital workforce instantly, regardless of your physical headquarters. Our consultation process is conducted via video conference, and we offer on-site workshops for larger enterprise integrations."
+		answer: "Yes. System Pros AI operates fully remotely across New Zealand — we work with businesses across Wellington, Christchurch, Hamilton, Tauranga and Dunedin, not just Auckland. AI infrastructure is cloud-based, so updates apply regardless of your physical headquarters. Our consultation process runs via video conference, with on-site workshops available for larger enterprise integrations."
 	},
 	{
 		question: "What industries do you specialize in?",
@@ -43,11 +43,11 @@ const faqs = [
 	},
 	{
 		question: "How long does an AI implementation take?",
-		answer: "A standard deployment usually takes 2-4 weeks. Week 1 is the 'Forensic Audit' where we map your processes. Week 2 is 'Build & Train' where we configure the agents. Week 3 is 'Testing & Refinement', and Week 4 is 'Go Live'. Complex enterprise integrations with legacy CRM systems may take longer, but our rapid deployment protocols are designed to get you ROI within the first month."
+		answer: "The process runs in phases: a forensic audit to map your processes, then build and train, then testing and refinement, then go live. Complex integrations with legacy CRM systems take longer than a simple voice agent. We scope the actual timeline during the audit rather than promising a fixed number upfront."
 	},
 	{
 		question: "Does the AI sound robotic?",
-		answer: "No. We use the latest conversational voice models that are indistinguishable from humans in standard contexts. Our 'Kiwi' models understand local slang, intonation, and geography. They pause, say 'um', and can handle interruptions naturally. Your customers often won't realize they are speaking to a machine until the booking confirmation arrives instantly in their inbox."
+		answer: "No — we use conversational voice models built for natural conversation, and during setup we configure local place names, phrasing and common questions so your callers aren't stuck repeating themselves."
 	},
 	{
 		question: "Can the AI integrate with Xero?",
@@ -55,7 +55,7 @@ const faqs = [
 	},
 	{
 		question: "What is the ROI on AI Consulting?",
-		answer: "Our clients typically see a 30-50% reduction in operational overheads within 6 months. By automating the 'first mile' of customer interaction (answering calls, qualifying leads), you stop missing opportunities. If your AI agent captures just one high-value lead that would have otherwise gone to voicemail, the system often pays for itself for the entire year."
+		answer: "It depends on your call volume, lead value, and how much you're currently losing to missed calls or slow follow-up. We measure it against your own numbers, established during the audit, rather than a generic industry percentage. If your AI agent captures leads that would otherwise go to voicemail, that's where the return shows up first."
 	}
 ];
 
@@ -145,7 +145,6 @@ const regions = [
 		areaServed={["New Zealand", "Auckland", "Wellington", "Christchurch", "Hamilton", "Tauranga", "Dunedin"]}
 		serviceType="AI Consulting Service"
 	/>
-	<FAQSchema faqs={faqs} />
 	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
 	<!-- ============================================ -->
@@ -192,20 +191,20 @@ const regions = [
 						<div class="mt-6 space-y-6">
 							<div>
 								<div class="flex justify-between gap-2 mb-2">
-									<span class="face-data text-muted">NZ MINIMUM WAGE</span>
-									<span class="face-data text-ink">$23+/HR</span>
+									<span class="face-data text-muted">HOURLY WAGE</span>
+									<span class="face-data text-ink">FIXED, PER SHIFT</span>
 								</div>
 								<div class="h-5 bg-line w-full" data-draw-rule></div>
 							</div>
 							<div>
 								<div class="flex justify-between gap-2 mb-2">
 									<span class="face-data text-green">SYSTEM PROS AI VOICE AI AGENT</span>
-									<span class="face-data text-copper font-bold">≈ $0.20/HR</span>
+									<span class="face-data text-copper font-bold">USAGE-BASED</span>
 								</div>
-								<div class="h-5 bg-green w-[3%] min-w-[14px]" data-draw-rule style="--reveal-delay: 200ms;"></div>
+								<div class="h-5 bg-green w-1/4 min-w-[14px]" data-draw-rule style="--reveal-delay: 200ms;"></div>
 							</div>
 						</div>
-						<p class="face-data text-muted mt-6">DEFLATIONARY TECHNOLOGY — SAME CONVERSATION, 1% OF THE COST.</p>
+						<p class="face-data text-muted mt-6">SAME CONVERSATION, PRICED DIFFERENTLY — NOT BY THE HOUR.</p>
 					</div>
 				</div>
 			</div>
@@ -345,30 +344,11 @@ const regions = [
 		</div>
 	</section>
 
-	<!-- ============================================ -->
-	<!-- FAQ                                          -->
-	<!-- ============================================ -->
-	<section class="py-(--spacing-section)">
-		<div class="max-w-[880px] mx-auto px-5">
-			<div class="text-center mb-10">
-				<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink" data-reveal>
-					Frequently asked questions.
-				</h2>
-				<p class="face-data text-muted mt-3" data-reveal>FIELD MANUAL · NZ EDITION</p>
-			</div>
-
-			<div class="rule-ticked" data-draw-rule></div>
-			{faqs.map((faq) => (
-				<details class="spec-row group px-2">
-					<summary class="flex items-center justify-between gap-6 py-5 cursor-pointer list-none font-bold text-ink [&::-webkit-details-marker]:hidden">
-						{faq.question}
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="shrink-0 text-green group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
-					</summary>
-					<p class="text-muted leading-relaxed pb-6 max-w-[44rem]">{faq.answer}</p>
-				</details>
-			))}
-		</div>
-	</section>
+	<FAQ
+		faqs={faqs}
+		heading="Frequently asked questions."
+		label="FIELD MANUAL · NZ EDITION"
+	/>
 
 	<!-- ============================================ -->
 	<!-- FINAL CTA                                    -->
@@ -382,6 +362,12 @@ const regions = [
 			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
 				Join the forward-thinking Kiwi businesses already using System Pros AI
 				to outperform the market.
+			</p>
+			<p class="text-muted text-[15px] mt-4 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 200ms;">
+				Operating out of Australia too? See
+				<a href="/consulting/australia/" class="link-ink">AI consulting for Australian business</a>, or
+				explore <a href="/voice-ai/" class="link-ink">our AI receptionist</a> if phone coverage is the
+				immediate gap.
 			</p>
 			<a href="/contact" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
 				Book a Free Consultation

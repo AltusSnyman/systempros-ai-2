@@ -2,13 +2,13 @@
 import Layout from '../../layouts/Layout.astro';
 import MediaFrame from '../../components/MediaFrame.astro';
 import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
-import FAQSchema from '../../components/seo/FAQSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
 import ProductVideoPlayer from '../../components/ProductVideoPlayer';
 
 const faqs = [
 	{
 		question: 'How long does it take to install OpenClaw yourself?',
-		answer: "For a technically experienced developer, a basic install takes 2–4 hours. A full setup with WhatsApp bridge, iMessage bridge, skill installation, and SOUL.md configuration takes 8–16 hours over several days, accounting for debugging.",
+		answer: "It depends on your experience. A technically experienced developer can get a basic install running in a matter of hours. A full setup — WhatsApp bridge, iMessage bridge, skill installation and SOUL.md configuration — takes considerably longer once debugging is accounted for.",
 	},
 	{
 		question: 'What are the most common OpenClaw setup errors?',
@@ -77,10 +77,9 @@ const handoverRows = [
 ---
 
 <Layout
-	title="How to Set Up OpenClaw (And Why Most People Fail) | System Pros AI"
-	description="The honest guide to installing OpenClaw yourself — covering every error, bridge configuration issue, and SOUL.md problem you'll encounter. Plus the done-for-you alternative."
+	title="OpenClaw Setup & Install Guide | System Pros AI"
+	description="OpenClaw setup and install guide: every prerequisite, bridge and SOUL.md step for a DIY build, plus the done-for-you alternative from System Pros AI."
 >
-	<FAQSchema faqs={faqs} />
 	<Breadcrumbs currentTitle="Setup Guide" parent={{ name: 'OpenClaw', url: '/openclaw' }} />
 
 	<!-- ============================================ -->
@@ -97,7 +96,7 @@ const handoverRows = [
 			<div class="grid lg:grid-cols-12 gap-10 items-center py-12 lg:py-16">
 				<div class="lg:col-span-7">
 					<h1 class="face-display font-extrabold text-[clamp(2.4rem,5.5vw,4.6rem)] leading-[1.04] text-ink" data-reveal>
-						How to set up OpenClaw <span class="text-green">— and why most people fail.</span>
+						OpenClaw setup: the install guide <span class="text-green">— and why most people fail.</span>
 					</h1>
 					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
 						OpenClaw is the world's most powerful open-source AI assistant. It's also technically
@@ -244,25 +243,7 @@ const handoverRows = [
 	<!-- ============================================ -->
 	<!-- 4. FAQ                                       -->
 	<!-- ============================================ -->
-	<section class="py-(--spacing-section-sm)">
-		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="max-w-[52rem]">
-				<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink mb-10" data-reveal>
-					Setup questions, answered.
-				</h2>
-				<div class="rule-ticked" data-draw-rule></div>
-				{faqs.map((faq, i) => (
-					<details class="spec-row group px-2" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
-						<summary class="flex items-center justify-between gap-6 py-5 cursor-pointer list-none font-bold text-ink text-[16px] hover:text-green transition-colors">
-							{faq.question}
-							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="shrink-0 text-muted group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
-						</summary>
-						<p class="text-[15px] text-muted leading-relaxed pb-6 max-w-[60ch]">{faq.answer}</p>
-					</details>
-				))}
-			</div>
-		</div>
-	</section>
+	<FAQ faqs={faqs} heading="Setup questions, answered." label="OC-05 / FAQ" />
 
 	<!-- ============================================ -->
 	<!-- 5. FINAL CTA                                 -->

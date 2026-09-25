@@ -4,6 +4,26 @@ import MediaFrame from '../components/MediaFrame.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import LeadReactorTimeline from '../components/LeadReactorTimeline';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import FAQ from '../components/seo/FAQ.astro';
+
+const faqs = [
+	{
+		question: 'What is speed to lead?',
+		answer: "Speed to lead is how fast a business contacts a new lead after it comes in — from a Meta ad, a form fill or a call. The faster the contact, the more likely that lead books, because most people move on to the next option the longer they wait to hear back.",
+	},
+	{
+		question: 'How much does the Lead Reactor cost?',
+		answer: "It's a fixed price agreed after a free consultation, not a flat number for every business. What drives the price is your ad account setup, which channels you want covered, your CRM, and your expected lead volume.",
+	},
+	{
+		question: 'Which channels does it use?',
+		answer: "Voice AI for an instant outbound call, iMessage and SMS, and WhatsApp — plus automated email and text nurture sequences that handle objections before the meeting.",
+	},
+	{
+		question: 'Do I need to be running Meta ads?',
+		answer: "The Lead Reactor is built for leads coming in through Meta (Facebook and Instagram) ads. If you're not running Meta ads yet, we can build and run that campaign as part of the engagement — talk to us in a free consultation about what your setup needs.",
+	},
+];
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -56,8 +76,8 @@ const factoryStats = [
 ---
 
 <Layout
-	title="The Lead Reactor | Meta Ads to Booked Appointments | System Pros AI"
-	description="Stop lighting your ad budget on fire. The Lead Reactor turns Meta ad clicks into booked appointments via instant multi-channel AI outreach — Voice AI, WhatsApp, iMessage, SMS — in under 10 seconds."
+	title="Speed to Lead: Meta Ads to Booked Calls | System Pros AI"
+	description="Speed to lead, engineered: the Lead Reactor turns Meta ad clicks into booked calls with instant multi-channel outreach across voice AI, WhatsApp and SMS."
 >
 	<ServiceSchema
 		name="The Lead Reactor"
@@ -90,8 +110,8 @@ const factoryStats = [
 					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
 						Most agencies stop at the click. We don't stop until there's a qualified
 						meeting on your calendar. We build the ads, run the traffic, and deploy a
-						multi-channel Lead Reactor that reaches your leads on iMessage, WhatsApp,
-						SMS and voice — until they book.
+						multi-channel Lead Reactor engineered for speed to lead — reaching your
+						leads on iMessage, WhatsApp, SMS and voice, until they book.
 					</p>
 					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
 						<a href="/contact" class="btn-primary">Book a Free Consultation</a>
@@ -322,6 +342,11 @@ const factoryStats = [
 			</div>
 		</div>
 	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Speed to lead, questions answered." label="SP-03 / FAQ" />
 
 	<!-- ============================================ -->
 	<!-- FINAL CTA                                    -->

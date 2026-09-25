@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import MediaFrame from '../components/MediaFrame.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
 import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import FAQ from '../components/seo/FAQ.astro';
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -64,15 +65,42 @@ const standards = [
 	{ label: 'REGIONS', value: 'Architected for NZ, Australia and USA compliance' },
 	{ label: 'PRIVACY', value: 'GDPR and CCPA-aware data residency planning' },
 ];
+
+const faqs = [
+	{
+		question: 'What does an AI consultant actually do?',
+		answer: "A good AI consultant maps how your business actually runs today — call handling, lead response, the tools your team touches every day — then designs the system that closes the gaps. At System Pros AI that starts with a forensic audit of your operations, followed by a roadmap (the Blueprint). If you want it built, we build and commission it too (the Turnkey Integration).",
+	},
+	{
+		question: 'How much do AI consultants charge?',
+		answer: "It depends on the consultant and the scope. We work on a fixed price and fixed scope, agreed after a free consultation — never an open-ended hourly rate. What drives the number is the size of your operation, how many workflows and systems are in scope, and whether you want the Blueprint (audit and roadmap) only, or the Blueprint plus the Turnkey build.",
+	},
+	{
+		question: 'What do AI automation agencies do?',
+		answer: "Most connect off-the-shelf tools to your CRM and call it done. We design and build the infrastructure — voice agents, lead-follow-up automations, workflow pipelines — then commission it: tested against real calls and real leads before we call it finished. The 4-phase integration protocol on this page walks through exactly how.",
+	},
+	{
+		question: 'Do I need an AI consultant or just a tool?',
+		answer: "If the problem is a single task — one form, one call flow — a tool might be enough. Most businesses we see have six or more tools that don't talk to each other, no consistent logic between them, and gaps where leads fall through. A consultant looks at the whole system: how the tools should connect, what happens when something fails, and where the real bottleneck is. That's a different job than picking software.",
+	},
+	{
+		question: 'What happens after the audit?',
+		answer: "The audit (Blueprint) gives you a forensic look at your operations and a roadmap — deliverables you can hand to your own team if you want to build it yourselves. Most clients choose the Turnkey Integration instead: we design the system, build it, connect it to your existing tools, test it against real calls and real leads, then hand it over commissioned and running.",
+	},
+	{
+		question: 'Do you work in Australia and New Zealand?',
+		answer: "Yes. We run regional consulting desks for both — see the regional desks above for Australia and New Zealand specifics — plus the United States. Contact details and compliance references are localized per country.",
+	},
+];
 ---
 
 <Layout
-	title="Digital Architecture Consulting | AI Strategy & Forensic Audit | System Pros AI"
-	description="Forensic audit of your operations followed by a strategic AI roadmap. 30 years of enterprise IT architecture experience applied to your business. Not just tools — a system."
+	title="AI Consultant & AI Consulting Services | System Pros AI"
+	description="AI consulting services for small businesses: a forensic operations audit, an AI roadmap, then the build — serving New Zealand, Australia and the US."
 >
 	<ServiceSchema
-		name="AI Consultation"
-		description="Forensic operational audit and strategic AI roadmap service with 30 years of enterprise IT architecture experience."
+		name="AI Consulting Services"
+		description="Forensic operational audit and strategic AI roadmap, followed by full-service design, build and commissioning for small and medium businesses in New Zealand, Australia and the United States."
 		serviceType="ConsultingService"
 	/>
 	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -100,8 +128,9 @@ const standards = [
 						Software is cheap. <span class="text-green">Strategy is priceless.</span>
 					</h1>
 					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
-						Any agency can give you a login. We build the infrastructure, train the
-						models, and integrate AI securely into your existing systems —
+						Any agency can give you a login. Our AI consulting services build the
+						infrastructure, train the models, and integrate AI securely into your
+						existing systems —
 						<strong class="text-ink font-semibold">30 years of enterprise IT experience</strong>
 						applied to modern automation.
 					</p>
@@ -112,6 +141,9 @@ const standards = [
 							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
 						</a>
 					</div>
+					<p class="mt-5 text-[15px] text-muted" data-reveal style="--reveal-delay: 280ms;">
+						Not ready to book a call? <a href="/audit/" class="link-ink">Start with the free AI readiness audit</a> instead.
+					</p>
 				</div>
 
 				<div class="lg:col-span-5" data-reveal style="--reveal-delay: 200ms;">
@@ -165,7 +197,8 @@ const standards = [
 					</h2>
 					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
 						Buying a stethoscope doesn't make you a doctor. Buying an AI voice agent
-						doesn't make you automated. Without the right architecture, AI is just
+						doesn't make you automated. That's the job of an AI consultant —
+						architecture, not shopping. Without the right architecture, AI is just
 						noise — it disconnects from your CRM, hallucinates answers, and
 						frustrates your customers.
 					</p>
@@ -214,6 +247,10 @@ const standards = [
 					</li>
 				))}
 			</ol>
+			<p class="text-muted leading-relaxed mt-10 max-w-[42rem]" data-reveal>
+				Automation builds use <a href="/training/n8n/" class="link-ink">n8n and Make.com pipelines</a> built
+				with error handling, fallback paths and monitoring — if a step fails, a human is notified, not left in the dark.
+			</p>
 		</div>
 	</section>
 
@@ -235,7 +272,7 @@ const standards = [
 					<p class="mt-5 text-lg text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 200ms;">
 						We don't "move fast and break things." We build critical infrastructure
 						that lasts. When you hire us, you aren't getting a prompt engineer —
-						you're getting an enterprise solutions architect.
+						you're getting an enterprise solutions architect and AI automation consultant.
 					</p>
 					<a href="/contact" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 280ms;">Book a Free Consultation</a>
 				</div>
@@ -327,7 +364,7 @@ const standards = [
 				<p class="face-data text-muted pb-2" data-reveal>REGIONAL DESKS · AU / NZ</p>
 			</div>
 			<div class="rule-ticked" data-draw-rule></div>
-			<a href="/consulting/australia" class="spec-row group grid md:grid-cols-[10rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-6 px-2" data-reveal>
+			<a href="/consulting/australia/" class="spec-row group grid md:grid-cols-[10rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-6 px-2" data-reveal>
 				<span class="face-data text-copper">AUSTRALIA</span>
 				<div>
 					<h3 class="text-lg font-bold text-ink group-hover:text-green transition-colors">AI consulting for Australian business</h3>
@@ -335,7 +372,7 @@ const standards = [
 				</div>
 				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 			</a>
-			<a href="/consulting/new-zealand" class="spec-row group grid md:grid-cols-[10rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-6 px-2" data-reveal style="--reveal-delay: 80ms;">
+			<a href="/consulting/new-zealand/" class="spec-row group grid md:grid-cols-[10rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-6 px-2" data-reveal style="--reveal-delay: 80ms;">
 				<span class="face-data text-copper">NEW ZEALAND</span>
 				<div>
 					<h3 class="text-lg font-bold text-ink group-hover:text-green transition-colors">AI consulting for Kiwi business</h3>
@@ -345,6 +382,12 @@ const standards = [
 			</a>
 		</div>
 	</section>
+
+	<FAQ
+		faqs={faqs}
+		heading="Consulting questions, answered."
+		label="SP-05 · FAQ"
+	/>
 
 	<!-- ============================================ -->
 	<!-- FINAL CTA                                    -->
@@ -359,8 +402,9 @@ const standards = [
 				After your audit, we can deploy
 				<a href="/voice-ai" class="link-ink">The Revenue Triad</a>, build a
 				<a href="/lead-gen-websites" class="link-ink">Lead Gen Website</a>, set up
-				<a href="/lead-reactor" class="link-ink">The Lead Reactor</a>, or configure
-				<a href="/private-assistant" class="link-ink">The Private Assistant</a>.
+				<a href="/lead-reactor" class="link-ink">The Lead Reactor</a>, configure
+				<a href="/private-assistant" class="link-ink">The Private Assistant</a>, or bring on
+				<a href="/voice-ai/australia/" class="link-ink">an AI receptionist for Australian businesses</a>.
 			</p>
 			<a href="/contact" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
 				Book a Free Consultation

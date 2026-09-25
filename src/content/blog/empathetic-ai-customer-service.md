@@ -1,6 +1,7 @@
 ---
 title: "The Rise of the Empathetic Machine: How Voice AI Builds Better Connections"
-description: "Forget the robotic voices of the past. Modern AI agents are mastering the art of empathy, transforming customer service from a cost center into a relationship builder."
+seoTitle: "Empathetic Voice AI for Better Customer Service"
+description: "Modern AI agents detect sentiment and adjust tone, transforming customer service. Voice AI eliminates hold times while freeing staff for complex issues."
 pubDate: "2024-05-15"
 heroImage: "../../assets/empathetic_ai_hero.png"
 author: "System Pros AI Team"
@@ -86,9 +87,9 @@ The fear of AI is often a fear of losing humanity. But paradoxically, the right 
 
 At System Pros AI, we build AI that understands. Because in a digital world, the most valuable currency is still connection.
 
-<div class="bg-blue-900/20 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
-  <h3 class="text-xl font-bold text-white mb-2">Want to hear it for yourself?</h3>
-  <p class="text-gray-300">
-    Experience the difference of an empathetic AI agent. <a href="/contact" class="text-blue-400 hover:text-blue-300 font-bold underline">Book a demo</a> with System Pros AI today and hear the future of customer service.
+<div class="border-l-2 border-green bg-green-faint p-6 my-8">
+  <h3 class="text-xl font-bold text-ink mb-2">Want to hear it for yourself?</h3>
+  <p class="text-ink">
+    Experience the difference of an empathetic AI agent. <a href="/contact" class="text-green hover:text-copper font-bold underline underline-offset-[3px]">Book a Free Consultation</a> with System Pros AI today and hear the future of customer service.
   </p>
 </div>

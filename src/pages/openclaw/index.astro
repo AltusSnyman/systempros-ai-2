@@ -3,7 +3,31 @@ import Layout from '../../layouts/Layout.astro';
 import MediaFrame from '../../components/MediaFrame.astro';
 import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
 import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
 import ProductVideoPlayer from '../../components/ProductVideoPlayer';
+
+const faqs = [
+	{
+		question: 'What is OpenClaw?',
+		answer: "OpenClaw is an open-source AI assistant that runs on your own hardware instead of someone else's cloud. It connects to messaging apps you already use — WhatsApp, iMessage, Slack, Discord, Telegram and more — so you talk to it like a contact in your phone, and it keeps memory and context between conversations.",
+	},
+	{
+		question: 'How much does OpenClaw cost?',
+		answer: "The OpenClaw software itself is free and open source. Running it costs whatever you spend on the AI model's API usage and on hosting or hardware to keep it running. A done-for-you setup by System Pros AI is a fixed price agreed after a free consultation, based on the channels, skills, integrations and hosting your deployment needs.",
+	},
+	{
+		question: 'How do I install OpenClaw?',
+		answer: "You can install it yourself by following the OpenClaw setup guide, which walks through prerequisites, the messaging bridges and the SOUL.md personality file. Most business owners choose the done-for-you route instead, where System Pros AI handles installation, configuration and testing.",
+	},
+	{
+		question: 'Is OpenClaw safe for business data?',
+		answer: "OpenClaw runs on infrastructure you control, so your conversations and data stay on your own hardware rather than a third-party server. Safety still depends on what skills you install — review what each skill can access before enabling it, the same as you would with any integration.",
+	},
+	{
+		question: 'What can OpenClaw do for a business?',
+		answer: "Deployed for business use, OpenClaw acts as an always-available assistant across your messaging apps — handling scheduling, research, CRM updates, content drafts and daily briefings. Which tasks it takes on depends on the skills and integrations you choose to install.",
+	},
+];
 
 const capabilities = [
 	{
@@ -73,8 +97,8 @@ const dossierIndex = [
 ---
 
 <Layout
-	title="What is OpenClaw? The World's Most Powerful Private AI Assistant | System Pros AI"
-	description="OpenClaw is the open-source AI assistant with 247,000+ GitHub stars. It runs on your hardware, works on 20+ messaging platforms, and never sends your data to Big Tech. Learn everything about OpenClaw here."
+	title="What Is OpenClaw? Setup, Skills & Use Cases"
+	description="What is OpenClaw? The open-source AI assistant on your own hardware, reachable on 20+ messaging apps, with persistent memory and installable skills."
 >
 	<ServiceSchema
 		name="OpenClaw Setup & Deployment"
@@ -118,6 +142,10 @@ const dossierIndex = [
 							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 						</a>
 					</div>
+					<p class="mt-5 text-[14px] text-muted" data-reveal style="--reveal-delay: 300ms;">
+						Ready for the full walkthrough? Read the <a href="/openclaw/setup-guide/" class="link-ink">OpenClaw setup guide</a>,
+						or <a href="/pricing/" class="link-ink">view pricing</a> for the done-for-you service.
+					</p>
 				</div>
 
 				<div class="lg:col-span-5" data-reveal style="--reveal-delay: 200ms;">
@@ -262,7 +290,12 @@ const dossierIndex = [
 	</section>
 
 	<!-- ============================================ -->
-	<!-- 5. DRENCH CTA                                -->
+	<!-- 5. FAQ                                       -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="What is OpenClaw? Questions, answered." label="OC-00 / FAQ" />
+
+	<!-- ============================================ -->
+	<!-- 6. DRENCH CTA                                -->
 	<!-- ============================================ -->
 	<section class="drench py-(--spacing-section)">
 		<div class="max-w-[1200px] mx-auto px-5">

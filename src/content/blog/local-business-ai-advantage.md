@@ -1,6 +1,7 @@
 ---
 title: "Small Business, Big Tech: How Local ANZ Companies Are Competing with Giants"
-description: "You don't need a Silicon Valley budget to use world-class technology. Here's how local businesses in Australia and New Zealand are using AI to punch above their weight."
+seoTitle: "How Local Businesses Use AI to Compete"
+description: "AI democratizes enterprise tools for small business. ANZ SMBs now access speech recognition, data analysis, and 24/7 support—once reserved for Fortune 500."
 pubDate: "2024-06-12"
 heroImage: "../../assets/local_business_ai_hero.png"
 author: "System Pros AI Team"
@@ -9,7 +10,7 @@ tags: ["Small Business", "Local Economy", "Technology"]
 
 For decades, big corporations had a massive advantage. They had call centers. They had dedicated IT departments. They had 24/7 support teams.
 
-Local businesses—the tradies, the clinics, the boutique agencies—couldn't compete on service availability. They went home at 5 PM.
+Local businesses—the trade businesses, the clinics, the boutique agencies—couldn't compete on service availability. They went home at 5 PM.
 
 **Artificial Intelligence has leveled the playing field.**
 
@@ -48,9 +49,9 @@ The "too small for AI" mindset is dangerous. Your competitors aren't thinking th
 
 The good news? It's easier than you think to get started.
 
-<div class="bg-green-900/20 border-l-4 border-green-500 p-6 my-8 rounded-r-lg">
-  <h3 class="text-xl font-bold text-white mb-2">Punch above your weight.</h3>
-  <p class="text-gray-300">
-    Equip your business with the same tools the big players use. <a href="/contact" class="text-green-400 hover:text-green-300 font-bold underline">Contact System Pros AI</a> and let's build your digital advantage.
+<div class="border-l-2 border-green bg-green-faint p-6 my-8">
+  <h3 class="text-xl font-bold text-ink mb-2">Punch above your weight.</h3>
+  <p class="text-ink">
+    Equip your business with the same tools the big players use. <a href="/contact" class="text-green hover:text-copper font-bold underline underline-offset-[3px]">Book a Free Consultation</a> and let's build your digital advantage.
   </p>
 </div>

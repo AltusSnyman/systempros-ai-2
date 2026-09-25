@@ -74,9 +74,9 @@ Your business deserves more than a generic login. It deserves a tailored strateg
 
 Don't just buy AI. **Master it.**
 
-<div class="bg-purple-900/20 border-l-4 border-purple-500 p-6 my-8 rounded-r-lg">
-  <h3 class="text-xl font-bold text-white mb-2">Ready to build your strategy?</h3>
-  <p class="text-gray-300">
-    Stop guessing and start growing. <a href="/consulting/australia" class="text-purple-400 hover:text-purple-300 font-bold underline">Book a consultation</a> with System Pros AI to design your custom AI roadmap.
+<div class="border-l-2 border-green bg-green-faint p-6 my-8">
+  <h3 class="text-xl font-bold text-ink mb-2">Ready to build your strategy?</h3>
+  <p class="text-ink">
+    Stop guessing and start growing. <a href="/contact" class="text-green hover:text-copper font-bold underline underline-offset-[3px]">Book a Free Consultation</a> with System Pros AI to design your custom AI roadmap.
   </p>
 </div>
