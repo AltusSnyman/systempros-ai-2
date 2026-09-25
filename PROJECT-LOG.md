@@ -17,8 +17,8 @@ Owner facts (Altus, 2026-09-25): brand on site "System Pros AI"; legal entity "A
 - Contacts and brand constants: `src/lib/site.ts`. Schema: `src/layouts/Layout.astro`. Marketing data: `src/data/marketing.ts`. Preview: `npm run preview -- --port 4340`.
 
 ## Owner items
-- **Heatmap scan form:** create a GoHighLevel form (business name, suburb/city, email, phone) and send the embed URL; set `HEATMAP_FORM_EMBED_URL` at the top of src/pages/marketing/google-business-profile.astro.
-- **Recent builds:** OK from KA Plumbing, Hair By Melissa and Superior TKD to show their sites.
+- **Heatmap:** buttons link to Andrea's white-labelled audit https://audit.seo.systempros.ai/ (constant HEATMAP_AUDIT_URL in the Andrea page); /audit/ (GoHighLevel prospecting widget) offered alongside.
+- **Recent builds:** owners of KA Plumbing, Hair By Melissa and Superior TKD gave the OK (Altus, 2026-09-26).
 - GoHighLevel: set brand green #005031 on the booking calendar and audit widget; fix the "List Everything here" placeholder; connect the Ai and Automation Agency Google profile if reviews/posting should run through GoHighLevel.
 - GA4: mark consultation_click (and call_click) as key events.
 - Pricing: real tier inclusions; the "Save 20%" yearly badge vs $9,970/yr; marketing-service prices if they should be published.
