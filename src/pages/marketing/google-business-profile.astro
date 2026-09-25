@@ -2,7 +2,13 @@
 import Layout from '../../layouts/Layout.astro';
 import ServiceSchema from '../../components/seo/ServiceSchema.astro';
 import FAQ from '../../components/seo/FAQ.astro';
-import { MARKETING_SERVICES } from '../../data/marketing';
+import GBPCalculator from '../../components/GBPCalculator.tsx';
+import LocalSearchAnatomy from '../../components/marketing/LocalSearchAnatomy.astro';
+import MapPositionChart from '../../components/marketing/MapPositionChart.astro';
+
+// Set this once the heatmap-scan lead form's embed URL is available. Until
+// then the section falls back to a plain CTA button, per docs/andrea-page-copy.md §13.
+const HEATMAP_FORM_EMBED_URL = '';
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -14,38 +20,74 @@ const breadcrumbSchema = {
 	],
 };
 
+const andreaSpec = [
+	{ item: 'PROFILE OPTIMISATION', desc: 'Every field, category, service, attribute and description set up properly and kept current.' },
+	{ item: 'REVIEWS', desc: 'Asks your customers for reviews automatically, replies to every review in your voice, and flags fake or abusive ones to Google.' },
+	{ item: 'POSTS', desc: 'Publishes regular Google posts about your services and suburbs, so Google keeps learning what you do and where.' },
+	{ item: 'PHOTOS', desc: 'Optimises your real photos and adds them to your profile in a steady drip, not one dump.' },
+	{ item: 'CITATIONS', desc: 'Lists your business consistently across the directories Google and AI tools cross-check.' },
+	{ item: 'SOCIAL POSTING', desc: 'Shares your content to Facebook, Instagram and LinkedIn so every channel tells the same story.' },
+	{ item: 'AI SEARCH', desc: 'Keeps your details consistent so assistants like ChatGPT and Gemini can recommend you.' },
+	{ item: 'WEBSITE ALIGNMENT', desc: "Recommends the changes that make your website back up your profile instead of contradicting it." },
+	{ item: 'REPORTING', desc: 'Before-and-after heatmaps and a plain-English summary of what was done and what moved.' },
+];
+
+const timeline = [
+	{ label: 'AROUND 90 DAYS', text: 'The first real movement on your priority searches, and the first before-and-after heatmap worth comparing.' },
+	{ label: '6 MONTHS', text: 'A second lift is common as reviews, posts and photos compound. Priority searches move into the top three across more of your area.' },
+	{ label: '12 MONTHS +', text: 'The green spreads outward and more of your searches hold their place.' },
+];
+
+const adsCards = [
+	{ name: 'Google Ads', desc: 'Show up at the top for the searches that are ready to buy.', href: '/marketing/google-ads/' },
+	{ name: 'Facebook & Instagram ads', desc: 'Reach the people near you before they start searching.', href: '/marketing/facebook-instagram-ads/' },
+	{ name: 'Lead Reactor', desc: 'Every ad lead contacted in seconds by call, text or WhatsApp.', href: '/lead-reactor/' },
+];
+
 const faqs = [
 	{
-		question: 'What does Google Business Profile Optimization do?',
-		answer: "It makes sure your profile — the panel that shows up on Google Search and Maps when someone looks for what you do — is complete, accurate and working for you: the right categories, services, hours, photos and posts, all kept current. A well-run profile is often the first thing a prospective customer sees before they ever reach your website, so gaps in it cost you before the click.",
+		question: 'How much does Google Business Profile management cost?',
+		answer: "Andrea is part of our custom engagements rather than a separate line item. We agree a fixed monthly fee after a free consultation, based on how many locations you have, how competitive your area is, and whether you want ads managed as well.",
 	},
 	{
-		question: 'How much does it cost to optimize a Google My Business profile?',
-		answer: "There's no flat number — it's a fixed monthly fee, agreed after a free consultation. What drives the price is how many locations you're managing, whether you also want posting and review management bundled in, and how much ongoing activity your profile needs.",
+		question: 'How long does it take to rank higher on Google Maps?',
+		answer: "Most businesses see the first real movement around 90 days, with a stronger lift by six months. Busy categories and large cities take longer. We show you the progress each month with heatmaps.",
 	},
 	{
-		question: 'How can I optimize my Google My Business page?',
-		answer: "Complete every field the platform allows, pick the categories that actually match what you do, keep hours and service areas accurate, add real photos regularly, post updates instead of letting the profile go quiet, and answer questions and reviews as they come in. That's a standing job, not a one-off setup — which is why we run it as a managed service rather than a one-time fix.",
+		question: 'What is a Google Maps heatmap?',
+		answer: "A grid of searches run from points across your service area. Each point shows where your business appears for a given search, so you can see where customers find you and where they don't.",
+	},
+	{
+		question: 'Do I need to approve every post?',
+		answer: "No. Andrea writes about your business specifically and most owners let her run. You can review anything you like, and we'll ask when we need photos or details only you have.",
+	},
+	{
+		question: 'Do you work with service-area businesses without a shopfront?',
+		answer: "Yes. Andrea works with profiles that show an address and with profiles that serve an area without one.",
+	},
+	{
+		question: 'Can you guarantee a number one ranking?',
+		answer: "No one honestly can. Google decides rankings. What we control is doing the right work every day and showing you the results openly.",
 	},
 ];
 ---
 
 <Layout
-	title="Google Business Profile Management | System Pros AI"
-	description="Google Business Profile management and optimisation for local businesses in NZ and Australia: profile setup, ongoing posting, and monitoring, run for you."
+	title="Google Business Profile Management | Andrea AI"
+	description="Andrea, our marketing AI agent, runs your Google Business Profile every day so you climb Google Maps in your area. Get a free Maps heatmap of where you rank."
 >
 	<ServiceSchema
 		name="Google Business Profile Management"
-		description="Google Business Profile management and optimisation: profile build-out and correction, category and service accuracy, and automated content posting, run as a managed service."
+		description="Andrea, the System Pros AI marketing agent, runs Google Business Profile management and optimisation for local businesses every day: profile build-out, review requests and replies, posts, photo drip, citations, social posting and AI-search visibility, with monthly heatmap reporting."
 		serviceType="Google Business Profile Management"
 		areaServed={['NZ', 'AU']}
 	/>
 	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
 	<!-- ============================================ -->
-	<!-- HERO — dossier sheet MKT-01                  -->
+	<!-- HERO — id="hero"                              -->
 	<!-- ============================================ -->
-	<section class="relative overflow-hidden">
+	<section id="hero" class="relative overflow-hidden">
 		<div class="max-w-[1200px] mx-auto px-5">
 
 			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
@@ -54,217 +96,450 @@ const faqs = [
 					<span aria-hidden="true"> / </span>
 					<a href="/marketing/" class="hover:text-green transition-colors">MARKETING</a>
 					<span aria-hidden="true"> / </span>
-					<span class="text-ink" aria-current="page">MKT-01 · GBP MANAGEMENT</span>
+					<span class="text-ink" aria-current="page">GOOGLE BUSINESS PROFILE MANAGEMENT</span>
 				</nav>
-				<span class="flex items-center gap-2"><span class="dot-live"></span> PROFILE ONLINE</span>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> ANDREA RUNNING</span>
 			</div>
 			<div class="rule-ticked" data-draw-rule></div>
 
 			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
 				<div class="lg:col-span-8">
-					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink" data-reveal>
-						Google Business Profile management <span class="text-green">& optimisation</span>.
+					<p class="face-data text-muted mb-4" data-reveal>MKT-01 · GOOGLE MAPS · NZ + AU</p>
+					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink" data-reveal style="--reveal-delay: 60ms;">
+						Get found on Google Maps. <span class="text-green">Andrea runs your profile every day.</span>
 					</h1>
-					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[40rem]" data-reveal style="--reveal-delay: 120ms;">
-						Your Google Business Profile is the panel that shows up before your website
-						does. We build it out properly, correct what's wrong, and keep it posted to
-						and current through an AI-assisted system — so the profile is working for
-						you every day, not sitting there half-finished since the day it was claimed.
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[40rem]" data-reveal style="--reveal-delay: 160ms;">
+						When someone nearby searches for what you do, Google shows three
+						businesses on a map. Andrea is the System Pros AI marketing agent
+						that works your Google Business Profile daily so the next one of
+						those three is you.
 					</p>
-					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
-						<a href="/contact/" class="btn-primary">Book a Free Consultation</a>
-						<a href="#how-it-runs" class="btn-secondary">
-							See how it runs
-							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-						</a>
+					<div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3" data-reveal style="--reveal-delay: 260ms;">
+						<a href="#heatmap-scan" class="btn-primary">Get your free Maps heatmap</a>
+						<a href="/contact/" class="link-ink text-[15px] font-semibold">or book a free consultation</a>
 					</div>
 				</div>
 			</div>
+
+			<div class="rule-ticked" data-draw-rule></div>
+			<dl class="grid grid-cols-1 sm:grid-cols-3">
+				<div class="py-6 sm:pr-6 sm:border-r border-line" data-reveal>
+					<dt class="face-data text-lg font-bold text-green">DAILY</dt>
+					<dd class="mt-1 text-[13.5px] text-muted">profile work, not a one-off setup</dd>
+				</div>
+				<div class="py-6 sm:px-6 sm:border-r border-line" data-reveal style="--reveal-delay: 80ms;">
+					<dt class="face-data text-lg font-bold text-green">HEATMAP</dt>
+					<dd class="mt-1 text-[13.5px] text-muted">see your ranking street by street</dd>
+				</div>
+				<div class="py-6 sm:pl-6" data-reveal style="--reveal-delay: 160ms;">
+					<dt class="face-data text-lg font-bold text-green">NZ + AU</dt>
+					<dd class="mt-1 text-[13.5px] text-muted">managed for local businesses in both</dd>
+				</div>
+			</dl>
 			<div class="rule-ticked" data-draw-rule></div>
 		</div>
 	</section>
 
 	<!-- ============================================ -->
-	<!-- THE PROBLEM WITH A CLAIMED-AND-FORGOTTEN PROFILE -->
+	<!-- THE SHORTLIST PROBLEM — id="shortlist"        -->
 	<!-- ============================================ -->
-	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+	<section id="shortlist" class="py-(--spacing-section-sm) bg-green-faint border-b border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="max-w-[46rem]">
+				<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+					Customers choose from three names on a map.
+				</h2>
+				<p class="mt-5 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+					Most people looking for a plumber, a dentist or a detailer don't
+					scroll through websites. They search, glance at the map, compare
+					three businesses by their stars, photos and distance, and call one.
+					If you're not in that group of three, you are not on the shortlist,
+					however good your work is.
+				</p>
+				<p class="mt-5 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 160ms;">
+					The work isn't about chasing traffic. It's about being present,
+					credible and easy to choose at the exact moment someone nearby
+					needs you.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- ANATOMY OF A LOCAL SEARCH — id="anatomy"      -->
+	<!-- ============================================ -->
+	<section id="anatomy" class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Win the part of the page people actually use.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-01 · ANATOMY OF A LOCAL SEARCH</p>
+			</div>
+			<p class="text-muted text-lg leading-relaxed max-w-[46rem] mb-10" data-reveal style="--reveal-delay: 100ms;">
+				A local search has three zones. Paid ads can sit on top. The map
+				pack sits in the middle with names, stars, distance and a call
+				button. Ordinary websites sit underneath, usually crowded out by
+				directories and national brands.
+			</p>
+			<div data-reveal style="--reveal-delay: 160ms;">
+				<LocalSearchAnatomy />
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHY POSITION MATTERS — id="position"          -->
+	<!-- ============================================ -->
+	<section id="position" class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
 		<div class="max-w-[1200px] mx-auto px-5">
 			<div class="grid lg:grid-cols-2 gap-14 items-start">
 				<div>
 					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
-						Most profiles are claimed, then abandoned.
+						Moving up the map is not cosmetic.
 					</h2>
-					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
-						Someone on your team claimed the listing years ago, filled in the basics,
-						and never touched it again. Hours drift out of date. Categories don't
-						match what the business actually does today. Photos are old, or missing
-						entirely. There are no posts, so the profile has nothing current to show
-						a searcher deciding between you and the business next door.
+					<p class="mt-5 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						Clicks fall away fast as you move down the list. Getting from
+						the bottom of the map results into the top three can change how
+						often your phone rings, which is why Andrea focuses on the
+						searches your customers actually use rather than every phrase
+						at once.
 					</p>
 				</div>
-				<ul>
-					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 160ms;">
-						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT A</span>
-						<div>
-							<h3 class="font-bold text-ink">Stale details</h3>
-							<p class="text-[14.5px] text-muted mt-1">Wrong hours, missing services, outdated photos — small gaps that quietly cost trust before a prospect even opens your site.</p>
-						</div>
-					</li>
-					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 240ms;">
-						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT B</span>
-						<div>
-							<h3 class="font-bold text-ink">No posting cadence</h3>
-							<p class="text-[14.5px] text-muted mt-1">A profile that never posts reads as inactive. Google and searchers both notice a listing that hasn't moved in months.</p>
-						</div>
-					</li>
-					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 320ms;">
-						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT C</span>
-						<div>
-							<h3 class="font-bold text-ink">Nobody owns it</h3>
-							<p class="text-[14.5px] text-muted mt-1">It's not anyone's job, so it's nobody's job — until a competitor's better-kept profile starts outranking yours locally.</p>
-						</div>
-					</li>
-				</ul>
+				<div data-reveal style="--reveal-delay: 160ms;">
+					<MapPositionChart />
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- ============================================ -->
-	<!-- HOW IT RUNS — spec table                     -->
+	<!-- THE HEATMAP — id="heatmap"                    -->
 	<!-- ============================================ -->
-	<section id="how-it-runs" class="py-(--spacing-section)">
+	<section id="heatmap" class="py-(--spacing-section)">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
-				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
-					What we do. What you do.
-				</h2>
-				<p class="face-data text-muted pb-2" data-reveal>MKT-01 · SCOPE OF WORK</p>
+			<div class="grid lg:grid-cols-2 gap-14 items-center">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						See where you rank, street by street.
+					</h2>
+					<p class="mt-5 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						Your ranking isn't one number. Someone searching two streets away
+						can see a different map from someone across town. A heatmap drops
+						a grid of pins across your service area and checks where you
+						appear at each one: green where you're in the top three, amber
+						where you're close, red where customers can't see you.
+					</p>
+					<p class="mt-5 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 140ms;">
+						We run one before Andrea starts and keep running them, so you can
+						watch your area turn green instead of taking our word for it.
+					</p>
+					<a href="#heatmap-scan" class="btn-primary mt-8 inline-flex" data-reveal style="--reveal-delay: 200ms;">Get your free Maps heatmap</a>
+				</div>
+				<figure data-reveal style="--reveal-delay: 160ms;">
+					<img
+						src="/images/andrea/maps-heatmap-example-700.webp"
+						srcset="/images/andrea/maps-heatmap-example-700.webp 700w, /images/andrea/maps-heatmap-example-1200.webp 1200w"
+						sizes="(min-width: 1024px) 560px, 100vw"
+						width="700"
+						height="639"
+						loading="lazy"
+						decoding="async"
+						alt="Example Google Maps heatmap: a grid of pins across a service area, coloured green where the business ranks in the top three, amber where it's close, and red where it doesn't appear"
+						class="w-full h-auto border border-line"
+					/>
+					<figcaption class="text-[13px] text-muted leading-relaxed mt-3">
+						<strong class="text-ink">Example heatmap.</strong> Each dot is a
+						search from that spot; the number is where the business appears.
+					</figcaption>
+				</figure>
 			</div>
+		</div>
+	</section>
 
-			<div class="border border-line overflow-x-auto" data-reveal>
+	<!-- ============================================ -->
+	<!-- MEET ANDREA — id="andrea"                     -->
+	<!-- ============================================ -->
+	<section id="andrea" class="py-(--spacing-section) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Andrea does the daily work nobody has time for.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-01 · MEET ANDREA</p>
+			</div>
+			<p class="text-muted text-lg leading-relaxed max-w-[46rem] mb-10" data-reveal style="--reveal-delay: 100ms;">
+				Andrea is the marketing AI agent we run for our clients. She works
+				inside your Google Business Profile and the places Google checks to
+				decide who to trust, every day, without you logging in.
+			</p>
+
+			<div class="border border-line overflow-x-auto bg-paper" data-reveal style="--reveal-delay: 160ms;">
 				<table class="w-full text-left min-w-[560px]">
 					<thead>
 						<tr class="border-b border-line">
-							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-44">WORK ITEM</th>
-							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">RUNS ON THE SYSTEM</th>
-							<th scope="col" class="face-data text-green font-normal py-3.5 px-4 border-l border-line bg-green-faint">YOUR PART</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-52">ITEM</th>
+							<th scope="col" class="face-data text-green font-normal py-3.5 px-4 border-l border-line bg-green-faint">WHAT ANDREA DOES</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="border-t border-line">
-							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">PROFILE BUILD-OUT</th>
-							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Categories, services, attributes and hours corrected and completed.</td>
-							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Confirm the details are right for your business.</td>
-						</tr>
-						<tr class="border-t border-line">
-							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">ONGOING POSTING</th>
-							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Content scheduled and published to the profile automatically.</td>
-							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Flag anything worth featuring — a new job, a new service.</td>
-						</tr>
-						<tr class="border-t border-line">
-							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">MONITORING</th>
-							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Changes and suggested edits from Google are tracked and actioned.</td>
-							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Nothing — this runs in the background.</td>
-						</tr>
-						<tr class="border-t border-line">
-							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">REVIEWS</th>
-							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Handled as a dedicated service — see review and reputation management.</td>
-							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Tell us if a review needs a personal reply.</td>
-						</tr>
+						{andreaSpec.map((row) => (
+							<tr class="border-t border-line">
+								<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">{row.item}</th>
+								<td class="py-4 px-4 text-[15px] text-ink border-l border-line bg-green-faint">{row.desc}</td>
+							</tr>
+						))}
 					</tbody>
 				</table>
 			</div>
-			<p class="text-muted leading-relaxed mt-6 max-w-[42rem]" data-reveal>
-				Reviews live on your Google Business Profile, so the two services connect
-				directly: <a href="/marketing/reviews-reputation/" class="link-ink">see review and reputation management</a>.
+			<p class="text-muted leading-relaxed mt-6 max-w-[42rem]" data-reveal style="--reveal-delay: 220ms;">
+				Most owners let Andrea run without approving every post. You'll hear
+				from us when we need something from you, like new photos of a
+				finished job.
 			</p>
 		</div>
 	</section>
 
 	<!-- ============================================ -->
-	<!-- DRENCH — why the profile matters             -->
+	<!-- REVIEWS ON AUTOPILOT — id="reviews"           -->
 	<!-- ============================================ -->
-	<section class="drench py-(--spacing-section)">
+	<section id="reviews" class="py-(--spacing-section)">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="grid lg:grid-cols-12 gap-12">
-				<div class="lg:col-span-7">
-					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit" data-reveal>
-						It's free real estate. Most businesses leave it empty.
+			<div class="grid lg:grid-cols-2 gap-14 items-center">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						More five-star reviews, without the awkward ask.
 					</h2>
-					<p class="mt-7 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
-						There's no ad spend required to have a complete, accurate, active Google
-						Business Profile. It's the one piece of local marketing every business
-						already has access to, and the one most consistently left half-built.
-						Fixing it is foundational work — the kind of thing a 30-year systems
-						engineer notices is missing before anything flashier gets built on top.
+					<p class="mt-5 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						Reviews are the tie-breaker on the map. Andrea sends the request
+						at the right moment by text, email or a QR code at the counter,
+						makes leaving a review a two-tap job, then thanks every reviewer
+						by name.
 					</p>
-					<a href="/contact/" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">Book a Free Consultation</a>
+					<p class="mt-6 text-[15px] text-muted" data-reveal style="--reveal-delay: 160ms;">
+						Want reviews and reputation handled on their own?
+						<a href="/marketing/reviews-reputation/" class="link-ink font-semibold">See review and reputation management</a>.
+					</p>
 				</div>
-				<div class="lg:col-span-5">
-					<div class="rule-ticked" data-draw-rule></div>
-					<dl>
-						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 120ms;">
-							<dt class="face-data text-paper-dim">PLATFORM</dt>
-							<dd class="text-[15px] text-paper-lit">Google Business Profile (Search + Maps)</dd>
-						</div>
-						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 200ms;">
-							<dt class="face-data text-paper-dim">CADENCE</dt>
-							<dd class="text-[15px] text-paper-lit">Ongoing, scheduled, not a one-off fix</dd>
-						</div>
-						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 280ms;">
-							<dt class="face-data text-paper-dim">COVERAGE</dt>
-							<dd class="text-[15px] text-paper-lit">NZ and Australia, single or multi-location</dd>
-						</div>
-					</dl>
-				</div>
+				<figure data-reveal style="--reveal-delay: 160ms;">
+					<img
+						src="/images/andrea/reviews-example-700.webp"
+						srcset="/images/andrea/reviews-example-700.webp 700w, /images/andrea/reviews-example-1200.webp 1200w"
+						sizes="(min-width: 1024px) 560px, 100vw"
+						width="700"
+						height="639"
+						loading="lazy"
+						decoding="async"
+						alt="Example review request messages sent automatically by SMS, QR code and email, prompting a customer to leave a review"
+						class="w-full h-auto border border-line"
+					/>
+					<figcaption class="text-[13px] text-muted leading-relaxed mt-3">
+						<strong class="text-ink">Example only.</strong> Review requests by
+						SMS, QR code and email.
+					</figcaption>
+				</figure>
 			</div>
 		</div>
 	</section>
 
 	<!-- ============================================ -->
-	<!-- CROSS-LINKS                                  -->
+	<!-- WHAT TO EXPECT — id="timeline"                -->
 	<!-- ============================================ -->
-	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+	<section id="timeline" class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
-				<h2 class="face-display font-extrabold text-[clamp(1.8rem,3.4vw,2.6rem)] leading-tight text-ink" data-reveal>
-					The rest of the marketing system.
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Rankings build in months, not days.
 				</h2>
-				<p class="face-data text-muted pb-2" data-reveal>SEE THE OTHER SERVICES</p>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-01 · WHAT TO EXPECT</p>
 			</div>
-			<div class="rule-ticked" data-draw-rule></div>
-			{MARKETING_SERVICES.filter((s) => s.href !== '/marketing/google-business-profile/').map((s, i) => (
-				<a href={s.href} class="spec-row group grid md:grid-cols-[9rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-5 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
-					<span class="face-data text-copper">{s.ref}</span>
-					<h3 class="text-[15px] font-semibold text-ink group-hover:text-green transition-colors">{s.name}</h3>
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-				</a>
+
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{timeline.map((t, i) => (
+				<div class="spec-row grid md:grid-cols-[11rem_1fr] gap-x-8 gap-y-2 py-6 px-2 bg-paper" data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
+					<span class="face-data text-copper">{t.label}</span>
+					<p class="text-[15px] text-ink leading-relaxed max-w-[42rem]">{t.text}</p>
+				</div>
 			))}
-			<a href="/marketing/" class="link-ink font-semibold text-[15px] mt-6 inline-block" data-reveal>← Back to the marketing overview</a>
+
+			<p class="text-muted leading-relaxed mt-8 max-w-[46rem]" data-reveal>
+				Rankings rise and dip along the way. Google tests results and
+				competitors react. What matters is the direction over several
+				months, and we show you that direction every month.
+			</p>
+			<p class="face-data text-muted text-[12px] mt-4 max-w-[46rem]" data-reveal>
+				Typical timelines, not promises. Busy categories and big cities take
+				longer.
+			</p>
 		</div>
 	</section>
 
 	<!-- ============================================ -->
-	<!-- FAQ                                          -->
+	<!-- CALCULATOR — id="calculator"                  -->
 	<!-- ============================================ -->
-	<FAQ faqs={faqs} heading="Google Business Profile questions, answered." label="MKT-01 · FAQ" />
+	<section id="calculator" class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					What would a few more calls a week be worth?
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-01 · CALCULATOR</p>
+			</div>
+			<p class="text-muted text-lg leading-relaxed max-w-[46rem] mb-10" data-reveal style="--reveal-delay: 100ms;">
+				A higher-value local business usually needs only a handful of extra
+				customers a month to make Maps work pay. Put in your own numbers.
+			</p>
+
+			<div data-reveal style="--reveal-delay: 160ms;">
+				<GBPCalculator client:visible />
+			</div>
+			<p class="face-data text-muted text-[12px] mt-5 max-w-[46rem]" data-reveal>
+				An estimate from your numbers, not a forecast of results.
+			</p>
+		</div>
+	</section>
 
 	<!-- ============================================ -->
-	<!-- FINAL CTA                                    -->
+	<!-- FASTER RESULTS WHILE MAPS COMPOUNDS — id="ads" -->
 	<!-- ============================================ -->
-	<section class="py-(--spacing-section) border-t border-line">
+	<section id="ads" class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-4">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Need calls this week? We run your ads too.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-01 · FASTER RESULTS</p>
+			</div>
+			<p class="text-muted text-lg leading-relaxed max-w-[46rem] mb-10" data-reveal style="--reveal-delay: 100ms;">
+				Maps builds for the long term. Ads bring customers in while it does.
+				We manage your Google Ads and your Facebook and Instagram ads
+				alongside Andrea, and every lead gets an instant follow-up from the
+				Lead Reactor.
+			</p>
+
+			<div class="grid md:grid-cols-3 gap-px bg-line border border-line" data-reveal style="--reveal-delay: 160ms;">
+				{adsCards.map((c) => (
+					<a href={c.href} class="bg-paper hover:bg-green-faint transition-colors p-6 flex flex-col gap-2 group">
+						<h3 class="text-lg font-bold text-ink group-hover:text-green transition-colors">{c.name}</h3>
+						<p class="text-[14.5px] text-muted">{c.desc}</p>
+						<span class="face-data text-green text-[12px] mt-2 inline-flex items-center gap-1">
+							VIEW
+							<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" class="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHO IT SUITS — id="fit"                       -->
+	<!-- ============================================ -->
+	<section id="fit" class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink mb-10" data-reveal>
+				Andrea works best when one new customer is worth real money.
+			</h2>
+			<div class="grid lg:grid-cols-2 gap-x-12 gap-y-8">
+				<div class="spec-row py-6 px-2" data-reveal style="--reveal-delay: 80ms;">
+					<h3 class="face-data text-green text-[13px] mb-3">GREAT FIT</h3>
+					<p class="text-[15px] text-ink leading-relaxed">
+						Home services and trades, health and dental, beauty and
+						wellness, auto and detailing, and other businesses where people
+						search nearby and one new customer is worth hundreds of dollars
+						or more.
+					</p>
+				</div>
+				<div class="spec-row py-6 px-2" data-reveal style="--reveal-delay: 160ms;">
+					<h3 class="face-data text-muted text-[13px] mb-3">HARDER FIT</h3>
+					<p class="text-[15px] text-ink leading-relaxed">
+						Businesses where buyers don't care where you are, very
+						low-margin sales that need hundreds of extra transactions, or
+						categories that are only busy a few months a year.
+					</p>
+				</div>
+			</div>
+			<p class="text-muted text-[15px] mt-8" data-reveal style="--reveal-delay: 220ms;">
+				Not sure which side you're on? The free heatmap will show you.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ — id="faq"                                -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Google Maps and Google Business Profile questions, answered." label="MKT-01 · FAQ" />
+
+	<!-- ============================================ -->
+	<!-- HEATMAP SCAN — id="heatmap-scan"              -->
+	<!-- ============================================ -->
+	<section id="heatmap-scan" class="py-(--spacing-section) border-t border-line bg-green-faint">
+		<div class="max-w-[720px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>MKT-01 · FREE HEATMAP SCAN</p>
+			<h2 class="face-display font-extrabold text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink mt-4" data-reveal style="--reveal-delay: 80ms;">
+				See where you rank on Google Maps, free.
+			</h2>
+			<p class="text-muted text-lg leading-relaxed mt-5 max-w-[38rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				Tell us your business and your area. We'll run a heatmap for your
+				main search and send you the map, with a short note on what's
+				holding you back.
+			</p>
+
+			<div class="mt-9" data-reveal style="--reveal-delay: 220ms;">
+				{HEATMAP_FORM_EMBED_URL ? (
+					<>
+						<iframe
+							src={HEATMAP_FORM_EMBED_URL}
+							loading="lazy"
+							title="Free Google Maps heatmap request"
+							style="width:100%;min-height:620px;border:0"
+						></iframe>
+						<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+					</>
+				) : (
+					<>
+						<a href="/contact/?topic=maps-heatmap" id="heatmap-scan-cta" class="btn-primary !px-10 !py-4 !text-[16px]">
+							Request your free heatmap
+						</a>
+						<p class="face-data text-muted text-[12px] mt-4">Takes two minutes. No obligation.</p>
+					</>
+				)}
+			</div>
+		</div>
+	</section>
+
+	<script>
+		(function () {
+			const cta = document.getElementById('heatmap-scan-cta');
+			if (!cta) return;
+			cta.addEventListener('click', function () {
+				const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+				if (typeof w.gtag === 'function') {
+					w.gtag('event', 'heatmap_cta_click', { page_path: location.pathname });
+				}
+			});
+		})();
+	</script>
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA — id="final"                        -->
+	<!-- ============================================ -->
+	<section id="final" class="py-(--spacing-section) border-t border-line">
 		<div class="max-w-[1200px] mx-auto px-5 text-center">
 			<p class="face-data text-muted" data-reveal>MKT-01 · SIGN-OFF</p>
 			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[22ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
-				Let's see what your profile is missing.
+				Be one of the three.
 			</h2>
 			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
-				A free consultation takes thirty minutes. We'll look at your current profile
-				and tell you exactly what's costing you before we quote anything.
+				Your customers are already searching. Let Andrea make sure they find
+				you.
 			</p>
-			<a href="/contact/" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
-				Book a Free Consultation
-			</a>
+			<div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3" data-reveal style="--reveal-delay: 240ms;">
+				<a href="#heatmap-scan" class="btn-primary !px-10 !py-4 !text-[16px]">
+					Get your free Maps heatmap
+				</a>
+				<a href="/contact/" class="link-ink text-[15px] font-semibold">or book a free consultation</a>
+			</div>
 		</div>
 	</section>
 </Layout>

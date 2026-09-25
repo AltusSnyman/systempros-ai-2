@@ -1,2 +1,6 @@
 # Redirect www to non-www
 https://www.systempros.ai/* https://systempros.ai/:splat 301!
+
+# Short URL for the Andrea / Google Maps journey page
+/andrea /marketing/google-business-profile/ 301
+/andrea/ /marketing/google-business-profile/ 301

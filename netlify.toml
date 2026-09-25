@@ -6,6 +6,16 @@
   NODE_VERSION = "22"
 
 [[redirects]]
+  from = "/andrea"
+  to = "/marketing/google-business-profile/"
+  status = 301
+
+[[redirects]]
+  from = "/andrea/"
+  to = "/marketing/google-business-profile/"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/404"
   status = 404

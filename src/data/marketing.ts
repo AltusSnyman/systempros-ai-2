@@ -20,7 +20,7 @@ export const MARKETING_SERVICES: MarketingService[] = [
 		name: 'Google Business Profile Management',
 		href: '/marketing/google-business-profile/',
 		tag: 'GBP MANAGEMENT',
-		blurb: 'Your profile built out, corrected and kept current, with a posting schedule that runs on its own.',
+		blurb: 'Andrea, our marketing AI agent, runs your Google Business Profile daily — profile, reviews, posts and photos kept current so you climb Google Maps.',
 		group: 'core',
 	},
 	{

@@ -1,0 +1,38 @@
+---
+// Original horizontal bar chart: share of map-result clicks by position.
+// docs/andrea-page-copy.md §4.
+
+const data = [
+	{ pos: 1, val: 30 },
+	{ pos: 2, val: 20 },
+	{ pos: 3, val: 15 },
+	{ pos: 4, val: 10 },
+	{ pos: 5, val: 8 },
+	{ pos: 6, val: 6 },
+	{ pos: 7, val: 4 },
+	{ pos: 8, val: 3 },
+	{ pos: 9, val: 2 },
+	{ pos: 10, val: 2 },
+];
+const max = Math.max(...data.map((d) => d.val));
+---
+
+<div>
+	<p class="sr-only">Bar chart: estimated share of map-result clicks by position, position one through ten.</p>
+	<ul class="space-y-2">
+		{data.map((d) => {
+			const pct = (d.val / max) * 100;
+			const top3 = d.pos < 4;
+			return (
+				<li class="flex items-center gap-3">
+					<span class={`face-data text-[12px] w-7 shrink-0 ${top3 ? 'text-green font-bold' : 'text-muted'}`}>#{d.pos}</span>
+					<span class="flex-1 h-5 bg-green-faint border border-line relative overflow-hidden">
+						<span class={`block h-full ${top3 ? 'bg-green' : 'bg-line'}`} style={`width:${pct}%`}></span>
+					</span>
+					<span class={`face-data text-[12px] w-10 text-right shrink-0 ${top3 ? 'text-green font-bold' : 'text-muted'}`}>{d.val}%</span>
+				</li>
+			);
+		})}
+	</ul>
+</div>
+<p class="face-data text-muted text-[12px] leading-relaxed mt-5 max-w-[42rem]">Industry benchmark estimates of click share by map position. An illustration of opportunity, not a forecast.</p>
