@@ -58,6 +58,15 @@ const faqs = [
 		answer: 'A web designer plans and builds the pages a visitor sees and uses — layout, navigation, copy and visuals — and, done properly, the technical groundwork underneath it: page speed, mobile behaviour, and the structured data and on-page basics search engines look for. We treat all of that as one build, not a design pass handed off to someone else afterward.',
 	},
 ];
+
+// Recent builds (screenshots captured 2026-09-26). "client" = live client site; "sample" = concept build.
+const builds = [
+  { name: 'KA Plumbing', industry: 'Plumbing · Auckland', url: 'https://kaplumbingltd.co.nz/', img: 'ka-plumbing', kind: 'client' },
+  { name: 'Hair By Melissa', industry: 'Hairdressing · Kaukapakapa', url: 'https://hairbymelissa.co.nz/', img: 'hair-by-melissa', kind: 'client' },
+  { name: 'Superior Taekwondo', industry: 'Martial arts · Helensville', url: 'https://superiortkd.co.nz/', img: 'superior-tkd', kind: 'client' },
+  { name: 'Auckland Landscaping', industry: 'Landscaping · sample build', url: 'https://site-docs.vibepreview.com/', img: 'landscaping', kind: 'sample' },
+  { name: 'Auckland Mobile Detailing', industry: 'Car detailing · sample build', url: 'https://auckland-detailing.vibepreview.com/', img: 'detailing', kind: 'sample' },
+];
 ---
 
 <Layout
@@ -168,6 +177,38 @@ const faqs = [
 						))}
 					</tbody>
 				</table>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ============================================ -->
+	<!-- RECENT BUILDS — screenshots linking to live   -->
+	<!-- ============================================ -->
+	<section id="recent-builds" class="py-(--spacing-section-sm) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Recent builds.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>LIVE CLIENT SITES · SAMPLE BUILDS</p>
+			</div>
+			<p class="text-[15px] text-muted leading-relaxed max-w-[46rem] mb-8" data-reveal>Three live client sites and two sample builds. Open any of them on your phone: that is where your customers will see yours.</p>
+			<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+				{builds.map((b, i) => (
+					<a href={b.url} target="_blank" rel="noopener" class="group block border border-line bg-paper hover:border-green transition-colors focus-visible:outline-2 focus-visible:outline-green" data-reveal style={`--reveal-delay: ${i * 60}ms;`} aria-label={`${b.name} (${b.kind === 'client' ? 'live client site' : 'sample build'}), opens in a new tab`}>
+						<div class="aspect-[16/10] overflow-hidden border-b border-line bg-green-faint">
+							<img src={`/images/work/${b.img}-640.webp`} srcset={`/images/work/${b.img}-640.webp 640w, /images/work/${b.img}-1200.webp 1200w`} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" width="640" height="400" loading="lazy" decoding="async" alt={`Home page of ${b.name}, ${b.industry.split(' · ')[0].toLowerCase()} website`} class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100" />
+						</div>
+						<div class="p-4 flex items-start justify-between gap-3">
+							<div>
+								<h3 class="text-lg font-bold text-ink">{b.name}</h3>
+								<p class="text-[14px] text-muted">{b.industry}</p>
+							</div>
+							<span class={`face-data text-[11px] px-2 py-1 border whitespace-nowrap ${b.kind === 'client' ? 'text-green border-green' : 'text-muted border-line'}`}>{b.kind === 'client' ? 'LIVE SITE' : 'SAMPLE'}</span>
+						</div>
+					</a>
+				))}
 			</div>
 		</div>
 	</section>
