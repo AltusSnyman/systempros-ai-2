@@ -1,0 +1,296 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceSchema from '../components/seo/ServiceSchema.astro';
+import FAQ from '../components/seo/FAQ.astro';
+import { PHONES } from '../lib/site';
+
+const breadcrumbSchema = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://systempros.ai/" },
+		{ "@type": "ListItem", "position": 2, "name": "Website Design & Build", "item": "https://systempros.ai/websites/" },
+	],
+};
+
+const included = [
+	{ item: 'DESIGN', desc: "A custom design built around your business and your offer — not a template reskinned with a new logo." },
+	{ item: 'COPY', desc: 'Every page written specifically for what you do and who you serve, not filler text dropped in around stock photos.' },
+	{ item: 'SPEED', desc: 'Built and optimised for Core Web Vitals, so pages load fast on a phone in daylight, not just on a fibre connection in a demo.' },
+	{ item: 'MOBILE', desc: 'Designed mobile-first. Most local searches happen on a phone at the job site or the kitchen counter, not a desktop.' },
+	{ item: 'LOCAL SEO BASICS', desc: 'Structured data, location pages and the on-page fundamentals search engines expect from a local business — the foundation, not a full SEO campaign.' },
+	{ item: 'BOOKING CALENDAR', desc: 'An instant booking calendar wired to your schedule, not a "contact us" form that goes to an inbox and waits.' },
+	{ item: 'FORMS', desc: 'Smart qualifying forms that ask the right questions before a lead ever reaches you.' },
+	{ item: 'CHAT / VOICE WIDGET', desc: "A chat or voice widget live on every page, so a visitor doesn't have to wait for a callback to get an answer." },
+	{ item: 'ANALYTICS', desc: "Measurement wired in from day one, so you know what's actually working instead of guessing." },
+];
+
+const phases = [
+	{ no: '1', title: 'Free consultation', desc: "We look at what you have today, or don't have yet, your competitors, and the searches you should be winning — before anything is scoped." },
+	{ no: '2', title: 'Scoping and proposal', desc: 'Fixed price, fixed scope, written down before we design a single page.' },
+	{ no: '3', title: 'Design and build', desc: 'Design, copy, structure and every item above assembled and wired into your CRM and calendar.' },
+	{ no: '4', title: 'Commissioning', desc: 'Tested live — forms submit, bookings land, pages pass speed and mobile checks — before we call it done.' },
+	{ no: '5', title: 'Handover and support', desc: 'A working site and a walkthrough of it, not a login and a tutorial video to figure out yourself.' },
+];
+
+const whoItSuits = [
+	"You don't have a website yet.",
+	"Your current site is on a platform that's broken, abandoned, or genuinely can't be extended.",
+	"You're opening a new location or launching a service that needs its own site.",
+	'You want speed, search and booking built in from day one, not bolted on later.',
+];
+
+const faqs = [
+	{
+		question: 'How much does a website cost in NZ or Australia?',
+		answer: "It's a fixed price, agreed after a free consultation, not a rate card. What sets the number is what the build actually needs: how many pages, whether you need a booking calendar and smart forms, how much local SEO groundwork is involved, and how much content still needs to be written. Ad spend and hosting are separate from that number, and we won't quote a figure sight unseen.",
+	},
+	{
+		question: 'How long does a website take to build?',
+		answer: "There's no fixed promise we make up front — it depends on the number of pages, how much content is ready to go, and how quickly we get access to what we need from you. The timeline is set out in the written scope you get after a free consultation, once we know what your build actually involves.",
+	},
+	{
+		question: 'Do you build new websites or fix existing ones?',
+		answer: "Both. Most of the time an existing site can be re-engineered — the forms, calendar, widgets and automation added to what's already there — which is faster and cheaper than starting over; see Lead Gen Websites. If there's no reasonable way to fix what you've got, or you don't have a site at all, we design and build a new one, which is what this page covers.",
+	},
+	{
+		question: 'What does a web designer do?',
+		answer: 'A web designer plans and builds the pages a visitor sees and uses — layout, navigation, copy and visuals — and, done properly, the technical groundwork underneath it: page speed, mobile behaviour, and the structured data and on-page basics search engines look for. We treat all of that as one build, not a design pass handed off to someone else afterward.',
+	},
+];
+---
+
+<Layout
+	title="Website Design & Build Agency | System Pros AI"
+	description="Website design and build for local businesses in NZ and Australia: a new site with speed, mobile, local SEO, booking and forms built in, then handed over."
+>
+	<ServiceSchema
+		name="Website Design & Build"
+		description="New website design and build for local businesses: design, copy, speed and mobile optimisation, local SEO basics, booking calendar, smart forms, a chat or voice widget and analytics, designed, built and handed over."
+		serviceType="Website Design"
+		areaServed={['NZ', 'AU']}
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+	<!-- ============================================ -->
+	<!-- HERO                                         -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<nav aria-label="Breadcrumb">
+					<a href="/" class="hover:text-green transition-colors">INDEX</a>
+					<span aria-hidden="true"> / </span>
+					<span class="text-ink" aria-current="page">WEBSITE DESIGN & BUILD</span>
+				</nav>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> NZ · AU</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
+				<div class="lg:col-span-8">
+					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink" data-reveal>
+						A new website that <span class="text-green">gets found and books the job</span>.
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[42rem]" data-reveal style="--reveal-delay: 120ms;">
+						Most local businesses either don't have a website that represents what
+						they do, or they're stuck with one built years ago that nobody maintains.
+						This is web design and build from the ground up: a new site on the
+						platform that suits you, with real copy, a design that's actually yours,
+						speed and mobile handled properly, local SEO basics built in, and a
+						booking calendar, smart forms, a chat or voice widget and analytics wired
+						in from day one — not a template with your logo dropped on it.
+					</p>
+					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact/" class="btn-primary">Book a Free Consultation</a>
+						<a href="#whats-included" class="btn-secondary">
+							See what's included
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="rule-ticked" data-draw-rule></div>
+			<dl class="grid grid-cols-2 md:grid-cols-4">
+				<div class="py-6 pr-6 md:border-r border-line" data-reveal>
+					<dt class="face-data text-muted">PLATFORM</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">Your choice</dd>
+					<dd class="text-[13px] text-muted">the platform that suits you</dd>
+				</div>
+				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 80ms;">
+					<dt class="face-data text-muted">BUILT IN</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">Speed + mobile</dd>
+					<dd class="text-[13px] text-muted">local SEO basics included</dd>
+				</div>
+				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 160ms;">
+					<dt class="face-data text-muted">BOOKING</dt>
+					<dd class="mt-1 text-2xl font-bold text-copper">Calendar + forms</dd>
+					<dd class="text-[13px] text-muted">wired to your schedule</dd>
+				</div>
+				<div class="py-6 md:pl-6" data-reveal style="--reveal-delay: 240ms;">
+					<dt class="face-data text-muted">COVERAGE</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">NZ + AU</dd>
+					<dd class="text-[13px] text-muted">Auckland, Sydney, Melbourne</dd>
+				</div>
+			</dl>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHAT'S INCLUDED — spec table                 -->
+	<!-- ============================================ -->
+	<section id="whats-included" class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					What a new build includes.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>WEBSITE DESIGN & BUILD · SCOPE</p>
+			</div>
+
+			<div class="border border-line overflow-x-auto" data-reveal>
+				<table class="w-full text-left min-w-[560px]">
+					<thead>
+						<tr class="border-b border-line">
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-48">ITEM</th>
+							<th scope="col" class="face-data text-green font-normal py-3.5 px-4 border-l border-line bg-green-faint">WHAT'S INCLUDED</th>
+						</tr>
+					</thead>
+					<tbody>
+						{included.map((row) => (
+							<tr class="border-t border-line">
+								<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">{row.item}</th>
+								<td class="py-4 px-4 text-[15px] text-ink border-l border-line bg-green-faint">{row.desc}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- HOW THE BUILD RUNS — sequential phases       -->
+	<!-- ============================================ -->
+	<section id="how-it-runs" class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					How the build runs.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>COMMISSIONING · 5 PHASES</p>
+			</div>
+
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{phases.map((p, i) => (
+				<div class="spec-row grid md:grid-cols-[3rem_14rem_1fr] gap-x-8 gap-y-2 py-6 px-2" data-reveal style={`--reveal-delay: ${i * 60}ms;`}>
+					<span class="face-data text-copper">{p.no}</span>
+					<h3 class="text-lg font-bold text-ink">{p.title}</h3>
+					<p class="text-[15px] text-muted leading-relaxed max-w-[42rem]">{p.desc}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHO IT SUITS                                 -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-2 gap-14 items-start">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						Who this is for.
+					</h2>
+					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						A new build makes sense when there's no reasonable way to fix what
+						you've got. That's different from most of the website work we do —
+						most existing sites can be re-engineered rather than replaced. This
+						page is for the businesses where that math doesn't work.
+					</p>
+					<p class="mt-8 text-[15px] border border-line bg-green-faint p-5" data-reveal style="--reveal-delay: 160ms;">
+						Already have a site that just needs fixing?
+						<a href="/lead-gen-websites/" class="link-ink font-semibold">See Lead Gen Websites</a>
+						— if your current site is fundamentally sound and just needs the
+						forms, calendar, widgets and automation it's missing, that's a
+						re-engineering job, not a rebuild.
+					</p>
+				</div>
+				<ul>
+					{whoItSuits.map((w, j) => (
+						<li class="spec-row flex items-start gap-4 py-4 px-1 text-[15px] text-ink" data-reveal style={`--reveal-delay: ${180 + j * 60}ms;`}>
+							<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="square" class="shrink-0 mt-1.5"><polyline points="20 6 9 17 4 12"/></svg>
+							{w}
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- CITIES — Auckland, Sydney, Melbourne         -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12">
+				<div class="lg:col-span-7">
+					<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.4rem)] leading-[1.1] text-paper-lit" data-reveal>
+						Web design for Auckland, Sydney and Melbourne businesses.
+					</h2>
+					<p class="mt-7 text-lg text-paper-dim leading-relaxed max-w-[38rem]" data-reveal style="--reveal-delay: 120ms;">
+						We build for local businesses in Auckland, Sydney and Melbourne, and
+						across New Zealand and Australia more broadly — all of it run remotely
+						over video call, the same way we run consulting, voice AI and
+						marketing. A web design agency doesn't need a local office to build a
+						site that ranks locally; it needs to understand the market it's
+						building for, which is why every site we build includes the local SEO
+						basics for the city and suburb you actually serve.
+					</p>
+					<a href="/contact/" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">Book a Free Consultation</a>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="rule-ticked" data-draw-rule></div>
+					<dl>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 120ms;">
+							<dt class="face-data text-paper-dim">NZ</dt>
+							<dd class="text-[15px] text-paper-lit"><a href={PHONES.NZ.tel} class="hover:text-copper transition-colors">{PHONES.NZ.display}</a></dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 200ms;">
+							<dt class="face-data text-paper-dim">AU</dt>
+							<dd class="text-[15px] text-paper-lit"><a href={PHONES.AU.tel} class="hover:text-copper transition-colors">{PHONES.AU.display}</a></dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Website design questions, answered." label="WEBSITE DESIGN & BUILD · FAQ" />
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>WEBSITE DESIGN & BUILD · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[22ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Ready to see what a new build looks like?
+			</h2>
+			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				A free consultation takes thirty minutes. We'll look at what you have
+				today, or don't have yet, and tell you honestly whether a new build or
+				a re-engineered site is the better fit.
+			</p>
+			<a href="/contact/" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
+</Layout>
