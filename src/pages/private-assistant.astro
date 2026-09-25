@@ -143,14 +143,14 @@ const deployment = [
 			</div>
 			<div class="rule-ticked" data-draw-rule></div>
 
-			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
 				<div class="lg:col-span-7">
 					<h1 class="face-display font-extrabold text-[clamp(2.4rem,5.5vw,4.6rem)] leading-[1.04] text-ink" data-reveal>
 						Stop jumping between apps. <span class="text-green">Start using your mind.</span>
 					</h1>
 					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
 						You don't need more tools — you need one intelligence that follows you
-						everywhere. We deploy your private <strong class="text-ink font-semibold">OpenClaw assistant</strong>
+						everywhere. We deploy your private AI assistant, a done-for-you <strong class="text-ink font-semibold">OpenClaw assistant</strong>,
 						across 20+ platforms: WhatsApp, iMessage, Slack, and Discord. It's your
 						second brain, your executive assistant, and your researcher — all in one
 						chat thread.
@@ -206,7 +206,7 @@ const deployment = [
 	<!-- ============================================ -->
 	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="grid lg:grid-cols-2 gap-14 items-center">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 				<div data-reveal>
 					<MediaFrame fig="FIG. 02" caption="SP-04 — THE SILO TAX, FRAGMENTED FOCUS">
 						<div class="aspect-square bg-ink">
@@ -242,7 +242,7 @@ const deployment = [
 	<!-- ============================================ -->
 	<section id="skills" class="py-(--spacing-section)">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="grid lg:grid-cols-2 gap-14 items-center">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 				<div>
 					<p class="face-data text-copper" data-reveal>CLAWHUB MARKETPLACE</p>
 					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink mt-3" data-reveal style="--reveal-delay: 60ms;">
@@ -340,7 +340,7 @@ const deployment = [
 			</div>
 
 			<div class="rule-ticked" data-draw-rule></div>
-			<div class="grid md:grid-cols-2 md:gap-x-14">
+			<div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-14">
 				{deployment.map((d, i) => (
 					<div class="spec-row flex gap-5 py-6 px-2" data-reveal style={`--reveal-delay: ${(i % 2) * 80}ms;`}>
 						<span class="face-data text-copper pt-1 shrink-0 w-16">{d.label}</span>

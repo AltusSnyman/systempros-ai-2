@@ -264,7 +264,7 @@ const steps = [
 			<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink mb-12" data-reveal>
 				The old way vs. the engine.
 			</h2>
-			<div class="grid md:grid-cols-2 gap-x-14">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-x-14">
 				<div>
 					<p class="face-data text-muted pb-3" data-reveal>WHAT MOST PLUMBERS DO</p>
 					<div class="rule-ticked" data-draw-rule></div>
@@ -298,7 +298,7 @@ const steps = [
 				</h2>
 				<p class="face-data text-muted pb-2" data-reveal>THREE STEPS · NO TECH SKILLS REQUIRED</p>
 			</div>
-			<div class="grid md:grid-cols-3">
+			<div class="grid grid-cols-1 md:grid-cols-3">
 				{steps.map((s, i) => (
 					<div class={`border-t-2 ${i === 2 ? 'border-copper' : 'border-green'} pt-5 md:pr-10 pb-4`} data-reveal style={`--reveal-delay: ${i * 110}ms;`}>
 						<span class={`face-data ${i === 2 ? 'text-copper' : 'text-green'}`}>STEP {s.n}</span>

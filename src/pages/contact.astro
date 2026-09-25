@@ -38,11 +38,13 @@ const steps = [
 			</div>
 			<div class="rule-ticked" data-draw-rule></div>
 
-			<div class="grid lg:grid-cols-12 gap-x-14 gap-y-12 py-12 lg:py-16">
-				<!-- Left column: copy + channels + procedure -->
-				<div class="lg:col-span-5">
+			<!-- Mobile order: intro, calendar, channels + procedure. Desktop: intro and
+			     channels stacked in the left column, calendar spanning both rows on the right. -->
+			<div class="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-[auto_1fr] gap-x-14 gap-y-10 lg:gap-y-0 py-10 lg:py-16">
+				<!-- Left column, row 1: intro -->
+				<div class="order-1 lg:order-none lg:col-span-5 lg:col-start-1 lg:row-start-1">
 					<h1 class="face-display font-extrabold text-[clamp(2.4rem,4.6vw,3.8rem)] leading-[1.05] text-ink" data-reveal>
-						Book your <span class="text-green">discovery call</span>.
+						Book a <span class="text-green">free consultation</span>.
 					</h1>
 					<p class="mt-6 text-lg text-muted leading-relaxed max-w-[30rem]" data-reveal style="--reveal-delay: 100ms;">
 						Ready to automate your operations? Pick a time in the calendar to schedule
@@ -51,9 +53,12 @@ const steps = [
 					</p>
 
 					<GoogleRating class="mt-6" />
+				</div>
 
+				<!-- Left column, row 2: direct channels + procedure -->
+				<div class="order-3 lg:order-none lg:col-span-5 lg:col-start-1 lg:row-start-2 lg:pt-2">
 					<!-- Direct channels: spec table -->
-					<div class="mt-10" data-reveal style="--reveal-delay: 180ms;">
+					<div class="lg:mt-10" data-reveal style="--reveal-delay: 180ms;">
 						<p class="face-data text-muted mb-3">DIRECT CHANNELS — SPEAK TO A HUMAN</p>
 						<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
 						{channels.map((c) => (
@@ -82,8 +87,9 @@ const steps = [
 					</div>
 				</div>
 
-				<!-- Right column: the booking calendar, framed as a dossier figure -->
-				<div class="lg:col-span-7" data-reveal style="--reveal-delay: 140ms;">
+				<!-- Right column: the booking calendar, framed as a dossier figure.
+				     No reveal animation: the skeleton must be visible immediately. -->
+				<div class="order-2 lg:order-none lg:col-span-7 lg:col-start-6 lg:row-start-1 lg:row-span-2 self-start">
 					<figure class="media-frame">
 						<div class="relative bg-paper min-h-[760px] sm:min-h-[700px]">
 							<!-- Branded loading skeleton, positioned underneath the iframe.

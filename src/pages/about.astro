@@ -90,7 +90,7 @@ const values = [
 	<!-- ============================================ -->
 	<section class="py-(--spacing-section)">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="grid lg:grid-cols-12 gap-12">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
 				<div class="lg:col-span-4">
 					<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink lg:sticky lg:top-28" data-reveal>
 						Thirty years, one discipline.
@@ -122,7 +122,7 @@ const values = [
 	<!-- ============================================ -->
 	<section class="drench py-(--spacing-section)">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="grid lg:grid-cols-12 gap-12 items-center">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 				<div class="lg:col-span-8">
 					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit" data-reveal>
 						The engineering core.
@@ -133,7 +133,7 @@ const values = [
 						build it, secure it and sign it off.
 					</p>
 
-					<dl class="grid sm:grid-cols-3 mt-12 border-t border-line-drench">
+					<dl class="grid grid-cols-1 sm:grid-cols-3 mt-12 border-t border-line-drench">
 						{teamStats.map((s, i) => (
 							<div class={`py-6 ${i < 2 ? 'sm:border-r border-line-drench sm:pr-6' : ''} ${i > 0 ? 'sm:pl-6' : ''}`} data-reveal style={`--reveal-delay: ${180 + i * 80}ms;`}>
 								<dt class="face-data text-paper-dim">{s.label}</dt>

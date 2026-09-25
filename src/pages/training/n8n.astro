@@ -62,7 +62,7 @@ const faqs = [
 	<!-- ============================================ -->
 	<section class="relative overflow-hidden">
 		<div class="max-w-[1200px] mx-auto px-5">
-			<div class="grid lg:grid-cols-12 gap-12 items-center py-10 lg:py-16">
+			<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-10 lg:py-16">
 				<div class="lg:col-span-7">
 					<h1 class="face-display font-extrabold text-[clamp(2.4rem,5.5vw,4.6rem)] leading-[1.04] text-ink" data-reveal>
 						n8n training and automation builds<span class="text-green">, from people who run it every day</span>.
@@ -137,7 +137,7 @@ const faqs = [
 				running. Both are on the table.
 			</p>
 
-			<div class="grid lg:grid-cols-2 gap-x-12 gap-y-10 mt-10">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-10 mt-10">
 				<div class="spec-row py-6 px-2" data-reveal style="--reveal-delay: 140ms;">
 					<p class="face-data text-copper">OPTION 1</p>
 					<h3 class="text-xl font-bold text-ink mt-2">1-on-1 n8n training</h3>
@@ -250,7 +250,7 @@ const faqs = [
 				</h2>
 				<p class="face-data text-muted pb-2" data-reveal>SEQUENCE · 4 STEPS</p>
 			</div>
-			<ol class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+			<ol class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
 				{runSteps.map((s, i) => (
 					<li class="border-t-2 border-green pt-5 relative" data-reveal style={`--reveal-delay: ${i * 90}ms;`}>
 						<span class="absolute -top-[19px] left-0 w-9 h-9 bg-green text-paper-lit font-bold flex items-center justify-center" aria-hidden="true">{s.no}</span>
