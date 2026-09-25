@@ -6,9 +6,8 @@ import GBPCalculator from '../../components/GBPCalculator.tsx';
 import LocalSearchAnatomy from '../../components/marketing/LocalSearchAnatomy.astro';
 import MapPositionChart from '../../components/marketing/MapPositionChart.astro';
 
-// Set this once the heatmap-scan lead form's embed URL is available. Until
-// then the section falls back to a plain CTA button, per docs/andrea-page-copy.md §13.
-const HEATMAP_FORM_EMBED_URL = '';
+// Andrea's free heatmap audit (white-labelled, cannot be framed: link out).
+const HEATMAP_AUDIT_URL = 'https://audit.seo.systempros.ai/';
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -115,7 +114,7 @@ const faqs = [
 						those three is you.
 					</p>
 					<div class="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3" data-reveal style="--reveal-delay: 260ms;">
-						<a href="#heatmap-scan" class="btn-primary">Get your free Maps heatmap</a>
+						<a href={HEATMAP_AUDIT_URL} data-heatmap-cta class="btn-primary">Get your free Maps heatmap</a>
 						<a href="/contact/" class="link-ink text-[15px] font-semibold">or book a free consultation</a>
 					</div>
 				</div>
@@ -234,7 +233,7 @@ const faqs = [
 						We run one before Andrea starts and keep running them, so you can
 						watch your area turn green instead of taking our word for it.
 					</p>
-					<a href="#heatmap-scan" class="btn-primary mt-8 inline-flex" data-reveal style="--reveal-delay: 200ms;">Get your free Maps heatmap</a>
+					<a href={HEATMAP_AUDIT_URL} data-heatmap-cta class="btn-primary mt-8 inline-flex" data-reveal style="--reveal-delay: 200ms;">Get your free Maps heatmap</a>
 				</div>
 				<figure data-reveal style="--reveal-delay: 160ms;">
 					<img
@@ -480,44 +479,33 @@ const faqs = [
 				See where you rank on Google Maps, free.
 			</h2>
 			<p class="text-muted text-lg leading-relaxed mt-5 max-w-[38rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
-				Tell us your business and your area. We'll run a heatmap for your
-				main search and send you the map, with a short note on what's
-				holding you back.
+				Two free ways to see where you stand. Pick whichever suits you.
 			</p>
 
-			<div class="mt-9" data-reveal style="--reveal-delay: 220ms;">
-				{HEATMAP_FORM_EMBED_URL ? (
-					<>
-						<iframe
-							src={HEATMAP_FORM_EMBED_URL}
-							loading="lazy"
-							title="Free Google Maps heatmap request"
-							style="width:100%;min-height:620px;border:0"
-						></iframe>
-						<script src="https://link.msgsndr.com/js/form_embed.js"></script>
-					</>
-				) : (
-					<>
-						<a href="/contact/?topic=maps-heatmap" id="heatmap-scan-cta" class="btn-primary !px-10 !py-4 !text-[16px]">
-							Request your free heatmap
-						</a>
-						<p class="face-data text-muted text-[12px] mt-4">Takes two minutes. No obligation.</p>
-					</>
-				)}
+			<div class="mt-9 grid gap-5 sm:grid-cols-2 text-left" data-reveal style="--reveal-delay: 220ms;">
+				<div class="border border-green bg-paper p-6 flex flex-col">
+					<p class="face-data text-green text-[12px]">GOOGLE MAPS + AI · ANDREA</p>
+					<h3 class="text-xl font-bold text-ink mt-2">Free Maps heatmap and AI audit</h3>
+					<p class="text-[15px] text-muted leading-relaxed mt-3 flex-1">Connect your Google Business Profile and Andrea checks your Google Maps ranking across your area, how you show up on ChatGPT, and how you compare with competitors.</p>
+					<a href={HEATMAP_AUDIT_URL} data-heatmap-cta class="btn-primary mt-6 !justify-center">Get your free Maps heatmap</a>
+				</div>
+				<div class="border border-line bg-paper p-6 flex flex-col">
+					<p class="face-data text-muted text-[12px]">MARKETING AUDIT · NO LOGIN</p>
+					<h3 class="text-xl font-bold text-ink mt-2">Free AI marketing audit</h3>
+					<p class="text-[15px] text-muted leading-relaxed mt-3 flex-1">No Google login needed. Enter your business and website and get a report on your online presence and where you are losing customers.</p>
+					<a href="/audit/" data-audit-cta class="btn-secondary mt-6 !justify-center">Run the free marketing audit</a>
+				</div>
 			</div>
+			<p class="face-data text-muted text-[12px] mt-6">Free. No obligation. Prefer to talk? <a href="/contact/" class="link-ink">Book a free consultation</a>.</p>
 		</div>
 	</section>
 
 	<script>
 		(function () {
-			const cta = document.getElementById('heatmap-scan-cta');
-			if (!cta) return;
-			cta.addEventListener('click', function () {
-				const w = window as unknown as { gtag?: (...args: unknown[]) => void };
-				if (typeof w.gtag === 'function') {
-					w.gtag('event', 'heatmap_cta_click', { page_path: location.pathname });
-				}
-			});
+			const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+			const send = (name: string) => { if (typeof w.gtag === 'function') w.gtag('event', name, { page_path: location.pathname }); };
+			document.querySelectorAll('[data-heatmap-cta]').forEach((a) => a.addEventListener('click', () => send('heatmap_cta_click')));
+			document.querySelectorAll('[data-audit-cta]').forEach((a) => a.addEventListener('click', () => send('audit_cta_click')));
 		})();
 	</script>
 
@@ -535,7 +523,7 @@ const faqs = [
 				you.
 			</p>
 			<div class="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3" data-reveal style="--reveal-delay: 240ms;">
-				<a href="#heatmap-scan" class="btn-primary !px-10 !py-4 !text-[16px]">
+				<a href={HEATMAP_AUDIT_URL} data-heatmap-cta class="btn-primary !px-10 !py-4 !text-[16px]">
 					Get your free Maps heatmap
 				</a>
 				<a href="/contact/" class="link-ink text-[15px] font-semibold">or book a free consultation</a>

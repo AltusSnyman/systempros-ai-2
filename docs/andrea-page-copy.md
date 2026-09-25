@@ -114,8 +114,11 @@ Below: Not sure which side you're on? The free heatmap will show you.
 
 ## 13. Heatmap scan section (id="heatmap-scan")
 **See where you rank on Google Maps, free.**
-Tell us your business and your area. We'll run a heatmap for your main search and send you the map, with a short note on what's holding you back.
-Form: GoHighLevel embed (pending from Altus). Until then: a button **"Request your free heatmap"** → `/contact/` and the line "Takes two minutes. No obligation."
+Two free ways to see where you stand. Pick whichever suits you.
+- Card 1 — GOOGLE MAPS + AI · ANDREA — **Free Maps heatmap and AI audit**: Connect your Google Business Profile and Andrea checks your Google Maps ranking across your area, how you show up on ChatGPT, and how you compare with competitors. Button **Get your free Maps heatmap** → https://audit.seo.systempros.ai/ (white-labelled Andrea audit; cannot be framed, so linked).
+- Card 2 — MARKETING AUDIT · NO LOGIN — **Free AI marketing audit**: No Google login needed. Enter your business and website and get a report on your online presence and where you are losing customers. Button **Run the free marketing audit** → /audit/ (GoHighLevel prospecting tool).
+Line: Free. No obligation. Prefer to talk? Book a free consultation.
+All "Get your free Maps heatmap" buttons on the page link to https://audit.seo.systempros.ai/.
 
 ## 14. Final CTA (existing drench pattern)
 **Be one of the three.**
