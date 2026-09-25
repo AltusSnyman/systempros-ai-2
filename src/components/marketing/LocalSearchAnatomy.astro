@@ -11,9 +11,9 @@ interface Listing {
 }
 
 const listings: Listing[] = [
-	{ name: 'Harbourside Plumbing', rating: '4.9', distance: '0.8 km', stars: 5 },
-	{ name: 'Shore Pipe & Drain', rating: '4.8', distance: '1.1 km', stars: 5 },
-	{ name: 'Northcote Plumbers Ltd', rating: '4.6', distance: '1.6 km', stars: 5 },
+	{ name: 'Your business', rating: '4.9', distance: '0.8 km', stars: 5 },
+	{ name: 'Competitor one', rating: '4.8', distance: '1.1 km', stars: 5 },
+	{ name: 'Competitor two', rating: '4.6', distance: '1.6 km', stars: 5 },
 ];
 
 const directoryResults = [
@@ -22,7 +22,7 @@ const directoryResults = [
 ];
 
 const anatomyLabel =
-	"Mock Google search results for 'plumber near me, Takapuna': one sponsored listing at the top, a map pack showing three pins and three businesses — Harbourside Plumbing, Shore Pipe & Drain, and Northcote Plumbers Ltd — each with a star rating, distance and a call button, then two directory-style results underneath.";
+	"Mock Google search results for 'plumber near me, Takapuna': one sponsored listing at the top, a map pack showing three pins and three businesses — your business and two competitors — each with a star rating, distance and a call button, then two directory-style results underneath.";
 ---
 
 <div class="grid lg:grid-cols-[1fr_15rem] gap-8 items-start">
@@ -41,8 +41,8 @@ const anatomyLabel =
 			<!-- Sponsored result -->
 			<div class="px-4 py-3 border-b border-line">
 				<span class="face-data text-[9.5px] border border-line text-muted px-1.5 py-0.5">Sponsored</span>
-				<p class="text-[13.5px] text-ink mt-1.5 font-semibold">northshoreplumbingpro.co.nz</p>
-				<p class="text-[12px] text-muted">24/7 emergency plumber — North Shore, Auckland</p>
+				<p class="text-[13.5px] text-ink mt-1.5 font-semibold">A paid advertiser</p>
+				<p class="text-[12px] text-muted">Sponsored plumbing ad for the North Shore</p>
 			</div>
 
 			<!-- Map pack -->

@@ -32,7 +32,7 @@ Diagram labels (with benchmark share of clicks):
 - **Map pack (top three on Google Maps)** — about 80% of clicks
 - **Websites** — about 16% of clicks
 Caption: Industry benchmark for local searches. Your category and suburb will differ; the direction rarely does.
-Diagram content: a Google-style result for **"plumber near me · Takapuna"** with neutral business names: "Harbourside Plumbing", "Shore Pipe & Drain", "Northcote Plumbers Ltd"; one sponsored line above; two directory results below ("Top 10 plumbers on the North Shore", "Plumbers near you — directory"). No real business names.
+Diagram content: a Google-style result for **"plumber near me · Takapuna"** with listings labelled "Your business", "Competitor one", "Competitor two" (no real or real-sounding names); one sponsored line above labelled "A paid advertiser"; two directory results below ("Top 10 plumbers on the North Shore", "Plumbers near you — directory"). No real business names.
 
 ## 4. Why position matters  (own bar chart)
 **Moving up the map is not cosmetic.**
