@@ -39,6 +39,15 @@ Prepared 2026-09-25 by the lead (Opus 5.5) from four Sonnet audits (technical + 
 | Testimonials | First-name-only with numbers | Keep text, drop unverifiable percentages unless confirmed; add the Google rating |
 | Connect Google profile in GoHighLevel | Enables reply + daily post system | Altus connects it in GoHighLevel (account action, not code) |
 
+## 2b. Owner answers (Altus, 2026-09-25) — these override every default above
+
+- **Names:** the website and domain stay **System Pros AI** (schema `name` "System Pros AI", `alternateName` "SystemPros.ai"). The Google listing stays **"Ai and Automation Agency"** because that is the registered limited company: use it as schema `legalName` and in the footer line "System Pros AI is a brand of Ai and Automation Agency Ltd" (exact legal suffix to confirm), and add the Google listing's Maps URL to `sameAs` so Google joins the two. Do **not** rename the listing.
+- **Goal:** SEO for System Pros AI, and **add pages** → the round-2 pages in §3 move into round 1 (/voice-ai/australia, /training/n8n, AU consulting services depth; /openclaw/pricing once prices are confirmed).
+- **Contacts:** NZ 021 255 0493 (+64 21 255 0493), AU +61 2 5563 2110, US +1 844 697 9038, email hello@systempros.ai, no street address. Terms page numbers replaced. Remove the wrong LinkedIn sameAs.
+- **Prices:** publish "from" prices. **Figures pending**: the current PricingSection.jsx tiers ($997 / $3,497 / $5,997 with template-style inclusions) are not confirmed; nothing ships as a price until Altus confirms per offer.
+- **Round 1 approved**, plus "build the marketing side as well" → scope being confirmed with Altus (see §8).
+- Defaults kept for: GA4 under altussnyman@gmail.com; generic "AI receptionist" on /voice-ai, "tradie" terms stay with Tradie Front Desk; testimonials keep text but drop unverifiable percentages; Altus connects the Google listing in GoHighLevel.
+
 ## 3. Page map and keyword → URL (one primary per URL)
 
 | URL | Primary | Secondary | Market | Round |
