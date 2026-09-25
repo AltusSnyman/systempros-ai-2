@@ -1,0 +1,279 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
+import { MARKETING_SERVICES, MARKETING_INDUSTRY_LINKS } from '../../data/marketing';
+
+const breadcrumbSchema = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://systempros.ai/" },
+		{ "@type": "ListItem", "position": 2, "name": "Marketing", "item": "https://systempros.ai/marketing/" },
+	],
+};
+
+const faqs = [
+	{
+		question: 'What marketing services does System Pros AI run?',
+		answer: "Google Business Profile management and optimisation, automated content posting to Google Business Profile and Meta (Facebook and Instagram), review generation and review replies, and Facebook/Instagram ads management. If those ads produce leads, the Lead Reactor handles the follow-up. All of it runs through one AI-assisted system rather than four separate logins you have to manage.",
+	},
+	{
+		question: 'Is this software I run myself, or do you run it?',
+		answer: "We run it. You get a working profile, a posting schedule, review replies going out and, if you choose it, ads running — not a dashboard and a login to figure out on your own. You tell us what changed in the business (new hours, a new service, a job worth posting about); the system handles the rest.",
+	},
+	{
+		question: 'Do I need all four services, or can I start with one?',
+		answer: "Start with one. Most businesses begin with Google Business Profile management or reviews, because both feed directly into local search and cost nothing extra in ad spend. Social posting and Meta ads layer on once the fundamentals are running. We'll recommend a starting point in the free consultation based on what your profile and ad accounts look like today.",
+	},
+	{
+		question: 'How much does marketing management cost?',
+		answer: "It's a fixed monthly fee, agreed after a free consultation. What sets the number is how many locations and platforms are in scope and how much posting or review volume you need. If you run Meta ads, that spend is paid directly to Meta and is separate from our fee.",
+	},
+];
+---
+
+<Layout
+	title="AI-Native Marketing for Local Businesses | System Pros AI"
+	description="AI-native digital marketing agency for local businesses in NZ and Australia: GBP management, reviews, social posting and Meta ads, run for you."
+>
+	<ServiceSchema
+		name="AI-Native Marketing for Local Businesses"
+		description="Marketing management for local businesses: Google Business Profile management and optimisation, automated posting to Google and Meta, review generation and replies, and Facebook/Instagram ads management, run through one AI-assisted system."
+		serviceType="MarketingAgency"
+		areaServed={['NZ', 'AU']}
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+	<!-- ============================================ -->
+	<!-- HERO — dossier sheet MKT-00                  -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<nav aria-label="Breadcrumb">
+					<a href="/" class="hover:text-green transition-colors">INDEX</a>
+					<span aria-hidden="true"> / </span>
+					<span class="text-ink" aria-current="page">MKT-00 · MARKETING</span>
+				</nav>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> NZ · AU</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
+				<div class="lg:col-span-8">
+					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink" data-reveal>
+						The AI-native marketing agency <span class="text-green">for local businesses</span>.
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[40rem]" data-reveal style="--reveal-delay: 120ms;">
+						A digital marketing agency built around one operating system instead of a
+						stack of logins: your Google Business Profile managed and posted to, reviews
+						requested and answered, Meta ads built and run, and social content scheduled
+						across Google and Meta — all AI-assisted, all run for you.
+					</p>
+					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact/" class="btn-primary">Book a Free Consultation</a>
+						<a href="#services" class="btn-secondary">
+							See the four services
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- Commissioning figures -->
+			<div class="rule-ticked" data-draw-rule></div>
+			<dl class="grid grid-cols-2 md:grid-cols-4">
+				<div class="py-6 pr-6 md:border-r border-line" data-reveal>
+					<dt class="face-data text-muted">PLATFORMS</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">Google + Meta</dd>
+					<dd class="text-[13px] text-muted">one system, both platforms</dd>
+				</div>
+				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 80ms;">
+					<dt class="face-data text-muted">SERVICES</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">4</dd>
+					<dd class="text-[13px] text-muted">GBP, reviews, social, ads</dd>
+				</div>
+				<div class="py-6 md:px-6 md:border-r border-line" data-reveal style="--reveal-delay: 160ms;">
+					<dt class="face-data text-muted">COVERAGE</dt>
+					<dd class="mt-1 text-2xl font-bold text-copper">NZ + AU</dd>
+					<dd class="text-[13px] text-muted">operators in both countries</dd>
+				</div>
+				<div class="py-6 md:pl-6" data-reveal style="--reveal-delay: 240ms;">
+					<dt class="face-data text-muted">AFTER THE CLICK</dt>
+					<dd class="mt-1 text-2xl font-bold text-ink">Lead Reactor</dd>
+					<dd class="text-[13px] text-muted">ad leads followed up in seconds</dd>
+				</div>
+			</dl>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHY A SYSTEM, NOT A STACK OF LOGINS          -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-2 gap-14 items-start">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						Marketing for a local business is four jobs, done badly one at a time.
+					</h2>
+					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						Keep the Google Business Profile current. Ask every customer for a review,
+						then answer the ones that come in. Post to Google and Meta on a schedule
+						instead of whenever someone remembers. Run ads that actually convert, and
+						follow up the leads they produce before the moment passes. Most operators
+						do one of these, occasionally, and let the rest slide.
+					</p>
+				</div>
+				<div>
+					<p class="text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 140ms;">
+						We built System Pros AI's marketing service as one connected system instead
+						of four separate hires or four separate tools. It runs on an AI-assisted
+						backend — the same discipline we apply to voice AI and lead follow-up —
+						so posting, review requests and ad management happen on schedule without
+						you opening a dashboard every morning.
+					</p>
+					<p class="mt-5 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 180ms;">
+						You keep running the business. You tell us what changed — a new service,
+						new hours, a job worth showing off — and the system carries it across every
+						platform it's live on.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FOUR SERVICES — spec rows                    -->
+	<!-- ============================================ -->
+	<section id="services" class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					Four services. One system.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-01–04 · SERVICE SET</p>
+			</div>
+
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{MARKETING_SERVICES.map((s, i) => (
+				<a href={s.href} class="spec-row group grid md:grid-cols-[9rem_1fr_2rem] gap-x-8 gap-y-2 items-center py-7 px-2" data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
+					<span class="face-data text-copper">{s.ref}</span>
+					<div>
+						<h3 class="text-lg font-bold text-ink group-hover:text-green transition-colors">{s.name}</h3>
+						<p class="text-[14.5px] text-muted mt-1 max-w-[42rem]">{s.blurb}</p>
+					</div>
+					<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			))}
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<p class="text-muted leading-relaxed mt-8 max-w-[42rem]" data-reveal>
+				Running Meta ads already? The half of the funnel that happens after someone
+				clicks — the instant multi-channel follow-up that turns a lead into a booked
+				appointment — is a separate, dedicated system:
+				<a href="/lead-reactor/" class="link-ink">see what happens after the click on the Lead Reactor page</a>.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- DRENCH — the standard                        -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12">
+				<div class="lg:col-span-7">
+					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit" data-reveal>
+						No pricing, no percentages, no fake case studies.
+					</h2>
+					<p class="mt-7 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						We'd rather tell you exactly what runs and how, and quote a real number in
+						the consultation, than publish a "typical results" chart with numbers nobody
+						can verify. If a marketing agency's site is all percentages and no mechanism,
+						ask what's actually running behind it.
+					</p>
+					<a href="/contact/" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">Book a Free Consultation</a>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="rule-ticked" data-draw-rule></div>
+					<dl>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 120ms;">
+							<dt class="face-data text-paper-dim">PRICING</dt>
+							<dd class="text-[15px] text-paper-lit">A fixed monthly fee, agreed after a free consultation.</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 200ms;">
+							<dt class="face-data text-paper-dim">AD SPEND</dt>
+							<dd class="text-[15px] text-paper-lit">Paid directly to Meta, separate from our fee.</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 280ms;">
+							<dt class="face-data text-paper-dim">SCOPE</dt>
+							<dd class="text-[15px] text-paper-lit">Set by locations, platforms and posting volume.</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- CROSS-LINKS — industries + consulting        -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.8rem,3.4vw,2.6rem)] leading-tight text-ink" data-reveal>
+					Marketing, by industry — and where it fits with strategy.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SEE IT FOR YOUR INDUSTRY</p>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+			<div class="grid md:grid-cols-2 gap-x-10">
+				<div>
+					{MARKETING_INDUSTRY_LINKS.map((l, i) => (
+						<a href={l.href} class="spec-row flex items-center justify-between gap-4 py-5 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+							<span class="text-[15px] font-semibold text-ink">{l.name}</span>
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="text-line"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+						</a>
+					))}
+				</div>
+				<div class="pt-5 md:pt-0 md:border-l border-line md:pl-10">
+					<p class="text-[15px] text-muted leading-relaxed" data-reveal>
+						If the gap in your business is the strategy layer above marketing — which
+						systems to install first, in what order, for the best return — that's a
+						different engagement: a forensic operations audit and an AI roadmap.
+					</p>
+					<a href="/consulting/" class="link-ink font-semibold text-[15px] mt-3 inline-block" data-reveal style="--reveal-delay: 100ms;">See AI consulting services →</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Marketing questions, answered." label="MKT-00 · FAQ" />
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>MKT-00 · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[22ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Which of the four should you start with?
+			</h2>
+			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				A free consultation takes thirty minutes. We'll look at your profile, your
+				reviews and your ad accounts as they stand today, and tell you where the
+				fastest return actually is.
+			</p>
+			<a href="/contact/" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
+</Layout>

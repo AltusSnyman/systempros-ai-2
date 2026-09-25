@@ -1,0 +1,273 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
+import { MARKETING_SERVICES } from '../../data/marketing';
+
+const breadcrumbSchema = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://systempros.ai/" },
+		{ "@type": "ListItem", "position": 2, "name": "Marketing", "item": "https://systempros.ai/marketing/" },
+		{ "@type": "ListItem", "position": 3, "name": "Review & Reputation Management", "item": "https://systempros.ai/marketing/reviews-reputation/" },
+	],
+};
+
+const faqs = [
+	{
+		question: 'What is review management?',
+		answer: "Review management is the ongoing work of getting customers to leave reviews after a job or visit, and then handling every review that comes in — thanking the good ones publicly and responding properly to the ones that aren't. Left alone, review generation stalls (people mean to leave one and forget) and replies slip, both of which quietly undercut a business's standing wherever customers are already checking it.",
+	},
+	{
+		question: 'How do I manage my Google reviews?',
+		answer: "Two habits matter most: ask every customer at the right moment, and reply to every review, good or bad, without leaving one waiting for weeks. Most businesses do neither consistently because there's no system behind it — someone has to remember to ask, and someone has to check for new reviews and write a reply. We run both as an automated, AI-assisted service instead of a manual task on someone's to-do list.",
+	},
+	{
+		question: 'Do you reply to reviews for me?',
+		answer: "Yes. Routine replies — thanking a good review, acknowledging a fair complaint — go out through the system. Anything that needs a personal, specific response, especially a serious complaint, is flagged to you so it gets your voice, not a generic one.",
+	},
+	{
+		question: 'How much does review management cost?',
+		answer: "It's a fixed monthly fee, agreed after a free consultation. Pricing depends on how many locations and platforms are in scope and your typical review volume — we'll give you a real number once we've looked at your setup.",
+	},
+];
+---
+
+<Layout
+	title="Review & Reputation Management | System Pros AI"
+	description="Review and reputation management for local businesses in NZ and Australia: automated review requests and review replies, run for you as a managed service."
+>
+	<ServiceSchema
+		name="Review & Reputation Management"
+		description="Review generation and reputation management: automated review requests sent to customers, and review replies handled, run as a managed AI-assisted service."
+		serviceType="Reputation Management"
+		areaServed={['NZ', 'AU']}
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+	<!-- ============================================ -->
+	<!-- HERO — dossier sheet MKT-02                  -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<nav aria-label="Breadcrumb">
+					<a href="/" class="hover:text-green transition-colors">INDEX</a>
+					<span aria-hidden="true"> / </span>
+					<a href="/marketing/" class="hover:text-green transition-colors">MARKETING</a>
+					<span aria-hidden="true"> / </span>
+					<span class="text-ink" aria-current="page">MKT-02 · REVIEWS</span>
+				</nav>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> REQUESTS RUNNING</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
+				<div class="lg:col-span-8">
+					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink" data-reveal>
+						Get more 5-star reviews, <span class="text-green">automatically</span>.
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[40rem]" data-reveal style="--reveal-delay: 120ms;">
+						Every happy customer is a review you probably never asked for. We install
+						an AI-assisted system that requests a review after the job is done, then
+						handles the replies — the thank-yous and the harder ones — so your
+						reputation is actively managed instead of left to chance.
+					</p>
+					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact/" class="btn-primary">Book a Free Consultation</a>
+						<a href="#how-it-runs" class="btn-secondary">
+							See how it runs
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- THE PROBLEM WITH LEAVING REVIEWS TO CHANCE   -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-2 gap-14 items-start">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						Happy customers rarely leave a review unasked.
+					</h2>
+					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						Most people mean to. They just don't get around to it — unless someone asks
+						at the right moment, with an easy way to do it. Meanwhile the reviews that
+						do come in without any prompting skew toward the complaints, because an
+						unhappy customer needs no reminder. Left alone, that imbalance compounds.
+					</p>
+				</div>
+				<ul>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 160ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT A</span>
+						<div>
+							<h3 class="font-bold text-ink">No ask, no review</h3>
+							<p class="text-[14.5px] text-muted mt-1">Without a system asking every customer at the right moment, review volume depends entirely on who happens to remember.</p>
+						</div>
+					</li>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 240ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT B</span>
+						<div>
+							<h3 class="font-bold text-ink">Replies pile up unanswered</h3>
+							<p class="text-[14.5px] text-muted mt-1">A review sitting unanswered for weeks — especially a critical one — reads as a business that isn't paying attention.</p>
+						</div>
+					</li>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 320ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT C</span>
+						<div>
+							<h3 class="font-bold text-ink">It's whoever has a spare minute</h3>
+							<p class="text-[14.5px] text-muted mt-1">Without a dedicated owner, asking for reviews and replying to them competes with every other job on the day — and loses.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- HOW IT RUNS — spec table                     -->
+	<!-- ============================================ -->
+	<section id="how-it-runs" class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					What we do. What you do.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-02 · SCOPE OF WORK</p>
+			</div>
+
+			<div class="border border-line overflow-x-auto" data-reveal>
+				<table class="w-full text-left min-w-[560px]">
+					<thead>
+						<tr class="border-b border-line">
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-44">WORK ITEM</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">RUNS ON THE SYSTEM</th>
+							<th scope="col" class="face-data text-green font-normal py-3.5 px-4 border-l border-line bg-green-faint">YOUR PART</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">REVIEW REQUESTS</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Customers asked automatically after the job, on the platforms that matter to your business.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Confirm when a job is complete, or let it trigger from your existing system.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">ROUTINE REPLIES</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Thank-yous and standard acknowledgements go out without waiting on you.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Nothing — this runs in the background.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">SERIOUS COMPLAINTS</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Flagged to you directly rather than answered generically.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Write or approve the reply — your voice, your call.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">PROFILE HEALTH</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Reviews connect straight to your managed Google Business Profile.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">See Google Business Profile management for the rest of the profile.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="text-muted leading-relaxed mt-6 max-w-[42rem]" data-reveal>
+				<a href="/marketing/google-business-profile/" class="link-ink">See Google Business Profile management</a> —
+				reviews are one part of a profile that also needs its hours, categories and
+				posts kept current.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- DRENCH — why replies matter                  -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12">
+				<div class="lg:col-span-7">
+					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit" data-reveal>
+						A reply is proof someone's paying attention.
+					</h2>
+					<p class="mt-7 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						Prospective customers read reviews and the replies underneath them. A
+						business that answers — calmly, consistently, even to the tough ones —
+						reads as one that's actually run by someone. That's the standard we hold
+						this service to: nothing invented, nothing generic, every reply defensible.
+					</p>
+					<a href="/contact/" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">Book a Free Consultation</a>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="rule-ticked" data-draw-rule></div>
+					<dl>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 120ms;">
+							<dt class="face-data text-paper-dim">PLATFORM</dt>
+							<dd class="text-[15px] text-paper-lit">Google Business Profile, plus others on request</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 200ms;">
+							<dt class="face-data text-paper-dim">TRIGGER</dt>
+							<dd class="text-[15px] text-paper-lit">A completed job or visit, not a bulk blast</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 280ms;">
+							<dt class="face-data text-paper-dim">COVERAGE</dt>
+							<dd class="text-[15px] text-paper-lit">NZ and Australia, single or multi-location</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- CROSS-LINKS                                  -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.8rem,3.4vw,2.6rem)] leading-tight text-ink" data-reveal>
+					The rest of the marketing system.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SEE THE OTHER SERVICES</p>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+			{MARKETING_SERVICES.filter((s) => s.href !== '/marketing/reviews-reputation/').map((s, i) => (
+				<a href={s.href} class="spec-row group grid md:grid-cols-[9rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-5 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<span class="face-data text-copper">{s.ref}</span>
+					<h3 class="text-[15px] font-semibold text-ink group-hover:text-green transition-colors">{s.name}</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			))}
+			<a href="/marketing/" class="link-ink font-semibold text-[15px] mt-6 inline-block" data-reveal>← Back to the marketing overview</a>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Review management questions, answered." label="MKT-02 · FAQ" />
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>MKT-02 · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[22ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Stop hoping customers remember to leave one.
+			</h2>
+			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				A free consultation takes thirty minutes. We'll look at your current review
+				volume and reply history and tell you what a managed system would change.
+			</p>
+			<a href="/contact/" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
+</Layout>

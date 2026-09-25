@@ -1,0 +1,271 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
+import { MARKETING_SERVICES } from '../../data/marketing';
+
+const breadcrumbSchema = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	"itemListElement": [
+		{ "@type": "ListItem", "position": 1, "name": "Home", "item": "https://systempros.ai/" },
+		{ "@type": "ListItem", "position": 2, "name": "Marketing", "item": "https://systempros.ai/marketing/" },
+		{ "@type": "ListItem", "position": 3, "name": "Social Media Management & Automation", "item": "https://systempros.ai/marketing/social-media-management/" },
+	],
+};
+
+const faqs = [
+	{
+		question: 'What is included in social media management?',
+		answer: "Content planned and posted to your Google Business Profile and Meta (Facebook and Instagram) on a schedule, using the material your business already generates — completed jobs, before-and-afters, updates, seasonal offers. You're not handed a content calendar to fill in yourself; the posting runs as a managed, AI-assisted service.",
+	},
+	{
+		question: 'Do I have to supply photos and content every week?',
+		answer: "You supply what a normal week of work already produces — a photo from a job, a note about a new service — and the system turns that into posts across both platforms. You're not expected to run a content studio. The less you can hand us, the more we work from what's already on your profile and past posts.",
+	},
+	{
+		question: "What's the difference between this and just posting it myself?",
+		answer: "Consistency. Posting yourself works until a busy week happens, and then it stops — which is what happens to most small business social accounts. A managed, scheduled system keeps the cadence going regardless of how busy the week gets, across Google and Meta at the same time.",
+	},
+	{
+		question: 'How much does social media management cost?',
+		answer: "It's a fixed monthly fee, agreed after a free consultation. The number depends on how many platforms and locations are in scope and your posting frequency — we'll quote it properly once we understand your setup.",
+	},
+];
+---
+
+<Layout
+	title="Social Media Management & Automation | System Pros AI"
+	description="Social media management for local businesses in NZ and Australia: content posted to Google Business Profile and Meta on a schedule, managed for you."
+>
+	<ServiceSchema
+		name="Social Media Management & Automation"
+		description="Social media management and automated content posting to Google Business Profile and Meta (Facebook and Instagram), scheduled and run as a managed AI-assisted service."
+		serviceType="Social Media Management"
+		areaServed={['NZ', 'AU']}
+	/>
+	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+	<!-- ============================================ -->
+	<!-- HERO — dossier sheet MKT-03                  -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+
+			<div class="face-data text-muted flex flex-wrap justify-between gap-2 pt-8 pb-4">
+				<nav aria-label="Breadcrumb">
+					<a href="/" class="hover:text-green transition-colors">INDEX</a>
+					<span aria-hidden="true"> / </span>
+					<a href="/marketing/" class="hover:text-green transition-colors">MARKETING</a>
+					<span aria-hidden="true"> / </span>
+					<span class="text-ink" aria-current="page">MKT-03 · SOCIAL</span>
+				</nav>
+				<span class="flex items-center gap-2"><span class="dot-live"></span> SCHEDULE ACTIVE</span>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<div class="grid lg:grid-cols-12 gap-12 items-center py-14 lg:py-20">
+				<div class="lg:col-span-8">
+					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink" data-reveal>
+						Social media management, <span class="text-green">on autopilot</span>.
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[40rem]" data-reveal style="--reveal-delay: 120ms;">
+						Google Business Profile and Meta (Facebook and Instagram) posted to on a
+						schedule, automatically, through one AI-assisted system — built from the
+						work your business already does, not a content calendar you have to fill.
+					</p>
+					<div class="mt-9 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact/" class="btn-primary">Book a Free Consultation</a>
+						<a href="#how-it-runs" class="btn-secondary">
+							See how it runs
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- THE PROBLEM — FEAST OR FAMINE POSTING        -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-2 gap-14 items-start">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.6vw,3rem)] leading-tight text-ink" data-reveal>
+						Every social account starts strong, then goes quiet.
+					</h2>
+					<p class="mt-4 text-muted text-lg leading-relaxed" data-reveal style="--reveal-delay: 100ms;">
+						A burst of posts when the account launches, then nothing for two months,
+						then a scramble to catch up. It's not a discipline problem — it's that
+						posting competes with actually running the business, and running the
+						business always wins. Meanwhile the accounts that post steadily are the
+						ones people notice, because most of the field has gone quiet.
+					</p>
+				</div>
+				<ul>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 160ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT A</span>
+						<div>
+							<h3 class="font-bold text-ink">Two accounts, one calendar</h3>
+							<p class="text-[14.5px] text-muted mt-1">Posting to Google and Meta separately doubles the work, so most businesses only manage to keep up one of the two.</p>
+						</div>
+					</li>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 240ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT B</span>
+						<div>
+							<h3 class="font-bold text-ink">No system behind the calendar</h3>
+							<p class="text-[14.5px] text-muted mt-1">A content calendar in a spreadsheet still needs a human to write, schedule and publish every entry, every week, on time.</p>
+						</div>
+					</li>
+					<li class="spec-row flex gap-5 py-5 px-2" data-reveal style="--reveal-delay: 320ms;">
+						<span class="face-data text-copper pt-0.5 shrink-0 w-16">FAULT C</span>
+						<div>
+							<h3 class="font-bold text-ink">The busy weeks always lose</h3>
+							<p class="text-[14.5px] text-muted mt-1">When the business gets busy — which is exactly when new work is worth showing off — social posting is the first thing dropped.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- HOW IT RUNS — spec table                     -->
+	<!-- ============================================ -->
+	<section id="how-it-runs" class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					What we do. What you do.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>MKT-03 · SCOPE OF WORK</p>
+			</div>
+
+			<div class="border border-line overflow-x-auto" data-reveal>
+				<table class="w-full text-left min-w-[560px]">
+					<thead>
+						<tr class="border-b border-line">
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-44">WORK ITEM</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">RUNS ON THE SYSTEM</th>
+							<th scope="col" class="face-data text-green font-normal py-3.5 px-4 border-l border-line bg-green-faint">YOUR PART</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">CONTENT PLANNING</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">A posting schedule set and maintained across both platforms.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Tell us about services, seasons, or offers worth featuring.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">POSTING</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Published automatically to Google Business Profile and Meta.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Nothing — this runs on schedule without you.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">RAW MATERIAL</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">Turned into posts from what you send, or drawn from your existing profile.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Send a photo or a note when you have one — no obligation weekly.</td>
+						</tr>
+						<tr class="border-t border-line">
+							<th scope="row" class="face-data text-muted font-normal align-top py-4 px-4">CONSISTENCY</th>
+							<td class="py-4 px-4 text-[15px] text-ink border-l border-line">The schedule holds through busy weeks, because it isn't running on your attention.</td>
+							<td class="py-4 px-4 text-[15px] text-muted border-l border-line bg-green-faint">Run the business — that's still the job.</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<p class="text-muted leading-relaxed mt-6 max-w-[42rem]" data-reveal>
+				Want the ads layer running on top of the posting? <a href="/marketing/facebook-instagram-ads/" class="link-ink">See Facebook &amp; Instagram ads management</a>.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- DRENCH — why posting steadily matters        -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12">
+				<div class="lg:col-span-7">
+					<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit" data-reveal>
+						An active profile signals a business that's open, working, and busy.
+					</h2>
+					<p class="mt-7 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						A quiet profile reads as a closed one, even when the business is booked
+						out. Steady posting is the cheapest, lowest-effort way to keep both
+						platforms showing a business that's active — engineered so the cadence
+						doesn't depend on anyone remembering to do it.
+					</p>
+					<a href="/contact/" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">Book a Free Consultation</a>
+				</div>
+				<div class="lg:col-span-5">
+					<div class="rule-ticked" data-draw-rule></div>
+					<dl>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 120ms;">
+							<dt class="face-data text-paper-dim">PLATFORMS</dt>
+							<dd class="text-[15px] text-paper-lit">Google Business Profile + Meta (Facebook, Instagram)</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4 border-b border-line-drench" data-reveal style="--reveal-delay: 200ms;">
+							<dt class="face-data text-paper-dim">CADENCE</dt>
+							<dd class="text-[15px] text-paper-lit">Agreed and scheduled, held automatically</dd>
+						</div>
+						<div class="grid grid-cols-[8rem_1fr] gap-x-6 items-baseline py-4" data-reveal style="--reveal-delay: 280ms;">
+							<dt class="face-data text-paper-dim">COVERAGE</dt>
+							<dd class="text-[15px] text-paper-lit">NZ and Australia, single or multi-location</dd>
+						</div>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- CROSS-LINKS                                  -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.8rem,3.4vw,2.6rem)] leading-tight text-ink" data-reveal>
+					The rest of the marketing system.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SEE THE OTHER SERVICES</p>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+			{MARKETING_SERVICES.filter((s) => s.href !== '/marketing/social-media-management/').map((s, i) => (
+				<a href={s.href} class="spec-row group grid md:grid-cols-[9rem_1fr_2rem] gap-x-8 gap-y-1 items-center py-5 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<span class="face-data text-copper">{s.ref}</span>
+					<h3 class="text-[15px] font-semibold text-ink group-hover:text-green transition-colors">{s.name}</h3>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			))}
+			<a href="/marketing/" class="link-ink font-semibold text-[15px] mt-6 inline-block" data-reveal>← Back to the marketing overview</a>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="Social media management questions, answered." label="MKT-03 · FAQ" />
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-muted" data-reveal>MKT-03 · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-ink mt-4 max-w-[22ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Let the posting run without you.
+			</h2>
+			<p class="text-muted text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				A free consultation takes thirty minutes. We'll look at what's live today on
+				Google and Meta and tell you what a real schedule would change.
+			</p>
+			<a href="/contact/" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
+</Layout>
