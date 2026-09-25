@@ -1,0 +1,295 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import FAQ from '../../components/seo/FAQ.astro';
+
+const covered = [
+	{ label: 'Workflow design and triggers', desc: 'Picking the right trigger for the job: webhook, schedule, form submission, or an app event.' },
+	{ label: 'Webhooks and APIs', desc: 'Sending and receiving data from any system via webhook or REST API, including authentication and pagination.' },
+	{ label: 'Credentials and security', desc: 'Storing API keys and OAuth credentials safely, scoped so a workflow only touches what it needs.' },
+	{ label: 'CRM, calendar and phone integrations', desc: 'Wiring n8n into the tools you run — GoHighLevel, HubSpot, Salesforce, calendars and phone systems.' },
+	{ label: 'AI nodes and LLMs', desc: 'Calling GPT-4o, Claude or Gemini from a workflow to summarise, classify, draft, or route a decision.' },
+	{ label: 'Error workflows and retries', desc: 'Catching failures, retrying safely, and routing a broken run to a fallback path instead of failing silently.' },
+	{ label: 'Self-hosted vs n8n Cloud', desc: 'The trade-offs between self-hosting and the managed cloud, and which one fits your setup.' },
+	{ label: 'Monitoring and handover docs', desc: 'Knowing when a workflow breaks before your customer does, and documentation your own team can follow.' },
+];
+
+const comparisons = [
+	{ name: 'n8n', desc: 'Open-source, self-hosted or run on n8n Cloud. Workflows mix no-code nodes with custom JavaScript or Python, making it the most flexible of the three for branching logic — at the cost of a steeper learning curve.' },
+	{ name: 'Make.com', desc: 'Cloud-only, with a visual drag-and-drop builder. Generally easier to pick up than n8n if you are not technical, with a large library of app connections, though custom code is more limited.' },
+	{ name: 'Zapier', desc: 'Cloud-only and the simplest to start with, with the largest directory of pre-built app integrations. Best suited to straightforward automations rather than complex, multi-branch logic.' },
+];
+
+const runSteps = [
+	{ no: '1', title: 'Free consultation', desc: 'Tell us what you want to learn, or describe the workflow you want built. Thirty minutes, no prep required.' },
+	{ no: '2', title: 'Scope', desc: "For training, we design a curriculum around your tools and skill level. For a build, we write the spec and agree what 'done' looks like." },
+	{ no: '3', title: 'Session or build', desc: 'Live 1-on-1 training via video call, building real workflows together — or we design, build and test the workflow end to end.' },
+	{ no: '4', title: 'Handover', desc: 'A recorded session you can rewatch, or a working, monitored workflow with documentation your team can follow.' },
+];
+
+const whoItSuits = [
+	'Owners and operations people at businesses with 1–50 staff who want their processes automated',
+	'Agencies and ops teams who want to own and maintain their automations in-house, not depend on an outside shop indefinitely',
+	'Teams migrating off Zapier or Make.com after hitting the limits of a pure no-code tool',
+	'Anyone who wants a working n8n workflow live in production, not just a demo',
+];
+
+const faqs = [
+	{ question: 'What is n8n?', answer: 'n8n is an open-source workflow automation tool. It connects apps, APIs and AI models so tasks that used to need manual work — moving data between systems, sending notifications, triggering follow-ups — run on their own.' },
+	{ question: 'Do I need to know how to code to learn n8n?', answer: "No. Most of n8n runs on no-code nodes you connect visually. Knowing a little JavaScript helps once you want custom logic, but we teach to your level and you don't need it to get started." },
+	{ question: 'How much does n8n training cost?', answer: "Priced per engagement after a free consultation. What it costs depends on the number of sessions, how many people you're training, and whether you want us to build alongside you. A done-for-you build is priced on the workflow's complexity and how many systems it touches." },
+	{ question: 'Should I self-host n8n or use n8n Cloud?', answer: 'It depends on your setup. Self-hosting gives you full control over your data and infrastructure, but you manage updates, uptime and backups yourself. n8n Cloud is managed for you, which is faster to start and lighter to maintain. We can talk through which fits your team in a free consultation.' },
+	{ question: 'Can you build the workflows for us instead?', answer: 'Yes. That is the done-for-you option: we design, build, test and hand over the workflow, with error handling and monitoring built in so failures get caught, not missed.' },
+	{ question: 'Do you work with teams in Australia and New Zealand?', answer: 'Yes. We work with businesses in Australia, New Zealand and the United States, all over video call.' },
+];
+---
+
+<Layout
+	title="n8n Training & Automation Builds | System Pros AI"
+	description="1-on-1 n8n training for owners and teams, or we build and commission your n8n workflows for you. Serving New Zealand, Australia and the US."
+>
+	<ServiceSchema
+		name="n8n Training and Automation Builds"
+		serviceType="n8n training and workflow automation"
+		description="1-on-1 n8n training built around your own tools, plus done-for-you n8n workflow builds with error handling, fallback paths and monitoring included."
+	/>
+
+	<Breadcrumbs currentTitle="n8n Training" parent={{ name: 'Training', url: '/training/' }} />
+
+	<!-- ============================================ -->
+	<!-- HERO — one CTA                               -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-12 items-center py-10 lg:py-16">
+				<div class="lg:col-span-7">
+					<h1 class="face-display font-extrabold text-[clamp(2.4rem,5.5vw,4.6rem)] leading-[1.04] text-ink" data-reveal>
+						n8n training and automation builds<span class="text-green">, from people who run it every day</span>.
+					</h1>
+					<p class="mt-7 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						Learn n8n hands-on in a 1-on-1 session built around your tools, or hand
+						us the spec and we design and build the workflow for you. No theory,
+						no toy examples.
+					</p>
+					<div class="mt-9" data-reveal style="--reveal-delay: 240ms;">
+						<a href="/contact" class="btn-primary">Book a Free Consultation</a>
+					</div>
+				</div>
+
+				<!-- Workflow schematic: trigger → n8n → outputs -->
+				<div class="lg:col-span-5" aria-hidden="true" data-reveal style="--reveal-delay: 200ms;">
+					<svg viewBox="0 0 480 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+						<g stroke="var(--color-green)" stroke-width="1.5">
+							<path d="M 118 60 H 180" data-draw-path />
+							<path d="M 118 160 H 180" data-draw-path style="--reveal-delay: 120ms;" />
+							<path d="M 118 260 H 180" data-draw-path style="--reveal-delay: 240ms;" />
+							<path d="M 308 160 H 344 V 60 H 366" data-draw-path style="--reveal-delay: 400ms;" />
+							<path d="M 308 160 H 366" data-draw-path style="--reveal-delay: 480ms;" />
+							<path d="M 308 160 H 344 V 260 H 366" data-draw-path style="--reveal-delay: 560ms;" />
+						</g>
+						<g data-reveal>
+							<rect x="14" y="40" width="104" height="40" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="66" y="64" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10.5" fill="var(--color-ink)">WEBHOOK</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 100ms;">
+							<rect x="14" y="140" width="104" height="40" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="66" y="164" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10.5" fill="var(--color-ink)">FORM / API</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 200ms;">
+							<rect x="14" y="240" width="104" height="40" stroke="var(--color-ink)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="66" y="264" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10.5" fill="var(--color-ink)">SCHEDULE</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 260ms;">
+							<rect x="180" y="134" width="128" height="52" fill="var(--color-green)" />
+							<text x="244" y="156" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10.5" fill="var(--color-paper-lit)">N8N</text>
+							<text x="244" y="174" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="9" fill="var(--color-paper-dim)">WORKFLOW</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 420ms;">
+							<rect x="366" y="40" width="100" height="40" stroke="var(--color-copper)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="416" y="64" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-copper)">CRM</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 500ms;">
+							<rect x="366" y="140" width="100" height="40" stroke="var(--color-copper)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="416" y="164" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-copper)">AI MODEL</text>
+						</g>
+						<g data-reveal style="--reveal-delay: 580ms;">
+							<rect x="366" y="240" width="100" height="40" stroke="var(--color-copper)" stroke-width="1.5" fill="var(--color-paper)" />
+							<text x="416" y="264" text-anchor="middle" font-family="Fragment Mono, monospace" font-size="10" fill="var(--color-copper)">NOTIFY</text>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- TWO WAYS TO WORK                             -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+				Two ways to work with us.
+			</h2>
+			<p class="text-muted text-lg mt-3 max-w-[42rem]" data-reveal style="--reveal-delay: 80ms;">
+				Some people want to learn n8n themselves. Others just want the workflow
+				running. Both are on the table.
+			</p>
+
+			<div class="grid lg:grid-cols-2 gap-x-12 gap-y-10 mt-10">
+				<div class="spec-row py-6 px-2" data-reveal style="--reveal-delay: 140ms;">
+					<p class="face-data text-copper">OPTION 1</p>
+					<h3 class="text-xl font-bold text-ink mt-2">1-on-1 n8n training</h3>
+					<p class="text-[15px] text-muted leading-relaxed mt-3 max-w-[36rem]">
+						A custom curriculum built around what you already use — your CRM,
+						calendar, phone system and AI provider. We share screens and build
+						real workflows live, then record every session for your team.
+					</p>
+				</div>
+				<div class="spec-row py-6 px-2" data-reveal style="--reveal-delay: 220ms;">
+					<p class="face-data text-copper">OPTION 2</p>
+					<h3 class="text-xl font-bold text-ink mt-2">Done-for-you n8n build</h3>
+					<p class="text-[15px] text-muted leading-relaxed mt-3 max-w-[36rem]">
+						We design, build, test and hand the workflow over. We do not build
+						fragile automations: error handling, fallback paths and monitoring
+						are built in, and if a step fails, a human is notified.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHAT'S COVERED — spec table                  -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					What's covered.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SESSION SPECIFICATION · 8 SUBJECTS</p>
+			</div>
+
+			<div class="border border-line overflow-x-auto" data-reveal style="--reveal-delay: 100ms;">
+				<table class="w-full text-left min-w-[560px]">
+					<thead>
+						<tr class="border-b border-line bg-green-faint">
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-64">SUBJECT</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">SESSION CONTENT</th>
+						</tr>
+					</thead>
+					<tbody>
+						{covered.map((c) => (
+							<tr class="border-t border-line hover:bg-green-faint transition-colors">
+								<th scope="row" class="align-top py-4 px-4 font-bold text-ink text-[15px]">{c.label}</th>
+								<td class="py-4 px-4 text-[15px] text-muted leading-relaxed border-l border-line">{c.desc}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+			<p class="face-data text-muted mt-3">COVERED IN TRAINING SESSIONS AND, WHERE RELEVANT, BUILT INTO DONE-FOR-YOU WORKFLOWS</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHO IT SUITS                                 -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.8rem,3.4vw,2.6rem)] leading-tight text-ink" data-reveal>
+					Who it suits.
+				</h2>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+			<ul class="py-2">
+				{whoItSuits.map((w, i) => (
+					<li class="spec-row flex gap-4 py-4 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+						<span class="text-green shrink-0" aria-hidden="true">—</span>
+						<p class="text-[15px] text-ink leading-relaxed">{w}</p>
+					</li>
+				))}
+			</ul>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- N8N VS MAKE.COM VS ZAPIER                    -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(1.8rem,3.4vw,2.6rem)] leading-tight text-ink" data-reveal>
+				n8n vs Make.com vs Zapier.
+			</h2>
+			<p class="text-muted text-lg mt-3 max-w-[42rem]" data-reveal style="--reveal-delay: 80ms;">
+				A plain read on how the three compare, so you know what you're picking
+				before you commit to learning one.
+			</p>
+			<div class="rule-ticked mt-8" data-draw-rule></div>
+			{comparisons.map((c, i) => (
+				<div class="spec-row grid md:grid-cols-[9rem_1fr] gap-x-8 gap-y-2 py-6 px-2" data-reveal style={`--reveal-delay: ${i * 80}ms;`}>
+					<h3 class="text-lg font-bold text-ink">{c.name}</h3>
+					<p class="text-[15px] text-muted leading-relaxed max-w-[44rem]">{c.desc}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- HOW IT RUNS                                  -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-12">
+				<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+					How a session or build runs.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>SEQUENCE · 4 STEPS</p>
+			</div>
+			<ol class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+				{runSteps.map((s, i) => (
+					<li class="border-t-2 border-green pt-5 relative" data-reveal style={`--reveal-delay: ${i * 90}ms;`}>
+						<span class="absolute -top-[19px] left-0 w-9 h-9 bg-green text-paper-lit font-bold flex items-center justify-center" aria-hidden="true">{s.no}</span>
+						<p class="face-data text-muted mt-4">STEP {s.no} OF 4</p>
+						<h3 class="text-xl font-bold text-ink mt-2">{s.title}</h3>
+						<p class="text-[15px] text-muted leading-relaxed mt-2">{s.desc}</p>
+					</li>
+				))}
+			</ol>
+			<p class="text-muted text-[15px] mt-10 max-w-[40rem]" data-reveal>
+				Want the wider picture first? A <a href="/consulting/" class="link-ink">consulting engagement</a> maps
+				your operation before we touch a workflow. Or see the full <a href="/training/" class="link-ink">training subjects</a> and
+				<a href="/pricing/" class="link-ink">how pricing works</a> before you book.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<div class="border-t border-line">
+		<FAQ faqs={faqs} heading="n8n questions, answered." label="SP-06 · N8N · FAQ" />
+	</div>
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<h2 class="face-display font-extrabold text-[clamp(2.2rem,5vw,4.2rem)] leading-[1.05] text-paper-lit max-w-[20ch] mx-auto" data-reveal>
+				Learn it yourself, or have it built for you.
+			</h2>
+			<p class="mt-6 text-lg md:text-xl text-paper-dim leading-relaxed max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 120ms;">
+				A free consultation takes thirty minutes. Tell us which of the two you
+				want, and we'll scope it from there.
+			</p>
+			<a href="/contact" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
+</Layout>

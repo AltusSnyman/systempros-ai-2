@@ -1,0 +1,287 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import ServiceSchema from '../../components/seo/ServiceSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
+import GoogleRating from '../../components/GoogleRating.astro';
+import { PHONES } from '../../lib/site';
+
+const pageTitle = 'AI Receptionist Australia | System Pros AI';
+const pageDescription = 'AI receptionist and virtual receptionist for Australian businesses. Answers every call 24/7 and books into your calendar. Sydney, Melbourne, Brisbane.';
+
+const install = [
+	{ step: '1', name: 'Free audit call', desc: "30-60 minutes. We map your call answer rate, lead response time, and tool stack, and produce a concrete number for what's being missed." },
+	{ step: '2', name: 'Scoping and proposal', desc: 'We design the system that closes that gap. Fixed price, fixed scope, agreed before we build anything.' },
+	{ step: '3', name: 'Build and integration', desc: 'We connect to your existing CRM, calendar, and phone number. You do not need to change tools.' },
+	{ step: '4', name: 'Commissioning', desc: 'We run live call tests and lead injection tests against your real setup before we call it done.' },
+	{ step: '5', name: 'Handover and support', desc: 'We walk you and your team through what was built. Ongoing support is available after handover.' },
+];
+
+const faqs = [
+	{
+		question: 'How much does an AI receptionist cost in Australia?',
+		answer: "A fixed price, agreed after a free consultation, not a published flat rate. Drivers: call volume, how many voice agents you need, which CRM and calendar we integrate with, your phone and carrier setup, and ongoing call usage.",
+	},
+	{
+		question: 'Which AI receptionist is best in Australia?',
+		answer: "Honestly, the best one is whichever is wired into your calendar and CRM and tested against your real calls, not a demo script. Ask to hear it on your actual booking flow, and check what happens when a call needs a person.",
+	},
+	{
+		question: 'Is an AI receptionist legal in Australia?',
+		answer: "Using an AI receptionist is not itself illegal, but call recording and disclosure rules vary by state, and some states require consent from everyone on the call before it can be recorded. This is general information, not legal advice — check your state's rules.",
+	},
+	{
+		question: 'Will it understand Australian accents?',
+		answer: 'It handles Australian English, including regional accents, reasonably well, and it keeps improving. We will not claim a model fine-tuned specifically on Australian speech data — we test it against your real callers and adjust the script if something is misheard.',
+	},
+	{
+		question: 'Does it work with ServiceM8 or Cliniko?',
+		answer: 'Yes. ServiceM8 is a common integration for trade businesses and Cliniko for allied health, alongside GoHighLevel, HubSpot, and Salesforce. If a booking needs to land in one of these systems, we scope and test that before handover.',
+	},
+	{
+		question: 'Can I keep my existing number?',
+		answer: 'In most cases, yes. Standard setup on Telnyx, Twilio, or Vonage forwards your existing number to the AI receptionist without publishing a new one. We confirm the detail for your carrier during scoping.',
+	},
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+	<ServiceSchema
+		name="AI Receptionist Australia"
+		description="An AI receptionist for Australian businesses that answers every call 24/7, qualifies callers, and books directly into the calendar or CRM already in use, with a handoff to a person when a call needs one."
+		serviceType="AI receptionist and virtual receptionist service"
+		areaServed={["Australia", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide"]}
+	/>
+
+	<Breadcrumbs currentTitle="AI Receptionist Australia" parent={{ name: 'AI Receptionist', url: '/voice-ai/' }} />
+
+	<!-- ============================================ -->
+	<!-- HERO                                         -->
+	<!-- ============================================ -->
+	<section class="relative overflow-hidden">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-10 items-center py-10 lg:py-16">
+				<div class="lg:col-span-7">
+					<h1 class="face-display font-extrabold text-[clamp(2.2rem,5.5vw,4.6rem)] leading-[1.06] text-ink" data-reveal>
+						The AI receptionist built for <span class="text-green">Australia</span>.
+					</h1>
+					<p class="mt-6 text-lg md:text-xl text-muted leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
+						System Pros AI installs an AI receptionist that answers every call, day
+						and night, and books straight into the calendar or CRM you run —
+						for businesses in Sydney, Melbourne, Brisbane, and beyond.
+					</p>
+					<div class="mt-8 flex flex-col sm:flex-row gap-4" data-reveal style="--reveal-delay: 220ms;">
+						<a href="/contact" class="btn-primary">Book a Free Consultation</a>
+						<a href={PHONES.AU.tel} class="btn-secondary">
+							or call {PHONES.AU.display}
+						</a>
+					</div>
+					<div class="mt-8" data-reveal style="--reveal-delay: 300ms;">
+						<GoogleRating variant="plain" />
+					</div>
+				</div>
+				<div class="lg:col-span-5" aria-hidden="true">
+					<div class="border border-line p-6">
+						<p class="face-data text-muted">FIG. 01 — COVERAGE ACROSS TIME ZONES</p>
+						<div class="mt-5 space-y-4">
+							<div class="flex items-center justify-between gap-2 py-2 border-b border-line">
+								<span class="face-data text-ink">SYDNEY / MELBOURNE</span>
+								<span class="face-data text-muted">AEST / AEDT</span>
+							</div>
+							<div class="flex items-center justify-between gap-2 py-2 border-b border-line">
+								<span class="face-data text-ink">BRISBANE / QLD</span>
+								<span class="face-data text-muted">AEST YEAR-ROUND</span>
+							</div>
+							<div class="flex items-center justify-between gap-2 py-2">
+								<span class="face-data text-ink">PERTH / ADELAIDE / REGIONAL</span>
+								<span class="face-data text-copper">ANSWERED, EITHER WAY</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHAT IT DOES                                 -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-x-12 gap-y-8">
+				<div class="lg:col-span-5">
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink" data-reveal>
+						What the AI receptionist does for your business.
+					</h2>
+				</div>
+				<div class="lg:col-span-7">
+					<p class="text-muted text-lg leading-relaxed" data-reveal>
+						An AI receptionist answers every inbound call, 24/7. It qualifies who
+						is calling and books straight into the calendar or CRM you already
+						use, then sends a summary of what got booked. If a call needs a
+						person — a complaint, an unusual quote — it hands off cleanly.
+					</p>
+					<p class="text-muted text-lg leading-relaxed mt-5" data-reveal style="--reveal-delay: 100ms;">
+						That is different from a traditional virtual receptionist or answering
+						service, where a person, often working shifts, takes a message and
+						passes it along later. It does not queue callers, does not clock off,
+						and books directly into your systems. It will not replace every
+						function of a human receptionist, but it closes gaps a shift-based
+						service cannot.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- CITY COVERAGE                                -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink" data-reveal>
+					Built for how Australian call patterns actually work.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>COVERAGE · AU</p>
+			</div>
+
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			<div class="spec-row grid md:grid-cols-[9rem_1fr] gap-x-8 gap-y-2 py-6 px-2" data-reveal>
+				<span class="face-data text-copper">SYDNEY</span>
+				<p class="text-[15px] text-muted leading-relaxed max-w-[46rem]">
+					Sydney runs on AEST/AEDT and fields a heavy mix of after-hours
+					enquiries across trades, clinics, and professional services. The AI
+					receptionist answers those calls as they land, not next morning.
+				</p>
+			</div>
+			<div class="spec-row grid md:grid-cols-[9rem_1fr] gap-x-8 gap-y-2 py-6 px-2" data-reveal style="--reveal-delay: 80ms;">
+				<span class="face-data text-copper">MELBOURNE</span>
+				<p class="text-[15px] text-muted leading-relaxed max-w-[46rem]">
+					Melbourne shares Sydney's time zone, with a dense mix of retail,
+					healthcare, and home-service businesses. Weekend and evening calls are
+					common; the AI receptionist covers them without a rostered shift.
+				</p>
+			</div>
+			<div class="spec-row grid md:grid-cols-[9rem_1fr] gap-x-8 gap-y-2 py-6 px-2" data-reveal style="--reveal-delay: 160ms;">
+				<span class="face-data text-copper">BRISBANE</span>
+				<p class="text-[15px] text-muted leading-relaxed max-w-[46rem]">
+					Queensland does not observe daylight saving, so Brisbane sits on AEST
+					year-round while Sydney and Melbourne shift to AEDT — a detail the AI
+					receptionist is configured around from the start.
+				</p>
+			</div>
+			<div class="spec-row grid md:grid-cols-[9rem_1fr] gap-x-8 gap-y-2 py-6 px-2" data-reveal style="--reveal-delay: 240ms;">
+				<span class="face-data text-copper">PERTH / ADELAIDE / REGIONAL</span>
+				<p class="text-[15px] text-muted leading-relaxed max-w-[46rem]">
+					The same setup covers Perth, Adelaide, and regional Australia — the AI
+					receptionist does not care what time zone or postcode a call comes from,
+					only that it gets answered.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- INTEGRATIONS                                 -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-x-12 gap-y-8">
+				<div class="lg:col-span-5">
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink" data-reveal>
+						Wired into the tools you already run.
+					</h2>
+				</div>
+				<div class="lg:col-span-7">
+					<p class="text-muted text-lg leading-relaxed" data-reveal>
+						The AI receptionist connects to the calendar and CRM you already use —
+						GoHighLevel, HubSpot, and Salesforce are common, alongside industry
+						tools like ServiceM8 and Cliniko. Our wider consulting work also runs
+						alongside Xero and MYOB. If your stack is not on this list, ask — most
+						systems with an API can be connected.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- PRIVACY                                      -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="grid lg:grid-cols-12 gap-x-12 gap-y-8">
+				<div class="lg:col-span-5">
+					<h2 class="face-display font-extrabold text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink" data-reveal>
+						Privacy, reviewed properly.
+					</h2>
+				</div>
+				<div class="lg:col-span-7">
+					<p class="text-muted text-lg leading-relaxed" data-reveal>
+						Every System Pros AI engagement has its compliance reviewed against
+						the Privacy Act 1988 (Cth) and the Australian Privacy Principles. We
+						do not claim a certification we do not hold — reviewing how call data
+						is captured, stored, and used is part of scoping the system, not an
+						afterthought.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- HOW THE INSTALL WORKS                        -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<h2 class="face-display font-extrabold text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink" data-reveal>
+					How the install works.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>ENGAGEMENT FLOW · 5 STEPS</p>
+			</div>
+			<div class="rule-ticked" data-draw-rule></div>
+			{install.map((s, i) => (
+				<div class="spec-row grid md:grid-cols-[4rem_12rem_1fr] gap-x-8 gap-y-2 py-6 px-2" data-reveal style={`--reveal-delay: ${i * 70}ms;`}>
+					<span class="face-data text-copper">{s.step}</span>
+					<h3 class="font-bold text-ink">{s.name}</h3>
+					<p class="text-[15px] text-muted leading-relaxed max-w-[42rem]">{s.desc}</p>
+				</div>
+			))}
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="AI receptionist in Australia, answered." label="AU · FIELD MANUAL" />
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-paper-dim" data-reveal>AI RECEPTIONIST · AUSTRALIA · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.1rem,5vw,4.2rem)] leading-[1.05] text-paper-lit mt-4 max-w-[20ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Ready to stop missing calls?
+			</h2>
+			<p class="text-paper-dim text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				A free consultation maps your call and lead flow and gives you a fixed
+				price for the AI receptionist your business needs.
+			</p>
+			<a href="/contact" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+			<p class="face-data text-paper-dim mt-8" data-reveal style="--reveal-delay: 300ms;">
+				OR CALL SYSTEM PROS AI AU — <a href={PHONES.AU.tel} class="text-paper-lit underline underline-offset-[3px]">{PHONES.AU.display}</a>
+			</p>
+			<p class="text-[14px] text-paper-dim mt-8" data-reveal style="--reveal-delay: 340ms;">
+				See the full <a href="/voice-ai/" class="text-paper-lit underline underline-offset-[3px]">AI receptionist</a> page,
+				<a href="/consulting/australia/" class="text-paper-lit underline underline-offset-[3px]">AI consulting for Australia</a>,
+				or <a href="/pricing/" class="text-paper-lit underline underline-offset-[3px]">pricing</a>.
+			</p>
+		</div>
+	</section>
+</Layout>

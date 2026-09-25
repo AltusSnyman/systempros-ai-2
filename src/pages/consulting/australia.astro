@@ -1,10 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ServiceSchema from '../../components/seo/ServiceSchema.astro';
-import FAQSchema from '../../components/seo/FAQSchema.astro';
+import FAQ from '../../components/seo/FAQ.astro';
 
-const pageTitle = "AI Consulting Australia | Artificial Intelligence Strategy | System Pros AI";
-const pageDescription = "Leading AI consulting for Australian enterprises. We automate workflows, combat high award wages, and implement secure AI agents for Aussie businesses. Book your audit.";
+const pageTitle = "AI Consultant Australia | System Pros AI";
+const pageDescription = "AI consultant and AI consulting services for Australian businesses in Sydney, Melbourne and Brisbane — audit, roadmap, then the build.";
 
 const breadcrumbSchema = {
 	"@context": "https://schema.org",
@@ -18,44 +18,52 @@ const breadcrumbSchema = {
 
 const faqs = [
 	{
-		question: "How can AI help my Australian business combat rising wage costs?",
-		answer: "Australia has some of the highest minimum and award wages in the world. AI is the most effective deflationary tool available. By deploying System Pros AI agents to handle repetitive tasks like appointment setting, data entry, and level-1 customer support, you decouple your revenue growth from your headcount. You can scale your operations 24/7 without incurring penalty rates, superannuation liabilities, or recruitment fees."
+		question: "What does an AI consultant actually do?",
+		answer: "A good AI consultant maps how your business actually runs — phone coverage, lead response, the tools your team already uses — then designs the system that closes the gaps. We start every Australian engagement with a forensic audit (the Blueprint) and, if you want it built, follow through with design, build and commissioning (the Turnkey Integration)."
+	},
+	{
+		question: "How much do AI consultants charge in Australia?",
+		answer: "It depends on the consultant. Some charge by the hour, some resell software at a markup, some price by outcome. We work on a fixed price and fixed scope, agreed after a free consultation. What moves the number is the size of your operation, how many workflows and systems are in scope, and whether you want the Blueprint audit only or the Blueprint plus the Turnkey build."
+	},
+	{
+		question: "How can AI help my Australian business with rising wage costs?",
+		answer: "Australia has some of the highest minimum and award wages in the world. AI agents handling repetitive tasks like appointment setting, data entry and level-1 customer support don't accrue penalty rates, superannuation or recruitment fees the way an additional hire does, so you can scale coverage without scaling headcount at the same rate."
 	},
 	{
 		question: "Is your AI compliant with Australian Privacy Laws?",
-		answer: "Yes. We adhere strictly to the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs). We implement robust data governance frameworks to ensure customer data is handled securely. For sensitive industries like healthcare or finance, we offer private cloud or on-premise deployments that ensure data sovereignty, keeping your information within Australian borders where required."
+		answer: "Yes. We work within the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs), with data governance frameworks to keep customer data handled securely. For sensitive industries like healthcare or finance, we offer private cloud or on-premise deployments that keep data within Australian borders where required."
 	},
 	{
 		question: "Do you offer services in Perth and regional Australia?",
-		answer: "Yes, System Pros AI is a national provider. While our digital infrastructure serves Sydney, Melbourne, and Brisbane, our cloud-native solutions are perfect for businesses in Perth, Adelaide, and regional areas. We help regional businesses overcome the tyranny of distance and local talent shortages by providing a high-quality digital workforce that is accessible from anywhere."
+		answer: "Yes, System Pros AI is a national provider. Our cloud-native infrastructure serves Sydney, Melbourne and Brisbane the same way it serves Perth, Adelaide and regional areas — the same digital workforce, regardless of where your office is."
 	},
 	{
 		question: "What specific software do you integrate with?",
-		answer: "We integrate with the standard Australian business stack. This includes Xero and MYOB for finance, Salesforce and HubSpot for CRM, and specialized tools like ServiceM8, Tradify, and Cliniko. If it has an API, we can likely build an agent to drive it."
+		answer: "We integrate with the standard Australian business stack: Xero and MYOB for finance, Salesforce and HubSpot for CRM, and specialised tools like ServiceM8, Tradify and Cliniko. If it has an API, we can likely build an agent to drive it."
 	},
 	{
 		question: "Will the AI understand a strong Aussie accent?",
-		answer: "Absolutely. We utilize specific language models fine-tuned on Australian datasets. Our Voice AI agents understand 'straya' slang, local place names (from Woolloomooloo to Indooroopilly), and the unique cadence of Australian speech. This ensures a frictionless experience for your customers."
+		answer: "Yes. Our voice agents are built on models tuned for natural conversation, and during setup we configure local place names, product names and common phrasing so your callers aren't stuck repeating themselves."
 	},
 	{
 		question: "How reliable is the technology for critical business functions?",
-		answer: "We build enterprise-grade redundancy into every system. Our up-time guarantee ensures your digital workforce never calls in sick. For critical functions like emergency dispatch or after-hours triage, we design fail-over protocols that escalate to human staff only when absolutely necessary, ensuring 100% reliability."
+		answer: "We build redundancy into every system. For critical functions like emergency dispatch or after-hours triage, we design fail-over protocols that escalate to a human when the AI can't resolve something. Reliability is tested during commissioning against real calls, not promised in the abstract."
 	},
 	{
 		question: "What is the typical ROI timeframe?",
-		answer: "For high-volume transaction businesses (tradies, clinics, real estate), ROI is often achieved in the first 30 days. The savings on a single avoided reception hire ($70k+ inc Super) pays for the entire system multiple times over. Beyond cost savings, the revenue generated from answering 100% of missed calls typically adds 15-20% to the top line immediately."
+		answer: "It depends on your call volume, average lead value, and how many calls or leads you're currently missing. We measure it against your own numbers, established in the audit — not an industry-wide average. High-volume businesses like trade businesses, clinics and real estate tend to see the clearest payback because a missed call has an obvious dollar cost; lower-volume businesses see it more in staff time freed up."
 	},
 	{
 		question: "Do you provide training for my team?",
-		answer: "Yes. Change management is a core part of our consulting. We don't just dump technology on you; we train your staff on how to work *alongside* their new AI colleagues. We show your team how to monitor performance, handle escalations, and leverage the data the AI generates to make better business decisions."
+		answer: "Yes. Change management is a core part of our consulting. We train your staff on how to work alongside the new systems — monitoring performance, handling escalations, and using the data the AI generates to make better business decisions."
 	},
 	{
 		question: "Can AI handle complex negotiations?",
-		answer: "AI is best suited for structured tasks, qualification, and information gathering. For complex, high-stakes negotiations, we recommend a 'Human-in-the-Loop' architecture. The AI handles the initial 80% of the conversation—gathering facts, qualifying the lead, and scheduling the meeting—so your senior human negotiators can focus entirely on closing the deal."
+		answer: "AI is best suited for structured tasks, qualification and information gathering. For complex, high-stakes negotiations, we recommend a human-in-the-loop approach: AI handles the fact-gathering, qualifying and scheduling, so your senior negotiators can focus on closing."
 	},
 	{
 		question: "How do I get started?",
-		answer: "It starts with a Forensic Audit. We don't guess; we look at your data. We analyze your call logs, email volumes, and workflow bottlenecks to give you a concrete, mathematically proven roadmap for automation. Book a strategy session today to begin."
+		answer: "It starts with a forensic audit. We look at your call logs, email volumes and workflow bottlenecks to give you a concrete roadmap for automation, scoped to your business rather than a generic template. Book a strategy session to begin."
 	}
 ];
 
@@ -63,7 +71,7 @@ const pressures = [
 	{
 		label: 'PRESSURE A',
 		name: 'Award rate inflation',
-		desc: 'With penalty rates for weekends and overtime, a simple 24/7 support line can cost over $200k/year in wages alone. AI delivers the same coverage for cents on the dollar.',
+		desc: 'With penalty rates for weekends and overtime, a simple 24/7 support line adds significant wage cost for an Australian business. AI delivers the same coverage without penalty rates, superannuation or recruitment fees.',
 	},
 	{
 		label: 'PRESSURE B',
@@ -136,16 +144,24 @@ const hubs = [
 	{ city: 'Brisbane', focus: 'Tourism and construction' },
 	{ city: 'Perth', focus: 'Mining services and industrial' },
 ];
+
+const chooseChecklist = [
+	'Does it integrate with your existing stack, or does it ask you to replace what already works?',
+	'Is the price fixed to a fixed scope, agreed before work starts?',
+	'Does it run commissioning tests — real calls, real leads — before calling the job done?',
+	'How does it handle your data? Ask specifically about the Privacy Act 1988 (Cth) and the Australian Privacy Principles (APPs), and where your data is stored.',
+	"Is there a human escalation path when the AI hits something it can't handle?",
+	'Do you get handover documentation, or just access to a dashboard someone else controls?',
+];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
 	<ServiceSchema
-		name="System Pros AI Australia | AI Strategic Consulting"
+		name="AI Consulting Services Australia"
 		description={pageDescription}
 		areaServed={["Australia", "Sydney", "Melbourne", "Brisbane", "Perth", "Adelaide", "Gold Coast", "Canberra"]}
 		serviceType="AI Consulting Service"
 	/>
-	<FAQSchema faqs={faqs} />
 	<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
 	<!-- ============================================ -->
@@ -193,16 +209,16 @@ const hubs = [
 							<div>
 								<div class="flex justify-between gap-2 mb-2">
 									<span class="face-data text-muted">STAFFED LINE (AWARD + PENALTY RATES)</span>
-									<span class="face-data text-ink">$200K+/YR</span>
+									<span class="face-data text-ink">HIGHER, FIXED COST</span>
 								</div>
 								<div class="h-5 bg-line w-full" data-draw-rule></div>
 							</div>
 							<div>
 								<div class="flex justify-between gap-2 mb-2">
 									<span class="face-data text-green">SYSTEM PROS AI AGENT</span>
-									<span class="face-data text-copper font-bold">CENTS / HR</span>
+									<span class="face-data text-copper font-bold">USAGE-BASED COST</span>
 								</div>
-								<div class="h-5 bg-green w-[4%] min-w-[14px]" data-draw-rule style="--reveal-delay: 200ms;"></div>
+								<div class="h-5 bg-green w-1/4 min-w-[14px]" data-draw-rule style="--reveal-delay: 200ms;"></div>
 							</div>
 						</div>
 						<p class="face-data text-muted mt-6">SAME COVERAGE. NO PENALTY RATES, SUPER, OR RECRUITMENT FEES.</p>
@@ -240,6 +256,144 @@ const hubs = [
 					<p class="text-[15px] text-muted leading-relaxed max-w-[42rem]">{p.desc}</p>
 				</div>
 			))}
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- AI CONSULTING SERVICES IN AUSTRALIA — depth  -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+				<div>
+					<h2 class="face-display font-extrabold text-[clamp(2rem,4.5vw,3.6rem)] leading-tight text-ink" data-reveal>
+						AI consulting services in Australia.
+					</h2>
+					<p class="text-muted text-lg mt-3 max-w-[44rem]" data-reveal style="--reveal-delay: 80ms;">
+						Most Australian businesses that call us aren't short on AI tools. They've
+						already tried a chatbot, a Zapier flow, maybe a virtual receptionist trial.
+						What they're short on is architecture — someone who looks at the whole
+						operation and designs how the pieces should fit before anything gets built.
+						That's the job an AI consulting company does, and it's the job we do for
+						businesses across Sydney, Melbourne, Brisbane, Perth and regional Australia.
+					</p>
+				</div>
+				<p class="face-data text-muted pb-2" data-reveal>SP-05 · AU DEPTH</p>
+			</div>
+
+			<div class="rule-ticked" data-draw-rule></div>
+
+			<div class="grid lg:grid-cols-2 gap-x-14 gap-y-10 py-10">
+				<div data-reveal>
+					<h3 class="face-display font-extrabold text-xl text-ink">What the engagement covers</h3>
+					<p class="text-muted leading-relaxed mt-3">
+						Every engagement starts with the Blueprint: a forensic audit of how your
+						business actually runs today. We look at phone coverage — who answers, when,
+						and what happens when nobody does — lead response time, the bottlenecks in
+						your current workflow, the tools already in your stack, and where your
+						compliance exposure sits under Australian privacy law. The output is a
+						roadmap: what to build, in what order, and why.
+					</p>
+					<p class="text-muted leading-relaxed mt-3">
+						From there, most clients move to the Turnkey phase: we design the system,
+						build it, connect it to your existing tools, commission it against real
+						calls and real leads, then hand it over running. You're not left with a
+						login and a PDF — you're left with something built, tested and handed over.
+					</p>
+					<p class="text-muted leading-relaxed mt-3">
+						Some clients only want the Blueprint — the audit and the roadmap — and
+						build it themselves with an internal IT team. That's a legitimate choice;
+						the Blueprint is scoped so it stands alone. Most business owners we work
+						with would rather hand the build to someone who does this every week, which
+						is where the Turnkey phase comes in.
+					</p>
+				</div>
+				<div data-reveal style="--reveal-delay: 80ms;">
+					<h3 class="face-display font-extrabold text-xl text-ink">Who this suits</h3>
+					<p class="text-muted leading-relaxed mt-3">
+						This is built for operators running 1 to 50 staff — the owner-operator
+						who's on-site or on the phone, not behind a desk full-time. If you're
+						already generating leads through ads, a website or a Google listing, but
+						your phone is the bottleneck and your follow-up is inconsistent, that's
+						the gap a consulting engagement is designed to close. It also suits
+						businesses juggling several tools that were bought separately over time —
+						a booking system here, a CRM there, a spreadsheet holding the rest
+						together — where nobody has stepped back to look at how they should connect.
+					</p>
+					<h3 class="face-display font-extrabold text-xl text-ink mt-8">An AI consultant company vs a tool reseller</h3>
+					<p class="text-muted leading-relaxed mt-3">
+						Plenty of businesses that call themselves an AI automation consultant are
+						really reselling someone else's software with a markup and a login. That's
+						distribution, not consulting. An AI consultant company should audit your
+						operation before recommending anything, design a system specific to how you
+						work rather than a template, integrate with the CRM and calendar you already
+						use, and test what it builds before handover rather than after you've found
+						the bugs yourself.
+					</p>
+				</div>
+				<div class="lg:col-span-2" data-reveal style="--reveal-delay: 120ms;">
+					<h3 class="face-display font-extrabold text-xl text-ink">The automation consultant side</h3>
+					<p class="text-muted leading-relaxed mt-3 max-w-[52rem]">
+						Underneath the strategy work, most engagements involve automation pipelines
+						— connecting your CRM, calendar, phone system and lead sources so information
+						moves without someone re-typing it. We build these on
+						<a href="/training/n8n/" class="link-ink">n8n and Make.com</a>, with error
+						handling, fallback paths and monitoring, so when a step fails a human is
+						notified instead of a lead going quiet.
+					</p>
+				</div>
+			</div>
+
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			<div class="py-10">
+				<p class="face-data text-copper mb-5">HOW TO CHOOSE AN AI CONSULTING COMPANY</p>
+				<ul class="grid md:grid-cols-2 gap-x-10">
+					{chooseChecklist.map((item) => (
+						<li class="spec-row flex items-start gap-3.5 py-3.5 px-1 text-[14.5px] text-ink">
+							<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-green)" stroke-width="2.5" stroke-linecap="square" class="shrink-0 mt-1"><polyline points="20 6 9 17 4 12"/></svg>
+							{item}
+						</li>
+					))}
+				</ul>
+				<p class="text-muted leading-relaxed mt-6 max-w-[48rem]">
+					If a consultant can't answer those questions plainly, that's the answer.
+				</p>
+			</div>
+
+			<div class="rule-ticked" data-draw-rule></div>
+			<div class="grid md:grid-cols-3 gap-x-10 gap-y-8 py-10">
+				<div data-reveal>
+					<h3 class="text-lg font-bold text-ink">Sydney</h3>
+					<p class="text-[14.5px] text-muted leading-relaxed mt-2">
+						The engagements we see most are financial and professional services firms,
+						where lead response time and after-hours coverage matter most. A call that
+						goes unanswered on a Friday evening is a lead that's already calling a
+						competitor by Monday.
+					</p>
+				</div>
+				<div data-reveal style="--reveal-delay: 80ms;">
+					<h3 class="text-lg font-bold text-ink">Melbourne</h3>
+					<p class="text-[14.5px] text-muted leading-relaxed mt-2">
+						Retail, healthcare and logistics operators lead here, often juggling
+						multiple locations and inconsistent phone coverage across them — one site
+						answers promptly, another goes to voicemail, and customers notice the gap.
+					</p>
+				</div>
+				<div data-reveal style="--reveal-delay: 160ms;">
+					<h3 class="text-lg font-bold text-ink">Brisbane</h3>
+					<p class="text-[14.5px] text-muted leading-relaxed mt-2">
+						Tourism and construction businesses tend to lead with seasonal demand
+						spikes and the compliance overhead that comes with them, which is often
+						where phone coverage and workflow bottlenecks show up first in the audit.
+					</p>
+				</div>
+			</div>
+			<p class="text-muted leading-relaxed mt-2 max-w-[52rem]">
+				The Blueprint audit is the same process in every city — what changes is which
+				bottleneck shows up first. <a href="/consulting/" class="link-ink">Read more about how our consulting engagements work</a>,
+				pair it with <a href="/voice-ai/australia/" class="link-ink">an AI receptionist for Australian businesses</a> if
+				phone coverage is the gap, or check <a href="/pricing/" class="link-ink">how pricing works</a> before you book.
+			</p>
 		</div>
 	</section>
 
@@ -345,30 +499,11 @@ const hubs = [
 		</div>
 	</section>
 
-	<!-- ============================================ -->
-	<!-- FAQ                                          -->
-	<!-- ============================================ -->
-	<section class="py-(--spacing-section)">
-		<div class="max-w-[880px] mx-auto px-5">
-			<div class="text-center mb-10">
-				<h2 class="face-display font-extrabold text-[clamp(2rem,4vw,3.2rem)] leading-tight text-ink" data-reveal>
-					Frequently asked questions.
-				</h2>
-				<p class="face-data text-muted mt-3" data-reveal>FIELD MANUAL · AU EDITION</p>
-			</div>
-
-			<div class="rule-ticked" data-draw-rule></div>
-			{faqs.map((faq) => (
-				<details class="spec-row group px-2">
-					<summary class="flex items-center justify-between gap-6 py-5 cursor-pointer list-none font-bold text-ink [&::-webkit-details-marker]:hidden">
-						{faq.question}
-						<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="shrink-0 text-green group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
-					</summary>
-					<p class="text-muted leading-relaxed pb-6 max-w-[44rem]">{faq.answer}</p>
-				</details>
-			))}
-		</div>
-	</section>
+	<FAQ
+		faqs={faqs}
+		heading="Frequently asked questions."
+		label="FIELD MANUAL · AU EDITION"
+	/>
 
 	<!-- ============================================ -->
 	<!-- FINAL CTA                                    -->
