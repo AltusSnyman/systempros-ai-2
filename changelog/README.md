@@ -5,3 +5,4 @@ One entry per change set: what changed, why, files touched, the Search Console m
 | Date | Entry |
 |---|---|
 | 2026-09-25 | [Onboarding: kit, audits, plan](2026-09-25-onboard-audit-plan.md) | Baseline; GSC added; GEO 50/51/56 |
+| 2026-09-25 | [Round 1 site build: one name, measured, found](2026-09-25-round-1-site.md) | GSC indexing + first impressions (AU receptionist/consultant, OpenClaw); GA4 consultation_click ≥10/28d; re-check 2026-10-25 |
