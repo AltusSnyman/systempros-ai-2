@@ -91,3 +91,16 @@ Search Console verified and indexing all 42+ pages; first impressions for "what 
 
 ## 7. Guardrails
 No invented clients, numbers, reviews or prices. "30 years", "48 hours", "under 10 seconds", OpenClaw star and skill counts only if Altus confirms or a source is cited. Keep DESIGN.md/PRODUCT.md rules (light surfaces, brand green, one CTA, no blue/purple AI palette). Trade-specific "tradie" terms belong to tradiefrontdesk.ai. GoHighLevel: read-only unless Altus approves writes. Never push without Altus's word. Never change a URL without a 301 in netlify.toml / public/_redirects.
+
+## 8. Marketing services page set (DataForSEO 2026-09-25, report tools/dataforseo/reports/2026-09-25-sp-marketing-keywords.md)
+
+AU runs 6–9× NZ on every marketing-service term. Built in round 1:
+| URL | Primary | AU / NZ per month |
+|---|---|---|
+| /marketing/ (hub) | digital marketing agency | 4,400 / 720 |
+| /marketing/google-business-profile/ | google my business management | 1,000 / 210 (vs "gbp optimisation" 90 / 10) |
+| /marketing/reviews-reputation/ | review management | 210 / 30 |
+| /marketing/social-media-management/ | social media management | 880 / 170 |
+| /marketing/facebook-instagram-ads/ | facebook ads agency | 880 / 40 |
+
+Not built, by decision: /marketing/local-seo/ (local SEO is not in the services Altus described); a lead-nurturing page (20–320/mo; "lead nurturing" and "marketing automation" added as secondary wording on /lead-reactor/ instead). "facebook ads management" (6,600 AU / 1,000 NZ) kept as a secondary until its SERP is checked. "marketing for tradies" (AU 320) stays with tradiefrontdesk.ai; "marketing for dentists" (AU 260) → a section on /solutions/dental/ in round 2. No prices on marketing pages until Altus gives marketing pricing (the $997+ tiers describe the AI systems plans). Third-party tool names (GoHighLevel, Myrchant) not used on these pages.
