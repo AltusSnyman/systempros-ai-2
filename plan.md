@@ -104,3 +104,27 @@ AU runs 6–9× NZ on every marketing-service term. Built in round 1:
 | /marketing/facebook-instagram-ads/ | facebook ads agency | 880 / 40 |
 
 Not built, by decision: /marketing/local-seo/ (local SEO is not in the services Altus described); a lead-nurturing page (20–320/mo; "lead nurturing" and "marketing automation" added as secondary wording on /lead-reactor/ instead). "facebook ads management" (6,600 AU / 1,000 NZ) kept as a secondary until its SERP is checked. "marketing for tradies" (AU 320) stays with tradiefrontdesk.ai; "marketing for dentists" (AU 260) → a section on /solutions/dental/ in round 2. No prices on marketing pages until Altus gives marketing pricing (the $997+ tiers describe the AI systems plans). Third-party tool names (GoHighLevel, Myrchant) not used on these pages.
+
+## 9. Andrea — Google Maps journey page (brief, 2026-09-26)
+
+**Sources read:** White Label SMB Sales Deck (11 pages), systemprosai-upadte/system-pros-ai-demo.html (17 sections; §04 search anatomy, §12 click share by position; §06–08 client fit; §10–11 timelines; §15 best practice), heatmap and reviews images, the supplied GBP ROI calculator. Andrea = System Pros AI's marketing AI agent (white-label; the underlying product and vendor are never named).
+
+**Audience:** the local business owner (the demo speaks to would-be agencies; not reused as-is). **Job of the page:** move an owner from "I'm not showing on Maps" to booking.
+
+**Journey (sections):**
+1. Hero: get found on Google Maps; Andrea runs your Google Business Profile every day. CTA.
+2. The shortlist problem: customers choose from three names on a map.
+3. Anatomy of a local search: ads / map pack / websites, rebuilt as our own diagram with an Auckland example (benchmark split 4% / 80% / 16%, labelled as an industry benchmark).
+4. Why position matters: click share by map position (#1 30%, #2 20%, #3 15% … #8 3%), our own chart, benchmark label.
+5. The heatmap: how visibility is measured across a service area (example heatmap image, labelled example).
+6. Meet Andrea: what she does every day (profile optimisation, review requests + replies + flagging, weekly posts, photo drip, citations, social posting, AI-search visibility, website alignment notes, before/after heatmap reports).
+7. Reviews on autopilot: SMS, QR and email requests (example image).
+8. What to expect and when: first movement around 90 days, 3–4 / 6–7 / 12+ months, rankings are a trend (benchmarks, not promises).
+9. Calculator: rebuilt natively in brand (the supplied one rounds small daily gains to zero); monthly maths, clear assumptions, "customers needed to cover the fee".
+10. Faster results while Maps compounds: we also run Google Ads and Facebook/Instagram ads, with Lead Reactor follow-up (links to /marketing/google-ads/, /marketing/facebook-instagram-ads/, /lead-reactor/).
+11. Who it suits / who it doesn't (from the client-fit sections).
+12. Price per location + guarantee (pending owner), FAQ (+ FAQPage), final CTA.
+
+**Not used, by rule:** the deck's case studies (Home Crush 7,320%, Rooster Roofers 19,862%, Hybrid Clinic 2,674%) and "64+ clients / 5/5 / 100%" are the vendor's or placeholders, not System Pros results; the search-anatomy, rank-share and map-grid images show the vendor's own listing name or mascot, so they are rebuilt as original diagrams. Deck stats appear only as labelled industry benchmarks.
+
+**Assets saved:** public/images/andrea/maps-heatmap-example-{700,1200}.webp, reviews-example-{700,1200}.webp (example imagery, labelled as such).
