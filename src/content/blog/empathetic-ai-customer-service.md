@@ -3,7 +3,7 @@ title: "The Rise of the Empathetic Machine: How Voice AI Builds Better Connectio
 description: "Forget the robotic voices of the past. Modern AI agents are mastering the art of empathy, transforming customer service from a cost center into a relationship builder."
 pubDate: "2024-05-15"
 heroImage: "../../assets/empathetic_ai_hero.png"
-author: "SystemPros AI Team"
+author: "System Pros AI Team"
 tags: ["Voice AI", "Customer Experience", "Future of Work"]
 featured: true
 ---
@@ -52,7 +52,7 @@ You don't need a call center to offer enterprise-grade support. You just need th
 
 Traditional chatbots and phone trees were rigid. They followed a script. If you went off-script, they broke. Today's Large Language Models (LLMs) combined with advanced voice synthesis have created something entirely different: **Conversational Intelligence**.
 
-At SystemPros, we're seeing AI agents that can detect sentiment. They know when a customer is stressed, hurried, or confused, and they adjust their tone and pacing accordingly. This isn't science fiction—it's the standard for modern customer engagement.
+At System Pros AI, we're seeing AI agents that can detect sentiment. They know when a customer is stressed, hurried, or confused, and they adjust their tone and pacing accordingly. This isn't science fiction—it's the standard for modern customer engagement.
 
 ### The "Empathy Gap" in Automation
 
@@ -84,11 +84,11 @@ After implementation:
 
 The fear of AI is often a fear of losing humanity. But paradoxically, the right AI implementation makes businesses *more* human. It eliminates the hold times, the repetitive questions, and the cold, robotic processes that distance companies from their customers.
 
-At SystemPros, we build AI that understands. Because in a digital world, the most valuable currency is still connection.
+At System Pros AI, we build AI that understands. Because in a digital world, the most valuable currency is still connection.
 
 <div class="bg-blue-900/20 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
   <h3 class="text-xl font-bold text-white mb-2">Want to hear it for yourself?</h3>
   <p class="text-gray-300">
-    Experience the difference of an empathetic AI agent. <a href="/contact" class="text-blue-400 hover:text-blue-300 font-bold underline">Book a demo</a> with SystemPros today and hear the future of customer service.
+    Experience the difference of an empathetic AI agent. <a href="/contact" class="text-blue-400 hover:text-blue-300 font-bold underline">Book a demo</a> with System Pros AI today and hear the future of customer service.
   </p>
 </div>

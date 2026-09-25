@@ -253,7 +253,7 @@ const ROICalculator = ({
                                 {formatCurrency(results.annualProjection)}
                             </div>
                             <div className="text-lg text-paper-dim font-medium">Projected Annual Revenue Increase</div>
-                            <div className="font-mono text-[12px] text-paper-dim mt-2 uppercase tracking-[0.04em]">SystemPros AI Integration</div>
+                            <div className="font-mono text-[12px] text-paper-dim mt-2 uppercase tracking-[0.04em]">System Pros AI Integration</div>
                         </div>
                     </div>
 

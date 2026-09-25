@@ -3,7 +3,7 @@ title: "The AI Consultant's Playbook: Why Strategy Beats Software"
 description: "Buying AI tools is easy. Making them work for your business is hard. Here's why an expert consultant is the secret weapon for ROI."
 pubDate: "2024-05-22"
 heroImage: "../../assets/ai_consultant_strategy_hero.png"
-author: "SystemPros AI Team"
+author: "System Pros AI Team"
 tags: ["Consulting", "Business Strategy", "ROI"]
 ---
 
@@ -77,6 +77,6 @@ Don't just buy AI. **Master it.**
 <div class="bg-purple-900/20 border-l-4 border-purple-500 p-6 my-8 rounded-r-lg">
   <h3 class="text-xl font-bold text-white mb-2">Ready to build your strategy?</h3>
   <p class="text-gray-300">
-    Stop guessing and start growing. <a href="/consulting/australia" class="text-purple-400 hover:text-purple-300 font-bold underline">Book a consultation</a> with SystemPros to design your custom AI roadmap.
+    Stop guessing and start growing. <a href="/consulting/australia" class="text-purple-400 hover:text-purple-300 font-bold underline">Book a consultation</a> with System Pros AI to design your custom AI roadmap.
   </p>
 </div>

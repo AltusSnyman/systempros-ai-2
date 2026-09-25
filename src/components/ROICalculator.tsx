@@ -44,7 +44,7 @@ export default function ROICalculator() {
                     <Calculator className="w-8 h-8 text-green" />
                     <span className="text-ink">Calculate Your KPI Savings</span>
                 </h3>
-                <p className="text-muted">See how much you could save by switching to SystemPros Voice AI.</p>
+                <p className="text-muted">See how much you could save by switching to System Pros AI Voice AI.</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-12">

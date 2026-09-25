@@ -1,5 +1,5 @@
 /**
- * SystemPros.ai "Commissioning Dossier" palette for Remotion compositions.
+ * System Pros AI "Commissioning Dossier" palette for Remotion compositions.
  *
  * Remotion needs plain color values, so these are hex equivalents of the
  * OKLCH tokens in newsite/src/styles/global.css (single source: /DESIGN.md).

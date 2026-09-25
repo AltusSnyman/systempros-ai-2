@@ -32,7 +32,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEM PROS AI</span>
     </div>
   );
 };
@@ -208,7 +208,7 @@ const SceneB = ({ frame, fps }: { frame: number; fps: number }) => {
         </div>
         <div style={{ display: 'flex', flex: 1, flexDirection: 'column', gap: 8 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span style={{ color: P.ink, fontSize: 14, fontWeight: 600 }}>SystemPros</span>
+            <span style={{ color: P.ink, fontSize: 14, fontWeight: 600 }}>System Pros AI</span>
             <span style={{ color: ACCENT, fontSize: 14, fontWeight: 700 }}>&lt; 10 seconds</span>
           </div>
           <div style={{ height: 16, backgroundColor: 'rgba(31,42,38,0.06)', borderRadius: 8 }}>

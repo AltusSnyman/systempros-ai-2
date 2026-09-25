@@ -68,7 +68,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
     { name: 'Voice AI', x: 320, y: 310, color: ACCENT },
   ];
 
-  // RIGHT: SystemPros architecture — clean connected nodes
+  // RIGHT: System Pros AI architecture — clean connected nodes
   const SP_NODES = [
     { name: 'CRM', x: 750, y: 290, color: ACCENT },
     { name: 'Voice AI', x: 870, y: 360, color: CYAN },
@@ -89,7 +89,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
         <div style={{ color: P.muted, fontSize: 13, marginTop: 4 }}>"We have AI" — but nothing's connected</div>
       </div>
       <div style={{ position: 'absolute', top: 80, left: W / 2, width: W / 2, textAlign: 'center' }}>
-        <div style={{ color: GREEN, fontSize: 12, fontWeight: 800, letterSpacing: '0.2em', fontFamily: MONO, textTransform: 'uppercase' }}>SystemPros Architecture</div>
+        <div style={{ color: GREEN, fontSize: 12, fontWeight: 800, letterSpacing: '0.2em', fontFamily: MONO, textTransform: 'uppercase' }}>System Pros AI Architecture</div>
         <div style={{ color: P.muted, fontSize: 13, marginTop: 4 }}>Every system wired to every other</div>
       </div>
 
@@ -251,7 +251,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
   const BARS = [
     { label: 'Without Consultation', val: 12, max: 100, color: RED },
     { label: 'DIY AI Install', val: 28, max: 100, color: P.copperDeep },
-    { label: 'SystemPros Audit + Build', val: 91, max: 100, color: GREEN },
+    { label: 'System Pros AI Audit + Build', val: 91, max: 100, color: GREEN },
   ];
 
   return (
@@ -296,7 +296,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 56, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEM PROS AI</span>
     </div>
   );
 };

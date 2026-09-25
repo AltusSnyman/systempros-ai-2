@@ -389,7 +389,7 @@ export const ProductScene = ({
             letterSpacing: '0.14em', fontFamily: MONO,
           }}
         >
-          SYSTEMPROS.AI
+          SYSTEM PROS AI
         </span>
       </div>
     </AbsoluteFill>

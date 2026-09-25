@@ -142,7 +142,7 @@ export const OpenClawHub = () => {
       <div style={{ position: 'absolute', bottom: 38, right: 56, display: 'flex', alignItems: 'center', gap: 8,
         opacity: interpolate(frame, [560, 580], [0, 1], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' }) }}>
         <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-        <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+        <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEM PROS AI</span>
       </div>
     </AbsoluteFill>
   );

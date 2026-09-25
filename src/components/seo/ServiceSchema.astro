@@ -1,39 +1,47 @@
 ---
+// Service node for an offer page. Provider always references the single
+// organisation node (@id) emitted by Layout.astro — no contact details here.
+// areaServed: country names/codes become Country, anything else becomes City.
+import { ORG_ID, SITE_URL } from '../../lib/site';
+
 interface Props {
   name: string;
   description: string;
   serviceType: string;
   areaServed?: string[];
+  url?: string;
 }
 
-const { 
-  name, 
-  description, 
+const COUNTRIES: Record<string, string> = {
+  NZ: 'New Zealand', 'NEW ZEALAND': 'New Zealand',
+  AU: 'Australia', AUSTRALIA: 'Australia',
+  US: 'United States', USA: 'United States', 'UNITED STATES': 'United States',
+};
+
+const {
+  name,
+  description,
   serviceType,
-  areaServed = ["US", "AU", "NZ", "GB"] 
+  areaServed = ['NZ', 'AU', 'US'],
+  url,
 } = Astro.props;
+
+const path = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
 
 const schema = {
   "@context": "https://schema.org",
   "@type": "Service",
   "name": name,
   "description": description,
-  "provider": {
-    "@type": "LocalBusiness",
-    "name": "SystemPros.ai",
-    "image": "https://systempros.ai/logo.png",
-    "telephone": "+18446979038",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "US"
-    }
-  },
   "serviceType": serviceType,
-  "areaServed": areaServed.map(country => ({
-    "@type": "Country",
-    "name": country
-  })),
-  "url": Astro.url.href
+  "provider": { "@id": ORG_ID },
+  "areaServed": areaServed.map((place) => {
+    const country = COUNTRIES[place.trim().toUpperCase()];
+    return country
+      ? { "@type": "Country", "name": country }
+      : { "@type": "City", "name": place };
+  }),
+  "url": url ?? `${SITE_URL}${path}`,
 };
 ---
 

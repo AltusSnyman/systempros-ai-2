@@ -24,7 +24,7 @@ const STEPS = [
   {
     number: '02',
     title: 'Rip & Replace',
-    desc: 'We deploy the SystemPros stack — replacing your dead forms with Smart Widgets and Voice AI. Your old site becomes a revenue-generating machine.',
+    desc: 'We deploy the System Pros AI stack — replacing your dead forms with Smart Widgets and Voice AI. Your old site becomes a revenue-generating machine.',
     detail: 'Deployed live within 2–4 weeks',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

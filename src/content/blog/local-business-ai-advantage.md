@@ -3,7 +3,7 @@ title: "Small Business, Big Tech: How Local ANZ Companies Are Competing with Gia
 description: "You don't need a Silicon Valley budget to use world-class technology. Here's how local businesses in Australia and New Zealand are using AI to punch above their weight."
 pubDate: "2024-06-12"
 heroImage: "../../assets/local_business_ai_hero.png"
-author: "SystemPros AI Team"
+author: "System Pros AI Team"
 tags: ["Small Business", "Local Economy", "Technology"]
 ---
 
@@ -51,6 +51,6 @@ The good news? It's easier than you think to get started.
 <div class="bg-green-900/20 border-l-4 border-green-500 p-6 my-8 rounded-r-lg">
   <h3 class="text-xl font-bold text-white mb-2">Punch above your weight.</h3>
   <p class="text-gray-300">
-    Equip your business with the same tools the big players use. <a href="/contact" class="text-green-400 hover:text-green-300 font-bold underline">Contact SystemPros</a> and let's build your digital advantage.
+    Equip your business with the same tools the big players use. <a href="/contact" class="text-green-400 hover:text-green-300 font-bold underline">Contact System Pros AI</a> and let's build your digital advantage.
   </p>
 </div>

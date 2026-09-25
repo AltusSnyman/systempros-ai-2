@@ -252,7 +252,7 @@ const SceneC = ({ frame, fps }: { frame: number; fps: number }) => {
   const BAR_DATA = [
     { label: 'Manual',     pct: 0.13, color: 'rgba(31,42,38,0.18)' },
     { label: 'Partial AI', pct: 0.44, color: `${ACCENT}55`            },
-    { label: 'SystemPros', pct: 1.00, color: ACCENT                   },
+    { label: 'System Pros AI', pct: 1.00, color: ACCENT                   },
   ];
   const BAR_MAX_H = 200;
   const BAR_W = 112;
@@ -319,7 +319,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 56, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEM PROS AI</span>
       <span style={{ color: 'rgba(31,42,38,0.14)', fontSize: 12, letterSpacing: '0.08em' }}>The Full-Stack AI Partner</span>
     </div>
   );

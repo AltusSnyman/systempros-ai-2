@@ -1,4 +1,5 @@
 ---
+import { PHONES } from '../lib/site';
 const { hideCTA = false } = Astro.props;
 
 const services = [
@@ -10,6 +11,13 @@ const services = [
   { name: 'Training', ref: 'SP-06', desc: '1-on-1 sessions on the tools that matter', href: '/training' },
   { name: 'OpenClaw Hub', ref: 'SP-07', desc: 'Private AI assistant resources and guides', href: '/openclaw' },
 ];
+
+// Secondary pages surfaced under the systems list (desktop dropdown + mobile menu)
+const alsoLinks = [
+  { name: 'AI Receptionist Australia', href: '/voice-ai/australia/' },
+  { name: 'AI Consulting Australia', href: '/consulting/australia/' },
+  { name: 'n8n Training', href: '/training/n8n/' },
+];
 ---
 
 <header
@@ -19,12 +27,12 @@ const services = [
 >
   <div class="max-w-[1200px] mx-auto px-5 flex items-center justify-between h-16">
     <!-- Wordmark -->
-    <a href="/" class="flex items-baseline gap-1.5 group" aria-label="SystemPros.ai home">
+    <a href="/" class="flex items-baseline gap-1.5 group" aria-label="System Pros AI home">
       <span class="face-display font-extrabold text-[1.25rem] tracking-tight text-ink">
-        SystemPros
+        System Pros
       </span>
-      <span class="w-2 h-2 bg-copper inline-block translate-y-[-1px] transition-transform duration-300 group-hover:rotate-90"></span>
-      <span class="face-data text-muted hidden sm:inline">.ai</span>
+      <span class="w-2 h-2 bg-copper inline-block translate-y-[-1px] transition-transform duration-300 group-hover:rotate-90" aria-hidden="true"></span>
+      <span class="face-display font-extrabold text-[1.25rem] tracking-tight text-green">AI</span>
     </a>
 
     <!-- Center menu -->
@@ -59,6 +67,12 @@ const services = [
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="text-line group-hover/item:text-copper transition-colors"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </a>
             ))}
+            <div class="px-5 py-3 border-t border-line flex flex-wrap gap-x-5 gap-y-1.5 text-[13px]">
+              <span class="face-data text-muted">ALSO</span>
+              {alsoLinks.map((l) => (
+                <a href={l.href} class="text-green hover:text-copper underline underline-offset-[3px] decoration-1">{l.name}</a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -70,16 +84,25 @@ const services = [
     </nav>
 
     <!-- Right actions -->
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-2 sm:gap-4">
       {!hideCTA && (
         <a href="/contact" class="hidden sm:inline-flex btn-primary !px-5 !py-2.5 !text-[14px]">
-          Book a Consultation
+          Book a Free Consultation
         </a>
       )}
 
+      <!-- Mobile tap-to-call (icon only, not a second CTA) -->
+      <a
+        href={PHONES.NZ.tel}
+        class="lg:hidden inline-flex items-center justify-center w-11 h-11 text-green hover:text-copper transition-colors"
+        aria-label={`Call System Pros AI on ${PHONES.NZ.display}`}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+
       <button
         id="mobile-menu-btn"
-        class="lg:hidden text-ink hover:text-green transition-colors p-2"
+        class="lg:hidden text-ink hover:text-green transition-colors p-2 w-11 h-11 inline-flex items-center justify-center"
         aria-label="Open menu"
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -97,6 +120,9 @@ const services = [
         <span class="face-data text-copper w-12 shrink-0">{s.ref}</span>
         <span class="text-[15px] font-semibold text-ink">{s.name}</span>
       </a>
+    ))}
+    {alsoLinks.map((l) => (
+      <a href={l.href} class="spec-row block px-5 py-3 pl-[5.25rem] text-[14px] font-medium text-green">{l.name}</a>
     ))}
     <div class="face-data text-muted px-5 py-2.5 border-b border-line">COMPANY</div>
     <a href="/industries" class="spec-row block px-5 py-3.5 text-[15px] font-semibold text-ink">Industries</a>

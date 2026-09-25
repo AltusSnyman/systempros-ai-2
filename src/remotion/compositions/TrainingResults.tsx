@@ -73,7 +73,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
     y: oy + ch - 10 - ch * 0.1 * Math.pow(t, 0.5) * Math.min(chartDraw, 1.0),
   });
 
-  // SystemPros: steep fast curve reaching mastery in 30% of time
+  // System Pros AI: steep fast curve reaching mastery in 30% of time
   const spPoints = (t: number) => ({
     x: ox + t * cw * 0.35,
     y: oy + ch - 10 - ch * 0.92 * Math.pow(t, 0.4) * Math.min(spDraw, 1.0),
@@ -121,7 +121,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
         <path d={selfPath} fill="none" stroke={RED} strokeWidth="2.5" strokeLinecap="round"
           strokeDasharray={selfTotalLen} strokeDashoffset={selfTotalLen * (1 - chartDraw)} opacity="0.7" />
 
-        {/* SystemPros path */}
+        {/* System Pros AI path */}
         <path d={spPath} fill="none" stroke={GREEN} strokeWidth="3" strokeLinecap="round"
           strokeDasharray={spTotalLen} strokeDashoffset={spTotalLen * (1 - spDraw)}
           style={{ filter: 'none' }} />
@@ -155,7 +155,7 @@ const SceneA = ({ frame, fps }: { frame: number; fps: number }) => {
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <div style={{ width: 28, height: 3, backgroundColor: GREEN, borderRadius: 2, boxShadow: 'none'}} />
-          <span style={{ color: P.ink, fontSize: 14, fontWeight: 600 }}>SystemPros 1-on-1 (3 sessions)</span>
+          <span style={{ color: P.ink, fontSize: 14, fontWeight: 600 }}>System Pros AI 1-on-1 (3 sessions)</span>
         </div>
       </div>
     </AbsoluteFill>
@@ -309,7 +309,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 38, right: 56, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEM PROS AI</span>
     </div>
   );
 };

@@ -8,11 +8,11 @@ const CHALLENGES = [
         sub: 'Objection Handling',
         audio: '/assets/audio/skeptical_lead.mp3', // Placeholder path
         transcript: [
-            { time: 0, text: "SystemPros AI: Hi, this is Sarah from SystemPros. I noticed you downloaded our whitepaper on AI integration.", sender: 'ai' },
+            { time: 0, text: "System Pros AI: Hi, this is Sarah from System Pros AI. I noticed you downloaded our whitepaper on AI integration.", sender: 'ai' },
             { time: 4, text: "Lead: Yeah, look, I'm not interested in talking to a robot. Is this a real person?", sender: 'user' },
-            { time: 9, text: "SystemPros AI: I understand the hesitation. I am an AI, but I'm designed to be as helpful strictly for scheduling. I can get a human specialist on the line for you immediately if you prefer?", sender: 'ai' },
+            { time: 9, text: "System Pros AI: I understand the hesitation. I am an AI, but I'm designed to be as helpful strictly for scheduling. I can get a human specialist on the line for you immediately if you prefer?", sender: 'ai' },
             { time: 16, text: "Lead: Oh... wow. You sound pretty real. Okay, well, what's the cost involved?", sender: 'user' },
-            { time: 20, text: "SystemPros AI: That depends heavily on your current infrastructure. Our specialists usually do a quick 15-minute audit to give a precise quote. Would you be open to that this Thursday?", sender: 'ai' }
+            { time: 20, text: "System Pros AI: That depends heavily on your current infrastructure. Our specialists usually do a quick 15-minute audit to give a precise quote. Would you be open to that this Thursday?", sender: 'ai' }
         ]
     },
     {
@@ -168,7 +168,7 @@ export default function TuringTestChallenge() {
                                 className={`flex flex-col transition-opacity duration-500 ${isFuture ? 'opacity-30' : 'opacity-100'} ${msg.sender === 'ai' ? 'items-start' : 'items-end'}`}
                             >
                                 <span className={`font-mono text-[10px] uppercase font-bold mb-1 tracking-[0.04em] ${msg.sender === 'ai' ? 'text-green' : 'text-muted'}`}>
-                                    {msg.sender === 'ai' ? 'SystemPros AI' : 'Human Lead'}
+                                    {msg.sender === 'ai' ? 'System Pros AI' : 'Human Lead'}
                                 </span>
                                 <div className={`p-4 rounded-[2px] max-w-[90%] text-sm md:text-base leading-relaxed border ${msg.sender === 'ai'
                                         ? 'bg-paper border-green/30 text-ink rounded-tl-none'

@@ -1,0 +1,55 @@
+---
+// Visible FAQ + FAQPage JSON-LD from ONE array (single source of truth).
+// Usage: <FAQ faqs={faqs} heading="Questions on pricing." label="COMMERCIAL NOTES" />
+// Answers are plain text (no HTML) so the visible copy and the schema match exactly.
+interface Question {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: Question[];
+  heading?: string;
+  label?: string;
+  id?: string;
+  /** Wrap in its own <section>. Set false to drop into an existing section. */
+  section?: boolean;
+}
+
+const { faqs, heading = 'Questions, answered.', label = 'FAQ', id = 'faq', section = true } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((faq) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": { "@type": "Answer", "text": faq.answer },
+  })),
+};
+const Wrapper = section ? 'section' : 'div';
+---
+
+<Wrapper id={id} class={section ? 'py-(--spacing-section)' : ''} aria-labelledby={`${id}-heading`}>
+  <div class="max-w-[860px] mx-auto px-5">
+    <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+      <h2 id={`${id}-heading`} class="face-display font-extrabold text-[clamp(1.9rem,4vw,3rem)] leading-tight text-ink" data-reveal>
+        {heading}
+      </h2>
+      <p class="face-data text-muted pb-2" data-reveal>{label}</p>
+    </div>
+
+    <div class="rule-ticked" data-draw-rule></div>
+    {faqs.map((faq, i) => (
+      <details class="spec-row group px-2" data-reveal style={`--reveal-delay: ${Math.min(i, 6) * 50}ms;`}>
+        <summary class="flex items-center justify-between gap-6 py-6 cursor-pointer list-none font-bold text-ink text-lg">
+          <h3 class="text-lg font-bold">{faq.question}</h3>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true" class="shrink-0 text-muted group-open:rotate-180 transition-transform"><polyline points="6 9 12 15 18 9"/></svg>
+        </summary>
+        <p class="text-muted leading-relaxed pb-6 max-w-[46rem]">{faq.answer}</p>
+      </details>
+    ))}
+  </div>
+</Wrapper>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

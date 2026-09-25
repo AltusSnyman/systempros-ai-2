@@ -13,6 +13,12 @@ interface Props {
 
 const { currentTitle, parent = { name: 'Systems', url: '/#systems' } } = Astro.props;
 
+const withSlash = (u: string) => {
+  const [path, hash] = u.split('#');
+  const p = path.endsWith('/') ? path : `${path}/`;
+  return hash ? `${p}#${hash}` : p;
+};
+
 const paths = [
   { name: 'Home', url: '/' },
   parent,
@@ -26,7 +32,7 @@ const schema = {
     "@type": "ListItem",
     "position": index + 1,
     "name": item.name,
-    "item": `https://systempros.ai${item.url.replace('https://systempros.ai', '')}`,
+    "item": `https://systempros.ai${withSlash(item.url.replace('https://systempros.ai', ''))}`,
   })),
 };
 ---

@@ -3,7 +3,7 @@ title: "Automation vs. Replacement: Why AI is Your Team's New Superpower"
 description: "The fear of AI replacing jobs is real, but the reality is different. Discover how automation removes drudgery and empowers your team to do their best work."
 pubDate: "2024-06-05"
 heroImage: "../../assets/automation_empowerment_hero.png"
-author: "SystemPros AI Team"
+author: "System Pros AI Team"
 tags: ["Future of Work", "Automation", "Team Culture"]
 ---
 
@@ -65,6 +65,6 @@ The best businesses don't use AI to cut costs. They use it to multiply value. Th
 <div class="bg-blue-900/20 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg">
   <h3 class="text-xl font-bold text-white mb-2">Give your team superpowers.</h3>
   <p class="text-gray-300">
-    Discover which tasks are slowing your team down. <a href="/consulting/australia" class="text-blue-400 hover:text-blue-300 font-bold underline">Book a workflow audit</a> with SystemPros today.
+    Discover which tasks are slowing your team down. <a href="/consulting/australia" class="text-blue-400 hover:text-blue-300 font-bold underline">Book a workflow audit</a> with System Pros AI today.
   </p>
 </div>

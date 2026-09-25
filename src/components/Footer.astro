@@ -1,5 +1,6 @@
 ---
 import Stamp from './Stamp.astro';
+import { PHONES, BRAND } from '../lib/site';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -10,9 +11,9 @@ const currentYear = new Date().getFullYear();
     <div class="flex flex-col md:flex-row justify-between items-start gap-10 pb-12 border-b border-line-drench">
       <div class="max-w-sm space-y-4">
         <div class="flex items-baseline gap-1.5">
-          <span class="face-display font-extrabold text-2xl text-paper-lit">SystemPros</span>
-          <span class="w-2 h-2 bg-copper inline-block"></span>
-          <span class="face-data text-paper-dim">.ai</span>
+          <span class="face-display font-extrabold text-2xl text-paper-lit">System Pros</span>
+          <span class="w-2 h-2 bg-copper inline-block" aria-hidden="true"></span>
+          <span class="face-display font-extrabold text-2xl text-paper-lit">AI</span>
         </div>
         <p class="text-paper-dim text-[15px] leading-relaxed">
           AI systems, engineered and installed. Thirty years of enterprise
@@ -28,12 +29,16 @@ const currentYear = new Date().getFullYear();
       <div>
         <div class="face-data text-paper-dim mb-4">SYSTEMS</div>
         <ul class="space-y-2.5">
-          <li><a href="/voice-ai" class="text-paper-lit hover:text-copper transition-colors">The Revenue Triad</a></li>
+          <li><a href="/voice-ai" class="text-paper-lit hover:text-copper transition-colors">AI Receptionist (Revenue Triad)</a></li>
+          <li><a href="/voice-ai/australia/" class="text-paper-lit hover:text-copper transition-colors">AI Receptionist Australia</a></li>
           <li><a href="/lead-gen-websites" class="text-paper-lit hover:text-copper transition-colors">Lead Gen Websites</a></li>
           <li><a href="/lead-reactor" class="text-paper-lit hover:text-copper transition-colors">The Lead Reactor</a></li>
           <li><a href="/private-assistant" class="text-paper-lit hover:text-copper transition-colors">The Private Assistant</a></li>
           <li><a href="/consulting" class="text-paper-lit hover:text-copper transition-colors">Consultation</a></li>
           <li><a href="/training" class="text-paper-lit hover:text-copper transition-colors">Training</a></li>
+          <li><a href="/training/n8n/" class="text-paper-lit hover:text-copper transition-colors">n8n Training</a></li>
+          <li><a href="/pricing" class="text-paper-lit hover:text-copper transition-colors">Pricing</a></li>
+          <li><a href="/audit/" class="text-paper-lit hover:text-copper transition-colors">Free AI Readiness Audit</a></li>
         </ul>
       </div>
       <div>
@@ -64,13 +69,16 @@ const currentYear = new Date().getFullYear();
       <div>
         <div class="face-data text-paper-dim mb-4">CONTACT</div>
         <ul class="space-y-2.5 face-data !text-[13px]">
-          <li class="flex items-center gap-2"><span class="text-paper-dim">US</span> <a href="tel:+18446979038" class="text-paper-lit hover:text-copper transition-colors">+1 844 697 9038</a></li>
-          <li class="flex items-center gap-2"><span class="text-paper-dim">AU</span> <a href="tel:+61255632110" class="text-paper-lit hover:text-copper transition-colors">+61 2 5563 2110</a></li>
-          <li class="flex items-center gap-2"><span class="text-paper-dim">NZ</span> <a href="tel:+64212550493" class="text-paper-lit hover:text-copper transition-colors">+64 2 125 50493</a></li>
+          <li class="flex items-center gap-2"><span class="text-paper-dim w-6">NZ</span> <a href={PHONES.NZ.tel} class="text-paper-lit hover:text-copper transition-colors">{PHONES.NZ.display}</a></li>
+          <li class="flex items-center gap-2"><span class="text-paper-dim w-6">AU</span> <a href={PHONES.AU.tel} class="text-paper-lit hover:text-copper transition-colors">{PHONES.AU.display}</a></li>
+          <li class="flex items-center gap-2"><span class="text-paper-dim w-6">US</span> <a href={PHONES.US.tel} class="text-paper-lit hover:text-copper transition-colors">{PHONES.US.display}</a></li>
+          <li class="flex items-center gap-2"><span class="text-paper-dim w-6" aria-hidden="true">@</span> <a href={`mailto:${BRAND.email}`} class="text-paper-lit hover:text-copper transition-colors break-all">{BRAND.email}</a></li>
         </ul>
         <ul class="space-y-2.5 mt-6 text-[14px]">
           <li><a href="/locations/australia" class="text-paper-lit hover:text-copper transition-colors">Australia</a></li>
           <li><a href="/locations/new-zealand" class="text-paper-lit hover:text-copper transition-colors">New Zealand</a></li>
+          <li><a href="/consulting/australia/" class="text-paper-lit hover:text-copper transition-colors">AI Consulting Australia</a></li>
+          <li><a href="/consulting/new-zealand/" class="text-paper-lit hover:text-copper transition-colors">AI Consulting NZ</a></li>
           <li><a href="/contact" class="text-paper-lit hover:text-copper transition-colors">Contact</a></li>
           <li><a href="/blog" class="text-paper-lit hover:text-copper transition-colors">Blog</a></li>
         </ul>
@@ -79,11 +87,12 @@ const currentYear = new Date().getFullYear();
 
     <!-- Legal line -->
     <div class="pt-8 border-t border-line-drench flex flex-col sm:flex-row justify-between gap-4 face-data !text-[12px] text-paper-dim">
-      <span>© {currentYear} SYSTEMPROS.AI — ALL SYSTEMS OPERATIONAL <span class="dot-live inline-block ml-1 align-middle"></span></span>
+      <span>© {currentYear} SYSTEM PROS AI — ALL SYSTEMS OPERATIONAL <span class="dot-live inline-block ml-1 align-middle"></span></span>
       <span class="flex gap-6">
         <a href="/privacy" class="hover:text-copper transition-colors">PRIVACY</a>
         <a href="/terms" class="hover:text-copper transition-colors">TERMS</a>
       </span>
     </div>
+    <p class="mt-4 text-[13px] text-paper-dim">System Pros AI is a brand of {BRAND.legalName}.</p>
   </div>
 </footer>

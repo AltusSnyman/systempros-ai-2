@@ -252,7 +252,7 @@ const SceneC = ({ frame, fps, props }: { frame: number; fps: number; props: Requ
   const BAR_DATA = [
     { label: 'Before',     pct: 0.12, color: 'rgba(31,42,38,0.16)' },
     { label: 'Industry Avg', pct: 0.42, color: `${ACCENT}50`          },
-    { label: 'SystemPros', pct: 1.00, color: ACCENT                   },
+    { label: 'System Pros AI', pct: 1.00, color: ACCENT                   },
   ];
   const BAR_MAX_H = 195, BAR_W = 110;
   const BASELINE_Y = 855;
@@ -310,7 +310,7 @@ const Brand = ({ frame }: { frame: number }) => {
   return (
     <div style={{ position: 'absolute', bottom: 36, right: 52, display: 'flex', alignItems: 'center', gap: 8, opacity: op, fontFamily: FONT }}>
       <div style={{ width: 14, height: 14, borderRadius: 3, backgroundColor: ACCENT }} />
-      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+      <span style={{ color: P.muted, fontSize: 12, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEM PROS AI</span>
     </div>
   );
 };

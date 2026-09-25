@@ -3,38 +3,39 @@ import type { CollectionEntry } from 'astro:content';
 import Layout from './Layout.astro';
 import { Image } from 'astro:assets';
 import MediaFrame from '../components/MediaFrame.astro';
+import { ORG_ID, SITE_URL, BRAND } from '../lib/site';
 
 type Props = CollectionEntry<'blog'>['data'];
 
-const { title, description, pubDate, updatedDate, heroImage, author, tags } = Astro.props;
+const { title, seoTitle, description, pubDate, updatedDate, heroImage, author, tags } = Astro.props;
 
 const dateFmt: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 
-// Schema.org Article
+// Schema.org BlogPosting. Dates are the real publish/update dates from frontmatter —
+// only set updatedDate when the post content genuinely changes.
+const pageUrl = new URL(Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`, SITE_URL).href;
 const schema = {
 	"@context": "https://schema.org",
-	"@type": "Article",
+	"@type": "BlogPosting",
+	"@id": `${pageUrl}#article`,
+	"mainEntityOfPage": pageUrl,
 	"headline": title,
 	"description": description,
-	"image": heroImage.src,
+	"image": new URL(heroImage.src, SITE_URL).href,
 	"author": {
-		"@type": "Person",
-		"name": author || "SystemPros AI"
-	},
-	"publisher": {
 		"@type": "Organization",
-		"name": "SystemPros",
-		"logo": {
-			"@type": "ImageObject",
-			"url": "https://systempros.ai/favicon.svg"
-		}
+		"name": author || `${BRAND.name} Team`,
+		"url": `${SITE_URL}/about/`
 	},
-	"datePublished": pubDate.toISOString(),
-	"dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString()
+	"publisher": { "@id": ORG_ID },
+	"isPartOf": { "@id": `${SITE_URL}/#website` },
+	"inLanguage": "en",
+	"datePublished": pubDate.toISOString().slice(0, 10),
+	"dateModified": (updatedDate ?? pubDate).toISOString().slice(0, 10)
 };
 ---
 
-<Layout title={title} description={description} image={heroImage.src} type="article">
+<Layout title={seoTitle ?? title} description={description} image={heroImage.src} type="article">
 	<script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
 	<!-- Document header -->
@@ -119,7 +120,7 @@ const schema = {
 					Ready to implement these insights?
 				</h2>
 				<p class="text-muted mt-3 leading-relaxed max-w-[36rem]" data-reveal style="--reveal-delay: 120ms;">
-					Book a strategy session with SystemPros to discuss how we can tailor this
+					Book a strategy session with System Pros AI to discuss how we can tailor this
 					solution for your business.
 				</p>
 				<a href="/contact" class="btn-primary mt-7" data-reveal style="--reveal-delay: 200ms;">Book a Free Consultation</a>

@@ -75,7 +75,7 @@ export const LeadReactorSpeed = () => {
   const spLabelOp = spring({ frame: frame - 340, fps, config: { damping: 200 } });
   const sceneBExit = interpolate(frame, [470, 500], [1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
 
-  // Pulsing glow on SystemPros bar
+  // Pulsing glow on System Pros AI bar
   const glowPulse = Math.sin(frame / 15) * 0.2 + 0.5;
 
   // ── SCENE C: THE 10-SECOND SEQUENCE (480-560) ──────────────────────────────
@@ -153,7 +153,7 @@ export const LeadReactorSpeed = () => {
             });
           })()}
 
-          {/* SystemPros marker */}
+          {/* System Pros AI marker */}
           {barReveal > 0.9 && (
             <g>
               <line x1={barX + zones[0].pct * barW} y1={barY - 40} x2={barX + zones[0].pct * barW} y2={barY + barH + 40} stroke={ACCENT} strokeWidth={2} strokeDasharray="5 3" opacity={0.8} />
@@ -206,7 +206,7 @@ export const LeadReactorSpeed = () => {
             </g>
           </g>
 
-          {/* SystemPros bar */}
+          {/* System Pros AI bar */}
           <g>
             <rect x={680} y={700 - systemProsBarH} width={200} height={systemProsBarH} fill={ACCENT} rx={6}
               style={{ filter: 'none' }} />
@@ -295,7 +295,7 @@ export const LeadReactorSpeed = () => {
       {/* Brand */}
       <div style={{ position: 'absolute', bottom: 38, right: 58, display: 'flex', alignItems: 'center', gap: 8, opacity: brandOp }}>
         <div style={{ width: 16, height: 16, borderRadius: 3, backgroundColor: ACCENT }} />
-        <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEMPROS.AI</span>
+        <span style={{ color: P.muted, fontSize: 13, fontWeight: 600, letterSpacing: '0.14em' }}>SYSTEM PROS AI</span>
       </div>
     </AbsoluteFill>
   );

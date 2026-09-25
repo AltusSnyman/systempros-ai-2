@@ -3,6 +3,7 @@ import '../styles/global.css';
 
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { GA4_ID, SITE_URL, ORG_ID, WEBSITE_ID, BRAND, PHONES } from '../lib/site';
 
 interface Props {
 	title: string;
@@ -14,14 +15,70 @@ interface Props {
 
 const {
 	title,
-	description = "SystemPros.ai — AI systems, engineered and installed. Voice AI agents, lead gen websites, automated outreach, private AI assistants, consulting and training. 30 years of enterprise architecture behind every install.",
+	description = "System Pros AI installs AI systems for small businesses in NZ, Australia and the US: AI receptionists, lead follow-up, consulting and training.",
 	image = "/social-preview.png",
 	type = "website",
 	hideCTA = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL(image, Astro.url);
+const socialImageURL = new URL(image, Astro.site);
+
+const siteSchema = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "ProfessionalService",
+			"@id": ORG_ID,
+			"name": BRAND.name,
+			"alternateName": BRAND.alternateName,
+			"legalName": BRAND.legalName,
+			"url": `${SITE_URL}/`,
+			"logo": { "@type": "ImageObject", "url": BRAND.logo, "width": 512, "height": 512 },
+			"image": BRAND.socialImage,
+			"email": BRAND.email,
+			"telephone": PHONES.NZ.e164,
+			"description": "System Pros AI designs, builds and commissions AI systems for small and medium businesses: AI receptionists and voice agents, lead generation websites, speed-to-lead outreach, private AI assistants, AI consulting and training.",
+			"areaServed": [
+				{ "@type": "Country", "name": "New Zealand" },
+				{ "@type": "Country", "name": "Australia" },
+				{ "@type": "Country", "name": "United States" }
+			],
+			"contactPoint": Object.values(PHONES).map((p) => ({
+				"@type": "ContactPoint",
+				"telephone": p.e164,
+				"contactType": "sales",
+				"areaServed": p.code,
+				"availableLanguage": "English"
+			})),
+			"sameAs": [BRAND.googleKgUrl],
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "AI systems and services",
+				"itemListElement": [
+					["AI Receptionist and Voice AI Agents (The Revenue Triad)", "/voice-ai/"],
+					["Lead Gen Websites", "/lead-gen-websites/"],
+					["The Lead Reactor (speed to lead)", "/lead-reactor/"],
+					["The Private Assistant (OpenClaw)", "/private-assistant/"],
+					["AI Consulting", "/consulting/"],
+					["AI Training", "/training/"]
+				].map(([name, path]) => ({
+					"@type": "Offer",
+					"itemOffered": { "@type": "Service", "name": name, "url": `${SITE_URL}${path}`, "provider": { "@id": ORG_ID } }
+				}))
+			}
+		},
+		{
+			"@type": "WebSite",
+			"@id": WEBSITE_ID,
+			"url": `${SITE_URL}/`,
+			"name": BRAND.name,
+			"alternateName": BRAND.alternateName,
+			"publisher": { "@id": ORG_ID },
+			"inLanguage": "en"
+		}
+	]
+};
 ---
 
 <!doctype html>
@@ -40,6 +97,7 @@ const socialImageURL = new URL(image, Astro.url);
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content={type} />
+		<meta property="og:site_name" content="System Pros AI" />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
@@ -60,43 +118,34 @@ const socialImageURL = new URL(image, Astro.url);
 			href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Fragment+Mono:ital@0;1&display=swap"
 		/>
 
-		<!-- Organization Schema -->
-		<script type="application/ld+json" is:inline>
-			{
-			  "@context": "https://schema.org",
-			  "@type": "ConsultingService",
-			  "name": "SystemPros.ai",
-			  "url": "https://systempros.ai",
-			  "logo": "https://systempros.ai/logo.png",
-			  "telephone": "+18446979038",
-			  "areaServed": ["US", "AU", "NZ", "GB"],
-			  "contactPoint": [
-			    { "@type": "ContactPoint", "telephone": "+1-844-697-9038", "contactType": "customer service", "areaServed": "US", "availableLanguage": "English" },
-			    { "@type": "ContactPoint", "telephone": "+61-2-5563-2110", "contactType": "customer service", "areaServed": "AU", "availableLanguage": "English" },
-			    { "@type": "ContactPoint", "telephone": "+64-2-125-50493", "contactType": "customer service", "areaServed": "NZ", "availableLanguage": "English" }
-			  ],
-			  "sameAs": [
-			    "https://twitter.com/systempros",
-			    "https://linkedin.com/company/systempros"
-			  ],
-			  "hasOfferCatalog": {
-			    "@type": "OfferCatalog",
-			    "name": "AI Products & Services",
-			    "itemListElement": [
-			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Revenue Triad", "url": "https://systempros.ai/voice-ai" } },
-			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Gen Websites", "url": "https://systempros.ai/lead-gen-websites" } },
-			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Lead Reactor", "url": "https://systempros.ai/lead-reactor" } },
-			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "The Private Assistant", "url": "https://systempros.ai/private-assistant" } },
-			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Consultation", "url": "https://systempros.ai/consulting" } },
-			      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Training", "url": "https://systempros.ai/training" } }
-			    ]
-			  }
+		<!-- Organization + WebSite schema (one entity, referenced by @id from every Service/BlogPosting) -->
+		<script type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
+
+		<!-- GA4 + conversion events. Config lives in src/lib/site.ts (GA4_ID).
+		     While GA4_ID is the placeholder, events queue in dataLayer and gtag.js is not requested. -->
+		<script is:inline define:vars={{ GA4_ID }}>
+			window.dataLayer = window.dataLayer || [];
+			window.gtag = function () { window.dataLayer.push(arguments); };
+			const gaLive = /^G-[A-Z0-9]{6,}$/.test(GA4_ID) && GA4_ID !== 'G-PLACEHOLDER';
+			window.gtag('js', new Date());
+			window.gtag('config', GA4_ID, { send_page_view: gaLive });
+			if (gaLive) {
+				const s = document.createElement('script');
+				s.async = true;
+				s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA4_ID;
+				document.head.appendChild(s);
 			}
+			const once = {};
+			// spTrack(name, params, onceKey?) — onceKey dedupes per page view.
+			window.spTrack = function (name, params, onceKey) {
+				if (onceKey) { if (once[onceKey]) return; once[onceKey] = true; }
+				window.gtag('event', name, Object.assign({ page_path: location.pathname }, params || {}));
+			};
 		</script>
 
 		<meta name="theme-color" content="#ffffff" />
 		<link rel="manifest" href="/manifest.json" />
-		<link rel="apple-touch-icon" href="/favicon.svg" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
 		<!-- Arm the animation vocabulary before paint so pre-states apply without flash.
 		     Runs only when IntersectionObserver exists; no-JS keeps everything visible. -->
@@ -119,6 +168,34 @@ const socialImageURL = new URL(image, Astro.url);
 			<slot />
 		</main>
 		<Footer />
+
+		<!-- Conversion events: consultation_click, call_click, audit_form_view -->
+		<script is:inline>
+			document.addEventListener('click', function (e) {
+				const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+				if (!a || !window.spTrack) return;
+				const href = a.getAttribute('href') || '';
+				const label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80);
+				const where = a.closest('header') ? 'header' : a.closest('footer') ? 'footer' : 'body';
+				if (href.indexOf('tel:') === 0) {
+					window.spTrack('call_click', { phone_number: href.slice(4), link_location: where });
+				} else if (/^(https:\/\/systempros\.ai)?\/contact\/?(#.*|\?.*)?$/.test(href)) {
+					window.spTrack('consultation_click', { link_text: label, link_location: where });
+				}
+			}, { capture: true });
+			(function () {
+				const w = document.getElementById('audit-widget');
+				if (!w || !window.spTrack) return;
+				if (!('IntersectionObserver' in window)) { window.spTrack('audit_form_view', {}, 'audit'); return; }
+				const io = new IntersectionObserver(function (entries) {
+					if (entries.some(function (en) { return en.isIntersecting; })) {
+						window.spTrack('audit_form_view', {}, 'audit');
+						io.disconnect();
+					}
+				}, { threshold: 0.25 });
+				io.observe(w);
+			})();
+		</script>
 
 		<!-- Shared scroll animation driver: reveals, rule draws, path draws, count-ups -->
 		<script>

@@ -3,7 +3,7 @@ title: "The 24/7 Advantage: Scaling Your Business with AI Agents"
 description: "How local businesses are using AI agents to operate 24/7, capture missed leads, and scale without increasing headcount."
 pubDate: "2024-05-29"
 heroImage: "../../assets/scaling_ai_agents_hero.png"
-author: "SystemPros AI Team"
+author: "System Pros AI Team"
 tags: ["Scalability", "Growth", "Case Study"]
 featured: false
 ---
@@ -24,7 +24,7 @@ If you don't have a 24/7 presence, you are literally throwing money away.
 
 ### Enter the AI Agent
 
-An AI Agent from SystemPros isn't just a voicemail replacement. It's an active employee that never sleeps.
+An AI Agent from System Pros AI isn't just a voicemail replacement. It's an active employee that never sleeps.
 
 *   **It books appointments** directly into your calendar.
 *   **It answers FAQs** about pricing, location, and services.

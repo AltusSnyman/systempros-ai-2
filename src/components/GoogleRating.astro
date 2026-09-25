@@ -1,0 +1,38 @@
+---
+// Compact proof strip: the real Google rating for the business listing.
+// Figures come from src/lib/site.ts — update there when the count changes.
+// No Review/AggregateRating schema (self-serving review markup is not allowed).
+import { BRAND } from '../lib/site';
+
+interface Props {
+  /** 'plain' for white/paper sections, 'faint' for a tinted panel row. */
+  variant?: 'plain' | 'faint';
+  align?: 'left' | 'center';
+  class?: string;
+}
+
+const { variant = 'plain', align = 'left', class: extra = '' } = Astro.props;
+---
+
+<a
+  href={BRAND.googleReviewsUrl}
+  target="_blank"
+  rel="noopener"
+  class:list={[
+    'google-rating group inline-flex flex-wrap items-center gap-x-3 gap-y-1 border border-line px-4 py-2.5 min-h-[44px] rounded-[2px] transition-colors hover:border-green',
+    variant === 'faint' ? 'bg-green-faint' : 'bg-paper',
+    align === 'center' ? 'mx-auto' : '',
+    extra,
+  ]}
+  aria-label={`Rated ${BRAND.googleRating} out of 5 on Google from ${BRAND.googleReviewCount} reviews (opens Google in a new tab)`}
+>
+  <span class="flex items-center gap-0.5 text-copper" aria-hidden="true">
+    {Array.from({ length: 5 }).map(() => (
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg>
+    ))}
+  </span>
+  <span class="face-data !text-[13px] text-ink">
+    <strong class="font-bold">{BRAND.googleRating}</strong> on Google · {BRAND.googleReviewCount} reviews
+  </span>
+  <span class="text-[13px] text-green underline underline-offset-[3px] decoration-1 group-hover:text-copper transition-colors">Read the reviews</span>
+</a>
