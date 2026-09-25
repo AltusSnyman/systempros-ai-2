@@ -147,6 +147,9 @@ const siteSchema = {
 		<link rel="manifest" href="/manifest.json" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+		<!-- Page-specific head elements (preconnects etc.): <link slot="head" ... /> -->
+		<slot name="head" />
+
 		<!-- Arm the animation vocabulary before paint so pre-states apply without flash.
 		     Runs only when IntersectionObserver exists; no-JS keeps everything visible. -->
 		<script is:inline>

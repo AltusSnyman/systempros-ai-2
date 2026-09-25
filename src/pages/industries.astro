@@ -157,11 +157,17 @@ const INDUSTRIES = [
 		caption: 'SENIOR LIVING — FAMILY INQUIRY',
 	},
 ];
+
+const marketingByTrade = [
+	{ name: 'Hair Salons', href: '/marketing-for-hair-salons/', desc: 'AI voice agents and Meta advertising that fill every chair by stopping lost clients from no-shows, missed calls, and silent phones.' },
+	{ name: 'Landscaping', href: '/marketing-for-landscaping/', desc: 'AI voice agents and Meta/Google advertising that keep landscaping schedules packed and recurring revenue growing.' },
+	{ name: 'Plumbing', href: '/marketing-for-plumbing/', desc: 'AI voice agents and Meta/Google advertising that capture every emergency call and keep plumbing schedules packed.' },
+];
 ---
 
 <Layout
 	title="AI Solutions by Industry | System Pros AI"
-	description="All 6 AI systems — Voice AI, Lead Gen Websites, Lead Reactor, Private Assistant, Consultation, and Training — deployed for your industry. Roofing, Dental, Landscaping, Coaching and more."
+	description="All six System Pros AI systems — voice AI, lead gen sites, consulting and more — deployed for roofing, dental, landscaping and other sectors."
 >
 	<!-- 1. HERO -->
 	<section class="relative overflow-hidden">
@@ -318,6 +324,31 @@ const INDUSTRIES = [
 					</article>
 				))}
 			</div>
+		</div>
+	</section>
+
+	<!-- 3b. MARKETING SYSTEMS BY TRADE — cross-links to the ad landing pages -->
+	<section class="py-(--spacing-section-sm) border-t border-line">
+		<div class="max-w-[1200px] mx-auto px-5">
+			<div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+				<h2 class="face-display font-extrabold text-[clamp(1.9rem,3.8vw,3rem)] leading-tight text-ink" data-reveal>
+					Marketing systems by trade.
+				</h2>
+				<p class="face-data text-muted pb-2" data-reveal>AI VOICE + PAID ADS, PER VERTICAL</p>
+			</div>
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			{marketingByTrade.map((m, i) => (
+				<a
+					href={m.href}
+					class="spec-row group grid grid-cols-[1fr_1.5rem] md:grid-cols-[13rem_1fr_1.5rem] gap-x-6 gap-y-2 items-center py-6 px-2"
+					data-reveal
+					style={`--reveal-delay: ${i * 60}ms;`}
+				>
+					<span class="font-bold text-ink text-lg group-hover:text-green transition-colors">{m.name}</span>
+					<p class="text-[14.5px] text-muted max-w-[42rem]">{m.desc}</p>
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+				</a>
+			))}
 		</div>
 	</section>
 

@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import MediaFrame from '../components/MediaFrame.astro';
 import Stamp from '../components/Stamp.astro';
 import ProductVideoPlayer from '../components/ProductVideoPlayer';
+import GoogleRating from '../components/GoogleRating.astro';
 
 const systems = [
 	{
@@ -156,21 +157,21 @@ const platforms = [
 const fieldReports = [
 	{
 		no: 'No. 01',
-		quote: 'System Pros AI didn’t just give us a chatbot. They rebuilt our entire intake process. We went from missing 60% of calls to capturing every single lead — automatically. The ROI was visible in week one.',
+		quote: 'System Pros AI didn’t just give us a chatbot. They rebuilt our entire intake process. We went from missing calls to capturing every single lead — automatically.',
 		name: 'James R.',
 		role: 'Roofing company owner',
 		place: 'Auckland, NZ',
 	},
 	{
 		no: 'No. 02',
-		quote: 'The Lead Reactor completely changed our ad game. We were spending $5K a month on Meta ads with manual follow-up. Now every lead gets a call within 10 seconds. Cost per acquisition dropped 40%.',
+		quote: 'The Lead Reactor completely changed our ad game. We were spending on Meta ads with manual follow-up. Now every lead gets a call within seconds. Our cost per booking came down.',
 		name: 'Sarah P.',
 		role: 'Dental practice manager',
 		place: 'Sydney, AU',
 	},
 	{
 		no: 'No. 03',
-		quote: 'The training sessions on Claude Code and N8N were game-changing. We went from zero AI capability to building our own automations in two weeks. The 1-on-1 format is worth every dollar.',
+		quote: 'The training sessions on Claude Code and N8N were game-changing. We went from zero AI capability to building our own automations. The 1-on-1 format is worth every dollar.',
 		name: 'Michael K.',
 		role: 'Agency founder',
 		place: 'New York, USA',
@@ -185,8 +186,8 @@ const industryClips = [
 ---
 
 <Layout
-	title="System Pros AI | AI Systems, Engineered and Installed — Voice AI, Lead Gen, Automation"
-	description="Six AI systems for ambitious businesses: voice AI agents, lead gen websites, paid ads automation, private AI assistants, consulting and training. Installed like infrastructure by 30-year systems engineers. NZ, Australia, USA."
+	title="AI Automation Agency for Small Business | System Pros AI"
+	description="System Pros AI installs AI systems for small businesses in NZ and Australia: AI receptionists, lead follow-up, consulting and training."
 >
 	<!-- ============================================ -->
 	<!-- 1. HERO — the open page of the dossier       -->
@@ -221,6 +222,9 @@ const industryClips = [
 							Read the spec sheet
 							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
 						</a>
+					</div>
+					<div class="mt-6" data-reveal style="--reveal-delay: 280ms;">
+						<GoogleRating />
 					</div>
 				</div>
 
@@ -577,6 +581,9 @@ const industryClips = [
 			<a href="/contact" class="btn-primary mt-10 !px-10 !py-4 !text-[16px]" data-reveal style="--reveal-delay: 240ms;">
 				Book a Free Consultation
 			</a>
+			<p class="text-muted text-[15px] mt-6" data-reveal style="--reveal-delay: 300ms;">
+				Not ready to talk yet? <a href="/audit" class="link-ink">Take the free AI readiness audit</a>.
+			</p>
 		</div>
 	</section>
 </Layout>

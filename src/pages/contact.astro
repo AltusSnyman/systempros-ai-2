@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import GoogleRating from '../components/GoogleRating.astro';
+import { PHONES, BRAND } from '../lib/site';
 
-// Contact channels — a spec table, not cards. Numbers verbatim.
+// Contact channels — a spec table, not cards. Numbers verbatim, from src/lib/site.ts.
 const channels = [
-	{ label: 'US', value: '+1 844 697 9038', href: 'tel:+18446979038', note: 'United States' },
-	{ label: 'AU', value: '+61 2 5563 2110', href: 'tel:+61255632110', note: 'Australia' },
-	{ label: 'NZ', value: '021 255 0493', href: 'tel:+64212550493', note: 'New Zealand' },
-	{ label: 'EMAIL', value: 'hello@systempros.ai', href: 'mailto:hello@systempros.ai', note: 'Sales queries & partnerships' },
+	{ label: PHONES.NZ.code, value: PHONES.NZ.display, href: PHONES.NZ.tel, note: PHONES.NZ.country },
+	{ label: PHONES.AU.code, value: PHONES.AU.display, href: PHONES.AU.tel, note: PHONES.AU.country },
+	{ label: PHONES.US.code, value: PHONES.US.display, href: PHONES.US.tel, note: PHONES.US.country },
+	{ label: 'EMAIL', value: BRAND.email, href: `mailto:${BRAND.email}`, note: 'Sales queries & partnerships' },
 ];
 
 const steps = [
@@ -17,10 +19,14 @@ const steps = [
 ---
 
 <Layout
-	title="Schedule Your AI Architecture Audit | System Pros AI"
-	description="Ready to automate safely? Book a technical discovery call with our Senior Architects. No sales fluff, just engineering strategy."
+	title="Book a Free Consultation | System Pros AI"
+	description="Book a free 30-minute consultation with System Pros AI. We map your call handling and lead follow-up, then recommend the AI systems that close the gap."
 	hideCTA={true}
 >
+	<link slot="head" rel="preconnect" href="https://api.leadconnectorhq.com" crossorigin />
+	<link slot="head" rel="dns-prefetch" href="https://api.leadconnectorhq.com" />
+	<link slot="head" rel="preconnect" href="https://link.msgsndr.com" crossorigin />
+	<link slot="head" rel="dns-prefetch" href="https://link.msgsndr.com" />
 	<!-- ============================================ -->
 	<!-- 1. HEADER — intake sheet                     -->
 	<!-- ============================================ -->
@@ -43,6 +49,8 @@ const steps = [
 						a technical discovery call with a senior architect. No sales fluff —
 						engineering strategy.
 					</p>
+
+					<GoogleRating class="mt-6" />
 
 					<!-- Direct channels: spec table -->
 					<div class="mt-10" data-reveal style="--reveal-delay: 180ms;">
@@ -77,13 +85,36 @@ const steps = [
 				<!-- Right column: the booking calendar, framed as a dossier figure -->
 				<div class="lg:col-span-7" data-reveal style="--reveal-delay: 140ms;">
 					<figure class="media-frame">
-						<div class="relative bg-paper">
+						<div class="relative bg-paper min-h-[760px] sm:min-h-[700px]">
+							<!-- Branded loading skeleton, positioned underneath the iframe.
+							     The iframe background is transparent until GoHighLevel's own
+							     white document paints and covers it. Static — no animation. -->
+							<div class="absolute inset-0 flex flex-col gap-4 p-5 sm:p-6">
+								<p class="face-data text-muted">LOADING THE BOOKING CALENDAR&hellip;</p>
+								<div class="flex-1 min-h-0 border border-line grid grid-rows-[auto_1fr]" aria-hidden="true">
+									<div class="grid grid-cols-7 border-b border-line">
+										{['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((d) => (
+											<div class="face-data !text-[10px] text-muted text-center py-2 border-r border-line last:border-r-0">{d}</div>
+										))}
+									</div>
+									<div class="grid grid-cols-7 grid-rows-5">
+										{Array.from({ length: 35 }).map((_, i) => (
+											<div class="border-r border-b border-line [&:nth-child(7n)]:border-r-0"></div>
+										))}
+									</div>
+								</div>
+								<p class="text-[13px] text-muted">
+									Calendar not loading? Call <a href={PHONES.NZ.tel} class="link-ink">{PHONES.NZ.display}</a> or email <a href={`mailto:${BRAND.email}`} class="link-ink">{BRAND.email}</a>.
+								</p>
+							</div>
 							<iframe
 								src="https://api.leadconnectorhq.com/widget/booking/L9a1VqF4ljVNaUhi30Df"
-								style="width: 100%; border: none; overflow: hidden; min-height: 700px;"
+								style="width: 100%; height: 760px; border: none; overflow: hidden; background: transparent;"
+								class="relative z-10 sm:!h-[700px]"
 								scrolling="no"
 								id="L9a1VqF4ljVNaUhi30Df_1770784749684"
 								title="Book a free consultation — calendar"
+								onload="window.spTrack && window.spTrack('booking_iframe_load', {}, 'booking')"
 							></iframe>
 						</div>
 						<figcaption>
