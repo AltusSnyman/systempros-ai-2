@@ -86,9 +86,13 @@ const alsoLinks = [
     <!-- Right actions -->
     <div class="flex items-center gap-2 sm:gap-4">
       {!hideCTA && (
-        <a href="/contact" class="hidden sm:inline-flex btn-primary !px-5 !py-2.5 !text-[14px]">
-          Book a Free Consultation
-        </a>
+        <!-- Wrapper carries the responsive visibility: .btn-primary is unlayered CSS and
+             would override a `hidden` utility placed on the same element. -->
+        <span class="hidden sm:inline-flex">
+          <a href="/contact" class="btn-primary !px-5 !py-2.5 !text-[14px]">
+            Book a Free Consultation
+          </a>
+        </span>
       )}
 
       <!-- Mobile tap-to-call (icon only, not a second CTA) -->

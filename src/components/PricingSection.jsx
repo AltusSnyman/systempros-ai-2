@@ -13,7 +13,7 @@ const plans = [
         description: "Great for small businesses looking to get started with AI automation.",
         price: 997,
         yearlyPrice: 9970, // Example yearly pricing logic
-        buttonText: "Get Started",
+        buttonText: "Book a Free Consultation",
         buttonVariant: "outline",
         includes: [
             "Access to Voice AI Agents",
@@ -28,7 +28,7 @@ const plans = [
         description: "Best value for growing businesses that need advanced features.",
         price: 3497,
         yearlyPrice: 34970,
-        buttonText: "Get Started",
+        buttonText: "Book a Free Consultation",
         buttonVariant: "default",
         popular: true,
         includes: [
@@ -44,7 +44,7 @@ const plans = [
         description: "Advanced plan with enhanced security and unlimited access for large teams.",
         price: 5997,
         yearlyPrice: 59970,
-        buttonText: "Get Started",
+        buttonText: "Book a Free Consultation",
         buttonVariant: "outline",
         includes: [
             "Everything in Business, plus:",
@@ -209,7 +209,7 @@ export default function PricingSection() {
                                         />
                                     </span>
                                     <span className="text-muted ml-2 font-mono text-[12px] font-medium uppercase tracking-[0.02em]">
-                                        /{isYearly ? "year" : "one-time"}
+                                        /{isYearly ? "year" : "month"}
                                     </span>
                                 </div>
                                 <p className="text-sm text-muted min-h-[40px]">{plan.description}</p>

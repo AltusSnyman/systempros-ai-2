@@ -2,7 +2,7 @@
 
 > System Pros AI (systempros.ai, also written SystemPros.ai) designs, builds and commissions AI systems for small and medium businesses (1–50 staff) in New Zealand and Australia, with clients in the United States. It installs working systems, not software licences: AI receptionists and voice agents, lead generation websites, speed-to-lead outreach, private AI assistants built on OpenClaw, AI consulting and hands-on AI training.
 
-System Pros AI is a brand of Ai and Automation Agency Ltd (Google Business Profile: "Ai and Automation Agency"). Pricing is fixed price and fixed scope, agreed after a free consultation. The single next step for a buyer is to book a free consultation at https://systempros.ai/contact/.
+System Pros AI is a brand of Ai and Automation Agency Ltd (Google Business Profile: "Ai and Automation Agency"). Managed plans start from $997 a month (Starter; Business $3,497, Pro $5,997 a month, listed at https://systempros.ai/pricing/); individual systems are scoped and priced in writing after a free consultation. The single next step for a buyer is to book a free consultation at https://systempros.ai/contact/.
 
 ## Offers
 
@@ -15,7 +15,7 @@ System Pros AI is a brand of Ai and Automation Agency Ltd (Google Business Profi
 - [AI Consulting Australia](https://systempros.ai/consulting/australia/) and [AI Consulting New Zealand](https://systempros.ai/consulting/new-zealand/).
 - [AI Training](https://systempros.ai/training/): 1-on-1 sessions on Claude Code, GoHighLevel, n8n, Make.com, voice AI and OpenClaw.
 - [n8n Training and Automation Builds](https://systempros.ai/training/n8n/).
-- [Pricing](https://systempros.ai/pricing/): how pricing works (fixed price, fixed scope, agreed after a free consultation).
+- [Pricing](https://systempros.ai/pricing/): managed plans from $997 a month, and how scoped systems are priced.
 - [Free AI Readiness Audit](https://systempros.ai/audit/): short online audit of where a business loses leads.
 
 ## OpenClaw guides

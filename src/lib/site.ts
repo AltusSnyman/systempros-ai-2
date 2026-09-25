@@ -1,9 +1,9 @@
 // Single source of truth for brand identity, contacts and measurement.
 // Change values here; Layout, Navbar, Footer, schema and pages read from this file.
 
-/** GA4 measurement ID. Replace the placeholder with the real ID (G-XXXXXXXXXX).
+/** GA4 measurement ID (property "System Pros AI", stream "System Pros AI website", stream id 15843640902).
  *  While it is the placeholder, events queue in window.dataLayer but gtag.js is not loaded. */
-export const GA4_ID = 'G-PLACEHOLDER';
+export const GA4_ID = 'G-RK0KNJTR2Z';
 
 export const SITE_URL = 'https://systempros.ai';
 export const ORG_ID = `${SITE_URL}/#org`;
