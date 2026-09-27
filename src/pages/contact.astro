@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import GoogleRating from '../components/GoogleRating.astro';
+import FAQ from '../components/seo/FAQ.astro';
 import { PHONES, BRAND } from '../lib/site';
 
 // Contact channels — a spec table, not cards. Numbers verbatim, from src/lib/site.ts.
@@ -15,6 +16,25 @@ const steps = [
 	{ n: '1', title: 'Pick a time', copy: 'Choose a slot in the calendar. Thirty minutes, no obligation.' },
 	{ n: '2', title: 'The discovery call', copy: 'A senior architect maps your operations and finds where leads leak.' },
 	{ n: '3', title: 'The specification', copy: 'You receive a written recommendation: the system, the timeline, the number.' },
+];
+
+const faqs = [
+	{
+		question: 'Is the consultation really free?',
+		answer: "Yes. It's a 30-minute call with no obligation. You leave with a clear view of where leads and calls are slipping through, whether or not you work with us.",
+	},
+	{
+		question: 'What happens after the call?',
+		answer: "You receive a written recommendation: the system we'd build, the timeline and a fixed monthly price. Nothing starts until you've agreed to it.",
+	},
+	{
+		question: 'Do you work with businesses outside New Zealand?',
+		answer: 'Yes. We work with businesses in New Zealand, Australia and the United States, and you can call the local number for your country above.',
+	},
+	{
+		question: 'What should I have ready?',
+		answer: "A rough idea of how many calls and enquiries you get each week, how you handle them now, and which tools you already use for bookings or customers. If you don't know the numbers, that's fine; we'll work them out together.",
+	},
 ];
 ---
 
@@ -138,4 +158,6 @@ const steps = [
 			</p>
 		</div>
 	</section>
+
+	<FAQ faqs={faqs} heading="Before you book: common questions" label="BEFORE THE CALL" />
 </Layout>
