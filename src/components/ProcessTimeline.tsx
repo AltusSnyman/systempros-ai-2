@@ -133,7 +133,7 @@ function StepRow({ step, index }: { step: (typeof STEPS)[0]; index: number }) {
         </motion.div>
 
         <motion.div
-          variants={{ hidden: { opacity: 0, x: 30 }, visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: EASE, delay: 0.15 } } }}
+          variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE, delay: 0.15 } } }}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
           className="flex-1 pb-4"

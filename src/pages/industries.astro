@@ -254,8 +254,8 @@ const marketingByTrade = [
 						</div>
 						<div class="rule-ticked" data-draw-rule></div>
 
-						<div class={`grid lg:grid-cols-2 gap-12 items-center pt-9 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
-							<div data-reveal>
+						<div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-9 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}>
+							<div class="min-w-0" data-reveal>
 								{ind.videoSrc ? (
 									<MediaFrame fig={ind.fig} caption={ind.caption}>
 										<video
@@ -345,7 +345,7 @@ const marketingByTrade = [
 					style={`--reveal-delay: ${i * 60}ms;`}
 				>
 					<span class="font-bold text-ink text-lg group-hover:text-green transition-colors">{m.name}</span>
-					<p class="text-[14.5px] text-muted max-w-[42rem]">{m.desc}</p>
+					<p class="hidden md:block text-[14.5px] text-muted max-w-[42rem]">{m.desc}</p>
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" class="hidden md:block text-line group-hover:text-copper group-hover:translate-x-1 transition-all"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
 				</a>
 			))}
