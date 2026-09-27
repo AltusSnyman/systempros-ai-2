@@ -322,7 +322,10 @@ const industryClips = [
 							<video
 								id="demo-video"
 								src="/assets/demo-video.mp4"
-								autoplay
+								poster="/assets/demo-video-poster.webp"
+								width="1280"
+								height="720"
+								preload="none"
 								muted
 								loop
 								playsinline
@@ -595,12 +598,47 @@ const industryClips = [
 	const iconMuted = document.getElementById('icon-muted');
 	const iconUnmuted = document.getElementById('icon-unmuted');
 
+	let userUnmuted = false;
+
 	if (video && muteToggle && iconMuted && iconUnmuted) {
 		muteToggle.addEventListener('click', () => {
 			video.muted = !video.muted;
+			userUnmuted = !video.muted;
 			iconMuted.classList.toggle('hidden', !video.muted);
 			iconUnmuted.classList.toggle('hidden', video.muted);
 		});
+	}
+
+	// Demo video: lazy-start playback when scrolled into view
+	if (video) {
+		const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+		if (prefersReducedMotion) {
+			video.controls = true;
+		} else if ('IntersectionObserver' in window) {
+			let hasStarted = false;
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							if (!hasStarted) {
+								hasStarted = true;
+								if (!userUnmuted) {
+									video.muted = true;
+								}
+							}
+							video.play().catch(() => {});
+						} else {
+							video.pause();
+						}
+					});
+				},
+				{ threshold: 0.25 }
+			);
+			observer.observe(video);
+		} else {
+			video.play().catch(() => {});
+		}
 	}
 
 	// Industry clips: play on hover/focus, pause on leave
