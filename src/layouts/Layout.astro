@@ -11,6 +11,7 @@ interface Props {
 	image?: string;
 	type?: string;
 	hideCTA?: boolean;
+	noindex?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
 	image = "/social-preview.png",
 	type = "website",
 	hideCTA = false,
+	noindex = false,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -90,6 +92,7 @@ const siteSchema = {
 		<meta name="generator" content={Astro.generator} />
 
 		<link rel="canonical" href={canonicalURL} />
+		{noindex && <meta name="robots" content="noindex, follow" />}
 
 		<title>{title}</title>
 		<meta name="title" content={title} />
