@@ -1,0 +1,239 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/seo/Breadcrumbs.astro';
+import FAQ from '../../components/seo/FAQ.astro';
+import { ORG_ID, SITE_URL, BRAND } from '../../lib/site';
+
+const pageTitle = 'AI Receptionist Cost in Australia (2026) | System Pros AI';
+const pageDescription = 'What an AI receptionist costs in Australia: market prices, what drives the cost, and how it compares with a human receptionist or answering service.';
+
+const pageUrl = `${SITE_URL}/voice-ai/ai-receptionist-cost/`;
+
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "Article",
+	"headline": 'How much does an AI receptionist cost in Australia?',
+	"description": pageDescription,
+	"datePublished": '2026-09-27',
+	"dateModified": '2026-09-27',
+	"author": { "@type": "Organization", "@id": ORG_ID, "name": BRAND.name },
+	"publisher": { "@id": ORG_ID },
+	"mainEntityOfPage": pageUrl,
+	"inLanguage": "en-AU",
+	"image": BRAND.socialImage,
+};
+
+const marketRows = [
+	{ label: 'Full-time receptionist', cost: 'From about A$53,300 a year at the award minimum, about A$59,700 with super, before leave and on-costs', covers: 'Office hours' },
+	{ label: 'Typical receptionist salaries', cost: 'About A$41,000–A$70,000 a year', covers: 'Office hours' },
+	{ label: 'Live answering service', cost: 'Several hundred to a few thousand dollars a month, depending on call volume', covers: 'Business hours or 24/7, message taking' },
+	{ label: 'AI receptionist', cost: 'About A$100–A$600+ a month', covers: '24/7, every call answered at once' },
+];
+
+const faqs = [
+	{
+		question: 'How much does an AI receptionist cost in Australia?',
+		answer: "Self-serve apps start at around A$100 a month. Managed services that are built and run for you usually cost A$300 to A$600 a month or more, sometimes with a setup fee. System Pros AI's managed plans start from US$997 a month.",
+	},
+	{
+		question: 'Are AI receptionists worth it?',
+		answer: "They're worth it when missed calls are costing you work. If a single new customer is worth hundreds of dollars and calls go unanswered during jobs or after hours, an AI receptionist usually pays for itself. If you rarely miss calls, it may not be.",
+	},
+	{
+		question: 'Can an AI receptionist replace a human receptionist?',
+		answer: "For answering, booking and taking messages, often yes, and it works 24/7. For relationships, complex complaints and in-person work, a person is still better. Many businesses use AI for overflow and after-hours calls.",
+	},
+	{
+		question: 'Is there a free AI receptionist?',
+		answer: "Some apps have free trials or very limited free plans. For a business number that customers rely on, expect to pay a monthly fee.",
+	},
+	{
+		question: 'Do AI receptionists charge per minute?',
+		answer: "Some do, usually on top of a monthly fee. Check what happens in a busy month before you sign up. Our plans are a fixed monthly price agreed up front.",
+	},
+	{
+		question: 'Which AI receptionist is best in Australia?',
+		answer: "The best one is the one that fits how your business takes bookings. Look for local phone numbers, an Australian accent option, calendar booking, text follow-up, and a clear monthly price with no surprise overages.",
+	},
+];
+---
+
+<Layout
+	title={pageTitle}
+	description={pageDescription}
+	type="article"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+	<Breadcrumbs currentTitle="AI receptionist cost" parent={{ name: 'Voice AI', url: '/voice-ai/' }} />
+
+	<!-- ============================================ -->
+	<!-- HERO / H1                                    -->
+	<!-- ============================================ -->
+	<section class="pt-10 lg:pt-16 pb-8">
+		<div class="max-w-[860px] mx-auto px-5">
+			<h1 class="face-display font-extrabold text-[clamp(2.1rem,5vw,3.8rem)] leading-[1.08] text-ink" data-reveal>
+				How much does an AI receptionist cost in Australia?
+			</h1>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- THE SHORT ANSWER                             -->
+	<!-- ============================================ -->
+	<section class="pb-(--spacing-section-sm)">
+		<div class="max-w-[860px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(1.6rem,3.4vw,2.3rem)] leading-tight text-ink mb-5" data-reveal>
+				The short answer
+			</h2>
+			<div class="bg-green-faint border border-line p-6 md:p-8" data-reveal>
+				<p class="text-ink text-lg leading-relaxed font-semibold">
+					In Australia, self-serve AI receptionist apps start at around A$100 a month, and managed services that are built and run for you usually cost A$300 to A$600 a month or more. A full-time human receptionist costs over A$50,000 a year before super. What you should pay depends on your call volume, what the AI needs to do, and whether you want to set it up yourself or have it done for you.
+				</p>
+			</div>
+			<p class="face-data text-muted mt-4">
+				Market ranges from published Australian price lists, checked September 2026. Prices change often; check the provider before you buy.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHAT THE MARKET CHARGES                      -->
+	<!-- ============================================ -->
+	<section class="pb-(--spacing-section-sm)">
+		<div class="max-w-[860px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(1.6rem,3.4vw,2.3rem)] leading-tight text-ink mb-6" data-reveal>
+				What the market charges
+			</h2>
+			<p class="text-muted text-lg leading-relaxed mb-2" data-reveal>Three pricing models are common:</p>
+			<div class="rule-ticked mt-4" data-draw-rule></div>
+			<div class="spec-row py-5 px-2" data-reveal>
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">Self-serve apps, about A$100–A$150 a month.</strong> You set up the scripts, the phone number and the calendar yourself. Good for simple call answering and message taking.</p>
+			</div>
+			<div class="spec-row py-5 px-2" data-reveal style="--reveal-delay: 60ms;">
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">Managed services, about A$300–A$600+ a month.</strong> A provider builds the AI, connects it to your calendar and customer system, and keeps it working. Some charge a one-off setup fee.</p>
+			</div>
+			<div class="spec-row py-5 px-2" data-reveal style="--reveal-delay: 120ms;">
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">Per-minute or per-call pricing.</strong> You pay for what you use, often on top of a monthly fee. It looks cheap until a busy month.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHAT DRIVES THE PRICE                        -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[860px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(1.6rem,3.4vw,2.3rem)] leading-tight text-ink mb-6" data-reveal>
+				What drives the price
+			</h2>
+			<div class="rule-ticked rule-ticked-green" data-draw-rule></div>
+			<div class="spec-row py-5 px-2" data-reveal>
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">Call volume.</strong> More calls means more minutes and more work for the system.</p>
+			</div>
+			<div class="spec-row py-5 px-2" data-reveal style="--reveal-delay: 60ms;">
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">What the AI has to do.</strong> Taking a message is simpler than qualifying a lead, quoting, and booking straight into your calendar.</p>
+			</div>
+			<div class="spec-row py-5 px-2" data-reveal style="--reveal-delay: 120ms;">
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">Connections.</strong> Linking to your calendar, customer records and follow-up texts takes setup time.</p>
+			</div>
+			<div class="spec-row py-5 px-2" data-reveal style="--reveal-delay: 180ms;">
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">Who runs it.</strong> A self-serve app needs your time every week. A managed service includes someone watching the calls and improving the script.</p>
+			</div>
+			<div class="spec-row py-5 px-2" data-reveal style="--reveal-delay: 240ms;">
+				<p class="text-[16px] md:text-lg text-muted leading-relaxed"><strong class="text-ink">Hidden extras.</strong> Setup fees, per-minute overages and phone number charges are the costs people most often miss.</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- COMPARISON TABLE                             -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm)">
+		<div class="max-w-[860px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(1.6rem,3.4vw,2.3rem)] leading-tight text-ink mb-6" data-reveal>
+				AI receptionist vs a human receptionist vs an answering service
+			</h2>
+			<div class="border border-line overflow-x-auto" data-reveal>
+				<table class="w-full text-left min-w-[560px]">
+					<thead>
+						<tr>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 w-40">OPTION</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">TYPICAL COST</th>
+							<th scope="col" class="face-data text-muted font-normal py-3.5 px-4 border-l border-line">COVERS</th>
+						</tr>
+					</thead>
+					<tbody>
+						{marketRows.map((row, i) => (
+							<tr class={i % 2 === 1 ? 'bg-green-faint' : ''}>
+								<th scope="row" class="face-data text-ink font-normal align-top py-4 px-4 border-t border-line">{row.label}</th>
+								<td class="align-top py-4 px-4 border-t border-l border-line text-[15px] text-muted leading-relaxed">{row.cost}</td>
+								<td class="align-top py-4 px-4 border-t border-l border-line text-[15px] text-muted leading-relaxed">{row.covers}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+			<p class="face-data text-muted mt-4 leading-relaxed">
+				Award minimum: <a href="https://awards.fairwork.gov.au/MA000002.html" target="_blank" rel="noopener" class="link-ink">Fair Work Ombudsman</a>, Clerks – Private Sector Award, Level 1 Year 1, A$26.97 an hour from 1 July 2026 (38-hour week). Salary ranges: PayScale and Hays Australia, 2026.
+			</p>
+			<p class="text-muted text-lg leading-relaxed mt-6" data-reveal>
+				An AI receptionist doesn't replace a great front-desk person who knows your customers. It covers the calls nobody is free to answer: after hours, during jobs, at lunch and on busy Mondays. For most small businesses that's where the lost work is.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- WHAT WE CHARGE                               -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm) bg-green-faint border-y border-line">
+		<div class="max-w-[860px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(1.6rem,3.4vw,2.3rem)] leading-tight text-ink mb-6" data-reveal>
+				What we charge
+			</h2>
+			<p class="text-muted text-lg leading-relaxed" data-reveal>
+				We're not the cheapest option, and we don't try to be. System Pros AI builds and runs the whole system for you: an AI receptionist that answers every call, books into your calendar, follows up by text and hands hot leads to you straight away. Managed plans start from <strong class="text-ink">US$997 a month</strong>, and the scope and price are fixed in writing after a free consultation. See the <a href="/pricing/" class="link-ink">plans and what they include</a>.
+			</p>
+			<p class="text-muted text-lg leading-relaxed mt-5" data-reveal style="--reveal-delay: 80ms;">
+				If you only need calls answered and messages taken, a self-serve app may be all you need, and we'll tell you so on the call.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- IS IT WORTH IT                               -->
+	<!-- ============================================ -->
+	<section class="py-(--spacing-section-sm)">
+		<div class="max-w-[860px] mx-auto px-5">
+			<h2 class="face-display font-extrabold text-[clamp(1.6rem,3.4vw,2.3rem)] leading-tight text-ink mb-6" data-reveal>
+				Is an AI receptionist worth it?
+			</h2>
+			<p class="text-muted text-lg leading-relaxed" data-reveal>
+				Work it out from one number: what a missed call costs you. If a new customer is worth A$500 and you miss five calls a week that would have turned into two jobs, that's A$1,000 a week walking to a competitor. An AI receptionist that catches even some of those usually pays for itself quickly. If you rarely miss calls, it may not be worth it yet.
+			</p>
+		</div>
+	</section>
+
+	<!-- ============================================ -->
+	<!-- FAQ                                          -->
+	<!-- ============================================ -->
+	<FAQ faqs={faqs} heading="FAQs" label="COST · FIELD NOTES" />
+
+	<!-- ============================================ -->
+	<!-- FINAL CTA                                    -->
+	<!-- ============================================ -->
+	<section class="drench py-(--spacing-section)">
+		<div class="max-w-[1200px] mx-auto px-5 text-center">
+			<p class="face-data text-paper-dim" data-reveal>AI RECEPTIONIST · COST · SIGN-OFF</p>
+			<h2 class="face-display font-extrabold text-[clamp(2.1rem,5vw,4.2rem)] leading-[1.05] text-paper-lit mt-4 max-w-[20ch] mx-auto" data-reveal style="--reveal-delay: 80ms;">
+				Get a fixed price for your business
+			</h2>
+			<p class="text-paper-dim text-lg mt-6 max-w-[34rem] mx-auto" data-reveal style="--reveal-delay: 160ms;">
+				Book a free 30-minute consultation. We'll look at your calls, tell you honestly whether an AI receptionist is worth it, and give you a fixed monthly price in writing.
+			</p>
+			<a href="/contact" class="btn-primary-inverse mt-10" data-reveal style="--reveal-delay: 240ms;">
+				Book a Free Consultation
+			</a>
+		</div>
+	</section>
+</Layout>
