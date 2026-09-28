@@ -8,7 +8,7 @@ export const TimelineContent = ({
     className,
     customVariants,
     animationNum = 0,
-    as: Component = "div",
+    as = "div",
     viewport = { once: true, margin: "-100px" },
     ...props
 }) => {
@@ -28,17 +28,23 @@ export const TimelineContent = ({
         }),
     };
 
+    // Animate the requested tag directly instead of wrapping it in a <motion.div>.
+    // Wrapping (e.g. a <div> inside a <p>) produces invalid HTML nesting; browsers
+    // repair that on initial parse of the server-rendered markup, which then no
+    // longer matches React's expected tree and throws a hydration mismatch.
+    const MotionComponent = motion[as] || motion.div;
+
     return (
-        <Component className={cn(className)} {...props}>
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={viewport}
-                custom={animationNum}
-                variants={customVariants || defaultVariants}
-            >
-                {children}
-            </motion.div>
-        </Component>
+        <MotionComponent
+            className={cn(className)}
+            initial="hidden"
+            whileInView="visible"
+            viewport={viewport}
+            custom={animationNum}
+            variants={customVariants || defaultVariants}
+            {...props}
+        >
+            {children}
+        </MotionComponent>
     );
 };
