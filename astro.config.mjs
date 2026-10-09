@@ -11,6 +11,7 @@ const NOINDEX_PATHS = [
   '/solutions/ai-business-solutions/',
   '/solutions/landscaping/',
   '/marketing-for-landscaping/',
+  '/founders/',
 ];
 
 // https://astro.build/config
