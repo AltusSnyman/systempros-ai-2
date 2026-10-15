@@ -118,7 +118,7 @@ Two free ways to see where you stand. Pick whichever suits you.
 - Card 1 — GOOGLE MAPS + AI · ANDREA — **Free Maps heatmap and AI audit**: Connect your Google Business Profile and Andrea checks your Google Maps ranking across your area, how you show up on ChatGPT, and how you compare with competitors. Button **Get your free Maps heatmap** → https://audit.seo.systempros.ai/ (white-labelled Andrea audit; cannot be framed, so linked).
 - Card 2 — MARKETING AUDIT · NO LOGIN — **Free AI marketing audit**: No Google login needed. Enter your business and website and get a report on your online presence and where you are losing customers. Button **Run the free marketing audit** → /audit/ (GoHighLevel prospecting tool).
 Line: Free. No obligation. Prefer to talk? Book a free consultation.
-All "Get your free Maps heatmap" buttons on the page link to https://audit.seo.systempros.ai/.
+All "Get your free Maps heatmap" buttons on the page link to https://audit.gmb.systempros.ai/light-audit/search (changed 2026-10-15 from audit.seo.systempros.ai; card 1 now: "Free Google Maps heatmap — Find your business, choose up to three searches your customers use, and Andrea maps where you rank on Google Maps across your area. No login needed.").
 
 ## 14. Final CTA (existing drench pattern)
 **Be one of the three.**
